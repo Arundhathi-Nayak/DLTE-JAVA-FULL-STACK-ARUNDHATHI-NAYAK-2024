@@ -36,7 +36,7 @@
         <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
         <plugin>
           <artifactId>maven-jar-plugin</artifactId>
-          <groupId>org.apache.maven.pluggins</groupId>
+
         </plugin>
       </plugins>
     </pluginManagement>
