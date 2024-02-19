@@ -24,7 +24,6 @@ public class Blocks {
         aadhaar=sc.nextLong();
         System.out.println("Enter your pan");
         borrowerPan=sc.next();
-
         System.out.println("Mention mobile number");
         mobileNumber=sc.nextLong();
         System.out.println("Enter the email address");
