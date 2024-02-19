@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class minimumBalance {
     public static void main(String[] args) {
-        double[] balance=new double[4];
+        double[] balance=new double[20];
         Scanner sc=new Scanner(System.in);
         for(int i=0;i<balance.length;i++) {
             System.out.println("Enter the account balance Customer:");
