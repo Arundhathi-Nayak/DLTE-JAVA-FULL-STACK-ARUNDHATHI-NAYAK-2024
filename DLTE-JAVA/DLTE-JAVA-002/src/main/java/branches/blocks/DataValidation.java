@@ -19,6 +19,8 @@ public class DataValidation {
             System.out.println("Valid name");
         else
             System.out.println("invalid name");
+
+
         System.out.println("Enter your Aadhaar number");
         aadhaar=sc.next();
         String aadhaarExp="[1-9]{1}[0-9]{11}";
@@ -28,6 +30,7 @@ public class DataValidation {
             System.out.println("Valid aadhaar number");
         else
             System.out.println("invalid aadhaar number");
+
         System.out.println("Fill your pan details");
         borrowerPan=sc.next();
         String cardExp="[A-Z]{5}[0-9]{4}[A-Z]";
@@ -37,6 +40,8 @@ public class DataValidation {
             System.out.println("Valid Pan number");
         else
             System.out.println("invalid Pan number");
+
+
         System.out.println("Enter your Number");
         mobileNumber=sc.next();
         String mobileExp="[6-9]{1}[0-9]{9}";
@@ -46,12 +51,16 @@ public class DataValidation {
             System.out.println("Valid mobile number");
         else
             System.out.println("invalid mobile number");
+
         System.out.println("Enter your email Id");
         borrowerEmail=sc.next();
-        String emailExp="^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-z]{2,})$";
-        Pattern patternEmail=Pattern.compile(emailExp);
-        Matcher matcherEmail=patternEmail.matcher(borrowerEmail);
-        if(matcherEmail.matches())
+        //String emailExp="^([a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+\\.[a-zA-z]{2,})$";
+        //Pattern patternEmail=Pattern.compile(emailExp);
+        //Matcher matcherEmail=patternEmail.matcher(borrowerEmail);
+        int _atpos=borrowerEmail.indexOf('@');
+        int _dotpos=borrowerEmail.indexOf('.');
+
+        if((_dotpos-_atpos)>=3)
             System.out.println("Valid Email");
         else
             System.out.println("invalid Email");
