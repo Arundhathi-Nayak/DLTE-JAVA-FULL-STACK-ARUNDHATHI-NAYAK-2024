@@ -1,42 +1,37 @@
 package store.oops;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data   //annotation offered by lombok for setter and getter
-@AllArgsConstructor
-@NoArgsConstructor
 public class Bonds {
-
-        private Integer maturity;
-        private  Double interestRate;
-        private String taxStatus;
-        private Integer period;
-        private String bondHolder;
-
     public static void main(String[] args) {
-        Bonds Private_bond=new Bonds(5,5.5,"Paid",5,"Avinash");
-        Bonds Zero_coupon_bond=new Bonds(6,6.5,"No Tax",4,"Annaporna");
-        Bonds Corporate_bond=new Bonds(4,7.5,"Pending",3,"Aru");
-        Bonds Municipal_bond=new Bonds(5,2.5,"Paid",5,"Akshira");
-        Bonds Climate_bond=new Bonds(5,5.5,"No Tax",5,"Eeskha");
-        Bonds bonds[]={Private_bond,Zero_coupon_bond,Corporate_bond,Municipal_bond,Climate_bond};
-        int index=MaximunReturn(bonds);
 
+
+        BondMain myBond[]= {
+                new BondMain("Private Bond", 500, 5.5, "Paid", 5, "Avinash"),
+        new BondMain("Zero_Coupon Bond", 600, 6.5, "No Tax", 4, "Annaporna"),
+        new BondMain("Corporate Bond", 400, 7.5, "Pending", 3, "Aru"),
+        new BondMain("Municipal Bond", 520, 2.5, "Paid", 5, "Akshira"),
+        new BondMain("Climate Bond", 522, 5.5, "No Tax", 5, "Eeskha")
+        };
+        Bonds bonds=new Bonds();
+        bonds.sort(myBond);
     }
-    public static int MaximunReturn(Bonds[] bonds){
-        double maximunIntrest=0;
-        int pos=0,count=0;
-        for(Bonds each:bonds){
-            count++;
-            if(each.getInterestRate()>maximunIntrest){
-                maximunIntrest=each.getInterestRate();
-                pos=count;
+    public void sort(BondMain[] mybond){
+        System.out.println("Before Sorting");
+        for(BondMain each:mybond){
+            System.out.println("Bond Name "+each.getBondName()+" has Rate of interest "+each.getInterestRate());
+        }
+        for(int index=0;index<mybond.length;index++){
+            for(int next=0;next<mybond.length-index-1;next++){
+                if(mybond[next].getInterestRate().compareTo(mybond[next+1].getInterestRate())<0){
+                    BondMain backup=mybond[next];
+                    mybond[next]=mybond[next+1];
+                    mybond[next+1]=backup;
+                }
             }
         }
-        System.out.println("maximun interest Rate is "+maximunIntrest);
-        return pos;
+        System.out.println("After Sorting");
+        for(BondMain each:mybond){
+            System.out.println("Bond Name "+each.getBondName()+" has Rate of interest "+each.getInterestRate());
+        }
     }
 
 
