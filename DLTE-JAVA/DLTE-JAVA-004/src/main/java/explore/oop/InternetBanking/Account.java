@@ -36,6 +36,7 @@ public class Account {
         this.accountHolder = accountHolder;
     }
     public boolean approveWithdraw(double amount){
+        System.out.println("Your Current Balance is : "+getAccountBalance());
         return amount<=accountBalance;
     }
 }
