@@ -9,7 +9,7 @@ public class BankApp implements MyBank{
     private Loan[] loans;
     private int loanCount;
      public BankApp(){
-         this.loans=new Loan[1];
+         this.loans=new Loan[10];
          this.loanCount=0;
      }
 
