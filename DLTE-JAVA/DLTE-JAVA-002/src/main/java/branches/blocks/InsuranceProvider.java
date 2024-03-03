@@ -4,19 +4,19 @@ import java.util.Scanner;
 
 public class InsuranceProvider {
     public static void main(String[] args) {
-        String lic[]={"illness","regular checkups","free treatment"};
-        String reliance[]={"free treatment","accidents"};
-        String Tata[]={"accidents","maternity benefits"};
+//        String lic[]={"illness","regular checkups","free treatment"};
+//        String reliance[]={"free treatment","accidents"};
+//        String Tata[]={"accidents","maternity benefits"};
         Scanner sc=new Scanner(System.in);
         String typeOne="";
         System.out.println("Enter the Types");
         typeOne=sc.nextLine();
         String CompanyOffer="";
-        for(int i=0;i<lic.length;i++){
+        for(int i=0;i<args.length;i++){
             if(typeOne.toLowerCase().contains(lic[i]))
                 CompanyOffer+="lic"+"\t";
         }
-        for(int i=0;i<reliance.length;i++){
+        for(int i=0;i<args.length;i++){
             if(typeOne.toLowerCase().contains(reliance[i]))
                 CompanyOffer+="reliance"+"\t";
         }

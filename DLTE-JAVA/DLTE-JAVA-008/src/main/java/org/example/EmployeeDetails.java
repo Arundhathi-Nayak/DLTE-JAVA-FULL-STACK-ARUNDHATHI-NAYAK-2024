@@ -1,51 +1,79 @@
 package org.example;
 
+import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
-public class EmployeeDetails{
+public class EmployeeDetails {
+    private static EmployeeAddress employeeAddress;
+
+    private  static  Employee employee;
+    private static EmployeeInformation employeeInformation;
 
 
-    public static void main(String[] args) {
-        Scanner scanner=new Scanner(System.in);
-        EmployeeDetails employeeDetails=new EmployeeDetails();
-        employeeDetails.inputDetail();
-      }
-      public void inputDetail(){
-          Scanner scanner=new Scanner(System.in);
-          System.out.println("Enter your First name :");
-          String employeeFirstName = scanner.nextLine();
-          System.out.println("Enter your middle name :");
-          String employeeMiddleName = scanner.nextLine();
-          System.out.println("Enter your Last name :");
-          String employeeLastName = scanner.nextLine();
-          System.out.println("Enter your permanent address :");
-          System.out.println("Enter the Address :");
-          String permanentAddress=scanner.nextLine();
-          System.out.println("Enter the House Number :");
-          String permanentHouseNumber=scanner.nextLine();
-          System.out.println("Enter the city :");
-          String permanentCity=scanner.nextLine();
-          System.out.println("Enter the State :");
-          String permanentState= scanner.nextLine();
-          System.out.println("Enter the PinCode :");
-          int permanentPinCode=scanner.nextInt();
-          System.out.println("Enter your temporary address :");
-          System.out.println("Enter the Address :");
-          String temporaryAddress=scanner.nextLine();
-          System.out.println("Enter the House Number :");
-          String temporaryHouseNumber=scanner.nextLine();
-          System.out.println("Enter the city :");
-          String temporaryCity=scanner.nextLine();
-          System.out.println("Enter the State :");
-          String temporaryState= scanner.nextLine();
-          System.out.println("Enter the PinCode :");
-          int temporaryPinCode=scanner.nextInt();
-          System.out.println("Enter the Email Id :");
-          String emailId=scanner.next();
-          System.out.println("Enter the Phone Number :");
-          long phoneNumber=scanner.nextLong();
-          Employee employees=new Employee(employeeFirstName, employeeMiddleName,  employeeLastName, permanentAddress, permanentHouseNumber, permanentState, permanentCity,permanentPinCode, temporaryAddress, temporaryHouseNumber, temporaryState, temporaryCity, temporaryPinCode,emailId, phoneNumber);
 
-      }
+    public static Employee inputDetail(Scanner scanner) {
+            System.out.println("Enter your name :");
+            String employeeName = scanner.nextLine();
+//            System.out.println("Enter your middle name :");
+//            String employeeMiddleName = scanner.nextLine();
+//            System.out.println("Enter your Last name :");
+//            String employeeLastName = scanner.nextLine();
+
+            System.out.println("Enter your permanent address :");
+            System.out.println("Enter the Address :");
+            String permanentAddress = scanner.nextLine();
+            System.out.println("Enter the House Number :");
+            String permanentHouseNumber = scanner.nextLine();
+            System.out.println("Enter the city :");
+            String permanentCity = scanner.nextLine();
+            System.out.println("Enter the State :");
+            String permanentState = scanner.nextLine();
+            System.out.println("Enter the PinCode :");
+            int permanentPinCode = scanner.nextInt();
+            System.out.println("Enter your temporary address :");
+            System.out.println("Enter the Address :");
+            scanner.nextLine();
+            String temporaryAddress = scanner.nextLine();
+            System.out.println("Enter the House Number :");
+            String temporaryHouseNumber = scanner.nextLine();
+            System.out.println("Enter the city :");
+            String temporaryCity = scanner.nextLine();
+            System.out.println("Enter the State :");
+            String temporaryState = scanner.nextLine();
+            System.out.println("Enter the PinCode :");
+            int temporaryPinCode = scanner.nextInt();
+            employeeAddress = new EmployeeAddress(permanentAddress, permanentHouseNumber, permanentCity, permanentState, permanentPinCode, temporaryAddress, temporaryHouseNumber, temporaryCity, temporaryState, temporaryPinCode);
+
+            System.out.println("Enter the Email Id :");
+            String emailId = scanner.next();
+            System.out.println("Enter the Phone Number :");
+            long phoneNumber = scanner.nextLong();
+            employeeInformation = new EmployeeInformation(emailId, phoneNumber);
+            Employee employee = new Employee(employeeName, employeeAddress, employeeInformation);
+            System.out.println("Employee added successfuly");
+            return employee;
+    }
+
+
+    public static void displayInput(List<Employee> employees) {
+        if (employees.isEmpty()){
+            System.out.println("No employess added yet.");
+        }
+        else{
+            System.out.println("employee Details:");
+            for(Employee emp: employees){
+                System.out.println("Name= "+emp.getEmployeeName());
+                System.out.println("Permanent Address :" + emp.getAddress().getPermanentAddress()+","+emp.getAddress().getPermanentHouseNumber()+","+emp.getAddress().getPermanentCity()+","+emp.getAddress().getPermanentState()+"-"+emp.getAddress().getPermanentPinCode());
+
+                System.out.println("Temporary Address :"+emp.getAddress().getTemporaryAddress()+","+emp.getAddress().getTemporaryHouseNumber()+","+emp.getAddress().getTemporaryCity()+","+emp.getAddress().getTemporaryState()+"-"+emp.getAddress().getTemporaryPinCode());
+                System.out.println("Email id :" + emp.getAdditionalInformation().getEmailId() + "\nPhone number :" + emp.getAdditionalInformation().getPhoneNumber());
+                System.out.println(" ");
+
+            }
+        }
+
+
+    }
 
 }
