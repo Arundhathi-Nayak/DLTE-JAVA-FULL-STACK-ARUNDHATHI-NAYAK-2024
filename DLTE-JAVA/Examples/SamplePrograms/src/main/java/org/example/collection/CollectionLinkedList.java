@@ -10,7 +10,8 @@ public class CollectionLinkedList {
         al.add("Vijay");
         al.add("Ravi");
         al.add("Ajay");
-        Iterator<String> itr=al.iterator(); // one more ListIterator
+        //Iterator<String> itr=al.iterator(); // one more ListIterator
+        al.forEach((i)-> System.out.println(i));
 
     }
 }

@@ -11,17 +11,13 @@ public class MyBankDatabase implements Activity<CreditCard> {
     @Override
     public void create(CreditCard item) throws IOException {
         database.add(item);
-        writeToFile(item);
+        writeToFile(database);
     }
 
-    private void writeToFile(CreditCard card) throws IOException {
-        File file=new File("debit.doc");
-        FileOutputStream fileOutputStream=new FileOutputStream(file,true);
+    private void writeToFile(ArrayList<CreditCard> card) throws IOException {
+        File file=new File("debit.txt");
+        FileOutputStream fileOutputStream=new FileOutputStream(file);
         ObjectOutputStream objectOutputStream=new ObjectOutputStream(fileOutputStream);
-//        for(CreditCard card: database){
-//
-//        objectOutputStream.writeObject(card);
-//        }
         objectOutputStream.writeObject(card);
         objectOutputStream.close();
         fileOutputStream.close();

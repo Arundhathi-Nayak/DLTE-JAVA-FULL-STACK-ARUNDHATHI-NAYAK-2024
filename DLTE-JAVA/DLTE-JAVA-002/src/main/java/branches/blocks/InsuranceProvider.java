@@ -4,28 +4,32 @@ import java.util.Scanner;
 
 public class InsuranceProvider {
     public static void main(String[] args) {
-//        String lic[]={"illness","regular checkups","free treatment"};
-//        String reliance[]={"free treatment","accidents"};
-//        String Tata[]={"accidents","maternity benefits"};
-        Scanner sc=new Scanner(System.in);
-        String typeOne="";
-        System.out.println("Enter the Types");
-        typeOne=sc.nextLine();
-        String CompanyOffer="";
-        for(int i=0;i<args.length;i++){
-            if(typeOne.toLowerCase().contains(lic[i]))
-                CompanyOffer+="lic"+"\t";
+   String lic[]={"illness","regular checkups","freetreatment"};
+      String reliance[]={"freetreatment","accidents"};
+      String Tata[]={"accidents","maternity benefits"};
+        for(String each:args) {
+            for (String select : lic) {
+                if (each.equalsIgnoreCase(select)) {
+                    System.out.println("Lic Offer: " +select);
+                }
+            }
         }
-        for(int i=0;i<args.length;i++){
-            if(typeOne.toLowerCase().contains(reliance[i]))
-                CompanyOffer+="reliance"+"\t";
+        for(String each:args) {
+            for (String select : reliance) {
+                if (each.equalsIgnoreCase(select)) {
+                    System.out.println("reliance Offer: " +select);
+                }
+            }
         }
-        for(int i=0;i<Tata.length;i++){
-            if(typeOne.toLowerCase().contains(Tata[i]))
-                CompanyOffer+="Biba"+"\t";
+        for(String each:args) {
+            for (String select : Tata) {
+                if (each.equalsIgnoreCase(select)) {
+                    System.out.println("Tata Offer: " +select);
+                }
+            }
         }
-        System.out.println("Companies that offer features are "+CompanyOffer+" ");
-        System.out.println();
+
+
 
     }
 }
