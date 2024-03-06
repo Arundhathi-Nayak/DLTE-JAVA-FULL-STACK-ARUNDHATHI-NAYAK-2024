@@ -1,0 +1,10 @@
+Mar 05, 2024 10:22:54 AM app.mobilebanking.App main
+INFO: login successful
+Mar 05, 2024 10:24:03 AM app.mobilebanking.App main
+INFO: login successfulshreyas12
+Mar 05, 2024 10:40:36 AM app.mobilebanking.App main
+INFO: login successful shreyas12
+Mar 05, 2024 11:50:11 AM app.mobilebanking.App main
+INFO: login successful:shreyas12
+Mar 05, 2024 11:53:55 AM app.mobilebanking.App main
+INFO: login successful:shreyas12

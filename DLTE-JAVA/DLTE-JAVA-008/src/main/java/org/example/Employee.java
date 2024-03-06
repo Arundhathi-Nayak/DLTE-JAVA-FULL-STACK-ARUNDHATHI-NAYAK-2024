@@ -1,8 +1,9 @@
 package org.example;
 
 
+import java.io.Serializable;
 import java.util.Scanner;
-public class Employee {
+public class Employee  {
         private String employeeName;
         private  EmployeeAddress address;
         private  EmployeeInformation additionalInformation;

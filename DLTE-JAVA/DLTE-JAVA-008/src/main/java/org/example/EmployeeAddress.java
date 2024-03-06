@@ -1,6 +1,8 @@
 package org.example;
 
-public class EmployeeAddress{
+import java.io.Serializable;
+
+public class EmployeeAddress {
     private String permanentAddress;
     private String permanentHouseNumber;
     private String permanentState;

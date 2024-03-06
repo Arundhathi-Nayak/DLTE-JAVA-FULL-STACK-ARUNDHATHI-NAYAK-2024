@@ -1,6 +1,10 @@
 package org.example;
 
-public class EmployeeInformation {
+import org.omg.PortableServer.SERVANT_RETENTION_POLICY_ID;
+
+import java.io.Serializable;
+
+public class EmployeeInformation  {
     private String emailId;
     private Long phoneNumber;
 
