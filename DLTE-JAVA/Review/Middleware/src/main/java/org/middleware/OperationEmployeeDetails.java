@@ -7,5 +7,6 @@ import java.util.Scanner;
 public interface OperationEmployeeDetails {
    void inputDetails() throws IOException, ClassNotFoundException;
     void displayInput(List<Employee> employees);
+    Employee getPincode(int pincode);
     //void create(List<Employee> employee) throws IOException;
 }

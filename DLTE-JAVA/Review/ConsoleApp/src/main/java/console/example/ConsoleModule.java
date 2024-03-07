@@ -9,11 +9,13 @@ import static java.lang.System.exit;
 public class ConsoleModule {
     private static ConsoleModule employeeRepository;
 
+
     public static void main(String[] args) {
         employeeRepository=new ConsoleModule();
 
        // List<Employee> employees = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
+
         while(true){
             System.out.println("1.Add Employee\n2.Display Employee\n3.Exit");
             System.out.println("Enter your choice: ");
@@ -28,7 +30,8 @@ public class ConsoleModule {
                 case 2:
                     //EmployeeDetails.displayInput(employees);
                     break;
-                case 3:exit(0);
+                case 3:
+                case 4:exit(0);
                 default:
                     System.out.println("invalid choice");
                     break;

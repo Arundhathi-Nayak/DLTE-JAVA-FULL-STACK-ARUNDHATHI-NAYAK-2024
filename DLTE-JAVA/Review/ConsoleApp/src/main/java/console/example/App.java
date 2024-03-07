@@ -21,7 +21,8 @@ public class App
         List<Employee> employees = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         while(true){
-            System.out.println("1.Add Employee\n2.Display Employee\n3.Exit");
+            EmployeeDetails employeeDetails=new EmployeeDetails();
+            System.out.println("1.Add Employee\n2.Display Employee\n3.Display Permanent Pincode\n4.Exit");
             System.out.println("Enter your choice: ");
             int choice=scanner.nextInt();
             scanner.nextLine();
@@ -29,7 +30,7 @@ public class App
                 case 1:
                     do{
                        //Employee employee=EmployeeDetails.
-                        EmployeeDetails employeeDetails=new EmployeeDetails();
+                       // EmployeeDetails employeeDetails=new EmployeeDetails();
                         employeeDetails.inputDetails();
                       // employees.add(employee);
                        //  employees.add(employee);
@@ -37,10 +38,14 @@ public class App
                         scanner.nextLine();
                     }while(scanner.nextLine().equalsIgnoreCase("yes"));
                     break;
-                case 2:EmployeeDetails employeeDetails=new EmployeeDetails();
+                case 2://EmployeeDetails employeeDetails=new EmployeeDetails();
                     employeeDetails.read();
                     break;
-                case 3:exit(0);
+                case 3:
+                    System.out.println("Enter the Pincode:");
+                    employeeDetails.getPincode(scanner.nextInt());
+                         break;
+                case 4:exit(0);
                 default:
                     System.out.println("invalid choice");
                     break;

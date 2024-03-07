@@ -11,8 +11,8 @@ import java.io.ObjectOutputStream;
 import java.util.List;
 import java.util.Scanner;
 
-public class FileRepository implements OperationEmployeeDetails  {
-    @Override
+public class FileRepository  {
+  //  @Override
     public void create(List<Employee> list) throws IOException {
 
             FileOutputStream fileOutputStream=new FileOutputStream("OutputFile.txt");

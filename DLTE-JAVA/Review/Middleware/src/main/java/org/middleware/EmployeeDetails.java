@@ -85,6 +85,19 @@ public class EmployeeDetails implements OperationEmployeeDetails{
 
 }
 
+    @Override
+    public Employee getPincode(int pincode) {
+        try {
+            read();
+            return employees.stream().filter(employee1 -> employee1.getAddress().getPermanentPinCode()==(pincode)).findFirst().orElse(null);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 
     public static void create(List<Employee> employee) throws IOException, ClassNotFoundException {
         File file=new File("OutputFile.txt");
