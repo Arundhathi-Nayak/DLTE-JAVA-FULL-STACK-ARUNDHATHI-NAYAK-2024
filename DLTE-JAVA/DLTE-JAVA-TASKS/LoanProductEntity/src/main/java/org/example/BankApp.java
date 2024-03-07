@@ -30,10 +30,10 @@ public class BankApp implements MyBank {
                     myBank.addNewLoan();
                     break;
                 case 2:
-                    myBank.read();
+                    myBank.displayLoan(myBank.availableLoan());
                     break;
                 case 3:
-                    //displayloans("Closed loans ", bank.checkClosedLoans());
+                   myBank.displayLoan(myBank.closedLoan());
                     break;
                 case 4:
                     exit(0);
@@ -63,13 +63,50 @@ public class BankApp implements MyBank {
         myBank.create(loanslist);
 
     }
+
+    @Override
+    public List<Loan> availableLoan() throws IOException, ClassNotFoundException {
+        List<Loan> temp = null;
+        List<Loan> openLoan=new ArrayList<>();
+        File file=new File("OutputFile.txt");
+        if(file.exists()){
+            FileInputStream fileInputStream=new FileInputStream(file);
+            ObjectInputStream objectInputStream=new ObjectInputStream(fileInputStream);
+            temp= (List<Loan>) objectInputStream.readObject();
+            for(Loan each:temp){
+                if(each.getLoanStatus().equalsIgnoreCase("open")){
+                    openLoan.add(each);
+                }
+            }
+        }
+        return openLoan;
+    }
+
+    @Override
+    public List<Loan> closedLoan() throws IOException, ClassNotFoundException {
+        List<Loan> temp = null;
+        List<Loan> closedLoan=new ArrayList<>();
+        File file=new File("OutputFile.txt");
+        if(file.exists()){
+            FileInputStream fileInputStream=new FileInputStream(file);
+            ObjectInputStream objectInputStream=new ObjectInputStream(fileInputStream);
+            temp= (List<Loan>) objectInputStream.readObject();
+            for(Loan each:temp){
+                if(each.getLoanStatus().equalsIgnoreCase("closed")){
+                    closedLoan.add(each);
+                }
+            }
+        }
+        return  closedLoan;
+    }
+
     public void create(List<Loan> loanList) throws IOException, ClassNotFoundException {
         File file=new File("OutputFile.txt");
         if(file.exists()) {
             FileInputStream fileInputStream = new FileInputStream(file);
             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
-            loans= (List<Loan>) objectInputStream.readObject();//re read file
-            loans.addAll(loanList);//add new data into existing file
+            loans= (List<Loan>) objectInputStream.readObject();
+            loans.addAll(loanList);
         }else{
             loans=loanList;
         }
@@ -85,18 +122,17 @@ public class BankApp implements MyBank {
         ObjectInputStream objectInputStream=new ObjectInputStream(fileInputStream);
         List<Loan> loanCard= (List<Loan>) objectInputStream.readObject();
         loanCard.forEach(System.out::println);
-//        CreditCard creditCard1=(CreditCard) objectInputStream.readObject();
-//        System.out.println(creditCard1);
         objectInputStream.close();
         fileInputStream.close();
     }
-    @Override
-    public Loan[] checkAvailableLoans() {
-        return new Loan[0];
-    }
-
-    @Override
-    public Loan[] checkClosedLoans() {
-        return new Loan[0];
+    public void displayLoan(List<Loan> loanList){
+        if(loanList.size()>0){
+            for(Loan each:loanList){
+                System.out.println(each);
+            }
+        }
+        else{
+            System.out.println("No loans");
+        }
     }
 }
