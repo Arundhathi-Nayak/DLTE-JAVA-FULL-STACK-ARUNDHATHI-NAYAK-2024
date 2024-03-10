@@ -8,7 +8,6 @@ import java.util.Scanner;
 public class EmployeeDetails implements OperationEmployeeDetails{
     private static EmployeeAddress employeeAddress;
     static List<Employee> employees=new ArrayList<>();
-
     private  static  Employee employee;
     private static EmployeeInformation employeeInformation;
 

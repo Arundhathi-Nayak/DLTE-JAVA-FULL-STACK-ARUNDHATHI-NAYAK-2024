@@ -2,12 +2,12 @@ package exception.org.account;
 
 import java.util.ResourceBundle;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+//import java.util.logging.Level;
+//import java.util.logging.Logger;
 
 public class PayBills {
     static ResourceBundle resourceBundle=ResourceBundle.getBundle("application");
-    static final Logger logger=Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+   // static final Logger logger=Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public static void main(String[] args)
     {
@@ -33,11 +33,11 @@ public class PayBills {
 
             }catch (MyBankException e){
 
-                logger.log(Level.WARNING,e.toString());
+                //logger.log(Level.WARNING,e.toString());
                 attempt++;
                 if(attempt>=5){
 
-                    logger.log(Level.WARNING,"Account Blocked,contact customer support");
+                 //   logger.log(Level.WARNING,"Account Blocked,contact customer support");
                     break;
                 }
 
