@@ -5,6 +5,8 @@ import org.example.EmployeeAddress;
 import org.example.EmployeeInformation;
 import org.example.InputEmployeeDetails;
 import org.fileRepository.FileRepositoryImplementation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,6 +19,7 @@ public class ConsoleApp {
         Scanner scanner=new Scanner(System.in);
         InputEmployeeDetails employeeDetails=new FileRepositoryImplementation();
         ResourceBundle resourceBundle= ResourceBundle.getBundle("application");
+        Logger logger= LoggerFactory.getLogger(ConsoleApp.class);
         EmployeeAddress employeeAddress;
         Employee employee;
         EmployeeInformation employeeInformation;
@@ -29,10 +32,10 @@ public class ConsoleApp {
                     do{
                         System.out.println(resourceBundle.getString("Enter.name"));
                         //Scanner scanner=new Scanner(System.in);
-                        String employeeName = scanner.nextLine();
+                        String employeeName = scanner.next();
                         scanner.nextLine();
                         System.out.println(resourceBundle.getString("enter.id"));
-                        String employeeId=new String();
+                        String employeeId=scanner.next();
                         scanner.nextLine();
                         System.out.println(resourceBundle.getString("enter.permanentAddress"));
                         System.out.println(resourceBundle.getString("enter.address"));
@@ -65,6 +68,7 @@ public class ConsoleApp {
                         employeeInformation = new EmployeeInformation(emailId, phoneNumber);
                         employee = new Employee(employeeName,employeeId, employeeAddress, employeeInformation);
                         System.out.println(resourceBundle.getString("employeeAdd.success"));
+                        logger.info(resourceBundle.getString("employeeAdd.success"));
                         List<Employee> employeeInfo=new ArrayList<>();
                         employeeInfo.add(employee);
                         employeeDetails.create(employeeInfo);
@@ -72,7 +76,8 @@ public class ConsoleApp {
                     }while (scanner.next().equalsIgnoreCase(resourceBundle.getString("yes")));
                     break;
                 case 2:  System.out.println(resourceBundle.getString("enter.id"));
-                    System.out.println(employeeDetails.displayBasedOnEmployeeId(scanner.nextInt()));
+
+                    System.out.println(employeeDetails.displayBasedOnEmployeeId(scanner.next()));
                     break;
                 case 3:
                     System.out.println(employeeDetails.read());
