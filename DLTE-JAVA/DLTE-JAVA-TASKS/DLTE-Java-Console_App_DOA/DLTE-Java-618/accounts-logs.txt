@@ -1,0 +1,262 @@
+Mar 04, 2024 7:34:46 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 04, 2024 7:37:05 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 04, 2024 7:37:30 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Password is Incorrect
+Mar 04, 2024 7:43:05 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Password is Incorrect
+Mar 04, 2024 7:43:05 PM app.mobilebanking.middleware.UserFileRepository withdraw
+WARNING: Password Incorrect Retry
+Mar 04, 2024 9:09:08 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 04, 2024 9:10:42 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 04, 2024 9:11:15 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 04, 2024 9:11:46 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 04, 2024 9:12:02 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 04, 2024 9:13:44 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Password is Incorrect
+Mar 04, 2024 9:13:59 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 04, 2024 9:16:09 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 04, 2024 9:18:23 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 04, 2024 9:19:30 PM app.mobilebanking.middleware.UserFileRepository withdraw
+WARNING: No money in the bank account
+Mar 04, 2024 9:21:47 PM app.mobilebanking.middleware.UserFileRepository withdraw
+WARNING: No money in the bank account
+Mar 04, 2024 9:22:39 PM app.mobilebanking.middleware.UserFileRepository withdraw
+WARNING: Insufficient Account Balance
+Mar 04, 2024 9:24:22 PM app.mobilebanking.middleware.UserFileRepository withdraw
+WARNING: Insufficient Account Balance
+Mar 04, 2024 9:26:29 PM app.mobilebanking.middleware.UserFileRepository withdraw
+WARNING: Insufficient Account Balance
+Mar 04, 2024 9:28:02 PM app.mobilebanking.middleware.UserFileRepository withdraw
+WARNING: Insufficient Account Balance
+Mar 04, 2024 9:33:48 PM app.mobilebanking.middleware.UserFileRepository withdraw
+WARNING: Insufficient Account Balance
+Mar 04, 2024 9:35:02 PM app.mobilebanking.middleware.UserFileRepository withdraw
+WARNING: Insufficient Account Balance
+Mar 04, 2024 9:37:51 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Password is Incorrect
+Mar 04, 2024 9:37:51 PM app.mobilebanking.middleware.UserFileRepository withdraw
+WARNING: Password Incorrect Retry
+Mar 04, 2024 9:42:07 PM app.mobilebanking.middleware.UserFileRepository withdraw
+WARNING: Insufficient Account Balance
+Mar 04, 2024 9:42:21 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Password is Incorrect
+Mar 04, 2024 9:42:21 PM app.mobilebanking.middleware.UserFileRepository withdraw
+WARNING: Password Incorrect Retry
+Mar 04, 2024 9:43:20 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Password is Incorrect
+Mar 04, 2024 9:43:20 PM app.mobilebanking.middleware.UserFileRepository withdraw
+WARNING: Password Incorrect Retry
+Mar 04, 2024 9:43:58 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Password is Incorrect
+Mar 04, 2024 9:44:45 PM app.mobilebanking.middleware.UserFileRepository withdraw
+WARNING: Insufficient Account Balance
+Mar 04, 2024 9:45:34 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Password is Incorrect
+Mar 04, 2024 9:45:34 PM app.mobilebanking.middleware.UserFileRepository withdraw
+WARNING: Password Incorrect Retry
+Mar 04, 2024 10:26:05 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Password is Incorrect
+Mar 04, 2024 10:26:05 PM app.mobilebanking.middleware.UserFileRepository withdraw
+WARNING: Password Incorrect Retry
+Mar 05, 2024 9:58:45 AM app.mobilebanking.middleware.UserFileRepository findALL
+INFO: All credit card information fetched
+Mar 05, 2024 10:00:06 AM app.mobilebanking.middleware.UserFileRepository findALL
+INFO: All credit card information fetched
+Mar 05, 2024 10:00:20 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Password is Incorrect
+Mar 05, 2024 10:00:48 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Password is Incorrect
+<<<<<<< HEAD
+Mar 05, 2024 10:09:34 AM app.mobilebanking.middleware.UserFileRepository findALL
+INFO: All credit card information fetched
+Mar 05, 2024 10:10:52 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+=======
+Mar 05, 2024 10:20:56 PM app.mobilebanking.middleware.UserFileRepository findALL
+INFO: All credit card information fetched
+Mar 05, 2024 10:21:28 PM app.mobilebanking.middleware.UserFileRepository findALL
+INFO: All credit card information fetched
+Mar 05, 2024 10:25:20 PM app.mobilebanking.middleware.UserFileRepository findALL
+INFO: All credit card information fetched
+Mar 05, 2024 10:26:17 PM app.mobilebanking.middleware.UserFileRepository findALL
+INFO: All credit card information fetched
+Mar 05, 2024 10:27:13 PM app.mobilebanking.middleware.UserFileRepository findALL
+INFO: All credit card information fetched
+Mar 05, 2024 10:27:24 PM app.mobilebanking.middleware.UserFileRepository findALL
+INFO: All credit card information fetched
+Mar 05, 2024 10:27:35 PM app.mobilebanking.App main
+INFO: login Successful:shreyas12
+Mar 05, 2024 10:28:19 PM app.mobilebanking.middleware.UserFileRepository findALL
+INFO: All credit card information fetched
+Mar 05, 2024 10:28:28 PM app.mobilebanking.middleware.UserFileRepository findALL
+INFO: All credit card information fetched
+Mar 05, 2024 10:29:17 PM app.mobilebanking.middleware.UserFileRepository findALL
+INFO: All credit card information fetched
+Mar 05, 2024 10:29:46 PM app.mobilebanking.middleware.UserFileRepository findALL
+INFO: All credit card information fetched
+Mar 05, 2024 10:29:50 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 05, 2024 10:29:56 PM app.mobilebanking.middleware.UserFileRepository findALL
+INFO: All credit card information fetched
+Mar 05, 2024 10:30:02 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 05, 2024 10:30:05 PM app.mobilebanking.middleware.UserFileRepository findALL
+INFO: All credit card information fetched
+Mar 05, 2024 10:30:16 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Password is Incorrect
+Mar 05, 2024 10:30:16 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Login Failed!
+Mar 05, 2024 10:34:30 PM app.mobilebanking.middleware.UserFileRepository findALL
+INFO: All credit card information fetched
+Mar 05, 2024 10:34:34 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 05, 2024 10:34:46 PM app.mobilebanking.middleware.UserFileRepository findALL
+INFO: All credit card information fetched
+Mar 05, 2024 10:34:58 PM app.mobilebanking.App main
+INFO: login Successful:shreyas12
+Mar 05, 2024 10:35:42 PM app.mobilebanking.middleware.UserFileRepository findALL
+INFO: All credit card information fetched
+Mar 05, 2024 10:35:46 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 05, 2024 10:36:07 PM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 5:55:26 AM app.mobilebanking.App main
+INFO: login Successful:shreyas12
+Mar 07, 2024 5:55:49 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Password is Incorrect
+Mar 07, 2024 5:55:49 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Login Failed!
+Mar 07, 2024 5:55:52 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Login Failed!
+Mar 07, 2024 5:55:55 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: No more attempts left! 
+Mar 07, 2024 5:55:55 AM app.mobilebanking.middleware.UserFileRepository withdraw
+WARNING: Password Incorrect Retry
+Mar 07, 2024 5:56:25 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 6:04:11 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 6:04:11 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Login Failed!
+Mar 07, 2024 6:05:18 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 6:05:18 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Login Failed!
+Mar 07, 2024 6:11:13 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 6:11:13 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Login Failed!
+Mar 07, 2024 6:16:58 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 6:16:58 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Login Failed!
+Mar 07, 2024 10:28:24 AM app.mobilebanking.App main
+INFO: login Successful:shreyas12
+Mar 07, 2024 10:37:47 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 10:37:47 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Login Failed!
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2024-03-07T10:54:05</date>
+  <millis>1709789045125</millis>
+  <sequence>0</sequence>
+  <logger>global</logger>
+  <level>WARNING</level>
+  <class>app.mobilebanking.middleware.UserFileRepository</class>
+  <method>verifyPassword</method>
+  <thread>1</thread>
+  <message>User Name not Found</message>
+</record>
+<record>
+  <date>2024-03-07T10:54:05</date>
+  <millis>1709789045139</millis>
+  <sequence>1</sequence>
+  <logger>global</logger>
+  <level>WARNING</level>
+  <class>app.mobilebanking.middleware.UserFileRepository</class>
+  <method>verifyPassword</method>
+  <thread>1</thread>
+  <message>Login Failed!</message>
+</record>
+Mar 07, 2024 11:27:46 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 11:27:46 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Login Failed!
+Mar 07, 2024 11:29:17 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 11:29:17 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Login Failed!
+Mar 07, 2024 11:29:19 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Login Failed!
+Mar 07, 2024 11:29:24 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: No more attempts left! 
+Mar 07, 2024 11:38:42 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 11:38:46 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Login Failed!
+Mar 07, 2024 11:39:33 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 11:39:34 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 11:39:36 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 11:39:37 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 11:39:38 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 11:39:39 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 11:39:40 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 11:39:40 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 11:39:43 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 11:39:43 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 11:39:44 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 11:39:45 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 11:39:45 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 11:39:46 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 11:39:47 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 11:39:47 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 11:39:48 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 11:39:49 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: User Name not Found
+Mar 07, 2024 11:39:54 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Password is Incorrect
+Mar 07, 2024 11:39:54 AM app.mobilebanking.middleware.UserFileRepository verifyPassword
+WARNING: Login Failed!
+Mar 10, 2024 7:21:47 PM app.mobilebanking.App main
+INFO: login Successful:shreyas12
+Mar 10, 2024 7:26:46 PM app.mobilebanking.App main
+INFO: login Successful:shreyas12
+Mar 10, 2024 7:41:11 PM app.mobilebanking.App main
+INFO: login Successful:varun12
+Mar 10, 2024 7:51:18 PM app.mobilebanking.App main
+INFO: login Successful:shreyas12
+Mar 10, 2024 7:57:02 PM app.mobilebanking.App main
+INFO: login Successful:shreyas12
+Mar 10, 2024 8:08:47 PM app.mobilebanking.App main
+INFO: login Successful:shreyas12
+Mar 10, 2024 8:12:51 PM app.mobilebanking.App main
+INFO: login Successful:shreyas12
