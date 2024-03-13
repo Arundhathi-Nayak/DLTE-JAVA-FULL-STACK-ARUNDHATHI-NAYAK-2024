@@ -10,11 +10,12 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+//import java.util.ResourceBundle;
 
 public class FileRepositoryImplementation implements InputEmployeeDetails {
     List<Employee> employeeList=new ArrayList<>();
     File filePath=new File("Output.txt");
-    ResourceBundle resourceBundle= ResourceBundle.getBundle("application");
+   ResourceBundle resourceBundle= ResourceBundle.getBundle("application");
     Logger logger= LoggerFactory.getLogger(FileRepositoryImplementation.class);
     public void writeIntoFile() throws IOException, ClassNotFoundException {
         List<Employee> employees=new ArrayList<>();
@@ -26,18 +27,18 @@ public class FileRepositoryImplementation implements InputEmployeeDetails {
 //        }else{
 //            employeeList=employees;
 //        }
-        FileOutputStream fileOutputStream=new FileOutputStream(filePath);
-        ObjectOutputStream objectOutputStream=new ObjectOutputStream(fileOutputStream);
-        objectOutputStream.writeObject(employeeList);
-        objectOutputStream.close();
-        fileOutputStream.close();
+        try (FileOutputStream fileOutputStream = new FileOutputStream(filePath);
+             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream)) {
+            objectOutputStream.writeObject(employeeList);
+            objectOutputStream.writeObject(employeeList);
+        }
+
     }
     public void readFromFile() throws IOException, ClassNotFoundException {
-        FileInputStream fileInputStream=new FileInputStream(filePath);
-        ObjectInputStream objectInputStream=new ObjectInputStream(fileInputStream);
-        employeeList=(List<Employee>) objectInputStream.readObject();
-        objectInputStream.close();
-        fileInputStream.close();
+        try (FileInputStream fileInputStream = new FileInputStream(filePath);
+             ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream)) {
+            employeeList = (List<Employee>) objectInputStream.readObject();
+        }
     }
     @Override
     public void create(List<Employee> list) {
@@ -45,20 +46,29 @@ public class FileRepositoryImplementation implements InputEmployeeDetails {
             if(filePath.exists()){ readFromFile();}
 
             for(Employee employee:list) {
-                 boolean employeeExists = employeeList.stream().anyMatch(alreadyExist -> alreadyExist.getEmployeeId() == (employee.getEmployeeId()));
+                 boolean employeeExists = employeeList.stream().anyMatch(alreadyExist -> alreadyExist.getEmployeeId().equals(employee.getEmployeeId()));
 
-                if (employeeExists) System.out.println(resourceBundle.getString("employee.exists"));
+                if (employeeExists) {
+                    throw new  ExceptionEmployee("Employee Already exists");
+                   // System.out.println("Employee Already exists");
+                    //System.out.println(resourceBundle.getString("employee.exists"));
+                }
                 else {
                     employeeList.addAll(list);
                 }
             }
             
             writeIntoFile();
-        } catch (IOException e) {
-            e.printStackTrace();
+        }
+        catch (ExceptionEmployee exceptionEmployee){
+          //  exceptionEmployee.printStackTrace();
+            logger.trace("EmployeeAlreadyExistsException occurred", exceptionEmployee);
+        }
+        catch (IOException e) {
+
             logger.atTrace();
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+
             logger.atTrace();
         }
     }
@@ -69,11 +79,11 @@ public class FileRepositoryImplementation implements InputEmployeeDetails {
             readFromFile();
             return employeeList.stream().filter(employee1 -> employee1.getEmployeeId().equals(id)).findFirst().orElse(null);
         } catch (IOException e) {
-            e.printStackTrace();
-            logger.atTrace();
+
+            logger.trace("IOException occurred", e);
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            logger.atTrace();
+
+            logger.trace("ClassNotFoundException occurred", e);
         }
         return null;
     }
@@ -84,11 +94,11 @@ public class FileRepositoryImplementation implements InputEmployeeDetails {
             readFromFile();
             return employeeList.stream().filter(employee1 -> employee1.getAddress().getTemporaryPinCode()==pinCode).findAny().orElse(null);
         } catch (IOException e) {
-            e.printStackTrace();
-            logger.atTrace();
+
+            logger.trace("IOException occurred", e);
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            logger.atTrace();
+
+            logger.trace("ClassNotFoundException occurred", e);
         }
         return null;
     }
@@ -99,11 +109,11 @@ public class FileRepositoryImplementation implements InputEmployeeDetails {
             readFromFile();
             return employeeList;
         } catch (IOException e) {
-            e.printStackTrace();
-            logger.atTrace();
+
+            logger.trace("IOException occurred", e);
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            logger.atTrace();
+
+            logger.trace("ClassNotFoundException occurred", e);
         }
         return null;
     }

@@ -1,9 +1,6 @@
 package org.consoleApp;
 
-import org.example.Employee;
-import org.example.EmployeeAddress;
-import org.example.EmployeeInformation;
-import org.example.InputEmployeeDetails;
+import org.example.*;
 import org.fileRepository.FileRepositoryImplementation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,17 +10,19 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
+import static java.lang.System.exit;
+
 public class ConsoleApp {
     public static void main( String[] args )
     {
         Scanner scanner=new Scanner(System.in);
-        InputEmployeeDetails employeeDetails=new FileRepositoryImplementation();
+        InputEmployeeDetails employeeDetails=new DatabaseRepositoryImplementation();
         ResourceBundle resourceBundle= ResourceBundle.getBundle("application");
         Logger logger= LoggerFactory.getLogger(ConsoleApp.class);
         EmployeeAddress employeeAddress;
         Employee employee;
         EmployeeInformation employeeInformation;
-
+        Validation validation=new Validation();
         while (true){
             System.out.println(resourceBundle.getString("menu.display"));
             System.out.println(resourceBundle.getString("enter.choice"));
@@ -48,6 +47,10 @@ public class ConsoleApp {
                         String permanentState = scanner.nextLine();
                         System.out.println(resourceBundle.getString("enter.pincode"));
                         int permanentPinCode = scanner.nextInt();
+//                        if (!validation.isValidPin(permanentPinCode)) {
+//                            System.out.println("Invalid PIN. PIN should be 6 digits long.");
+//                            continue;
+//                        }
                         System.out.println(resourceBundle.getString("enter.temporaryaddress"));
                         System.out.println(resourceBundle.getString("enter.address"));
                         scanner.nextLine();
@@ -60,20 +63,35 @@ public class ConsoleApp {
                         String temporaryState = scanner.nextLine();
                         System.out.println(resourceBundle.getString("enter.pincode"));
                         int temporaryPinCode = scanner.nextInt();
+//                        if (!validation.isValidPin(temporaryPinCode)) {
+//                            System.out.println("Invalid PIN. PIN should be 6 digits long.");
+//                            continue;
+//                        }
                         employeeAddress = new EmployeeAddress(permanentAddress, permanentHouseNumber, permanentCity, permanentState, permanentPinCode, temporaryAddress, temporaryHouseNumber, temporaryCity, temporaryState, temporaryPinCode);
                         System.out.println(resourceBundle.getString("enter.emailId"));
                         String emailId = scanner.next();
+//                        if (!validation.isValidEmail(emailId)) {
+//                            System.out.println("Invalid email address format. Please try again.");
+//                            continue;
+//                        }
                         System.out.println(resourceBundle.getString("enter.phone"));
                         long phoneNumber = scanner.nextLong();
-                        employeeInformation = new EmployeeInformation(emailId, phoneNumber);
+                        scanner.nextLine();
+//                        if (!validation.isValidPhoneNumber(phoneNumber)) {
+//                            System.out.println("Invalid phone number format. Please try again.");
+//                            continue;
+//                        }
+                        employeeInformation = new EmployeeInformation(emailId,phoneNumber);
                         employee = new Employee(employeeName,employeeId, employeeAddress, employeeInformation);
-                        System.out.println(resourceBundle.getString("employeeAdd.success"));
-                        logger.info(resourceBundle.getString("employeeAdd.success"));
                         List<Employee> employeeInfo=new ArrayList<>();
                         employeeInfo.add(employee);
                         employeeDetails.create(employeeInfo);
+//                        System.out.println(resourceBundle.getString("employeeAdd.success"));
+//                        logger.info(resourceBundle.getString("employeeAdd.success"));
                         System.out.println(resourceBundle.getString("add.more"));
                     }while (scanner.next().equalsIgnoreCase(resourceBundle.getString("yes")));
+                    System.out.println(resourceBundle.getString("employeeAdd.success"));
+                    logger.info(resourceBundle.getString("employeeAdd.success"));
                     break;
                 case 2:  System.out.println(resourceBundle.getString("enter.id"));
 
@@ -86,6 +104,7 @@ public class ConsoleApp {
                     System.out.println(resourceBundle.getString("enter.pincode"));
                     System.out.println(employeeDetails.displayBasedOnPinCode(scanner.nextInt()));
                     break;
+                case 5:exit(0);
             }
         }
 

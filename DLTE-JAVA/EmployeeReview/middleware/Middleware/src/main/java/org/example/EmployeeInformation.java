@@ -3,13 +3,8 @@ package org.example;
 import java.io.Serializable;
 
 public class EmployeeInformation implements Serializable {
-    public EmployeeInformation(String emailId, Long phoneNumber) {
-        this.emailId = emailId;
-        this.phoneNumber = phoneNumber;
-    }
-
     private String emailId;
-    private Long phoneNumber;
+    private long phoneNumber;
 
     @Override
     public String toString() {
@@ -19,6 +14,7 @@ public class EmployeeInformation implements Serializable {
                 '}';
     }
 
+
     public String getEmailId() {
         return emailId;
     }
@@ -27,11 +23,16 @@ public class EmployeeInformation implements Serializable {
         this.emailId = emailId;
     }
 
-    public Long getPhoneNumber() {
+    public long getPhoneNumber() {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(Long phoneNumber) {
+    public void setPhoneNumber(long phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public EmployeeInformation(String emailId, long phoneNumber) {
+        this.emailId = emailId;
         this.phoneNumber = phoneNumber;
     }
 }
