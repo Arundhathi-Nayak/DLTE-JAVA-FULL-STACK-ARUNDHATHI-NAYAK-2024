@@ -26,7 +26,7 @@ public class UpdateServlet extends HttpServlet {
                     int transactionId = Integer.parseInt(transactionIdParam);
                     int amount = Integer.parseInt(amountParam);
 
-                    String sql = "UPDATE Transaction SET transaction_amount = balance + ? WHERE transaction_id = ?";
+                    String sql = "UPDATE Transaction SET transaction_amount = transaction_amount + ? WHERE transaction_id = ?";
                     try (PreparedStatement stmt = conn.prepareStatement(sql)) {
                         stmt.setInt(1, transactionId);
                         stmt.setInt(4, amount);
