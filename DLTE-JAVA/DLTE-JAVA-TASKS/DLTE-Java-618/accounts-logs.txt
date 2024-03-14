@@ -376,3 +376,17 @@ Mar 13, 2024 9:32:09 PM app.mobilebanking.App main
 INFO: login Successful :shreyas123
 Mar 13, 2024 9:32:43 PM org.example.middleware.UserDatabaseRepository verifyPassword
 WARNING: Login Failed!
+Mar 14, 2024 8:49:33 AM org.example.middleware.UserDatabaseRepository verifyPassword
+WARNING: Login Failed!
+Mar 14, 2024 8:49:49 AM app.mobilebanking.App main
+INFO: login Successful :dgjsdsl
+Mar 14, 2024 8:52:19 AM org.example.middleware.UserDatabaseRepository verifyPassword
+WARNING: Login Failed!
+Mar 14, 2024 8:53:53 AM org.example.middleware.UserDatabaseRepository verifyPassword
+WARNING: Login Failed!
+Mar 14, 2024 8:54:29 AM org.example.middleware.UserDatabaseRepository verifyPassword
+WARNING: Login Failed!
+Mar 14, 2024 8:54:39 AM app.mobilebanking.App main
+INFO: login Successful
+Mar 14, 2024 8:54:52 AM org.example.middleware.UserDatabaseRepository withdraw
+INFO: Withdrawal is successful

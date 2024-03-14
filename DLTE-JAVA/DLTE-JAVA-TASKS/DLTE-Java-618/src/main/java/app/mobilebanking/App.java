@@ -64,8 +64,8 @@ public class App {
             password = scanner.next();
             // Verifying the entered username, password if it is true it proceeds with further steps
             if(services.callVerifyPassword(username,password)){
-                logger.log(Level.INFO,resourceBundle.getString("login.Successful")+" :"+username);
-                System.out.println(resourceBundle.getString("login.Successful"));
+                logger.log(Level.INFO,resourceBundle.getString("login.Successful"));
+                 System.out.println(resourceBundle.getString("login.Successful"));
             while (true) {
                 // Displaying the Dashboard
                 System.out.println(resourceBundle.getString("app.dashboard.menu"));

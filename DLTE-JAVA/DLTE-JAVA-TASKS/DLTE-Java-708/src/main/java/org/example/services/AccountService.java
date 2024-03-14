@@ -66,5 +66,11 @@ public class AccountService {
         }
     }
 
-
+    public Account findUserByUsername(String username){
+        try{
+            return  userRepository.findUserByUsername(username);
+        }catch (Exception e){
+            return null;
+        }
+    }
 }
