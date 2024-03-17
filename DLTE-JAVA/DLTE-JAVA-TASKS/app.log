@@ -3,3 +3,5 @@
 08:17:56.313 [34m[main][0;39m INFO  org.consoleApp.ConsoleApp - [34mEmployee added successfully[0;39m 
 08:21:10.226 [34m[main][0;39m INFO  org.consoleApp.ConsoleApp - [34mEmployee added successfully[0;39m 
 09:55:12.380 [34m[main][0;39m INFO  org.consoleApp.ConsoleApp - [34mEmployee added successfully[0;39m 
+17:26:48.484 [31m[main][0;39m WARN  org.example.ConsoleApp - [31mEmployee not Found.[0;39m 
+17:28:35.366 [31m[main][0;39m WARN  org.example.ConsoleApp - [31mEmployee not Found.[0;39m 

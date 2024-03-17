@@ -12,7 +12,7 @@ import java.util.List;
  */
 public interface UserRepository {
     boolean verifyPassword(String username, String password);
-    void withdraw(String username, String password, double withdrawAmount);
+    double withdraw(String username, String password, double withdrawAmount);
     double balance(String username);
     void addTransactions(Account account);
     List<Transaction> findALL();

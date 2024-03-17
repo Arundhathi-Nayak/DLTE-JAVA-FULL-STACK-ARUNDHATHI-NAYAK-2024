@@ -1,7 +1,11 @@
 package org.example;
 
+import com.sun.org.apache.xerces.internal.impl.xs.SchemaGrammar;
+import exception.EmployeeNotFoundException;
 import oracle.jdbc.driver.OracleDriver;
 import org.example.Details.Employee;
+import org.example.Details.EmployeeAddress;
+import org.example.Details.EmployeebasicDetails;
 import org.example.Details.InputEmployeeDetails;
 
 import java.sql.*;
@@ -15,6 +19,7 @@ public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
     ResourceBundle resourceBundle= ResourceBundle.getBundle("Database");
     PreparedStatement preparedStatement;
     ResultSet resultSet;
+    ResourceBundle resourceBundle1= ResourceBundle.getBundle("application");
     public DatabaseRepositoryImplementation() {
         try{
             Driver driver=new OracleDriver();
@@ -71,69 +76,172 @@ public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
                 int resultInformation=preparedStatement.executeUpdate();
 //                connection.commit();
 
-                if(resultBasic!=0){
-                    System.out.println("Basic details inserted");
-                }else{
-                    System.out.println("failed");
-                }
-               if(resultTemporary!=0) System.out.println("Temporary address inserted");
-               if(resultPermanent!=0) System.out.println("Permanent address inserted");
-                if(resultInformation!=0) System.out.println("Additional information added");
-
+//                if(resultBasic!=0){
+//                    System.out.println("Basic details inserted");
+//                }else{
+//                    System.out.println("failed");
+//                }
+//               if(resultTemporary!=0) System.out.println("Temporary address inserted");
+//               if(resultPermanent!=0) System.out.println("Permanent address inserted");
+//                if(resultInformation!=0) System.out.println("Additional information added");
+                System.out.println(resourceBundle1.getString("employee.add")+" " + employeeID +" "+resourceBundle1.getString("employeeAdd.success"));
 
             }catch (SQLException e) {
-                e.printStackTrace();
+                if (e instanceof SQLIntegrityConstraintViolationException) {
+                    System.out.println(resourceBundle1.getString("Fail.insert") +" "+ employeeID + " "+resourceBundle1.getString("employee.exists"));
+                } else {
+                    e.printStackTrace();
+                }
             }
+
+    }
+
+    }
+
+
+    @Override
+    public Employee displayBasedOnEmployeeId(String employeeId) {
+        Employee employee = null;
+        try {
+            String query = "SELECT * FROM employee emp " +
+                    "INNER JOIN EmployeeAddress empPAdd ON emp.id = empPAdd.employeeId " +
+                    "INNER JOIN EmployeeTemporaryAddress empTAdd ON emp.id = empTAdd.employeeId " +
+                    "INNER JOIN EmployeeInformation empInfo ON emp.id = empInfo.employeeId " +
+                    "WHERE emp.id = ?";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, employeeId);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                EmployeebasicDetails basicDetails = new EmployeebasicDetails(
+                        resultSet.getString("name"),
+                        resultSet.getString("id"),
+                        resultSet.getString("email"),
+                        resultSet.getLong("phoneNumber")
+                );
+
+                EmployeeAddress permanentAddr = new EmployeeAddress(
+                        resultSet.getString("permanentAddress"),
+                        resultSet.getString("permanentHouseNumber"),
+                        resultSet.getString("permanentState"),
+                        resultSet.getString("permanentCity"),
+                        resultSet.getInt("permanentPinCode")
+                );
+
+                EmployeeAddress temporaryAddr = new EmployeeAddress(
+                        resultSet.getString("temporaryAddress"),
+                        resultSet.getString("temporaryHouseNumber"),
+                        resultSet.getString("temporaryState"),
+                        resultSet.getString("temporaryCity"),
+                        resultSet.getInt("temporaryPinCode")
+                );
+
+                employee = new Employee(basicDetails, permanentAddr, temporaryAddr);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
-
-    }
-
-
-    @Override
-    public Employee displayBasedOnEmployeeId(String s) {
-        return null;
+        return employee;
     }
 
     @Override
-    public Employee displayBasedOnPinCode(int i) {
-        return null;
+    public Employee displayBasedOnPinCode(int pinCode) {
+        Employee employee = null;
+        try {
+            String query = "SELECT * FROM employee emp " +
+                    "INNER JOIN EmployeeAddress empPAdd ON emp.id = empPAdd.employeeId " +
+                    "INNER JOIN EmployeeTemporaryAddress empTAdd ON emp.id = empTAdd.employeeId " +
+                    "INNER JOIN EmployeeInformation empInfo ON emp.id = empInfo.employeeId " +
+                    "WHERE empPAdd.permanentPinCode = ? OR empTAdd.temporaryPinCode = ?";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setInt(1, pinCode);
+            preparedStatement.setInt(2, pinCode);
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                EmployeebasicDetails basicDetails = new EmployeebasicDetails(
+                        resultSet.getString("name"),
+                        resultSet.getString("id"),
+                        resultSet.getString("email"),
+                        resultSet.getLong("phoneNumber")
+                );
+
+                EmployeeAddress permanentAddr = new EmployeeAddress(
+                        resultSet.getString("permanentAddress"),
+                        resultSet.getString("permanentHouseNumber"),
+                        resultSet.getString("permanentState"),
+                        resultSet.getString("permanentCity"),
+                        resultSet.getInt("permanentPinCode")
+                );
+
+                EmployeeAddress temporaryAddr = new EmployeeAddress(
+                        resultSet.getString("temporaryAddress"),
+                        resultSet.getString("temporaryHouseNumber"),
+                        resultSet.getString("temporaryState"),
+                        resultSet.getString("temporaryCity"),
+                        resultSet.getInt("temporaryPinCode")
+                );
+
+                employee = new Employee(basicDetails, permanentAddr, temporaryAddr);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return employee;
     }
 
     @Override
     public List<Employee> read() {
-//        List<Employee> employees = new ArrayList<>();
-//        try {
-//            String findAll="SELECT * FROM employee emp INNER JOIN EmployeeAddress empPAdd ON emp.id = empPAdd.employeeId INNER JOIN EmployeeTemporaryAddress empTAdd ON emp.id=empTAdd.employeeId INNER JOIN EmployeeInformation empInfo ON emp.id=empInfo.employeeId ";
-//            preparedStatement=connection.prepareStatement(findAll);
-//            resultSet=preparedStatement.executeQuery();
-//            while (resultSet.next()){
-//                Employee employee1 = null;
-//                EmployeeAddress employeeAddress = null;
-//                EmployeeInformation employeeInformation = null;
-//                employee1.setEmployeeId(resultSet.getString(1));
-//                employee1.setEmployeeName(resultSet.getString(2));
-//
-//                employeeAddress.setPermanentAddress(resultSet.getString(4));
-//                employeeAddress.setPermanentHouseNumber(resultSet.getString(5));
-//                employeeAddress.setPermanentCity(resultSet.getString(6));
-//                employeeAddress.setPermanentState(resultSet.getString(7));
-//                employeeAddress.setPermanentPinCode(resultSet.getInt(8));
-//                employeeAddress.setTemporaryAddress(resultSet.getString(10));
-//                employeeAddress.setTemporaryHouseNumber(resultSet.getString(11));
-//                employeeAddress.setTemporaryCity(resultSet.getString(12));
-//                employeeAddress.setTemporaryState(resultSet.getString(13));
-//                employeeAddress.setTemporaryPinCode(resultSet.getInt(14));
-//
-//
-//                employeeInformation.setEmailId(resultSet.getString(16));
-//                employeeInformation.setPhoneNumber(resultSet.getLong(17));
-//
-//                employees.add (new Employee(employee1.getEmployeeName(),employee1.getEmployeeId(),employeeAddress,employeeInformation));
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        }
-//        return employees;
-        return null;
+        List<Employee> employees = new ArrayList<>();
+        try {
+            String findAll = "SELECT * FROM employee emp " +
+                    "INNER JOIN EmployeeAddress empPAdd ON emp.id = empPAdd.employeeId " +
+                    "INNER JOIN EmployeeTemporaryAddress empTAdd ON emp.id = empTAdd.employeeId " +
+                    "INNER JOIN EmployeeInformation empInfo ON emp.id = empInfo.employeeId";
+            preparedStatement = connection.prepareStatement(findAll);
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                Employee employee = null;
+                EmployeeAddress permanentAddress = new EmployeeAddress(
+                        resultSet.getString("permanentAddress"),
+                        resultSet.getString("permanentHouseNumber"),
+                        resultSet.getString("permanentState"),
+                        resultSet.getString("permanentCity"),
+                        resultSet.getInt("permanentPinCode")
+                );
+                EmployeeAddress temporaryAddress = new EmployeeAddress(
+                        resultSet.getString("temporaryAddress"),
+                        resultSet.getString("temporaryHouseNumber"),
+                        resultSet.getString("temporaryState"),
+                        resultSet.getString("temporaryCity"),
+                        resultSet.getInt("temporaryPinCode")
+                );
+                EmployeebasicDetails basicDetails = new EmployeebasicDetails(
+                        resultSet.getString("name"),
+                        resultSet.getString("id"),
+                        resultSet.getString("email"),
+                        resultSet.getLong("phoneNumber")
+                );
+                employee = new Employee(basicDetails, permanentAddress, temporaryAddress);
+                employees.add(employee);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return employees;
+   }
+    public void closeConnections() {
+        try {
+            if (resultSet != null) {
+                resultSet.close();
+            }
+            if (preparedStatement != null) {
+                preparedStatement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
+
 }

@@ -26,11 +26,11 @@ public class AccountService {
             return false;
         }
     }
-    public void callWithdraw(String username,String password, double withdrawAmount){
+    public Double callWithdraw(String username,String password, double withdrawAmount){
         try {
-             userRepository.withdraw(username,password,withdrawAmount);
+            return userRepository.withdraw(username,password,withdrawAmount);
         }catch (Exception e){
-            return;
+            return null;
         }
     }
     public void callAddTransactions(Account account){

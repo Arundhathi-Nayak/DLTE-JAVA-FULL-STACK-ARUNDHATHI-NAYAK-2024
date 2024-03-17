@@ -182,7 +182,7 @@ public class UserDatabaseRepository implements UserRepository {
     }
 
     @Override
-    public void withdraw(String username, String password, double withdrawAmount) {
+    public double withdraw(String username, String password, double withdrawAmount) {
         try {
             if (verifyPassword(username, password)) {
                 String query = "select balance from my_bank where username=?";
@@ -193,6 +193,7 @@ public class UserDatabaseRepository implements UserRepository {
                     Double currentBalance = resultSet.getDouble(1);
                     if (currentBalance - withdrawAmount < 0) {
                         //low balance
+                        throw new WithdrawException();
                     } else {
                         String query1 = "update my_bank set balance=? where username=?";
                         preparedStatement = connection.prepareStatement(query1);
@@ -204,7 +205,7 @@ public class UserDatabaseRepository implements UserRepository {
                         preparedStatement = connection.prepareStatement(query3);
                         resultSet=preparedStatement.executeQuery();
                         if (resultSet.next())
-                        transactionID = resultSet.getLong(1);
+                            transactionID = resultSet.getLong(1);
                         preparedStatement = connection.prepareStatement(query2);
                         preparedStatement.setLong(1, (transactionID+1));
                         preparedStatement.setDate(2, Date.valueOf(LocalDate.now()));
@@ -216,11 +217,17 @@ public class UserDatabaseRepository implements UserRepository {
 
                 }
             }
+            System.out.println(resourceBundle.getString("withdraw.success"));
             System.out.println("Balance is " + balance(username));
-     //       logger.log(Level.INFO,resourceBundle.getString("withdraw.success"));
-        } catch (SQLException e) {
+
+            logger.log(Level.INFO,resourceBundle.getString("withdraw.success"));
+        }catch(WithdrawException e){
+            System.out.println(resourceBundle.getString("no.money"));
+        }
+        catch (SQLException e) {
             e.printStackTrace();
         }
+        return balance(username);
     }
 
     @Override

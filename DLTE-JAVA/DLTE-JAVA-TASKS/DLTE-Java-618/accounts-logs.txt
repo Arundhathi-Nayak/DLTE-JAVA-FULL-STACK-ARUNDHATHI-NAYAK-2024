@@ -390,3 +390,15 @@ Mar 14, 2024 8:54:39 AM app.mobilebanking.App main
 INFO: login Successful
 Mar 14, 2024 8:54:52 AM org.example.middleware.UserDatabaseRepository withdraw
 INFO: Withdrawal is successful
+Mar 15, 2024 10:27:54 AM app.mobilebanking.App main
+INFO: login Successful
+Mar 15, 2024 10:28:42 AM org.example.middleware.UserDatabaseRepository verifyPassword
+WARNING: Login Failed!
+Mar 15, 2024 2:59:55 PM app.mobilebanking.App main
+INFO: login Successful
+Mar 15, 2024 3:00:04 PM org.example.middleware.UserDatabaseRepository verifyPassword
+WARNING: Login Failed!
+Mar 15, 2024 3:00:46 PM org.example.middleware.UserDatabaseRepository withdraw
+INFO: Withdrawal is successful
+Mar 15, 2024 3:01:12 PM org.example.middleware.UserDatabaseRepository withdraw
+INFO: Withdrawal is successful

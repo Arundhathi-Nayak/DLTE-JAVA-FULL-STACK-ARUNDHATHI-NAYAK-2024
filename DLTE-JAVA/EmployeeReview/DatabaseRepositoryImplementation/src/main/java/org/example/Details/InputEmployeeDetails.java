@@ -7,4 +7,5 @@ public interface InputEmployeeDetails {
     Employee displayBasedOnEmployeeId(String employeeID);
     Employee displayBasedOnPinCode(int pinCode);
     List<Employee> read();
+    void closeConnections();
 }
