@@ -122,7 +122,7 @@ public class UserFileRepository implements UserRepository {
     }
     // Method for withdrawal of money
     @Override
-    public void withdraw(String username,String password,double withdrawAmount) {
+    public double withdraw(String username,String password,double withdrawAmount) {
         readFromFile();
         if(verifyPassword(username,password)){
             Account account = accountList.stream().filter(each -> each.getUsername().equals(username)).findFirst().orElse(null);
@@ -133,7 +133,7 @@ public class UserFileRepository implements UserRepository {
                 account.setBalance(account.getBalance()-withdrawAmount);
                 writeIntoFile();
                 System.out.println(resourceBundle.getString("remaining.balance")+balance(username));
-                return;
+
             }
 
         }
@@ -141,6 +141,7 @@ public class UserFileRepository implements UserRepository {
             logger.log(Level.WARNING,resourceBundle.getString("password.incorrect"));
             System.out.println(resourceBundle.getString("password.incorrect"));
         }
+        return  balance(username);
     }
     //Filtering to get only balance from transaction object
     @Override
@@ -167,6 +168,11 @@ public class UserFileRepository implements UserRepository {
 
     @Override
     public List<Transaction> findAllByDate(Date date, String s) {
+        return null;
+    }
+
+    @Override
+    public org.example.entity.Account findUserByUsername(String s) {
         return null;
     }
 

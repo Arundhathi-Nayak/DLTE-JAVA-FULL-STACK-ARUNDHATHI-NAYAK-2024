@@ -7,6 +7,8 @@ import org.example.Details.Employee;
 import org.example.Details.EmployeeAddress;
 import org.example.Details.EmployeebasicDetails;
 import org.example.Details.InputEmployeeDetails;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -19,6 +21,8 @@ public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
     ResourceBundle resourceBundle= ResourceBundle.getBundle("Database");
     PreparedStatement preparedStatement;
     ResultSet resultSet;
+
+    Logger logger= LoggerFactory.getLogger(DatabaseRepositoryImplementation.class);
     ResourceBundle resourceBundle1= ResourceBundle.getBundle("application");
     public DatabaseRepositoryImplementation() {
         try{
@@ -84,11 +88,14 @@ public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
 //               if(resultTemporary!=0) System.out.println("Temporary address inserted");
 //               if(resultPermanent!=0) System.out.println("Permanent address inserted");
 //                if(resultInformation!=0) System.out.println("Additional information added");
-                System.out.println(resourceBundle1.getString("employee.add")+" " + employeeID +" "+resourceBundle1.getString("employeeAdd.success"));
+                System.out.println(resourceBundle1.getString("employee.add") + employeeID +" "+resourceBundle1.getString("employeeAdd.success"));
+                logger.info(resourceBundle1.getString("employee.add")+ employeeID +" "+resourceBundle1.getString("employeeAdd.success"));
+
 
             }catch (SQLException e) {
                 if (e instanceof SQLIntegrityConstraintViolationException) {
                     System.out.println(resourceBundle1.getString("Fail.insert") +" "+ employeeID + " "+resourceBundle1.getString("employee.exists"));
+                    logger.warn(resourceBundle1.getString("Fail.insert") +" "+ employeeID + " "+resourceBundle1.getString("employee.exists"));
                 } else {
                     e.printStackTrace();
                 }
@@ -136,6 +143,8 @@ public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
                 );
 
                 employee = new Employee(basicDetails, permanentAddr, temporaryAddr);
+            }else{
+                throw new EmployeeNotFoundException(resourceBundle1.getString("no.employee") + employeeId);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -181,6 +190,8 @@ public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
                 );
 
                 employee = new Employee(basicDetails, permanentAddr, temporaryAddr);
+            }else {
+                throw new EmployeeNotFoundException(resourceBundle1.getString("no.pincode")+ pinCode);
             }
         } catch (SQLException e) {
             e.printStackTrace();

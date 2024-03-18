@@ -52,6 +52,7 @@ public class App {
             // checking for input format
             catch (InputMismatchException inputMismatchException) {
                 System.out.println(resourceBundle.getString("Enter.number1"));
+                logger.log(Level.WARNING,resourceBundle.getString("Enter.number1"));
                 scanner.nextLine();
             }
         }while (!validate);

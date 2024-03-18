@@ -17,7 +17,7 @@ import java.util.List;
 
 @WebServlet("RestGetMapping")
 public class RestGetMapping extends HttpServlet {
-    AccountService accountService;
+    public AccountService accountService;
 
     @Override
     public void init() throws ServletException {
@@ -26,7 +26,7 @@ public class RestGetMapping extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         if(req.getParameter("date")!=null && req.getParameter("username")!=null){
             List<Transaction> transactionList = accountService.callFindAllDate(Date.valueOf(req.getParameter("date")),req.getParameter("username"));
             for(Transaction each:transactionList) {

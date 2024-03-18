@@ -1,5 +1,6 @@
 package org.example;
 
+import exception.EmployeeNotFoundException;
 import org.example.Details.Employee;
 import org.example.Details.EmployeeAddress;
 import org.example.Details.EmployeebasicDetails;
@@ -112,15 +113,14 @@ public class ConsoleApp {
                         case 2:
                             System.out.println(resourceBundle.getString("enter.id"));
                             String employeeId = scanner.next();
-                            Employee employe = inputEmployeeDetails.displayBasedOnEmployeeId(employeeId);
-                            if (employe != null) {
-                                System.out.println(employe.displayEmployeeDetails());
-                            } else {
-                                System.out.println(resourceBundle.getString("employee.not.found"));
-                                logger.warn(resourceBundle.getString("employee.not.found"));
+                            try {
+                                Employee employee = inputEmployeeDetails.displayBasedOnEmployeeId(employeeId);
+                                System.out.println(employee.displayEmployeeDetails());
+                            } catch (EmployeeNotFoundException e) {
+                                System.out.println(e.getMessage());
+                                logger.warn(e.getMessage());
                             }
                             break;
-
 
                         case 3:
                             List<Employee> allEmployees = inputEmployeeDetails.read();
@@ -137,12 +137,12 @@ public class ConsoleApp {
                         case 4:
                             System.out.println(resourceBundle.getString("enter.pincode"));
                             int pinCode = scanner.nextInt();
-                            Employee empPinCode = inputEmployeeDetails.displayBasedOnPinCode(pinCode);
-                            if (empPinCode != null) {
-                                System.out.println(empPinCode.displayEmployeeDetails());
-                            } else {
-                                System.out.println(resourceBundle.getString("employee.not.found"));
-                                logger.warn(resourceBundle.getString("employee.not.found"));
+                            try {
+                                Employee employee = inputEmployeeDetails.displayBasedOnPinCode(pinCode);
+                                System.out.println(employee.displayEmployeeDetails());
+                            } catch (EmployeeNotFoundException e) {
+                                System.out.println(e.getMessage());
+                                logger.warn(e.getMessage());
                             }
                             break;
                         case 5:
