@@ -5,7 +5,9 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 
 import org.example.entity.Account;
+import org.example.remotes.StorageTarget;
 import org.example.services.AccountService;
+import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -26,13 +28,19 @@ public class AppTest
      @Mock
     CallOperationService callOperationService;
 
+    @Before
+    public void setUp(){
+        callOperationService.getCallOperationPort();
+        callOperationService =new CallOperationService();
+    }
+
     @Test
     public void testFindByUser() {
         String username = "arundhathi12";
-        Account expectedAccount = new Account();
-        when(accountService.findUserByUsername(username)).thenReturn(expectedAccount);
+        Account newAccount = new Account();
+        when(accountService.findUserByUsername(username)).thenReturn(newAccount);
         soapwebservice.Account actualAccount = callOperation.findByUser(username);
-        assertEquals(expectedAccount, actualAccount);
+        assertEquals(newAccount, actualAccount);
     }
 
     @Test
