@@ -16,7 +16,7 @@ import java.io.IOException;
 
 @WebServlet("findInAccountUsername")
 public class FindInAccountUsername extends HttpServlet {
-    AccountService accountService;
+    public AccountService accountService;
 
     @Override
     public void init() throws ServletException {

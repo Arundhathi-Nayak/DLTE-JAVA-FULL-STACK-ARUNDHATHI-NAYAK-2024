@@ -1,24 +1,24 @@
-package org.example.Details;
+package entity.pojo;
 
-public class EmployeebasicDetails {
+public class EmployeeBasicDetailsConsole {
     private String employeeName;
     private String employeeId;
     private String emailId;
     private long phoneNumber;
 
-    public EmployeebasicDetails(String employeeName, String employeeId, String emailId, long phoneNumber) {
+    public EmployeeBasicDetailsConsole() {
+    }
+
+    public EmployeeBasicDetailsConsole(String employeeName, String employeeId, String emailId, long phoneNumber) {
         this.employeeName = employeeName;
         this.employeeId = employeeId;
         this.emailId = emailId;
         this.phoneNumber = phoneNumber;
     }
 
-    public EmployeebasicDetails() {
-    }
-
     @Override
     public String toString() {
-        return "EmployeebasicDetails{" +
+        return "EmployeeBasicDetailsConsole{" +
                 "employeeName='" + employeeName + '\'' +
                 ", employeeId='" + employeeId + '\'' +
                 ", emailId='" + emailId + '\'' +

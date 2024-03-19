@@ -16,7 +16,7 @@ import java.util.List;
 
 @WebServlet("findAll")
 public class FindAll extends HttpServlet {
-        AccountService accountService;
+      public  AccountService accountService;
 
         @Override
         public void init() throws ServletException {
@@ -25,7 +25,7 @@ public class FindAll extends HttpServlet {
         }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("application/json");
         List<Transaction> transactionList=accountService.callFindAll();
         Gson gson=new Gson();

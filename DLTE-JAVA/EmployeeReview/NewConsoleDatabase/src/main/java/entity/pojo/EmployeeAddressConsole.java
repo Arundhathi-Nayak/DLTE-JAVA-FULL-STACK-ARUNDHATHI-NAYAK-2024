@@ -1,26 +1,18 @@
-package org.example.Details;
+package entity.pojo;
 
-public class EmployeeAddress {
+public class EmployeeAddressConsole {
     private String address;
     private String houseNumber;
     private String state;
     private String city;
     private Integer pinCode;
 
-    public EmployeeAddress(String address, String houseNumber, String state, String city, Integer pinCode) {
-        this.address = address;
-        this.houseNumber = houseNumber;
-        this.state = state;
-        this.city = city;
-        this.pinCode = pinCode;
-    }
-
-    public EmployeeAddress() {
+    public EmployeeAddressConsole() {
     }
 
     @Override
     public String toString() {
-        return "EmployeeAddress{" +
+        return "EmployeeAddressConsole{" +
                 "address='" + address + '\'' +
                 ", houseNumber='" + houseNumber + '\'' +
                 ", state='" + state + '\'' +
@@ -66,6 +58,14 @@ public class EmployeeAddress {
     }
 
     public void setPinCode(Integer pinCode) {
+        this.pinCode = pinCode;
+    }
+
+    public EmployeeAddressConsole(String address, String houseNumber, String state, String city, Integer pinCode) {
+        this.address = address;
+        this.houseNumber = houseNumber;
+        this.state = state;
+        this.city = city;
         this.pinCode = pinCode;
     }
 }

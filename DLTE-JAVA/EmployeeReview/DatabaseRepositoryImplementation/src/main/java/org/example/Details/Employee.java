@@ -38,6 +38,9 @@ public class Employee {
         this.employeebasicDetails = employeebasicDetails;
     }
 
+    public Employee() {
+    }
+
     public EmployeeAddress getEmployeePermanentAddress() {
         return employeePermanentAddress;
     }

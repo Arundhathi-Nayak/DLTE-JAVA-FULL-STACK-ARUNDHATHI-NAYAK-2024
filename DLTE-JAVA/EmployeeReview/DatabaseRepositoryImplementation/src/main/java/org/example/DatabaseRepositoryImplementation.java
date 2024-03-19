@@ -80,14 +80,14 @@ public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
                 int resultInformation=preparedStatement.executeUpdate();
 //                connection.commit();
 
-//                if(resultBasic!=0){
-//                    System.out.println("Basic details inserted");
-//                }else{
-//                    System.out.println("failed");
-//                }
-//               if(resultTemporary!=0) System.out.println("Temporary address inserted");
-//               if(resultPermanent!=0) System.out.println("Permanent address inserted");
-//                if(resultInformation!=0) System.out.println("Additional information added");
+                if(resultBasic!=0){
+                    System.out.println("Basic details inserted");
+                }else{
+                    System.out.println("failed");
+                }
+               if(resultTemporary!=0) System.out.println("Temporary address inserted");
+               if(resultPermanent!=0) System.out.println("Permanent address inserted");
+                if(resultInformation!=0) System.out.println("Additional information added");
                 System.out.println(resourceBundle1.getString("employee.add") + employeeID +" "+resourceBundle1.getString("employeeAdd.success"));
                 logger.info(resourceBundle1.getString("employee.add")+ employeeID +" "+resourceBundle1.getString("employeeAdd.success"));
 

@@ -11,3 +11,12 @@
 22:00:35.226 [31m[main][0;39m WARN  org.example.ConsoleApp - [31mNo employees found for pin code: 345678[0;39m 
 22:14:39.279 [31m[main][0;39m WARN  org.example.ConsoleApp - [31mNo employees found for pin code: 234211[0;39m 
 22:14:46.627 [31m[main][0;39m WARN  org.example.ConsoleApp - [31mEmployee not found with ID: 65[0;39m 
+11:28:23.562 [31m[main][0;39m WARN  o.e.DatabaseRepositoryImplementation - [31mFailed to insert employee with ID  12 : Employee ID already exists [0;39m 
+11:29:53.611 [34m[main][0;39m INFO  o.e.DatabaseRepositoryImplementation - [34mEmployee with ID  31 successfully added[0;39m 
+13:01:38.036 [31m[main][0;39m WARN  o.e.DatabaseRepositoryImplementation - [31mFailed to insert employee with ID  12 : Employee ID already exists [0;39m 
+16:36:37.614 [31m[main][0;39m WARN  o.e.DatabaseRepositoryImplementation - [31mFailed to insert employee with ID  13 : Employee ID already exists [0;39m 
+16:45:24.454 [31m[main][0;39m WARN  o.e.DatabaseRepositoryImplementation - [31mFailed to insert employee with ID  15 : Employee ID already exists [0;39m 
+17:37:47.870 [31m[main][0;39m WARN  org.example.ConsoleApp - [31mEmployee not found with ID: 13[0;39m 
+17:44:43.299 [34m[main][0;39m INFO  o.e.DatabaseRepositoryImplementation - [34mEmployee with ID  17 successfully added[0;39m 
+17:55:14.187 [34m[main][0;39m INFO  o.e.DatabaseRepositoryImplementation - [34mEmployee with ID  1 successfully added[0;39m 
+17:56:15.928 [34m[main][0;39m INFO  o.e.DatabaseRepositoryImplementation - [34mEmployee with ID  4 successfully added[0;39m 

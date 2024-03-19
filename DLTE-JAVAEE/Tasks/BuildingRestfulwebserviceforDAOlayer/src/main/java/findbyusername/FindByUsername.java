@@ -16,7 +16,7 @@ import java.util.List;
 
 @WebServlet("findByUsername")
 public class FindByUsername extends HttpServlet {
-    AccountService accountService;
+  public AccountService accountService;
 
     @Override
     public void init() throws ServletException {
@@ -25,7 +25,7 @@ public class FindByUsername extends HttpServlet {
     }
 
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username=req.getParameter("username");
         resp.setContentType("application/json");
         List<Transaction> transactions=accountService.callFindAllUser(username);
