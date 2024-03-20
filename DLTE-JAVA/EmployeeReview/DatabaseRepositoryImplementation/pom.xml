@@ -41,8 +41,13 @@
       <artifactId>slf4j-api</artifactId>
       <version>2.0.7</version>
     </dependency>
+    <dependency>
+      <groupId>org.validation</groupId>
+      <artifactId>Validation</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
 <!--    <dependency>-->
-<!--      <groupId>org.example</groupId>-->
+<!--      <groupId>org.reviewdatabase</groupId>-->
 <!--      <artifactId>middleware</artifactId>-->
 <!--      <version>1.0-SNAPSHOT</version>-->
 <!--    </dependency>-->

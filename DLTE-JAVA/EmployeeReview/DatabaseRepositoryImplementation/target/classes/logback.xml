@@ -1,23 +1,36 @@
 <configuration>
 
     <!-- Define appenders -->
-    <appender name="myConsole" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>%highlight([%thread]) %highlight(%-5level) %logger{36} - %highlight(%msg) %d{dd/MM/YYYY HH:mm:ss} %n</pattern>
-        </encoder>
-    </appender>
+<!--    <appender name="myConsole" class="ch.qos.logback.core.ConsoleAppender">-->
+<!--        <encoder>-->
+<!--            <pattern>%highlight([%thread]) %highlight(%-5level) %logger{36} - %highlight(%msg) %d{dd/MM/YYYY HH:mm:ss} %n</pattern>-->
+<!--        </encoder>-->
+<!--    </appender>-->
 
     <!-- Define file appender -->
-    <appender name="myLogs" class="ch.qos.logback.core.FileAppender">
-        <file>C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-JAVA\DLTE-JAVA-TASKS\app.log</file> <!-- Define log file name and path -->
+<!--    <appender name="myLogs" class="ch.qos.logback.core.FileAppender">-->
+<!--        <file>C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-JAVA\DLTE-JAVA-TASKS\app.log</file> &lt;!&ndash; Define log file name and path &ndash;&gt;-->
+<!--        <encoder>-->
+<!--            <pattern>%d{HH:mm:ss.SSS} %highlight([%thread]) %-5level %logger{36} - %highlight(%msg) %n</pattern>-->
+<!--        </encoder>-->
+<!--    </appender>-->
+
+    <appender name="myLogs" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-JAVA\DLTE-JAVA-TASKS\app.log</file>
         <encoder>
-            <pattern>%d{HH:mm:ss.SSS} %highlight([%thread]) %-5level %logger{36} - %highlight(%msg) %n</pattern>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-JAVA\DLTE-JAVA-TASKS\app.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <maxFileSize>1KB</maxFileSize>
+            <maxHistory>1</maxHistory>
+        </rollingPolicy>
     </appender>
+
 
     <!-- Root logger settings -->
     <root level="INFO">
-        <appender-ref ref="myConsole" />
+<!--        <appender-ref ref="myConsole" />-->
         <appender-ref ref="myLogs" /> <!-- Attach file appender -->
     </root>
 

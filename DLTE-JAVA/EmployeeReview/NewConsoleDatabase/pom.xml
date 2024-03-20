@@ -26,6 +26,11 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <groupId>org.validation</groupId>
+      <artifactId>Validation</artifactId>
+      <version>1.0-SNAPSHOT</version>
+    </dependency>
+    <dependency>
       <groupId>ch.qos.logback</groupId>
       <artifactId>logback-classic</artifactId>
       <version>1.3.14</version>

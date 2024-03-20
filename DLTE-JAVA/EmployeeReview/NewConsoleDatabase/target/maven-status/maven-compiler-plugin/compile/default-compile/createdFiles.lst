@@ -1,0 +1,8 @@
+org\consolemethod\PojoConsoleApp.class
+org\consolemethod\App.class
+org\consolemethod\Validation.class
+entity\pojo\EmployeeAddressConsole.class
+entity\pojo\EmployeeBasicDetailsConsole.class
+org\consolemethod\ConsoleApp.class
+org\consolemethod\UserConsole.class
+entity\pojo\EmployeeConsole.class

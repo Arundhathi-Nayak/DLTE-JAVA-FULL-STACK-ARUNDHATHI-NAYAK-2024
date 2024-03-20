@@ -37,7 +37,22 @@ public class EmployeeConsole {
     public void setEmployeeTemporaryAddressConsole(EmployeeAddressConsole getEmployeeTemporaryAddressConsole) {
         this.employeeTemporaryAddressConsole = getEmployeeTemporaryAddressConsole;
     }
-
+    public String displayEmployeeDetails() {
+        return "Employee ID: " + employeeBasicDetailsConsole.getEmployeeId() +
+                "\nName: " + employeeBasicDetailsConsole.getEmployeeName() +
+                "\nEmail: " + employeeBasicDetailsConsole.getEmailId() +
+                "\nPhone Number: " + employeeBasicDetailsConsole.getPhoneNumber() +
+                "\nPermanent Address: " + employeePermanentAddressConsole.getAddress() +
+                "\nPermanent House Number: " + employeePermanentAddressConsole.getHouseNumber() +
+                "\nPermanent City: " + employeePermanentAddressConsole.getCity() +
+                "\nPermanent State: " + employeePermanentAddressConsole.getState() +
+                "\nPermanent Pin Code: " + employeePermanentAddressConsole.getPinCode() +
+                "\nTemporary Address: " + employeeTemporaryAddressConsole.getAddress() +
+                "\nTemporary House Number: " + employeeTemporaryAddressConsole.getHouseNumber() +
+                "\nTemporary City: " + employeeTemporaryAddressConsole.getCity() +
+                "\nTemporary State: " + employeeTemporaryAddressConsole.getState() +
+                "\nTemporary Pin Code: " + employeeTemporaryAddressConsole.getPinCode();
+    }
     @Override
     public String toString() {
         return "EmployeeConsole{" +

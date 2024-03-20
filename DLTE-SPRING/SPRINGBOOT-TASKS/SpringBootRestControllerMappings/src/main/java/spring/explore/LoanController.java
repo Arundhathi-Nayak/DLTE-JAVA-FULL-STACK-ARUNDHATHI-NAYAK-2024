@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-
+// http://localhost:8181/loans/3
 @RestController
 @RequestMapping("/loans")
 public class LoanController {
