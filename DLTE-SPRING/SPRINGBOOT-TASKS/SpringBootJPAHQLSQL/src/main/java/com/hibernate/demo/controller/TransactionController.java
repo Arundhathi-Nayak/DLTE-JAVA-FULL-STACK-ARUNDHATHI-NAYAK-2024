@@ -2,6 +2,7 @@ package com.hibernate.demo.controller;
 
 import com.hibernate.demo.model.Transaction;
 import com.hibernate.demo.remotes.TransactionRepository;
+import com.hibernate.demo.services.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +13,7 @@ import java.util.List;
 @RequestMapping("/transactions")
 public class TransactionController {
     @Autowired
-    private TransactionRepository transactionRepository;
+  private TransactionService transactionService;
     // http://localhost:8082/transactions/
     @PostMapping(value="/",consumes = "application/xml")
     //    <List>
@@ -31,7 +32,7 @@ public class TransactionController {
 //        <balance>2000.0</balance>
 //    </Transaction>
     public ResponseEntity<Transaction> createTransaction(@RequestBody Transaction transaction) {
-        Transaction savedTransaction = transactionRepository.save(transaction);
+        Transaction savedTransaction = transactionService.callSave(transaction);
         return ResponseEntity.ok(savedTransaction);
     }
 
@@ -40,7 +41,7 @@ public class TransactionController {
     // http://localhost:8082/transactions/user/6/deposit
 
     public List<Transaction> findAllByUserAndType(@PathVariable Long userId, @PathVariable String type) {
-        List<Transaction> transactions = (List<Transaction>) transactionRepository.findAllByUserAndType(userId, type);
+        List<Transaction> transactions = transactionService.callFindAllByUserAndType(userId, type);
         return transactions;
     }
 
@@ -48,7 +49,7 @@ public class TransactionController {
     @GetMapping("/amount/{minAmount}/{maxAmount}")
    //@GetMapping(value="/amount/{minAmount}/{maxAmount}",produces = "application/xml")
     public ResponseEntity<List<Transaction>> findAllByRangeOfTransactionAmount(@PathVariable double minAmount, @PathVariable double maxAmount) {
-        List<Transaction> transactions = transactionRepository.findAllByRangeOfTransactionAmount(minAmount, maxAmount);
+        List<Transaction> transactions = transactionService.callFindAllByRangeOfTransactionAmount(minAmount, maxAmount);
         return ResponseEntity.ok(transactions);
     }
 }

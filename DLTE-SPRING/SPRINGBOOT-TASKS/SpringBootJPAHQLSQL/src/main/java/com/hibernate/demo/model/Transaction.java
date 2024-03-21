@@ -5,6 +5,7 @@ import java.util.Date;
 
 @Entity
 @Table(name="names_transaction")
+
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
