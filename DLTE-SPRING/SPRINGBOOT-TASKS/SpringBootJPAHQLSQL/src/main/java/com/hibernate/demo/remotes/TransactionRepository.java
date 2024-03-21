@@ -12,9 +12,10 @@ import java.util.List;
 public interface TransactionRepository extends JpaRepository<Transaction,Long> {
 
     Transaction save(Transaction transaction);
-    @Query(value = "SELECT * FROM user_transaction WHERE user_id = :userId AND type = :type", nativeQuery = true)
+
+    @Query(value = "SELECT * FROM names_transaction WHERE transactionid = :userId AND name= :type", nativeQuery = true)
     List<Transaction> findAllByUserAndType(@Param("userId") Long userId, @Param("type") String type);
 
-    @Query("SELECT t FROM Transaction t WHERE t.amount >= :minAmount AND t.amount <= :maxAmount")
+    @Query("FROM Transaction  WHERE transactionAmount >= :minAmount AND transactionAmount <= :maxAmount")
     List<Transaction> findAllByRangeOfTransactionAmount(@Param("minAmount") double minAmount, @Param("maxAmount") double maxAmount);
 }

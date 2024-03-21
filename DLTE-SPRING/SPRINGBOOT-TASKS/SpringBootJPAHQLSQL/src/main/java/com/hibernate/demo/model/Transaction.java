@@ -4,37 +4,30 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="user_transaction")
+@Table(name="names_transaction")
 public class Transaction {
-    @Temporal(TemporalType.DATE)
-    private Date date;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
+    @SequenceGenerator(name = "native", sequenceName = "product_seq",allocationSize = 1)
     private long transactionID;
-    private String user;
-    private double amount;
+    @Temporal(TemporalType.DATE)
+    private Date transactionDate;
+    private String name;
+    private double transactionAmount;
     private double balance;
-
-    public Transaction() {
-    }
 
     @Override
     public String toString() {
         return "Transaction{" +
-                "date=" + date +
-                ", transactionID=" + transactionID +
-                ", user='" + user + '\'' +
-                ", amount=" + amount +
+                "transactionID=" + transactionID +
+                ", transactionDate=" + transactionDate +
+                ", name='" + name + '\'' +
+                ", transactionAmount=" + transactionAmount +
                 ", balance=" + balance +
                 '}';
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
-        this.date = date;
+    public Transaction() {
     }
 
     public long getTransactionID() {
@@ -45,20 +38,28 @@ public class Transaction {
         this.transactionID = transactionID;
     }
 
-    public String getUser() {
-        return user;
+    public Date getTransactionDate() {
+        return transactionDate;
     }
 
-    public void setUser(String user) {
-        this.user = user;
+    public void setTransactionDate(Date transactionDate) {
+        this.transactionDate = transactionDate;
     }
 
-    public double getAmount() {
-        return amount;
+    public String getName() {
+        return name;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getTransactionAmount() {
+        return transactionAmount;
+    }
+
+    public void setTransactionAmount(double transactionAmount) {
+        this.transactionAmount = transactionAmount;
     }
 
     public double getBalance() {
@@ -69,11 +70,11 @@ public class Transaction {
         this.balance = balance;
     }
 
-    public Transaction(Date date, long transactionID, String user, double amount, double balance) {
-        this.date = date;
+    public Transaction(long transactionID, Date transactionDate, String name, double transactionAmount, double balance) {
         this.transactionID = transactionID;
-        this.user = user;
-        this.amount = amount;
+        this.transactionDate = transactionDate;
+        this.name = name;
+        this.transactionAmount = transactionAmount;
         this.balance = balance;
     }
 }

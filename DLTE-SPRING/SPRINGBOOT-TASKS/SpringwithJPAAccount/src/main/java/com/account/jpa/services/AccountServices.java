@@ -14,7 +14,7 @@ public class AccountServices {
         return accountRepository.save(account);
     }
     public List<Account> callFindAll(){
-        return accountRepository.findAll();
+        return (List<Account>) accountRepository.findAll();
     }
 
 }

@@ -3,7 +3,6 @@ package com.hibernate.demo.controller;
 import com.hibernate.demo.model.Transaction;
 import com.hibernate.demo.remotes.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,22 +13,58 @@ import java.util.List;
 public class TransactionController {
     @Autowired
     private TransactionRepository transactionRepository;
-
-    @PostMapping(consumes = MediaType.APPLICATION_XML_VALUE)
+    // http://localhost:8082/transactions/
+    @PostMapping(value="/",consumes = "application/xml")
+    //    <List>
+//    <item>
+//        <transactionID>1237</transactionID>
+//        <transactionDate>2024-03-15</transactionDate>
+//        <name>deposit</name>
+//        <transactionAmount>210.0</transactionAmount>
+//        <balance>20000.0</balance>
+//    </item>
+//</List>
+//    <Transaction>
+//        <transactionDate>2024-03-15</transactionDate>
+//        <name>deposit</name>
+//        <transactionAmount>280.0</transactionAmount>
+//        <balance>2000.0</balance>
+//    </Transaction>
     public ResponseEntity<Transaction> createTransaction(@RequestBody Transaction transaction) {
         Transaction savedTransaction = transactionRepository.save(transaction);
         return ResponseEntity.ok(savedTransaction);
     }
 
-    @GetMapping("/user/{userId}/type/{type}")
-    public ResponseEntity<List<Transaction>> findAllByUserAndType(@PathVariable Long userId, @PathVariable String type) {
-        List<Transaction> transactions = transactionRepository.findAllByUserAndType(userId, type);
-        return ResponseEntity.ok(transactions);
+    @GetMapping("/user/{userId}/{type}")
+
+    // http://localhost:8082/transactions/user/6/deposit
+
+    public List<Transaction> findAllByUserAndType(@PathVariable Long userId, @PathVariable String type) {
+        List<Transaction> transactions = (List<Transaction>) transactionRepository.findAllByUserAndType(userId, type);
+        return transactions;
     }
 
-    @GetMapping("/amount-range")
-    public ResponseEntity<List<Transaction>> findAllByRangeOfTransactionAmount(@RequestParam double minAmount, @RequestParam double maxAmount) {
+    //http://localhost:8082/transactions/amount/200/280
+    @GetMapping("/amount/{minAmount}/{maxAmount}")
+   //@GetMapping(value="/amount/{minAmount}/{maxAmount}",produces = "application/xml")
+    public ResponseEntity<List<Transaction>> findAllByRangeOfTransactionAmount(@PathVariable double minAmount, @PathVariable double maxAmount) {
         List<Transaction> transactions = transactionRepository.findAllByRangeOfTransactionAmount(minAmount, maxAmount);
         return ResponseEntity.ok(transactions);
     }
 }
+//[
+//        {
+//        "transactionID": 1237,
+//        "transactionDate": "2024-03-15",
+//        "name": "deposit",
+//        "transactionAmount": 210.0,
+//        "balance": 20000.0
+//        },
+//        {
+//        "transactionID": 6,
+//        "transactionDate": "2024-03-15",
+//        "name": "deposit",
+//        "transactionAmount": 280.0,
+//        "balance": 2000.0
+//        }
+//        ]
