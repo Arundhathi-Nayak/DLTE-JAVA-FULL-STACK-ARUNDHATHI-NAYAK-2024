@@ -15,7 +15,11 @@ import java.io.IOException;
 import java.sql.Date;
 import java.util.List;
 
-@WebServlet("RestGetMapping")
+
+//   http://localhost:7001/RestGetMapping?date=2024-03-13&username=shreyas12
+//   http://localhost:7001/RestGetMapping?username=shreyas12
+
+@WebServlet("/RestGetMapping")
 public class RestGetMapping extends HttpServlet {
     public AccountService accountService;
 
