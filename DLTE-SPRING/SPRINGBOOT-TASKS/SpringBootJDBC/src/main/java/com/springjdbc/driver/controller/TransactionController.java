@@ -9,7 +9,15 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/transactions")
-// username : aru password : nayak  go to link   http://localhost:8082/profile/register
+// username : aru password : nayak  go to link   http://localhost:8082/profile/register   post
+//{
+//        "name":"Arundhathi",
+//        "username":"aru",
+//        "password":"nayak",
+//        "email":"nayak@123",
+//        "contact": 9876543212,
+//        "aadhaar":123456789987
+//        }
 
 // give authentication and run url
 public class TransactionController {

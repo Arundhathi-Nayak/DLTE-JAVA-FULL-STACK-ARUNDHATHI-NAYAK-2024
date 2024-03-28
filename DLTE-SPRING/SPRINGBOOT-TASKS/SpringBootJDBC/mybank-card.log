@@ -178,4 +178,48 @@
 [0;39m[31m2024-03-28 10:18:20,497[0;39m [32m[WARN][0;39m com.zaxxer.hikari.pool.HikariPool HikariPool-1 housekeeper [32mHikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=8m3s797ms269µs400ns).
 [0;39m[31m2024-03-28 11:10:36,464[0;39m [32m[WARN][0;39m com.zaxxer.hikari.pool.HikariPool HikariPool-1 housekeeper [32mHikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=50m45s938ms989µs900ns).
 [0;39m[31m2024-03-28 11:26:00,721[0;39m [32m[WARN][0;39m com.zaxxer.hikari.pool.HikariPool HikariPool-1 housekeeper [32mHikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m51s237ms389µs).
+[0;39m[31m2024-03-28 11:31:37,778[0;39m [32m[WARN][0;39m com.zaxxer.hikari.pool.HikariPool HikariPool-1 housekeeper [32mHikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=3m6s143ms237µs900ns).
+[0;39m[31m2024-03-28 12:55:01,557[0;39m [32m[WARN][0;39m com.zaxxer.hikari.pool.HikariPool HikariPool-1 housekeeper [32mHikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=26m52s847ms287µs400ns).
+[0;39m[31m2024-03-28 14:27:07,860[0;39m [32m[WARN][0;39m com.zaxxer.hikari.pool.HikariPool HikariPool-1 housekeeper [32mHikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1h13m5s985ms960µs500ns).
+[0;39m[31m2024-03-28 15:19:55,244[0;39m [32m[WARN][0;39m com.zaxxer.hikari.pool.HikariPool HikariPool-1 housekeeper [32mHikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=52m47s379ms456µs600ns).
+[0;39m[31m2024-03-28 16:13:36,560[0;39m [32m[WARN][0;39m com.zaxxer.hikari.pool.HikariPool HikariPool-1 housekeeper [32mHikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=53m11s300ms499µs700ns).
+[0;39m[31m2024-03-28 20:53:32,960[0;39m [32m[INFO][0;39m com.springjdbc.driver.DriverApplication restartedMain [32mStarting DriverApplication using Java 1.8.0_292 on WPF45CTT7 with PID 21296 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\SpringBootJDBC\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\SpringBootJDBC)
+[0;39m[31m2024-03-28 20:53:32,960[0;39m [32m[INFO][0;39m com.springjdbc.driver.DriverApplication restartedMain [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-03-28 20:53:33,003[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.restart.ChangeableUrls restartedMain [32mThe Class-Path manifest attribute in C:\Users\xxnayaka\.m2\repository\com\oracle\database\security\oraclepki\21.5.0.0\oraclepki-21.5.0.0.jar referenced one or more files that do not exist: file:/C:/Users/xxnayaka/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_core.jar,file:/C:/Users/xxnayaka/.m2/repository/com/oracle/database/security/oraclepki/21.5.0.0/osdt_cert.jar,file:/C:/Users/xxnayaka/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_core.jar,file:/C:/Users/xxnayaka/.m2/repository/com/oracle/database/security/oraclepki/oracle.osdt/osdt_cert.jar
+[0;39m[31m2024-03-28 20:53:33,003[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mDevtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[0;39m[31m2024-03-28 20:53:33,003[0;39m [32m[INFO][0;39m org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor restartedMain [32mFor additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[0;39m[31m2024-03-28 20:53:33,556[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate restartedMain [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[0;39m[31m2024-03-28 20:53:33,561[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate restartedMain [32mFinished Spring Data repository scanning in 5 ms. Found 0 JDBC repository interfaces.
+[0;39m[31m2024-03-28 20:53:34,012[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer restartedMain [32mTomcat initialized with port(s): 8082 (http)
+[0;39m[31m2024-03-28 20:53:34,012[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService restartedMain [32mStarting service [Tomcat]
+[0;39m[31m2024-03-28 20:53:34,012[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine restartedMain [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-03-28 20:53:34,123[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] restartedMain [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-03-28 20:53:34,123[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext restartedMain [32mRoot WebApplicationContext: initialization completed in 1120 ms
+[0;39m[31m2024-03-28 20:53:34,328[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain restartedMain [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2995296e, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2bf48f72, org.springframework.security.web.context.SecurityContextPersistenceFilter@bc9a7ca, org.springframework.security.web.header.HeaderWriterFilter@7b50c701, org.springframework.security.web.authentication.logout.LogoutFilter@17ccc7cf, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@2a287678, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@48281dda, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@6604bd42, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@47a37a7d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@64714d2e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@347c83ed, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@27284f95, org.springframework.security.web.session.SessionManagementFilter@7ab0c50, org.springframework.security.web.access.ExceptionTranslationFilter@16d670c3, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@cfd0706]
+[0;39m[31m2024-03-28 20:53:34,597[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Starting...
+[0;39m[31m2024-03-28 20:53:34,597[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource restartedMain [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[0;39m[31m2024-03-28 20:53:34,692[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase restartedMain [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+[0;39m[31m2024-03-28 20:53:34,692[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Start completed.
+[0;39m[31m2024-03-28 20:53:34,787[0;39m [32m[WARN][0;39m org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer restartedMain [32mUnable to start LiveReload server
+[0;39m[31m2024-03-28 20:53:34,804[0;39m [32m[WARN][0;39m org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext restartedMain [32mException encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8082 is already in use
+[0;39m[31m2024-03-28 20:53:34,804[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Shutdown initiated...
+[0;39m[31m2024-03-28 20:53:34,828[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource restartedMain [32mHikariPool-1 - Shutdown completed.
+[0;39m[31m2024-03-28 20:53:34,831[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService restartedMain [32mStopping service [Tomcat]
+[0;39m[31m2024-03-28 20:53:34,840[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener restartedMain [32m
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[0;39m[31m2024-03-28 20:53:34,867[0;39m [32m[ERROR][0;39m org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter restartedMain [32m
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8082 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8082 or configure this application to listen on another port.
+
 [0;39m
