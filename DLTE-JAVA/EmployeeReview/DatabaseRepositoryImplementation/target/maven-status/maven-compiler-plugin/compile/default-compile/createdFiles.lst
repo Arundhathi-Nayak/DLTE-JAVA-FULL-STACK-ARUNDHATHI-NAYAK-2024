@@ -1,8 +1,8 @@
 org\reviewdatabase\Details\DatabaseRepositoryImplementation.class
 org\reviewdatabase\Details\Employee.class
-exception\EmployeeNotFoundException.class
 org\reviewdatabase\App.class
-org\reviewdatabase\Details\ConnectionCreate.class
 org\reviewdatabase\Details\EmployeebasicDetails.class
 org\reviewdatabase\Details\EmployeeAddress.class
-org\reviewdatabase\Details\InputEmployeeDetails.class
+org\reviewdatabase\remote\InputEmployeeDetails.class
+org\reviewdatabase\exception\EmployeeNotFoundException.class
+org\reviewdatabase\connection\ConnectionCreate.class

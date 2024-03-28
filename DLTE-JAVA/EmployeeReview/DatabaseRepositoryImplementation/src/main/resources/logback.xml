@@ -1,37 +1,76 @@
+<!--<configuration>-->
+
+<!--    &lt;!&ndash; Define appenders &ndash;&gt;-->
+<!--&lt;!&ndash;    <appender name="myConsole" class="ch.qos.logback.core.ConsoleAppender">&ndash;&gt;-->
+<!--&lt;!&ndash;        <encoder>&ndash;&gt;-->
+<!--&lt;!&ndash;            <pattern>%highlight([%thread]) %highlight(%-5level) %logger{36} - %highlight(%msg) %d{dd/MM/YYYY HH:mm:ss} %n</pattern>&ndash;&gt;-->
+<!--&lt;!&ndash;        </encoder>&ndash;&gt;-->
+<!--&lt;!&ndash;    </appender>&ndash;&gt;-->
+
+<!--    &lt;!&ndash; Define file appender &ndash;&gt;-->
+<!--&lt;!&ndash;    <appender name="myLogs" class="ch.qos.logback.core.FileAppender">&ndash;&gt;-->
+<!--&lt;!&ndash;        <file>C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-JAVA\DLTE-JAVA-TASKS\app.log</file> &lt;!&ndash; Define log file name and path &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;        <encoder>&ndash;&gt;-->
+<!--&lt;!&ndash;            <pattern>%d{HH:mm:ss.SSS} %highlight([%thread]) %-5level %logger{36} - %highlight(%msg) %n</pattern>&ndash;&gt;-->
+<!--&lt;!&ndash;        </encoder>&ndash;&gt;-->
+<!--&lt;!&ndash;    </appender>&ndash;&gt;-->
+
+<!--    <appender name="myLogs" class="ch.qos.logback.core.rolling.RollingFileAppender">-->
+<!--        <file>C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-JAVA\DLTE-JAVA-TASKS\app.log</file>-->
+<!--        <encoder>-->
+<!--            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>-->
+<!--        </encoder>-->
+<!--        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">-->
+<!--            <fileNamePattern>C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-JAVA\DLTE-JAVA-TASKS\app.%d{yyyy-MM-dd}.%i.log</fileNamePattern>-->
+<!--            <maxFileSize>1KB</maxFileSize>-->
+<!--            <maxHistory>1</maxHistory>-->
+<!--        </rollingPolicy>-->
+<!--    </appender>-->
+
+
+<!--    &lt;!&ndash; Root logger settings &ndash;&gt;-->
+<!--    <root level="INFO">-->
+<!--&lt;!&ndash;        <appender-ref ref="myConsole" />&ndash;&gt;-->
+<!--        <appender-ref ref="myLogs" /> &lt;!&ndash; Attach file appender &ndash;&gt;-->
+<!--    </root>-->
+
+<!--</configuration>-->
+
 <configuration>
 
-    <!-- Define appenders -->
-<!--    <appender name="myConsole" class="ch.qos.logback.core.ConsoleAppender">-->
-<!--        <encoder>-->
-<!--            <pattern>%highlight([%thread]) %highlight(%-5level) %logger{36} - %highlight(%msg) %d{dd/MM/YYYY HH:mm:ss} %n</pattern>-->
-<!--        </encoder>-->
-<!--    </appender>-->
+<appender name="myLogs" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-JAVA\DLTE-JAVA-TASKS\app.log</file> <!-- Define log file name and path -->
 
-    <!-- Define file appender -->
-<!--    <appender name="myLogs" class="ch.qos.logback.core.FileAppender">-->
-<!--        <file>C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-JAVA\DLTE-JAVA-TASKS\app.log</file> &lt;!&ndash; Define log file name and path &ndash;&gt;-->
-<!--        <encoder>-->
-<!--            <pattern>%d{HH:mm:ss.SSS} %highlight([%thread]) %-5level %logger{36} - %highlight(%msg) %n</pattern>-->
-<!--        </encoder>-->
-<!--    </appender>-->
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+        <fileNamePattern>C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-JAVA\DLTE-JAVA-TASKS\app.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+        <maxFileSize>2KB</maxFileSize>
+        <totalSizeCap>6KB</totalSizeCap>
+        <maxHistory>1</maxHistory>
+    </rollingPolicy>
 
-    <appender name="myLogs" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-JAVA\DLTE-JAVA-TASKS\app.log</file>
-        <encoder>
-            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
-        </encoder>
-        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-            <fileNamePattern>C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-JAVA\DLTE-JAVA-TASKS\app.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
-            <maxFileSize>1KB</maxFileSize>
-            <maxHistory>1</maxHistory>
-        </rollingPolicy>
-    </appender>
+    <encoder>
+        <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+</appender>
 
+<!-- Define archive appender -->
+<appender name="myLogsArchive" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-JAVA\DLTE-JAVA-TASKS\Archive\app.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+        <fileNamePattern>C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-JAVA\DLTE-JAVA-TASKS\app.%d{yyyy-MM-dd}.%i.log.zip</fileNamePattern>
+        <maxFileSize>3KB</maxFileSize>
+        <totalSizeCap>3KB</totalSizeCap>
+        <maxHistory>1</maxHistory>
+    </rollingPolicy>
+    <encoder>
+        <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+    </encoder>
+</appender>
 
-    <!-- Root logger settings -->
-    <root level="INFO">
-<!--        <appender-ref ref="myConsole" />-->
-        <appender-ref ref="myLogs" /> <!-- Attach file appender -->
-    </root>
+<!-- Root logger settings -->
+<root level="INFO">
+    <appender-ref ref="myLogs" /> <!-- Attach file appender -->
+    <appender-ref ref="myLogsArchive" /> <!-- Attach archive appender -->
+</root>
 
 </configuration>
