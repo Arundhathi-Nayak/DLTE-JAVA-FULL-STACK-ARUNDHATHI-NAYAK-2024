@@ -146,8 +146,10 @@ public class SoapPhase {
     @ResponsePayload
     public DeleteByRangeOfDatesResponse deleteBasedOnDates(@RequestPayload DeleteByRangeOfDatesRequest deleteByRangeOfDatesRequest){
         DeleteByRangeOfDatesResponse deleteByRangeOfDatesResponse=new DeleteByRangeOfDatesResponse();
+        Date startDate=deleteByRangeOfDatesRequest.getStartDate().toGregorianCalendar().getTime();
+        Date endDate=deleteByRangeOfDatesRequest.getEndDate().toGregorianCalendar().getTime();
         ServiceStatus serviceStatus=new ServiceStatus();
-        String deleteTransaction=transactionServices.deleteTransaction(deleteByRangeOfDatesRequest.getStartDate(),deleteByRangeOfDatesRequest.getEndDate());
+        String deleteTransaction=transactionServices.deleteTransaction(startDate,endDate);
         if(deleteTransaction.contains("deleted")){
             serviceStatus.setStatus("FAILURE");
         }else

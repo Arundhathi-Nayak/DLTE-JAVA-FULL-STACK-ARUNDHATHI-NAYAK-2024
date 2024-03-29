@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.xml.datatype.XMLGregorianCalendar;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -32,15 +33,15 @@ public class TransactionServices {
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Transaction.class), amount);
     }
     public Transaction updateTransaction(Transaction transaction){
-        int acknowledge=jdbcTemplate.update("update transactions_table set transaction_remarks=? where transaction_id=?",
+        int acknowledge=jdbcTemplate.update("update transaction set transaction_remarks=? where transaction_id=?",
                 new Object[]{transaction.getTransactionRemarks(),transaction.getTransactionId()}
         );
         if(acknowledge!=0) return transaction;
         else  return null;
     }
 
-    public String deleteTransaction(XMLGregorianCalendar startDate, XMLGregorianCalendar endDate){
-        int acknowledge= jdbcTemplate.update("delete from transactions_table where transaction_date between ? and ?",
+    public String deleteTransaction(Date startDate, Date endDate){
+        int acknowledge= jdbcTemplate.update("delete from transaction where transaction_date between ? and ?",
                 new Object[]{startDate,endDate}
         );
         if(acknowledge!=0) return "Transaction deleted";
