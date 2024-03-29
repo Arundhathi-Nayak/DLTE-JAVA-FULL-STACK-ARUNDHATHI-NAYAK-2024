@@ -11,6 +11,7 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 import services.transaction.*;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -26,33 +27,35 @@ public class SoapPhase {
         ServiceStatus serviceStatus=new ServiceStatus();
 
         services.transaction.Transaction actualTransaction=newTransactionRequest.getTransaction();
-        Transaction daoTransaction=new Transaction();
-        BeanUtils.copyProperties(actualTransaction,daoTransaction);
+        Date date=newTransactionRequest.getTransaction().getTransactionDate().toGregorianCalendar().getTime();
+        Transaction transaction=new Transaction();
+        transaction.setTransactionDate(date);/// yyyy-mm-dd
+        BeanUtils.copyProperties(actualTransaction,transaction);
 
-        daoTransaction=transactionServices.newTransaction(daoTransaction);
+        transaction=transactionServices.newTransaction(transaction);
 
-        if(daoTransaction!=null){
+        if(transaction!=null){
             serviceStatus.setStatus("SUCCESS");
-            serviceStatus.setMessage(daoTransaction.getTransactionId()+"is inserted");
+            serviceStatus.setMessage(transaction.getTransactionId()+"is inserted");
         }else{
             serviceStatus.setStatus("FAILURE");
-            serviceStatus.setMessage(daoTransaction.getTransactionId()+"not inserted");
+            serviceStatus.setMessage(transaction.getTransactionId()+"not inserted");
         }
         newTransactionResponse.setServiceStatus(serviceStatus);
-        BeanUtils.copyProperties(daoTransaction,actualTransaction);
+        BeanUtils.copyProperties(transaction,actualTransaction);
         newTransactionResponse.setTransaction(actualTransaction);
 
         return newTransactionResponse;
     }
 
-    @PayloadRoot(namespace = url,localPart = "filterBySender")
+    @PayloadRoot(namespace = url,localPart = "filterBySenderRequest")
     @ResponsePayload
     public FilterBySenderResponse filterBySender(@RequestPayload FilterBySenderRequest filterBySenderRequest){
         FilterBySenderResponse filterBySenderResponse=new FilterBySenderResponse();
         ServiceStatus serviceStatus=new ServiceStatus();
         List<services.transaction.Transaction> transactions=new ArrayList<>();
-        List<Transaction> daoTransaction=transactionServices.findBySender(filterBySenderRequest.getSender());
-        Iterator<Transaction> iterator =daoTransaction.iterator();
+        List<Transaction> transaction=transactionServices.findBySender(filterBySenderRequest.getSender());
+        Iterator<Transaction> iterator =transaction.iterator();
 
         while (iterator.hasNext()){
             services.transaction.Transaction currentTransaction=new services.transaction.Transaction();
@@ -68,14 +71,14 @@ public class SoapPhase {
 
     }
 
-    @PayloadRoot(namespace = url,localPart = "filterByReceiver")
+    @PayloadRoot(namespace = url,localPart = "filterByReceiverRequest")
     @ResponsePayload
     public FilterByReceiverResponse filterByReceiver(@RequestPayload FilterByReceiverRequest filterByReceiverRequest){
         FilterByReceiverResponse filterByReceiverResponse=new FilterByReceiverResponse();
         ServiceStatus serviceStatus=new ServiceStatus();
         List<services.transaction.Transaction> transactions=new ArrayList<>();
-        List<Transaction> daoTransaction=transactionServices.findByReceiver(filterByReceiverRequest.getReceiver());
-        Iterator<Transaction> iterator =daoTransaction.iterator();
+        List<Transaction> transaction=transactionServices.findByReceiver(filterByReceiverRequest.getReceiver());
+        Iterator<Transaction> iterator =transaction.iterator();
 
         while (iterator.hasNext()){
             services.transaction.Transaction currentTransaction=new services.transaction.Transaction();
@@ -90,14 +93,14 @@ public class SoapPhase {
         return filterByReceiverResponse;
 
     }
-    @PayloadRoot(namespace = url,localPart = "filterByAmount")
+    @PayloadRoot(namespace = url,localPart = "filterByAmountRequest")
     @ResponsePayload
     public FilterByAmountResponse filterByAmount(@RequestPayload FilterByAmountRequest filterByAmountRequest){
         FilterByAmountResponse filterByAmountResponse=new FilterByAmountResponse();
         ServiceStatus serviceStatus=new ServiceStatus();
         List<services.transaction.Transaction> transactions=new ArrayList<>();
-        List<Transaction> daoTransaction=transactionServices.findByAmount(filterByAmountRequest.getAmount());
-        Iterator<Transaction> iterator =daoTransaction.iterator();
+        List<Transaction> transaction=transactionServices.findByAmount(filterByAmountRequest.getAmount());
+        Iterator<Transaction> iterator =transaction.iterator();
 
         while (iterator.hasNext()){
             services.transaction.Transaction currentTransaction=new services.transaction.Transaction();
@@ -112,7 +115,7 @@ public class SoapPhase {
         return filterByAmountResponse;
     }
 
-    @PayloadRoot(namespace = url,localPart = "updateByRemarks")
+    @PayloadRoot(namespace = url,localPart = "updateByRemarksRequest")
     @ResponsePayload
     public UpdateByRemarksResponse updateByRemarks(@RequestPayload UpdateByRemarksRequest updateByRemarksRequest){
         UpdateByRemarksResponse updateByRemarksResponse=new UpdateByRemarksResponse();
@@ -139,7 +142,7 @@ public class SoapPhase {
     }
 
 
-    @PayloadRoot(namespace = url,localPart = "deleteByRangeOfDates")
+    @PayloadRoot(namespace = url,localPart = "deleteByRangeOfDatesRequest")
     @ResponsePayload
     public DeleteByRangeOfDatesResponse deleteBasedOnDates(@RequestPayload DeleteByRangeOfDatesRequest deleteByRangeOfDatesRequest){
         DeleteByRangeOfDatesResponse deleteByRangeOfDatesResponse=new DeleteByRangeOfDatesResponse();
