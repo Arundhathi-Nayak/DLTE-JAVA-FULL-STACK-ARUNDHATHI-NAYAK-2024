@@ -14,9 +14,9 @@ public class TransactionOfficialService implements UserDetailsService {
     private JdbcTemplate jdbcTemplate;
 
     public TransactionOfficial signingUp(TransactionOfficial transactionOfficial){
-        int ack=jdbcTemplate.update("insert into Transaction_credential(name, username, password, email, contact, aadhaar) values(?,?,?,?,?,?)",new Object[]{
+        int ack=jdbcTemplate.update("insert into Transaction_credential(name, username, password, email, contact, aadhaar,role) values(?,?,?,?,?,?,?)",new Object[]{
               transactionOfficial.getName(),transactionOfficial.getUsername(),transactionOfficial.getPassword(),
-                transactionOfficial.getEmail(),transactionOfficial.getContact(),transactionOfficial.getAadhaar()
+                transactionOfficial.getEmail(),transactionOfficial.getContact(),transactionOfficial.getAadhaar(),transactionOfficial.getRole()
         });
         return transactionOfficial;
     }

@@ -79,6 +79,7 @@ public class ConsoleApp {
 
 
     private static void addEmployeeDetails(Scanner scanner, InputEmployeeDetails inputEmployeeDetails, Validation validation) {
+        List<org.reviewdatabase.Details.Employee> employees = new ArrayList<>();
         Employee employeeConsole;
         EmployeeAddress employeePermanentAddressConsole;
         EmployeeAddress employeeTemporaryAddressConsole;
@@ -194,10 +195,8 @@ public class ConsoleApp {
             //     Employee employee = new Employee(basicDetails, permanentAddr, temporaryAddr);
             org.reviewdatabase.Details.Employee employee;
             employee = translateEmployee(employeeConsole);
-
-            List<org.reviewdatabase.Details.Employee> employeeInfo = new ArrayList<>();
-            employeeInfo.add(employee);
-            inputEmployeeDetails.create(employeeInfo);
+            employees.add(employee);
+            inputEmployeeDetails.create(employees);
 
             System.out.print(resourceBundle.getString("add.more"));
         } while (scanner.next().equalsIgnoreCase(resourceBundle.getString("yes")));

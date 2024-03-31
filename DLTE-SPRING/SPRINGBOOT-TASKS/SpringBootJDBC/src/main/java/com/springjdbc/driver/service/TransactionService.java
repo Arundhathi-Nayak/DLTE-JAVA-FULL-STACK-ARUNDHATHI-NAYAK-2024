@@ -6,6 +6,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -29,5 +30,15 @@ public class TransactionService {
     public List<Transaction> findByAmount(Long amount) {
         String sql = "SELECT * FROM transaction WHERE transaction_amount = ?";
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Transaction.class), amount);
+    }
+    public List<Transaction> updateTransaction(String remarks){
+       String sql="update transaction set transaction_remarks=? where transaction_id=?";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Transaction.class),remarks );
+
+    }
+    public List<Transaction> deleteTransaction(Date startDate, Date endDate){
+        String sql="delete from transaction where transaction_date between ? and ?";
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(Transaction.class),startDate,endDate);
+
     }
 }

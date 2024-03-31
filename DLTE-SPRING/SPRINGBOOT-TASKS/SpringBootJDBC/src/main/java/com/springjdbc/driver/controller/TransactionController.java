@@ -5,6 +5,7 @@ import com.springjdbc.driver.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -26,7 +27,7 @@ public class TransactionController {
 
     @PostMapping("add/")
     //http://localhost:8082/transactions/add/
-    public Transaction newTransaction(@RequestBody Transaction transaction) {
+    public Transaction newTransaction(@RequestBody Transaction transaction){
         return transactionService.newTransaction(transaction);
     }
     @GetMapping("/sender/{sender}")
@@ -44,5 +45,15 @@ public class TransactionController {
     //http://localhost:8082/transactions/amount/700
     public List<Transaction> findByAmount(@PathVariable Long amount) {
         return transactionService.findByAmount(amount);
+    }
+
+    @PutMapping("/remarks/{remarks}")
+    public List<Transaction> updateTransaction(@PathVariable String remarks) {
+        return transactionService.updateTransaction(remarks);
+    }
+
+    @DeleteMapping("/dates/startDate/endDate")
+    public List<Transaction> deleteTransaction(@PathVariable Date startDate, Date endDate) {
+        return transactionService.deleteTransaction(startDate,endDate);
     }
 }

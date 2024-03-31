@@ -4,6 +4,7 @@ import com.jdbctransaction.xsd.entity.Transaction;
 import com.jdbctransaction.xsd.services.TransactionServices;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -21,7 +22,9 @@ public class SoapPhase {
     @Autowired
     private TransactionServices transactionServices;
 
+    @PreAuthorize("hasAnyAuthority('admin')")
     @PayloadRoot(namespace = url,localPart = "newTransaction")
+    @ResponsePayload
     public NewTransactionResponse addNewTransaction(@RequestPayload NewTransactionRequest newTransactionRequest){
         NewTransactionResponse newTransactionResponse=new NewTransactionResponse();
         ServiceStatus serviceStatus=new ServiceStatus();
@@ -48,6 +51,7 @@ public class SoapPhase {
         return newTransactionResponse;
     }
 
+    @PreAuthorize("hasAnyAuthority('customer')")
     @PayloadRoot(namespace = url,localPart = "filterBySenderRequest")
     @ResponsePayload
     public FilterBySenderResponse filterBySender(@RequestPayload FilterBySenderRequest filterBySenderRequest){
@@ -71,6 +75,7 @@ public class SoapPhase {
 
     }
 
+    @PreAuthorize("hasAnyAuthority('customer')")
     @PayloadRoot(namespace = url,localPart = "filterByReceiverRequest")
     @ResponsePayload
     public FilterByReceiverResponse filterByReceiver(@RequestPayload FilterByReceiverRequest filterByReceiverRequest){
@@ -93,6 +98,8 @@ public class SoapPhase {
         return filterByReceiverResponse;
 
     }
+
+    @PreAuthorize("hasAnyAuthority('customer')")
     @PayloadRoot(namespace = url,localPart = "filterByAmountRequest")
     @ResponsePayload
     public FilterByAmountResponse filterByAmount(@RequestPayload FilterByAmountRequest filterByAmountRequest){
@@ -115,6 +122,7 @@ public class SoapPhase {
         return filterByAmountResponse;
     }
 
+    @PreAuthorize("hasAnyAuthority('admin','manager')")
     @PayloadRoot(namespace = url,localPart = "updateByRemarksRequest")
     @ResponsePayload
     public UpdateByRemarksResponse updateByRemarks(@RequestPayload UpdateByRemarksRequest updateByRemarksRequest){
@@ -141,7 +149,7 @@ public class SoapPhase {
         return updateByRemarksResponse;
     }
 
-
+    @PreAuthorize("hasAnyAuthority('admin')")
     @PayloadRoot(namespace = url,localPart = "deleteByRangeOfDatesRequest")
     @ResponsePayload
     public DeleteByRangeOfDatesResponse deleteBasedOnDates(@RequestPayload DeleteByRangeOfDatesRequest deleteByRangeOfDatesRequest){
@@ -151,9 +159,9 @@ public class SoapPhase {
         ServiceStatus serviceStatus=new ServiceStatus();
         String deleteTransaction=transactionServices.deleteTransaction(startDate,endDate);
         if(deleteTransaction.contains("deleted")){
-            serviceStatus.setStatus("FAILURE");
-        }else
             serviceStatus.setStatus("SUCCESS");
+        }else
+            serviceStatus.setStatus("FAILURE");
         serviceStatus.setMessage(deleteTransaction);
         deleteByRangeOfDatesResponse.setServiceStatus(serviceStatus);
         return deleteByRangeOfDatesResponse;

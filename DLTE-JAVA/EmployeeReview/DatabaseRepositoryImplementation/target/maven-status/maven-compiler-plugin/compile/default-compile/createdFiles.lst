@@ -5,4 +5,5 @@ org\reviewdatabase\Details\EmployeebasicDetails.class
 org\reviewdatabase\Details\EmployeeAddress.class
 org\reviewdatabase\remote\InputEmployeeDetails.class
 org\reviewdatabase\exception\EmployeeNotFoundException.class
+org\reviewdatabase\validation\ValidationData.class
 org\reviewdatabase\connection\ConnectionCreate.class

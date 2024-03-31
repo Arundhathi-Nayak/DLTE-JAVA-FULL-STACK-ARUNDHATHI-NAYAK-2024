@@ -93,7 +93,7 @@ public class Transaction {
 
     /**
      * Sets the value of the transactionDate property.
-     * 
+     *
      * @param value
      *     allowed object is
      *     {@link XMLGregorianCalendar }

@@ -18,6 +18,15 @@ public class TransactionOfficial implements UserDetails {
     private String email;
     private Long contact;
     private Long aadhaar;
+    private String role;
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     public void setPassword(String password) {
         this.password = password;

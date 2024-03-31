@@ -26,14 +26,14 @@ public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
             connection= ConnectionCreate.createConnection();
     }
     @Override
-    public void create(List<Employee> list) {
-        ValidationData validation=new ValidationData();
+    public List<Employee> create(List<Employee> list) {
+        List<Employee> createdEmployees = new ArrayList<>();
+        ValidationData validation = new ValidationData();
         validation.Validationofdata(list);
-        for(Employee employee:list){
-
-            String employeeID=employee.getEmployeebasicDetails().getEmployeeId();
-            try{
-                connection=ConnectionCreate.createConnection();
+        for (Employee employee : list) {
+            String employeeID = employee.getEmployeebasicDetails().getEmployeeId();
+            try {
+                connection = ConnectionCreate.createConnection();
                 String employees = "INSERT INTO Employee (EmployeeId, EmployeeName, emailId, phoneNumber) VALUES (?, ?, ?, ?)";
                 preparedStatement = connection.prepareStatement(employees);
                 preparedStatement.setString(1, employeeID);
@@ -43,38 +43,41 @@ public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
                 preparedStatement.executeUpdate();
 
                 // Inserting into Address table
-                String address = "INSERT INTO EmployeeAddress (EmployeeId, permanentAddress, permanentHouseNumber, permanentCity, permanentState, permanentPinCode, temporaryAddress, temporaryHouseNumber, temporaryCity, temporaryState, temporaryPinCode) " +
-                        "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                preparedStatement = connection.prepareStatement(address);
+                String insertTemporaryAddress = "insert into EmployeeAddress(ADDRESSID,EMPLOYEEID,HOUSENAME,STREETNAME,CITYNAME,STATENAME,PINCODE,ISTEMPORARY) values (address_seq.nextval,?,?,?,?,?,?,1)";
+                preparedStatement = connection.prepareStatement(insertTemporaryAddress);
+                preparedStatement.setString(1, employeeID);
+                preparedStatement.setString(2, employee.getEmployeeTemporaryAddress().getAddress());
+                preparedStatement.setString(3, employee.getEmployeeTemporaryAddress().getHouseNumber());
+                preparedStatement.setString(4, employee.getEmployeeTemporaryAddress().getCity());
+                preparedStatement.setString(5, employee.getEmployeeTemporaryAddress().getState());
+                preparedStatement.setInt(6, employee.getEmployeeTemporaryAddress().getPinCode());
+                preparedStatement.executeUpdate();
+
+                String insertPermanentAddress = "insert into EmployeeAddress(ADDRESSID,EMPLOYEEID,HOUSENAME,STREETNAME,CITYNAME,STATENAME,PINCODE,ISTEMPORARY) values (address_seq.nextval,?,?,?,?,?,?,0)";
+                preparedStatement = connection.prepareStatement(insertPermanentAddress);
                 preparedStatement.setString(1, employeeID);
                 preparedStatement.setString(2, employee.getEmployeePermanentAddress().getAddress());
                 preparedStatement.setString(3, employee.getEmployeePermanentAddress().getHouseNumber());
                 preparedStatement.setString(4, employee.getEmployeePermanentAddress().getCity());
                 preparedStatement.setString(5, employee.getEmployeePermanentAddress().getState());
                 preparedStatement.setInt(6, employee.getEmployeePermanentAddress().getPinCode());
-                preparedStatement.setString(7, employee.getEmployeeTemporaryAddress().getAddress());
-                preparedStatement.setString(8, employee.getEmployeeTemporaryAddress().getHouseNumber());
-                preparedStatement.setString(9, employee.getEmployeeTemporaryAddress().getCity());
-                preparedStatement.setString(10, employee.getEmployeeTemporaryAddress().getState());
-                preparedStatement.setInt(11, employee.getEmployeeTemporaryAddress().getPinCode());
                 preparedStatement.executeUpdate();
 
+                createdEmployees.add(employee); // Add the created employee to the list of created employees
                 System.out.println(resourceBundle1.getString("employee.add") + employeeID +" "+resourceBundle1.getString("employeeAdd.success"));
                 logger.info(resourceBundle1.getString("employee.add")+ employeeID +" "+resourceBundle1.getString("employeeAdd.success"));
-
-
-            }catch (SQLException e) {
+            } catch (SQLException e) {
                 if (e instanceof SQLIntegrityConstraintViolationException) {
-                    System.out.println(resourceBundle1.getString("Fail.insert") +" "+ employeeID + " "+resourceBundle1.getString("employee.exists"));
-                    logger.error(resourceBundle1.getString("Fail.insert") +" "+ employeeID + " "+resourceBundle1.getString("employee.exists"));
+                    System.out.println(resourceBundle1.getString("Fail.insert") + " " + employeeID + " " + resourceBundle1.getString("employee.exists"));
+                    logger.error(resourceBundle1.getString("Fail.insert") + " " + employeeID + " " + resourceBundle1.getString("employee.exists"));
                 } else {
                     e.printStackTrace();
                 }
-            }finally {
+            } finally {
                 closeConnections();
             }
-
-    }
+        }
+        return createdEmployees;
 
     }
 
@@ -84,9 +87,10 @@ public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
         Employee employee =new Employee();
         try {
             connection=ConnectionCreate.createConnection();
-            String query = "SELECT emp.EmployeeName,emp.EmployeeId,emp.emailId,emp.phoneNumber,empAdd.permanentAddress,empAdd.permanentHouseNumber,empAdd.permanentState,empAdd.permanentCity,empAdd.permanentPinCode,empAdd.temporaryAddress,empAdd.temporaryHouseNumber,empAdd.temporaryState,empAdd.temporaryCity,empAdd.temporaryPinCode FROM Employee emp " +
-                    "INNER JOIN EmployeeAddress empAdd ON emp.EmployeeId = empAdd.EmployeeId " +
-                    "WHERE emp.EmployeeId = ?";
+            String query = "SELECT emp.EmployeeName,emp.EmployeeId,emp.emailId,emp.phoneNumber,ta.HOUSENAME,ta.STREETNAME,ta.CITYNAME,ta.STATENAME,ta.PINCODE , pa.HOUSENAME, pa.STREETNAME,pa.CITYNAME, pa.STATENAME,pa.PINCODE  FROM employee emp\n" +
+                    "                             INNER JOIN EmployeeAddress ta ON emp.EMPLOYEEID = ta.EMPLOYEEID AND ta.ISTEMPORARY = 1\n" +
+                    "                             INNER JOIN EmployeeAddress pa ON emp.EMPLOYEEID = pa.EMPLOYEEID AND pa.ISTEMPORARY = 0\n" +
+                    "                             WHERE emp.EMPLOYEEID=?";
             preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, employeeId);
             resultSet = preparedStatement.executeQuery();
@@ -99,19 +103,19 @@ public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
                 );
 
                 EmployeeAddress permanentAddr = new EmployeeAddress(
-                        resultSet.getString("permanentAddress"),
-                        resultSet.getString("permanentHouseNumber"),
-                        resultSet.getString("permanentState"),
-                        resultSet.getString("permanentCity"),
-                        resultSet.getInt("permanentPinCode")
+                        resultSet.getString(10),
+                        resultSet.getString(11),
+                        resultSet.getString(12),
+                        resultSet.getString(13),
+                        resultSet.getInt(14)
                 );
 
                 EmployeeAddress temporaryAddr = new EmployeeAddress(
-                        resultSet.getString("temporaryAddress"),
-                        resultSet.getString("temporaryHouseNumber"),
-                        resultSet.getString("temporaryState"),
-                        resultSet.getString("temporaryCity"),
-                        resultSet.getInt("temporaryPinCode")
+                        resultSet.getString(5),
+                        resultSet.getString(6),
+                        resultSet.getString(7),
+                        resultSet.getString(8),
+                        resultSet.getInt(9)
                 );
 
                 employee = new Employee(basicDetails, permanentAddr, temporaryAddr);
@@ -131,9 +135,10 @@ public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
         List<Employee> employees = new ArrayList<>();
         try (Connection connection = ConnectionCreate.createConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(
-                     "SELECT emp.EmployeeName,emp.EmployeeId,emp.emailId,emp.phoneNumber,empAdd.permanentAddress,empAdd.permanentHouseNumber,empAdd.permanentState,empAdd.permanentCity,empAdd.permanentPinCode,empAdd.temporaryAddress,empAdd.temporaryHouseNumber,empAdd.temporaryState,empAdd.temporaryCity,empAdd.temporaryPinCode FROM employee emp " +
-                             "INNER JOIN EmployeeAddress empAdd ON emp.EmployeeId = empAdd.EmployeeId " +
-                             "WHERE empAdd.permanentPinCode = ? OR empAdd.temporaryPinCode = ?");
+                     "SELECT emp.EmployeeName,emp.EmployeeId,emp.emailId,emp.phoneNumber,ta.HOUSENAME,ta.STREETNAME,ta.CITYNAME,ta.STATENAME,ta.PINCODE , pa.HOUSENAME, pa.STREETNAME,pa.CITYNAME, pa.STATENAME,pa.PINCODE  FROM employee emp\n" +
+                             "                             INNER JOIN EmployeeAddress ta ON emp.EMPLOYEEID = ta.EMPLOYEEID AND ta.ISTEMPORARY = 1\n" +
+                             "                             INNER JOIN EmployeeAddress pa ON emp.EMPLOYEEID = pa.EMPLOYEEID AND pa.ISTEMPORARY = 0\n" +
+                             "                             WHERE ta.PINCODE=? or pa.PINCODE=?");
         ) {
             preparedStatement.setInt(1, pinCode);
             preparedStatement.setInt(2, pinCode);
@@ -147,19 +152,19 @@ public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
                     );
 
                     EmployeeAddress permanentAddr = new EmployeeAddress(
-                            resultSet.getString("permanentAddress"),
-                            resultSet.getString("permanentHouseNumber"),
-                            resultSet.getString("permanentState"),
-                            resultSet.getString("permanentCity"),
-                            resultSet.getInt("permanentPinCode")
+                            resultSet.getString(10),
+                            resultSet.getString(11),
+                            resultSet.getString(12),
+                            resultSet.getString(13),
+                            resultSet.getInt(14)
                     );
 
                     EmployeeAddress temporaryAddr = new EmployeeAddress(
-                            resultSet.getString("temporaryAddress"),
-                            resultSet.getString("temporaryHouseNumber"),
-                            resultSet.getString("temporaryState"),
-                            resultSet.getString("temporaryCity"),
-                            resultSet.getInt("temporaryPinCode")
+                            resultSet.getString(5),
+                            resultSet.getString(6),
+                            resultSet.getString(7),
+                            resultSet.getString(8),
+                            resultSet.getInt(9)
                     );
 
                     employees.add(new Employee(basicDetails, permanentAddr, temporaryAddr));
@@ -179,25 +184,26 @@ public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
         List<Employee> employees = new ArrayList<>();
         try {
             connection=ConnectionCreate.createConnection();
-            String findAll = "SELECT emp.EmployeeName,emp.EmployeeId,emp.emailId,emp.phoneNumber,empAdd.permanentAddress,empAdd.permanentHouseNumber,empAdd.permanentState,empAdd.permanentCity,empAdd.permanentPinCode,empAdd.temporaryAddress,empAdd.temporaryHouseNumber,empAdd.temporaryState,empAdd.temporaryCity,empAdd.temporaryPinCode FROM employee emp " +
-                    "INNER JOIN EmployeeAddress empAdd ON emp.EmployeeId = empAdd.EmployeeId ";
+            String findAll = "SELECT emp.EmployeeName,emp.EmployeeId,emp.emailId,emp.phoneNumber,ta.HOUSENAME,ta.STREETNAME,ta.CITYNAME,ta.STATENAME,ta.PINCODE , pa.HOUSENAME, pa.STREETNAME,pa.CITYNAME, pa.STATENAME,pa.PINCODE  FROM employee emp\n" +
+                    "                             INNER JOIN EmployeeAddress ta ON emp.EMPLOYEEID = ta.EMPLOYEEID AND ta.ISTEMPORARY = 1\n" +
+                    "                             INNER JOIN EmployeeAddress pa ON emp.EMPLOYEEID = pa.EMPLOYEEID AND pa.ISTEMPORARY = 0";
             preparedStatement = connection.prepareStatement(findAll);
             resultSet = preparedStatement.executeQuery();
             while (resultSet.next()) {
                 Employee employee = null;
                 EmployeeAddress permanentAddress = new EmployeeAddress(
-                        resultSet.getString("permanentAddress"),
-                        resultSet.getString("permanentHouseNumber"),
-                        resultSet.getString("permanentState"),
-                        resultSet.getString("permanentCity"),
-                        resultSet.getInt("permanentPinCode")
+                        resultSet.getString(10),
+                        resultSet.getString(11),
+                        resultSet.getString(12),
+                        resultSet.getString(13),
+                        resultSet.getInt(14)
                 );
                 EmployeeAddress temporaryAddress = new EmployeeAddress(
-                        resultSet.getString("temporaryAddress"),
-                        resultSet.getString("temporaryHouseNumber"),
-                        resultSet.getString("temporaryState"),
-                        resultSet.getString("temporaryCity"),
-                        resultSet.getInt("temporaryPinCode")
+                        resultSet.getString(5),
+                        resultSet.getString(6),
+                        resultSet.getString(7),
+                        resultSet.getString(8),
+                        resultSet.getInt(9)
                 );
                 EmployeebasicDetails basicDetails = new EmployeebasicDetails(
                         resultSet.getString("EmployeeName"),

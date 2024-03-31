@@ -28,7 +28,7 @@ public class Services {
     }
 
     @WebResult(name="addNewEmployee")
-    public void callSaveAll(Employee employees){
+    public GroupOfEmployee callSaveAll(Employee employees){
         GroupOfEmployee groupOfEmployee = new GroupOfEmployee();
         try {
             ArrayList<Employee> employee = (ArrayList<Employee>) inputEmployeeDetails.read();
@@ -36,7 +36,7 @@ public class Services {
         } catch (EmployeeNotFoundException e) {
             e.printStackTrace();
         }
-
+     return groupOfEmployee;
     }
 
     @WebResult(name="findBasedOnId")
