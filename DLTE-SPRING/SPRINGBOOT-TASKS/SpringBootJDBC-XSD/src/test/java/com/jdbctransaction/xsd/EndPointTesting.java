@@ -11,12 +11,15 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import services.transaction.*;
 
+import javax.xml.datatype.DatatypeConfigurationException;
+import javax.xml.datatype.DatatypeFactory;
+import javax.xml.datatype.XMLGregorianCalendar;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotEquals;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
@@ -28,7 +31,25 @@ public class EndPointTesting {
 
     @InjectMocks
     private SoapPhase soapPhase;
+    @Test
+    public void testAddNewTransaction() throws DatatypeConfigurationException {
+        Transaction transaction1=new Transaction(14355484L,new Date(2024,05,02),"Shantha","Pinki",50000,"Friend");
+        when(transactionService.newTransaction(any(Transaction.class))).thenReturn(transaction1);
 
+        NewTransactionRequest newTransaction=new NewTransactionRequest();
+        services.transaction.Transaction transaction=new services.transaction.Transaction();
+        transaction.setTransactionId(14355484L);
+        LocalDate date = LocalDate.of(2024,05,02);
+        XMLGregorianCalendar xmlGregorianCalendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(date.toString());
+        transaction.setTransactionDate(xmlGregorianCalendar);
+        transaction.setTransactionBy("Pinki");
+        transaction.setTransactionTo("Shantha");
+        transaction.setTransactionAmount(50000);
+        transaction.setTransactionRemarks("Friend");
+        newTransaction.setTransaction(transaction);
+        NewTransactionResponse response=soapPhase.addNewTransaction(newTransaction);
+        assertTrue(transaction1.getTransactionId().equals(response.getTransaction().getTransactionId()));
+    }
     @Test
     public void testFilterSender() {
         List<Transaction> mockTransactions = new ArrayList<>();
@@ -68,7 +89,7 @@ public class EndPointTesting {
 
 
     @Test
-    public void testUpdateTransaction() {
+    public void testUpdateTransaction() throws DatatypeConfigurationException {
         Transaction updateTransaction = new Transaction();
         updateTransaction.setTransactionId(15000L);
         updateTransaction.setTransactionDate(new Date(2024,05,02));
@@ -80,7 +101,9 @@ public class EndPointTesting {
         UpdateByRemarksRequest request = new UpdateByRemarksRequest();
         services.transaction.Transaction transaction = new services.transaction.Transaction();
         transaction.setTransactionId(15000L);
-        transaction.setTransactionDate(new Date(2024,05,02));
+        LocalDate date = LocalDate.of(2024,05,02);
+        XMLGregorianCalendar xmlGregorianCalendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(date.toString());
+        transaction.setTransactionDate(xmlGregorianCalendar);
         updateTransaction.setTransactionBy("Avinash");
         updateTransaction.setTransactionTo("Avinu");
         updateTransaction.setTransactionAmount(1000);
@@ -93,15 +116,17 @@ public class EndPointTesting {
     }
 
     @Test
-    public void testRemoveTransactionBetweenDates() {
-        Date startDate =new Date(2024,05,02);
-        Date endDate =new Date(2024,05,06);
-        when(transactionService.deleteTransaction(startDate, endDate)).thenReturn("remove");
+    public void testRemoveTransactionBetweenDates() throws DatatypeConfigurationException {
+        LocalDate date1 = LocalDate.of(2024,05,02);
+        LocalDate date2 = LocalDate.of(2024,05,05);
+        XMLGregorianCalendar xmlGregorianCalendar1 = DatatypeFactory.newInstance().newXMLGregorianCalendar(date1.toString());
+        XMLGregorianCalendar xmlGregorianCalendar2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(date2.toString());
+        when(transactionService.deleteTransaction(date1, date1)).thenReturn("remove");
         DeleteByRangeOfDatesRequest request = new DeleteByRangeOfDatesRequest();
         Date start =new Date(2024,05,02);
         Date end =new Date(2024,05,05);
-        request.setStartDate(start);
-        request.setEndDate(end);
+        request.setStartDate(xmlGregorianCalendar1);
+        request.setEndDate(xmlGregorianCalendar2);
         DeleteByRangeOfDatesResponse response = soapPhase.deleteBasedOnDates(request);
         assertEquals("deleted", response.getServiceStatus().getStatus());
         assertEquals("deleted", response.getServiceStatus().getMessage());
