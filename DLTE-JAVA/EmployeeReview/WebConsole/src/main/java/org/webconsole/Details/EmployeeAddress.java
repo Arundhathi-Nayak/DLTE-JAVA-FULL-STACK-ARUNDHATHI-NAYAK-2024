@@ -1,6 +1,6 @@
 package org.webconsole.Details;
 
-public class EmployeeAddress {
+public class EmployeeAddress extends implementation.EmployeeAddress {
     private String address;
     private String houseNumber;
     private String state;

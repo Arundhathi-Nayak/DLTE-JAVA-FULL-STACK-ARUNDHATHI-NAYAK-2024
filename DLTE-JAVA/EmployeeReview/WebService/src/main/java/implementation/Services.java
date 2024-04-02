@@ -6,6 +6,8 @@ import org.reviewdatabase.connection.ConnectionCreate;
 import org.reviewdatabase.exception.EmployeeNotFoundException;
 import org.reviewdatabase.remote.InputEmployeeDetails;
 
+import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
@@ -28,25 +30,36 @@ public class Services {
     }
 
     @WebResult(name="addNewEmployee")
-    public GroupOfEmployee callSaveAll(Employee employees){
-        GroupOfEmployee groupOfEmployee = new GroupOfEmployee();
+    @WebMethod
+    public Employee callSaveAll(@WebParam Employee employees){
+        //GroupOfEmployee groupOfEmployee = new GroupOfEmployee();
+        List<Employee> employeeList=new ArrayList<>();
+        employeeList.add(employees);
+        List<Employee> employee=new ArrayList<>();
         try {
-            ArrayList<Employee> employee = (ArrayList<Employee>) inputEmployeeDetails.read();
-            groupOfEmployee.setEmployeeArrayList(employee);
+             employee =inputEmployeeDetails.create(employeeList);
+          //  groupOfEmployee.setEmployeeArrayList((ArrayList<Employee>) employee);
         } catch (EmployeeNotFoundException e) {
             e.printStackTrace();
         }
-     return groupOfEmployee;
+     return employees;
     }
 
     @WebResult(name="findBasedOnId")
-    public Employee callFilterBasedOnID(String employeeId){
-        Employee employee = inputEmployeeDetails.displayBasedOnEmployeeId(employeeId);
+    @WebMethod
+    public Employee callFilterBasedOnID(@WebParam String employeeId){
+        Employee employee=new Employee();
+        try {
+            employee = inputEmployeeDetails.displayBasedOnEmployeeId(employeeId);
+        }catch (EmployeeNotFoundException employeeException){
+            employeeException.printStackTrace();
+        }
         return employee;
     }
 
     @WebResult(name="findBasedOnPincode")
-    public GroupOfEmployee callFilterBasedOnPincode(int pincode){
+    @WebMethod
+    public GroupOfEmployee callFilterBasedOnPincode(@WebParam int pincode){
         GroupOfEmployee groupOfEmployee = new GroupOfEmployee();
         try {
             ArrayList<Employee> employees = (ArrayList<Employee>) inputEmployeeDetails.displayBasedOnPinCode(pincode);
@@ -59,6 +72,7 @@ public class Services {
     }
 
     @WebResult(name="findAll")
+    @WebMethod
     public GroupOfEmployee callFindAll(){
         GroupOfEmployee groupOfEmployee = new GroupOfEmployee();
         try {

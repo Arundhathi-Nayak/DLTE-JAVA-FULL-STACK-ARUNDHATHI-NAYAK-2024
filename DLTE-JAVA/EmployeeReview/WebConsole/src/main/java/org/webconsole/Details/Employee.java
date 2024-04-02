@@ -5,13 +5,20 @@ public class Employee {
     EmployeeAddress employeePermanentAddress;
     EmployeeAddress employeeTemporaryAddress;
 
-    public Employee() {
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "employeeBasicDetails=" + employeeBasicDetails +
+                ", employeePermanentAddress=" + employeePermanentAddress +
+                ", employeeTemporaryAddress=" + employeeTemporaryAddress +
+                '}';
     }
 
-    public Employee(EmployeeBasicDetails employeeBasicDetails, EmployeeAddress employeePermanentAddress, EmployeeAddress getEmployeeTemporaryAddress) {
+
+    public Employee(EmployeeBasicDetails employeeBasicDetails, EmployeeAddress employeePermanentAddress, EmployeeAddress employeeTemporaryAddress) {
         this.employeeBasicDetails = employeeBasicDetails;
         this.employeePermanentAddress = employeePermanentAddress;
-        this.employeeTemporaryAddress = getEmployeeTemporaryAddress;
+        this.employeeTemporaryAddress = employeeTemporaryAddress;
     }
 
     public EmployeeBasicDetails getEmployeeBasicDetails() {
@@ -34,9 +41,10 @@ public class Employee {
         return employeeTemporaryAddress;
     }
 
-    public void setEmployeeTemporaryAddress(EmployeeAddress getEmployeeTemporaryAddress) {
-        this.employeeTemporaryAddress = getEmployeeTemporaryAddress;
+    public void setEmployeeTemporaryAddress(EmployeeAddress employeeTemporaryAddress) {
+        this.employeeTemporaryAddress = employeeTemporaryAddress;
     }
+
     public String displayEmployeeDetails() {
         return "Employee ID: " + employeeBasicDetails.getEmployeeId() +
                 "\nName: " + employeeBasicDetails.getEmployeeName() +

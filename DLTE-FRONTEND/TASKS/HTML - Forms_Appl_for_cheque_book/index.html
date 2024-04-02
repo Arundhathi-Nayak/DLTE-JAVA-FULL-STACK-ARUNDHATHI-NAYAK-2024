@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Account Form</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Check Book Apply</h2>
+    <form action="#">
+        <label for="accountNumber">Account Number</label>
+        <input type="text" id="accountNumber" name="accountNumber">
+
+        <label for="accountHolder">Account Holder</label>
+        <input type="text" id="accountHolder" name="accountHolder">
+
+        <label for="contactNumber">Contact Number</label>
+        <input type="tel" id="contactNumber" name="contactNumber">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email">
+
+        <label>Account Type</label>
+        <label><input type="radio" name="accountType" value="Savings"> Savings</label>
+        <label><input type="radio" name="accountType" value="Checking"> Checking</label>
+        <label><input type="radio" name="accountType" value="Investment"> Investment</label>
+        <label><input type="radio" name="accountType" value="Loan"> Loan</label>
+
+        <label for="chequeBookType">Cheque Book Type</label>
+        <select id="chequeBookType" name="chequeBookType">
+            <option value="Single">Open cheque</option>
+            <option value="Duplicate">Post-Dated ChequePost-Dated Cheque</option>
+            <option value="Single">Traveller's Cheque</option>
+            <option value="Single">Self Cheque</option>
+        </select>
+
+        <label for="dateOfApply">Date of Apply</label>
+        <input type="date" id="dateOfApply" name="dateOfApply">
+
+        <label for="address">Address</label>
+        <textarea id="address" name="address"></textarea>
+
+        <label for="signature">Signature</label>
+        <input type="file" id="signature" name="signature">
+
+        <div class="checkbox">
+            <input type="checkbox" id="termsAndConditions" name="termsAndConditions">
+            <label for="termsAndConditions">I agree to the Terms and Conditions</label>
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+</body>
+</html>

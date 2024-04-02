@@ -8,7 +8,6 @@ import javax.jws.WebService;
 import javax.jws.soap.SOAPBinding;
 import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.ws.Action;
-import java.util.List;
 
 
 /**
@@ -34,7 +33,7 @@ public interface Services {
     @WebMethod
     @WebResult(name = "findBasedOnId", partName = "findBasedOnId")
     @Action(input = "http://implementation/Services/callFilterBasedOnIDRequest", output = "http://implementation/Services/callFilterBasedOnIDResponse")
-    public org.webconsole.Details.Employee callFilterBasedOnID(
+    public Employee callFilterBasedOnID(
         @WebParam(name = "arg0", partName = "arg0")
         String arg0);
 
@@ -52,13 +51,15 @@ public interface Services {
         int arg0);
 
     /**
-     *
+     * 
      * @param arg0
      * @return
+     *     returns implementation.Employee
      */
     @WebMethod
+    @WebResult(name = "addNewEmployee", partName = "addNewEmployee")
     @Action(input = "http://implementation/Services/callSaveAllRequest", output = "http://implementation/Services/callSaveAllResponse")
-    public GroupOfEmployee callSaveAll(
+    public Employee callSaveAll(
         @WebParam(name = "arg0", partName = "arg0")
         Employee arg0);
 
@@ -66,11 +67,10 @@ public interface Services {
      * 
      * @return
      *     returns implementation.GroupOfEmployee
-     * @param employees
      */
     @WebMethod
     @WebResult(name = "findAll", partName = "findAll")
     @Action(input = "http://implementation/Services/callFindAllRequest", output = "http://implementation/Services/callFindAllResponse")
-    public GroupOfEmployee callFindAll(List<org.webconsole.Details.Employee> employees);
+    public GroupOfEmployee callFindAll();
 
 }

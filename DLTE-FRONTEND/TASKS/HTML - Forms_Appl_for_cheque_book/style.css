@@ -1,0 +1,75 @@
+/* General styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+/* Form element styles */
+label,
+input,
+select,
+textarea {
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+input[type="file"] {
+    margin-top: 10px;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Checkbox styles */
+.checkbox input[type="checkbox"] {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.checkbox label {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* Submit button styles */
+input[type="submit"] {
+    background-color: #e220df;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-top: 20px;
+}
+
+input[type="submit"]:hover {
+    background-color: #74237b;
+}
