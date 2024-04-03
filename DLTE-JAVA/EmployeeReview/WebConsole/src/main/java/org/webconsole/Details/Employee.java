@@ -5,6 +5,9 @@ public class Employee {
     EmployeeAddress employeePermanentAddress;
     EmployeeAddress employeeTemporaryAddress;
 
+    public Employee() {
+    }
+
     @Override
     public String toString() {
         return "Employee{" +

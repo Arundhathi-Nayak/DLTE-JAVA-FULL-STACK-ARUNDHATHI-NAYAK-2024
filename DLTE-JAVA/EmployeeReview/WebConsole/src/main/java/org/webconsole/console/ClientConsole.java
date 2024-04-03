@@ -66,10 +66,10 @@ public class ClientConsole {
 
     private static void addEmployeeDetails(Scanner scanner, Validation validation) {
         do {
-            Employee employee = new Employee();
-            implementation.EmployeeAddress permanentAddress;
-            implementation.EmployeeAddress temporaryAddress ;
-            EmployeebasicDetails basicDetails = new EmployeebasicDetails();
+            org.webconsole.Details.Employee employee = new org.webconsole.Details.Employee();
+            EmployeeAddress permanentAddress;
+            EmployeeAddress temporaryAddress ;
+            EmployeeBasicDetails basicDetails = new EmployeeBasicDetails();
 
             System.out.println(resourceBundle.getString("enter.employeeDetails"));
 
@@ -114,14 +114,45 @@ public class ClientConsole {
             System.out.println(resourceBundle.getString("enter.temporaryaddress"));
             temporaryAddress = getEmployeeAddressFromUser(scanner, validation);
 
-            employee.setEmployeebasicDetails(basicDetails);
+            employee.setEmployeeBasicDetails(basicDetails);
             employee.setEmployeePermanentAddress(permanentAddress);
             employee.setEmployeeTemporaryAddress(temporaryAddress);
-
-            employee=port.callSaveAll(employee);
-            System.out.println(employee);
+            Employee emp;
+            emp=transalte(employee);
+            port.callSaveAll(emp);
             System.out.print(resourceBundle.getString("add.more"));
         } while (scanner.next().equalsIgnoreCase(resourceBundle.getString("yes")));
+    }
+
+    private static Employee transalte(org.webconsole.Details.Employee employee) {
+        Employee employee1=new Employee();
+        EmployeebasicDetails employeeDetails=new EmployeebasicDetails();
+        implementation.EmployeeAddress tempAddr=new implementation.EmployeeAddress();
+        implementation.EmployeeAddress perAddr=new implementation.EmployeeAddress();
+
+        employeeDetails.setEmployeeName(employee.getEmployeeBasicDetails().getEmployeeName());
+        employeeDetails.setEmployeeId(employee.getEmployeeBasicDetails().getEmployeeId());
+        employeeDetails.setEmailId(employee.getEmployeeBasicDetails().getEmailId());
+        employeeDetails.setPhoneNumber(employee.getEmployeeBasicDetails().getPhoneNumber());
+
+        perAddr.setAddress(employee.getEmployeePermanentAddress().getAddress());
+        perAddr.setHouseNumber(employee.getEmployeePermanentAddress().getHouseNumber());
+        perAddr.setCity(employee.getEmployeePermanentAddress().getCity());
+        perAddr.setState(employee.getEmployeePermanentAddress().getState());
+        perAddr.setPinCode(employee.getEmployeePermanentAddress().getPinCode());
+
+        tempAddr.setAddress(employee.getEmployeeTemporaryAddress().getAddress());
+        tempAddr.setHouseNumber(employee.getEmployeeTemporaryAddress().getHouseNumber());
+        tempAddr.setCity(employee.getEmployeeTemporaryAddress().getCity());
+        tempAddr.setState(employee.getEmployeeTemporaryAddress().getState());
+        tempAddr.setPinCode(employee.getEmployeeTemporaryAddress().getPinCode());
+
+        employee1.setEmployeebasicDetails(employeeDetails);
+        employee1.setEmployeePermanentAddress(perAddr);
+        employee1.setEmployeeTemporaryAddress(tempAddr);
+        return employee1;
+
+
     }
 
     private static EmployeeAddress getEmployeeAddressFromUser(Scanner scanner, Validation validation) {

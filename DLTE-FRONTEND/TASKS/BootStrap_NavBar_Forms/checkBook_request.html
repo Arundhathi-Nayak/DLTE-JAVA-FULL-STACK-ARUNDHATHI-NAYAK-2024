@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Cheque Book Request</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">My Bank</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="checkBook_request.html">Cheque Book Request</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="account_detail.html">Account Details</a>
+              </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="deposit_request.html">Deposit Schemes</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h1>New Cheque Book Request</h1>
+        <form>
+            <div class="form-group">
+                <label for="accountNumber">Account Number</label>
+                <input type="text" class="form-control" id="accountNumber" placeholder="Enter Account Number">
+            </div>
+            <div class="form-group">
+                <label for="accountHolder">Account Holder</label>
+                <input type="text" class="form-control" id="accountHolder" placeholder="Enter Account Holder Name">
+            </div>
+            <div class="form-group">
+                <label for="chequeBookType">Cheque Book Type</label>
+                <select class="form-control" id="chequeBookType">
+                    <option value="basic">Basic Cheque Book</option>
+                    <option value="premium">Premium Cheque Book</option>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Account Details</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">My Bank</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="checkBook_request.html">Cheque Book Request</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="account_detail.html">Account Details</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="deposit_request.html">Deposit Schemes</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h1>Account Details</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Account Number</th>
+                    <th>Account Holder</th>
+                    <th>Cheque Book Type</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>123456789</td>
+                    <td>Arundhathi</td>
+                    <td>Basic</td>
+                    <td>
+                        <button type="button" class="btn btn-primary">Approve</button>
+                        <button type="button" class="btn btn-danger">Reject</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>987654321</td>
+                    <td>Avinash</td>
+                    <td>Premium</td>
+                    <td>
+                        <button type="button" class="btn btn-primary">Approve</button>
+                       <button type="button" class="btn btn-danger">Reject</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

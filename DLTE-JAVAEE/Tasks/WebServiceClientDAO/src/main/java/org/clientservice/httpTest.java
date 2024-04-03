@@ -28,11 +28,12 @@ public class httpTest {
         CloseableHttpClient httpclient = HttpClients.createDefault();
         HttpGet httpget = new HttpGet("http://localhost:7001/BuildingRestfulwebserviceforDAOlayer/findByUsername?username=shreyas12");
         CloseableHttpResponse response = httpclient.execute(httpget);
+       // CloseableHttpResponse response = null;
 
         try {
-            //  System.out.println(httpget);
+              System.out.println(httpget);
             printResponse(response);
-            //     System.out.println(response.getEntity());
+                 System.out.println(response.getEntity());
         } finally {
             response.close();
         }

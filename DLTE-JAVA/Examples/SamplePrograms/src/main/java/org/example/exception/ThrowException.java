@@ -15,7 +15,7 @@ public class ThrowException {
         public static void main(String args[]){
             //calling the function
             try{
-                validate(13);
+
             }catch (ArithmeticException exception){
                 System.out.println(exception.getMessage());
             }

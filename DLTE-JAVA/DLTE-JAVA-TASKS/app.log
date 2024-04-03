@@ -8,3 +8,4 @@
 16:28:15.477 [main] INFO  o.r.D.DatabaseRepositoryImplementation - Employee with ID  Avinash successfully added
 15:58:54.649 [pool-1-thread-2] INFO  o.r.D.DatabaseRepositoryImplementation - Employee with ID  675 successfully added
 15:58:57.246 [pool-1-thread-2] ERROR o.r.D.DatabaseRepositoryImplementation - Failed to insert employee with ID  675 : Employee ID already exists 
+00:23:53.460 [pool-1-thread-2] INFO  o.r.D.DatabaseRepositoryImplementation - Employee with ID  21 successfully added
