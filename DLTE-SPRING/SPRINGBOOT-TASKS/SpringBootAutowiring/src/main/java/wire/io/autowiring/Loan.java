@@ -1,5 +1,8 @@
 package wire.io.autowiring;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Loan {
     private Long loanNumber;
     private Long loanAmount;
@@ -18,6 +21,7 @@ public class Loan {
     }
 
     public Loan() {
+        System.out.println("Loan object created");
     }
 
     @Override

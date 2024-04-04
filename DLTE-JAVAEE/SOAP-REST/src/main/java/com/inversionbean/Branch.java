@@ -19,6 +19,7 @@ public class Branch {
     }
 
     public Branch() {
+        System.out.println("Object is created");
     }
 
     public Branch(String branchName, String ifsCode, int branchId, String bankName, long branchContact) {

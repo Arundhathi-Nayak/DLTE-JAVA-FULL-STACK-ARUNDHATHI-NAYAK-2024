@@ -7,7 +7,7 @@ public class ExecutingFieldInjection {
         AnnotationConfigApplicationContext applicationContext=new AnnotationConfigApplicationContext();
         applicationContext.scan("wire.io.autowiring");
         applicationContext.refresh();
-        MyBank myBank=applicationContext.getBean(MyBank.class);
-        System.out.println(myBank.callFindAll().toString());
+//        MyBank myBank=applicationContext.getBean(MyBank.class);
+//        System.out.println(myBank.callFindAll().toString());
     }
 }

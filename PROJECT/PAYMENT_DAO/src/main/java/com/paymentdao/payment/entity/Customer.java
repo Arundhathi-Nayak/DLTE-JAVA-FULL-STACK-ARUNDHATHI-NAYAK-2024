@@ -1,6 +1,5 @@
 package com.paymentdao.payment.entity;
 
-import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
@@ -13,6 +12,7 @@ public class Customer {
     private String customerName;
 
     @NotNull(message = "{customer.address.null}")
+    @Pattern(regexp = "^\\d+\\s[a-zA-Z]+\\s[a-zA-Z]+", message = "{customer.address}")
     private String customerAddress;
 
     @NotNull(message = "{customer.status.null}")
@@ -20,13 +20,15 @@ public class Customer {
     private String customerStatus;
 
     @NotNull(message = "{customer.Contact.null}")
-    @Digits(integer = 10, fraction = 0, message = "{customer.contact}")
+    @Pattern(regexp = "^\\d{10}$", message = "{customer.contact}")
     private Long customerContact;
 
     @NotNull(message = "{customer.username.null}")
+    @Pattern(regexp = "^[a-zA-Z0-9]{5,20}$", message = "{customer.username}")
     private String username;
 
     @NotNull(message = "{customer.password.null}")
+    @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}$", message = "{customer.password}")
     private String password;
 
     @Override
@@ -45,7 +47,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(@NotNull(message = "{customer.id.null}") Integer customerId, @NotNull(message = "{customer.name.null}") @Pattern(regexp = "^[a-zA-Z\\s]*$", message = "{customer.name}") String customerName, @NotNull(message = "{customer.address.null}") String customerAddress, @NotNull(message = "{customer.status.null}") @Pattern(regexp = "^[a-zA-Z\\s]*$", message = "{customer.status}") String customerStatus, @NotNull(message = "{customer.Contact.null}") @Digits(integer = 10, fraction = 0, message = "{customer.contact}") Long customerContact, @NotNull(message = "{customer.username.null}") String username, @NotNull(message = "{customer.password.null}") String password) {
+    public Customer(Integer customerId, String customerName, String customerAddress, String customerStatus, Long customerContact, String username, String password) {
         this.customerId = customerId;
         this.customerName = customerName;
         this.customerAddress = customerAddress;

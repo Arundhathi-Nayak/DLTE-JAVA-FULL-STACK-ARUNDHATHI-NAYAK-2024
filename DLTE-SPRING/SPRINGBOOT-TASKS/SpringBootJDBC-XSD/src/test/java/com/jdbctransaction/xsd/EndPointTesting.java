@@ -121,7 +121,7 @@ public class EndPointTesting {
         LocalDate date2 = LocalDate.of(2024,05,05);
         XMLGregorianCalendar xmlGregorianCalendar1 = DatatypeFactory.newInstance().newXMLGregorianCalendar(date1.toString());
         XMLGregorianCalendar xmlGregorianCalendar2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(date2.toString());
-        when(transactionService.deleteTransaction(date1, date1)).thenReturn("remove");
+     //   when(transactionService.deleteTransaction(date1, date1)).thenReturn("remove");
         DeleteByRangeOfDatesRequest request = new DeleteByRangeOfDatesRequest();
         Date start =new Date(2024,05,02);
         Date end =new Date(2024,05,05);
@@ -131,7 +131,4 @@ public class EndPointTesting {
         assertEquals("deleted", response.getServiceStatus().getStatus());
         assertEquals("deleted", response.getServiceStatus().getMessage());
     }
-
-
-
 }
