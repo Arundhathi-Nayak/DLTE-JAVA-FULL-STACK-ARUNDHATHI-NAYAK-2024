@@ -6,6 +6,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+
+// customer account details
 public class Account {
     @NotNull(message = "{accountId.notnull}")
     private Integer accountId;

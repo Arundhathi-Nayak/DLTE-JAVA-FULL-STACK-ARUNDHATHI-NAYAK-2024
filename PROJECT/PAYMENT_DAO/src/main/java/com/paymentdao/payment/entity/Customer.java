@@ -1,8 +1,11 @@
 package com.paymentdao.payment.entity;
 
+import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
+//customer details
 public class Customer {
     @NotNull(message = "{customer.id.null}")
     private Integer customerId;
@@ -20,7 +23,7 @@ public class Customer {
     private String customerStatus;
 
     @NotNull(message = "{customer.Contact.null}")
-    @Pattern(regexp = "^\\d{10}$", message = "{customer.contact}")
+    @Digits(integer = 10, fraction = 0, message = "{customer.contact}")
     private Long customerContact;
 
     @NotNull(message = "{customer.username.null}")

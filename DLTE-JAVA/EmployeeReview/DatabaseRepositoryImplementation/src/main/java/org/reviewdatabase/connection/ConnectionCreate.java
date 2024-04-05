@@ -17,14 +17,11 @@ public class ConnectionCreate {
      static Logger logger= LoggerFactory.getLogger(DatabaseRepositoryImplementation.class);
     static ResourceBundle resourceBundle=ResourceBundle.getBundle("Database");
     static ResourceBundle resourceBundle1= ResourceBundle.getBundle("application");
-    public static Connection createConnection( )  {
-        try {
+    public static Connection createConnection( ) throws SQLException {
+
             Driver driver=new OracleDriver();
             DriverManager.registerDriver(driver);
             connection= DriverManager.getConnection(resourceBundle.getString("db.url"),resourceBundle.getString("db.user"),resourceBundle.getString("db.pass"));
-        } catch (EmployeeNotFoundException | SQLException exception ) {
-           logger.error(resourceBundle1.getString("server.error"));
-        }
         return connection;
     }
 

@@ -1,5 +1,6 @@
 package org.reviewdatabase.Details;
 
+import org.reviewdatabase.exception.ConnectionException;
 import org.reviewdatabase.exception.EmployeeNotFoundException;
 import org.reviewdatabase.connection.ConnectionCreate;
 import org.reviewdatabase.remote.InputEmployeeDetails;
@@ -22,8 +23,13 @@ public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
     Validation validation=new Validation();
     Logger logger= LoggerFactory.getLogger(DatabaseRepositoryImplementation.class);
     ResourceBundle resourceBundle1= ResourceBundle.getBundle("application");
-    public DatabaseRepositoryImplementation() {
-            connection= ConnectionCreate.createConnection();
+    public DatabaseRepositoryImplementation() throws ConnectionException {
+        try {
+            connection = ConnectionCreate.createConnection();
+        }catch (SQLException e){
+            logger.error(e.getMessage());
+            throw new ConnectionException();
+        }
     }
     @Override
     public List<Employee> create(List<Employee> list) {
@@ -68,8 +74,9 @@ public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
                 logger.info(resourceBundle1.getString("employee.add")+ employeeID +" "+resourceBundle1.getString("employeeAdd.success"));
             } catch (SQLException e) {
                 if (e instanceof SQLIntegrityConstraintViolationException) {
-                    System.out.println(resourceBundle1.getString("Fail.insert") + " " + employeeID + " " + resourceBundle1.getString("employee.exists"));
-                    logger.error(resourceBundle1.getString("Fail.insert") + " " + employeeID + " " + resourceBundle1.getString("employee.exists"));
+//                    System.out.println(resourceBundle1.getString("Fail.insert") + " " + employeeID + " " + resourceBundle1.getString("employee.exists"));
+//                    logger.error(resourceBundle1.getString("Fail.insert") + " " + employeeID + " " + resourceBundle1.getString("employee.exists"));
+                    logger.warn(resourceBundle1.getString("Fail.insert") + " " + employeeID + " " + resourceBundle1.getString("employee.exists"));
                 } else {
                     e.printStackTrace();
                 }

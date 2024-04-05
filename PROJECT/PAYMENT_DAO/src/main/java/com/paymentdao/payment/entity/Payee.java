@@ -4,6 +4,7 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
+// payee details
 public class Payee {
     @NotNull(message = "{payee.id}")
     @Digits(integer = 3, fraction = 0, message = "{payee.id}")

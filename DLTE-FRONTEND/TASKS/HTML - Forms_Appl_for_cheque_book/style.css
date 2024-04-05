@@ -54,7 +54,10 @@ textarea {
     margin-right: 5px;
 }
 
-
+.checkbox label {
+    display: inline-block;
+    vertical-align: middle;
+}
 
 /* Submit button styles */
 input[type="submit"] {

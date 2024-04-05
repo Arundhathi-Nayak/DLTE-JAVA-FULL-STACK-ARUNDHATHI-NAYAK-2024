@@ -60,12 +60,14 @@
         <dependency>
             <groupId>com.paymentdao</groupId>
             <artifactId>payment</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
     </dependencies>
 
     <build>
@@ -84,7 +86,7 @@
                 </executions>
                 <configuration>
                     <schemaDirectory>src/main/resources</schemaDirectory>
-                    <schemaFiles>transaction.xsd</schemaFiles>
+                    <schemaFiles>Payee.xsd</schemaFiles>
                     <outputDirectory>src/main/java</outputDirectory>
                     <clearOutputDir>false</clearOutputDir>
                 </configuration>
