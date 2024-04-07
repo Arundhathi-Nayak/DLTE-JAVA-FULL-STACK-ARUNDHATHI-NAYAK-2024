@@ -1,8 +1,10 @@
 package org.reviewdatabase.Details;
 
 import org.reviewdatabase.exception.ConnectionException;
+import org.reviewdatabase.exception.EmployeeExistException;
 import org.reviewdatabase.exception.EmployeeNotFoundException;
 import org.reviewdatabase.connection.ConnectionCreate;
+import org.reviewdatabase.exception.ValidationException;
 import org.reviewdatabase.remote.InputEmployeeDetails;
 import org.reviewdatabase.validation.ValidationData;
 import org.slf4j.Logger;
@@ -20,7 +22,6 @@ public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
 
     PreparedStatement preparedStatement;
     ResultSet resultSet;
-    Validation validation=new Validation();
     Logger logger= LoggerFactory.getLogger(DatabaseRepositoryImplementation.class);
     ResourceBundle resourceBundle1= ResourceBundle.getBundle("application");
     public DatabaseRepositoryImplementation() throws ConnectionException {
@@ -32,7 +33,7 @@ public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
         }
     }
     @Override
-    public List<Employee> create(List<Employee> list) {
+    public List<Employee> create(List<Employee> list) throws EmployeeExistException, SQLException, ValidationException {
         List<Employee> createdEmployees = new ArrayList<>();
         ValidationData validation = new ValidationData();
         validation.Validationofdata(list);
@@ -72,14 +73,10 @@ public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
                 createdEmployees.add(employee); // Add the created employee to the list of created employees
                 System.out.println(resourceBundle1.getString("employee.add") + employeeID +" "+resourceBundle1.getString("employeeAdd.success"));
                 logger.info(resourceBundle1.getString("employee.add")+ employeeID +" "+resourceBundle1.getString("employeeAdd.success"));
-            } catch (SQLException e) {
-                if (e instanceof SQLIntegrityConstraintViolationException) {
-//                    System.out.println(resourceBundle1.getString("Fail.insert") + " " + employeeID + " " + resourceBundle1.getString("employee.exists"));
-//                    logger.error(resourceBundle1.getString("Fail.insert") + " " + employeeID + " " + resourceBundle1.getString("employee.exists"));
+            } catch (SQLIntegrityConstraintViolationException e) {
                     logger.warn(resourceBundle1.getString("Fail.insert") + " " + employeeID + " " + resourceBundle1.getString("employee.exists"));
-                } else {
-                    e.printStackTrace();
-                }
+                    throw new EmployeeExistException("EMP-001: Employee ID Already Exist");
+
             } finally {
                 closeConnections();
             }

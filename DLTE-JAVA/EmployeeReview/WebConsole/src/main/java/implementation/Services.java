@@ -28,19 +28,6 @@ public interface Services {
      * 
      * @param arg0
      * @return
-     *     returns implementation.Employee
-     */
-    @WebMethod
-    @WebResult(name = "findBasedOnId", partName = "findBasedOnId")
-    @Action(input = "http://implementation/Services/callFilterBasedOnIDRequest", output = "http://implementation/Services/callFilterBasedOnIDResponse")
-    public Employee callFilterBasedOnID(
-        @WebParam(name = "arg0", partName = "arg0")
-        String arg0);
-
-    /**
-     * 
-     * @param arg0
-     * @return
      *     returns implementation.GroupOfEmployee
      */
     @WebMethod
@@ -49,6 +36,19 @@ public interface Services {
     public GroupOfEmployee callFilterBasedOnPincode(
         @WebParam(name = "arg0", partName = "arg0")
         int arg0);
+
+    /**
+     * 
+     * @param arg0
+     * @return
+     *     returns implementation.Employee
+     */
+    @WebMethod
+    @WebResult(name = "findBasedOnId", partName = "findBasedOnId")
+    @Action(input = "http://implementation/Services/callFilterBasedOnIDRequest", output = "http://implementation/Services/callFilterBasedOnIDResponse")
+    public Employee callFilterBasedOnID(
+        @WebParam(name = "arg0", partName = "arg0")
+        String arg0);
 
     /**
      * 

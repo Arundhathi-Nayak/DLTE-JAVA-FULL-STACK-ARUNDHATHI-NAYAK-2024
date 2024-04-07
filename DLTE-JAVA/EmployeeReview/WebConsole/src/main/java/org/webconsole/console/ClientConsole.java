@@ -8,6 +8,7 @@ import org.validation.Validation;
 import org.webconsole.Details.EmployeeAddress;
 import org.webconsole.Details.EmployeeBasicDetails;
 
+import javax.xml.ws.soap.SOAPFaultException;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -19,6 +20,7 @@ public class ClientConsole {
 
     private static ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
     private static Logger logger = LoggerFactory.getLogger(ClientConsole.class);
+    public static ResourceBundle resourceBundleError = ResourceBundle.getBundle("error");
     private static ServicesService servicesService = new ServicesService();
     private static Services port = servicesService.getServicesPort();
 
@@ -107,20 +109,33 @@ public class ClientConsole {
                     basicDetails.setPhoneNumber(phoneNumber);
                 }
             } while (!validPhoneNumber);
+           try {
+               System.out.println(resourceBundle.getString("enter.permanentAddress"));
+               permanentAddress = getEmployeeAddressFromUser(scanner, validation);
 
-            System.out.println(resourceBundle.getString("enter.permanentAddress"));
-            permanentAddress = getEmployeeAddressFromUser(scanner, validation);
+               System.out.println(resourceBundle.getString("enter.temporaryaddress"));
+               temporaryAddress = getEmployeeAddressFromUser(scanner, validation);
 
-            System.out.println(resourceBundle.getString("enter.temporaryaddress"));
-            temporaryAddress = getEmployeeAddressFromUser(scanner, validation);
+               employee.setEmployeeBasicDetails(basicDetails);
+               employee.setEmployeePermanentAddress(permanentAddress);
+               employee.setEmployeeTemporaryAddress(temporaryAddress);
+               Employee emp;
 
-            employee.setEmployeeBasicDetails(basicDetails);
-            employee.setEmployeePermanentAddress(permanentAddress);
-            employee.setEmployeeTemporaryAddress(temporaryAddress);
-            Employee emp;
-            emp=transalte(employee);
-            port.callSaveAll(emp);
-            System.out.print(resourceBundle.getString("add.more"));
+               emp = transalte(employee);
+               port.callSaveAll(emp);
+               System.out.print(resourceBundle.getString("add.more"));
+           }catch (SOAPFaultException e){
+                if (e.getFault().getFaultCode().equalsIgnoreCase("EmployeeExistException")) {
+                   logger.warn(e.getFault().getFaultString());
+                   System.out.println(resourceBundle.getString("app.error.employeeIdExists"));
+               }
+               else{
+                   logger.warn(e.getFault().getFaultString());
+                   System.out.println(resourceBundle.getString("app.error.systemFailure"));
+                   break;
+               }
+           }
+
         } while (scanner.next().equalsIgnoreCase(resourceBundle.getString("yes")));
     }
 

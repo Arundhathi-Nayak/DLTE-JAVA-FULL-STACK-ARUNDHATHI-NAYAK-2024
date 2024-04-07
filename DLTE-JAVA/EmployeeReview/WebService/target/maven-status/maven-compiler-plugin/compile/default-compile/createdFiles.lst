@@ -1,2 +1,3 @@
 implementation\Services.class
 endpoints\ServicesEndPoint.class
+implementation\GroupOfEmployee.class
