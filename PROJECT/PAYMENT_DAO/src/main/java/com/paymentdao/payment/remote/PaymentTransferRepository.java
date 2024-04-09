@@ -11,4 +11,5 @@ import java.util.List;
 public interface PaymentTransferRepository {
     List<Payee> findAllPayee() ;
     List<Payee> findAllPayeeBasedOnAccountNumber(Long accountNumber) ;
+    void deletePayee(int payeeId, Long senderAccountNumber, Long payeeAccountNumber, String payeeName);
 }

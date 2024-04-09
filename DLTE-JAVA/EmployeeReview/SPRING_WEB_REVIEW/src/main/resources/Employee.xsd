@@ -4,7 +4,7 @@
             elementFormDefault="qualified">
 
     <!-- EmployeeBasicDetails -->
-    <xsd:complexType name="EmployeeBasicDetails">
+    <xsd:complexType name="employeeBasicDetails">
         <xsd:sequence>
             <xsd:element name="employeeName" type="xsd:string"/>
             <xsd:element name="employeeId" type="xsd:string"/>
@@ -14,7 +14,7 @@
     </xsd:complexType>
 
     <!-- EmployeeAddress -->
-    <xsd:complexType name="EmployeeAddress">
+    <xsd:complexType name="employeeAddress">
         <xsd:sequence>
             <xsd:element name="address" type="xsd:string"/>
             <xsd:element name="houseNumber" type="xsd:string"/>
@@ -25,16 +25,16 @@
     </xsd:complexType>
 
     <!-- Employee -->
-    <xsd:complexType name="Employee">
+    <xsd:complexType name="employee">
         <xsd:sequence>
-            <xsd:element name="employeeBasicDetails" type="EmployeeBasicDetails"/>
-            <xsd:element name="employeePermanentAddress" type="EmployeeAddress"/>
-            <xsd:element name="employeeTemporaryAddress" type="EmployeeAddress"/>
+            <xsd:element name="employeeBasicDetails" type="tns:employeeBasicDetails"/>
+            <xsd:element name="employeePermanentAddress" type="tns:employeeAddress"/>
+            <xsd:element name="employeeTemporaryAddress" type="tns:employeeAddress"/>
         </xsd:sequence>
     </xsd:complexType>
 
     <!-- Root element -->
-    <xsd:element name="Employee" type="Employee"/>
+    <xsd:element name="employee" type="tns:employee"/>
 
     <xsd:complexType name="serviceStatus">
         <xsd:sequence>
@@ -43,21 +43,51 @@
         </xsd:sequence>
     </xsd:complexType>
     <!-- Request element -->
-    <xsd:element name="CreateEmployeeRequest">
+    <xsd:element name="createEmployeeRequest">
         <xsd:complexType>
             <xsd:sequence>
-                <xsd:element name="employee" type="tns:Employee"/>
+                <xsd:element name="employee" type="tns:employee"/>
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
 
     <!-- Response element -->
-    <xsd:element name="CreateEmployeeResponse">
+    <xsd:element name="createEmployeeResponse">
         <xsd:complexType>
             <xsd:sequence>
-                <xsd:element name="status" type="xsd:int"/>
-                <xsd:element name="message" type="xsd:string"/>
+                <xsd:element name="Employee" type="tns:employee"/>
+                <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
             </xsd:sequence>
         </xsd:complexType>
     </xsd:element>
+
+    <xsd:element name="filterByIdRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="employeeId" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="filterByIdResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+                <xsd:element name="employee" type="tns:employee"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="findAllEmployeeRequest">
+        <xsd:complexType/>
+    </xsd:element>
+    <xsd:element name="findAllEmployeeResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+                <xsd:element name="employee" type="tns:employee" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+
 </xsd:schema>

@@ -14,12 +14,14 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.ResourceBundle;
 
+@Service
 public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
     @Autowired
     JdbcTemplate jdbcTemplate;

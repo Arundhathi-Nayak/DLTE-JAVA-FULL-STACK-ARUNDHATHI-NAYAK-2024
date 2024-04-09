@@ -72,7 +72,6 @@ public class SoapPhase {
         filterBySenderResponse.setServiceStatus(serviceStatus);
         filterBySenderResponse.getTransaction().addAll(transactions);
         return filterBySenderResponse;
-
     }
 
     @PreAuthorize("hasAnyAuthority('customer')")
@@ -166,4 +165,5 @@ public class SoapPhase {
         deleteByRangeOfDatesResponse.setServiceStatus(serviceStatus);
         return deleteByRangeOfDatesResponse;
     }
+
 }

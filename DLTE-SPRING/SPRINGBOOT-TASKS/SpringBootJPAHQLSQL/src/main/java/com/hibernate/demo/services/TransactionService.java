@@ -12,14 +12,14 @@ import java.util.List;
 public class TransactionService {
     @Autowired
     TransactionRepository transactionRepository;
-    public Transaction callSave(Transaction transaction){
-        return transactionRepository.save(transaction);
-    }
-   public List<Transaction> callFindAllByRangeOfTransactionAmount(double minAmount,double maxAmount){
-        return  transactionRepository.findAllByRangeOfTransactionAmount(minAmount, maxAmount);
-   }
-  public  List<Transaction> callFindAllByUserAndType( Long userId,  String type){
-        return  transactionRepository.findAllByUserAndType(userId, type);
-  }
+        public Transaction callSave(Transaction transaction){
+            return transactionRepository.save(transaction);
+        }
+       public List<Transaction> callFindAllByRangeOfTransactionAmount(double minAmount,double maxAmount){
+            return  transactionRepository.findAllByRangeOfTransactionAmount(minAmount, maxAmount);
+       }
+      public  List<Transaction> callFindAllByUserAndType( Long userId,  String type){
+            return  transactionRepository.findAllByUserAndType(userId, type);
+      }
 
 }
