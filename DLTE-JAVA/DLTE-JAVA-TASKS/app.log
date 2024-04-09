@@ -1,6 +1,7 @@
-20:39:35.910 [pool-1-thread-3] WARN  o.r.D.DatabaseRepositoryImplementation - Failed to insert employee with ID  1 : Employee ID already exists 
-20:39:35.930 [pool-1-thread-3] ERROR implementation.Services - EMP-001: Employee ID Already Existorg.reviewdatabase.exception.EmployeeExistException
-20:42:25.161 [pool-1-thread-1] WARN  o.r.D.DatabaseRepositoryImplementation - Failed to insert employee with ID  1 : Employee ID already exists 
-20:42:25.193 [pool-1-thread-1] ERROR implementation.Services - EMP-001: Employee ID Already Existorg.reviewdatabase.exception.EmployeeExistException
-20:43:22.328 [pool-1-thread-1] ERROR implementation.Services - Employee not found with ID: 3org.reviewdatabase.exception.EmployeeNotFoundException
-20:43:35.914 [pool-1-thread-1] ERROR implementation.Services - No employees found for pin code: 123org.reviewdatabase.exception.EmployeeNotFoundException
+08:45:38.271 [pool-1-thread-1] ERROR implementation.Services - Employee not found with ID: 1234org.reviewdatabase.exception.EmployeeNotFoundException
+08:49:29.983 [pool-1-thread-3] ERROR implementation.Services - Employee not found with ID: 145org.reviewdatabase.exception.EmployeeNotFoundException
+08:54:04.719 [pool-1-thread-3] ERROR implementation.Services - Employee not found with ID: 77org.reviewdatabase.exception.EmployeeNotFoundException
+09:39:24.315 [pool-1-thread-4] ERROR implementation.Services - Employee not found with ID: 123org.reviewdatabase.exception.EmployeeNotFoundException
+10:15:10.849 [pool-1-thread-5] ERROR implementation.Services - Employee not found with ID: 123org.reviewdatabase.exception.EmployeeNotFoundException
+10:15:27.165 [pool-1-thread-5] ERROR implementation.Services - No employees found for pin code: 123456org.reviewdatabase.exception.EmployeeNotFoundException
+10:17:34.014 [pool-1-thread-1] ERROR implementation.Services - Employee not found with ID: 12org.reviewdatabase.exception.EmployeeNotFoundException

@@ -109,7 +109,6 @@ public class ClientConsole {
                     basicDetails.setPhoneNumber(phoneNumber);
                 }
             } while (!validPhoneNumber);
-           try {
                System.out.println(resourceBundle.getString("enter.permanentAddress"));
                permanentAddress = getEmployeeAddressFromUser(scanner, validation);
 
@@ -120,21 +119,22 @@ public class ClientConsole {
                employee.setEmployeePermanentAddress(permanentAddress);
                employee.setEmployeeTemporaryAddress(temporaryAddress);
                Employee emp;
-
+           // try {
                emp = transalte(employee);
                port.callSaveAll(emp);
                System.out.print(resourceBundle.getString("add.more"));
-           }catch (SOAPFaultException e){
-                if (e.getFault().getFaultCode().equalsIgnoreCase("EmployeeExistException")) {
-                   logger.warn(e.getFault().getFaultString());
-                   System.out.println(resourceBundle.getString("app.error.employeeIdExists"));
-               }
-               else{
-                   logger.warn(e.getFault().getFaultString());
-                   System.out.println(resourceBundle.getString("app.error.systemFailure"));
-                   break;
-               }
-           }
+//           }
+//        catch (SOAPFaultException e){
+//                if (e.getFault().getFaultCode().equalsIgnoreCase("EmployeeExistException")) {
+//                   logger.warn(e.getFault().getFaultString());
+//                   System.out.println(resourceBundle.getString("app.error.employeeIdExists"));
+//               }
+//               else{
+//                   logger.warn(e.getFault().getFaultString());
+//                   System.out.println(resourceBundle.getString("app.error.systemFailure"));
+//                   break;
+//               }
+//           }
 
         } while (scanner.next().equalsIgnoreCase(resourceBundle.getString("yes")));
     }
