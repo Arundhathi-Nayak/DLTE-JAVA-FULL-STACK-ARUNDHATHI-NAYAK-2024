@@ -57,7 +57,7 @@ public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
             return employee;
         } catch (DuplicateKeyException e) {
             logger.warn(resourceBundle.getString("Fail.insert") + " " + employeeID + " " + resourceBundle.getString("employee.exists"));
-            throw new EmployeeExistException(resourceBundle.getString("employee.e`xist"));
+            throw new EmployeeExistException(resourceBundle.getString("employee.exist"));
         }
     }
 
@@ -69,7 +69,7 @@ public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
                     "INNER JOIN EmployeeAddress pa ON emp.EMPLOYEEID = pa.EMPLOYEEID AND pa.ISTEMPORARY = 0\n" +
                     "WHERE emp.EMPLOYEEID=?";
             return jdbcTemplate.queryForObject(query, new Object[]{employeeID}, new EmployeeRowMapper());
-        } catch (EmptyResultDataAccessException e) {
+        } catch (EmployeeNotFoundException e) {
             logger.warn(resourceBundle.getString("no.employee") + employeeID);
             throw new EmployeeNotFoundException(resourceBundle.getString("no.employee") + employeeID);
         }
@@ -88,7 +88,7 @@ public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
                 throw new EmployeeNotFoundException(resourceBundle.getString("no.pincode") + pinCode);
             }
             return employees;
-        } catch (EmptyResultDataAccessException e) {
+        } catch (EmployeeNotFoundException e) {
             logger.warn(resourceBundle.getString("no.pincode") + pinCode);
             throw new EmployeeNotFoundException(resourceBundle.getString("no.pincode") + pinCode);
         } catch (DataAccessException e) {
@@ -104,8 +104,8 @@ public class DatabaseRepositoryImplementation implements InputEmployeeDetails {
                     "INNER JOIN EmployeeAddress ta ON emp.EMPLOYEEID = ta.EMPLOYEEID AND ta.ISTEMPORARY = 1\n" +
                     "INNER JOIN EmployeeAddress pa ON emp.EMPLOYEEID = pa.EMPLOYEEID AND pa.ISTEMPORARY = 0";
             return jdbcTemplate.query(query, new EmployeeRowMapper());
-        } catch (DataAccessException e) {
-            throw new RuntimeException(resourceBundle.getString("fail.fetch"), e);
+        } catch (EmployeeNotFoundException e) {
+            throw new EmployeeNotFoundException(resourceBundle.getString("fail.fetch"), e);
         }
     }
 
