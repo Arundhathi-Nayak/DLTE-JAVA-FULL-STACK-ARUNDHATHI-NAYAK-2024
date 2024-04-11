@@ -134,10 +134,9 @@ public class EmployeeClient {
             System.out.println(resourceBundle.getString("create.message") + status.getMessage());
             logger.info(resourceBundle.getString("create.message"));
 
-            if (status != null && "SUCCESS".equals(status.getStatus())) {
-                Employee createdEmployee = response.getEmployee();
-                displayEmployeeDetails(createdEmployee);
-            }
+
+//                Employee createdEmployee = response.getEmployee();
+//                displayEmployeeDetails(createdEmployee);
 
             System.out.print(resourceBundle.getString("add.another.employee"));
             String choice = scanner.next();
@@ -157,10 +156,9 @@ public class EmployeeClient {
         ServiceStatus status = response.getServiceStatus();
         System.out.println(resourceBundle.getString("id.response") + status.getStatus());
         System.out.println(resourceBundle.getString("id.message") + status.getMessage());
-        if (status != null && "SUCCESS".equals(status.getStatus())) {
             Employee filteredEmployee = response.getEmployee();
             displayEmployeeDetails(filteredEmployee);
-        }
+
     }
 
     private static void findAllEmployeeRequest(WebServiceTemplate webServiceTemplate) {
@@ -169,12 +167,11 @@ public class EmployeeClient {
         ServiceStatus status = response.getServiceStatus();
         System.out.println(resourceBundle.getString("filter.idResponse")+ status.getStatus());
         System.out.println(resourceBundle.getString("filter.idMessage") + status.getMessage());
-        if (status != null && "SUCCESS".equals(status.getStatus())) {
             List<Employee> employees = response.getEmployee();
             for (Employee employee : employees) {
                 displayEmployeeDetails(employee);
                 System.out.println("---------------------------");
-            }
+
         }
     }
 
@@ -188,13 +185,12 @@ public class EmployeeClient {
         ServiceStatus status = response.getServiceStatus();
         System.out.println(resourceBundle.getString("pinCode.response") + status.getStatus());
         System.out.println(resourceBundle.getString("pinCode.message") + status.getMessage());
-        if (status != null && "SUCCESS".equals(status.getStatus())) {
             List<Employee> employees = response.getEmployee();
             for (Employee employee : employees) {
                 displayEmployeeDetails(employee);
                 System.out.println("---------------------------");
             }
-        }
+
     }
 
     private static void displayEmployeeDetails(Employee employee) {

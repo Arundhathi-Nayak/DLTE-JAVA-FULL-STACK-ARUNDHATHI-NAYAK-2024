@@ -74,7 +74,7 @@ public class SoapPhase {
     @ResponsePayload
    public FilterByIdResponse filterByIdRequest(@RequestPayload FilterByIdRequest findAllEmployeeRequest) {
         FilterByIdResponse filterByIdResponse = new FilterByIdResponse();
-        ServiceStatus serviceStatus = new ServiceStatus();
+        ServiceStatus status = new ServiceStatus();
         Employee actualEmployee = new Employee();
         try {
             com.dao.review.entity.Employee employee = inputEmployeeDetails.displayBasedOnEmployeeId(findAllEmployeeRequest.getEmployeeId());
@@ -87,16 +87,16 @@ public class SoapPhase {
             actualEmployee.setEmployeeBasicDetails(basic);
             actualEmployee.setEmployeePermanentAddress(permAddress);
             actualEmployee.setEmployeeTemporaryAddress(tempAddress);
-            serviceStatus.setStatus(HttpServletResponse.SC_OK);
-            serviceStatus.setMessage(resourceBundle.getString("webEmployee.id"));
+            status.setStatus(HttpServletResponse.SC_OK);
+            filterByIdResponse.setEmployee(actualEmployee);
+            status.setMessage(resourceBundle.getString("webEmployee.id"));
             logger.info(resourceBundle.getString("webEmployee.id"));
         } catch (EmployeeNotFoundException e) {
-            serviceStatus.setStatus(HttpServletResponse.SC_NOT_FOUND);
-            serviceStatus.setMessage(resourceBundle.getString("employee.notFound"));
+            status.setStatus(HttpServletResponse.SC_NO_CONTENT);
+            status.setMessage(resourceBundle.getString("employee.notFound"));
             logger.warn(resourceBundle.getString("employee.notFound"));
         }
-        filterByIdResponse.setServiceStatus(serviceStatus);
-        filterByIdResponse.setEmployee(actualEmployee);
+        filterByIdResponse.setServiceStatus(status);
         return filterByIdResponse;
     }
 

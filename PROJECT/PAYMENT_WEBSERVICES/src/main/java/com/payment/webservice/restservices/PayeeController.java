@@ -18,6 +18,8 @@ import java.util.ResourceBundle;
 @RestController
 @ComponentScan("com.paymentdao.payment")
 @RequestMapping("/payees")
+
+//http://localhost:8082/payees/delete
 public class PayeeController {
     org.slf4j.Logger logger= LoggerFactory.getLogger(PayeeController.class);
     ResourceBundle resourceBundle= ResourceBundle.getBundle("account");
@@ -31,7 +33,7 @@ public class PayeeController {
             return ResponseEntity.ok(resourceBundle.getString("payee.add")+ payee.getPayeeName() +resourceBundle.getString("delete.success"));
         } catch (PayeeException payeeException) {
             logger.warn(resourceBundle.getString("Payee.not.found"));
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(payeeException.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(payeeException.getMessage());
         }
 
     }
