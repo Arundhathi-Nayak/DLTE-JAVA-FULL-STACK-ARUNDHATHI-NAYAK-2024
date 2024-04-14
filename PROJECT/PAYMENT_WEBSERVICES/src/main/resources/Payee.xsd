@@ -59,5 +59,21 @@
         </xsd:complexType>
     </xsd:element>
 
+    <xsd:element name="findAllPayeeBasedOnAccountNumberLambdaRequest">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="senderAccount" type="xsd:long"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="findAllPayeeBasedOnAccountNumberLambdaResponse">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+                <xsd:element name="payee" type="tns:payee" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
 
 </xsd:schema>

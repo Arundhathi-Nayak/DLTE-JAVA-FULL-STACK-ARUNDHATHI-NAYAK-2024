@@ -1,24 +1,29 @@
 package com.paymentdao.payment.entity;
 
+import org.hibernate.validator.constraints.Range;
+
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 
 // payee details
 public class Payee {
-    @NotNull(message = "{payee.id}")
+    @NotNull
     @Digits(integer = 3, fraction = 0, message = "{payee.id}")
     private Integer payeeId;
 
-    @NotNull(message = "{payee.senderAcc}")
+    @NotNull
+    @Range(min = 100000000000L, max = 999999999999L,message = "{payee.senderAcc}")
     @Digits(integer = 12, fraction = 0, message = "{payee.senderAcc}")
+
     private Long senderAccountNumber;
 
-    @NotNull(message = "{payee.payeeAcc}")
+    @NotNull
+    @Range(min = 100000000000L, max = 999999999999L,message = "{payee.payeeAcc}")
     @Digits(integer = 12, fraction = 0, message = "{payee.payeeAcc}")
     private Long payeeAccountNumber;
 
-    @NotNull(message = "{name.null}")
+    @NotNull
     @Pattern(regexp = "^[a-zA-Z\\s]*$",message = "{payee.holder}")
     private String payeeName;
 

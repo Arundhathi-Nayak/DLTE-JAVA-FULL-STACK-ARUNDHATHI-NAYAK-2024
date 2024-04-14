@@ -13,34 +13,31 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class CustomerTest {
     @Test
-    public void testValidCustomer() {
+    public void testInvalidCustomer() {
         Customer customer = new Customer();
-        customer.setCustomerId(1);
+        customer.setCustomerId(null);
         customer.setCustomerName("Aru");
         customer.setCustomerAddress("123 Main St");
         customer.setCustomerStatus("Active");
         customer.setCustomerContact(1234567890L);
         customer.setUsername("aru123");
         customer.setPassword("Password@123");
-       // customer.setPassword("Password");failure
 
-       // assertFalse(validate(customer), "valid if true ");
-        assertTrue(validate(customer), "valid if true  ");
+        assertTrue(validate(customer), "valid true ");
     }
 
     @Test
-    public void testInvalidCustomer() {
+    public void testValidCustomer() {
         Customer customer = new Customer();
-        customer.setCustomerId(null);
+        customer.setCustomerId(1);
         customer.setCustomerName("aru");
-        customer.setCustomerAddress("InvalidAddress");
-        customer.setCustomerStatus("InvalidStatus123");
+        customer.setCustomerAddress("123 Main St");
+        customer.setCustomerStatus("Active");
         customer.setCustomerContact(12345678901L);
         customer.setUsername("aru");
         customer.setPassword("password123");
 
-       // assertTrue(validate(customer), "invalid fail");
-        assertFalse(validate(customer), "invalid fail");
+        assertFalse(validate(customer), " valid if true");
     }
 
     private boolean validate(Customer customer) {

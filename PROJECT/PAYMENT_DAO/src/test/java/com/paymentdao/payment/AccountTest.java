@@ -21,7 +21,7 @@ public class AccountTest {
         account.setAccountId(1);
         account.setCustomerId(1);
         account.setAccountType("Checking");
-      //  account.setAccountType("");  failure
+    //    account.setAccountType(""); // failure
         account.setAccountNumber(123456789012L);
         account.setAccountStatus("Active");
         account.setAccountBalance(1000);

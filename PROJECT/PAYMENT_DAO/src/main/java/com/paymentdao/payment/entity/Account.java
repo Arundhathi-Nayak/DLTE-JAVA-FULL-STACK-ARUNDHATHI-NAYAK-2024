@@ -1,6 +1,8 @@
 package com.paymentdao.payment.entity;
 
 
+import org.hibernate.validator.constraints.Range;
+
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -9,25 +11,26 @@ import javax.validation.constraints.Pattern;
 
 // customer account details
 public class Account {
-    @NotNull(message = "{accountId.notnull}")
+    @NotNull
     private Integer accountId;
 
-    @NotNull(message = "{customerId.notnull}")
+    @NotNull
     private Integer customerId;
 
-    @NotBlank(message = "{accountType.notBlank}")
+    @NotBlank
     @Pattern(regexp = "^[a-zA-Z\\s]*$", message = "{Pattern.accountType.message}")
     private String accountType;
 
-    @NotNull(message = "{accountNumber.notnull}")
-    @Digits(integer = 12, fraction = 0, message = "{Digits.accountNumber.message}")
+    @NotNull
+    @Range(min = 100000000000L, max = 999999999999L,message = "{payee.senderAcc}")
+    @Digits(integer = 12, fraction = 0, message = "{payee.senderAcc}")
     private Long accountNumber;
 
-    @NotNull(message = "{accountStatus.notNull}")
+    @NotNull
     @Pattern(regexp = "^[a-zA-Z\\s]*$", message = "{Pattern.accountStatus.message}")
     private String accountStatus;
 
-    @NotNull(message = "{accountBalance.notNull}")
+    @NotNull
     @Digits(integer = 8, fraction = 3, message = "{Digits.accountBalance.message}")
     private Integer accountBalance;
 

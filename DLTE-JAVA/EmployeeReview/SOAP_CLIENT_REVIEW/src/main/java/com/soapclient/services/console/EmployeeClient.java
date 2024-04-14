@@ -199,24 +199,24 @@ public class EmployeeClient {
         EmployeeAddress temporaryAddress = employee.getEmployeeTemporaryAddress();
 
         System.out.println("\nEmployee Details:");
-        System.out.println("Employee ID: " + basicDetails.getEmployeeId());
-        System.out.println("Employee Name: " + basicDetails.getEmployeeName());
-        System.out.println("Email: " + basicDetails.getEmailId());
-        System.out.println("Phone Number: " + basicDetails.getPhoneNumber());
+        System.out.println(resourceBundle.getString("enter.id")+ basicDetails.getEmployeeId());
+        System.out.println(resourceBundle.getString("enter.name") + basicDetails.getEmployeeName());
+        System.out.println(resourceBundle.getString("enter.email")+ basicDetails.getEmailId());
+        System.out.println(resourceBundle.getString("enter.phoneNumber")+ basicDetails.getPhoneNumber());
 
         System.out.println("\nPermanent Address:");
-        System.out.println("Address: " + permanentAddress.getAddress());
-        System.out.println("House Number: " + permanentAddress.getHouseNumber());
-        System.out.println("City: " + permanentAddress.getCity());
-        System.out.println("State: " + permanentAddress.getState());
-        System.out.println("Pin Code: " + permanentAddress.getPinCode());
+        System.out.println(resourceBundle.getString("enter.address") + permanentAddress.getAddress());
+        System.out.println(resourceBundle.getString("enter.houseNumber") + permanentAddress.getHouseNumber());
+        System.out.println(resourceBundle.getString("enter.city")+ permanentAddress.getCity());
+        System.out.println(resourceBundle.getString("enter.state") + permanentAddress.getState());
+        System.out.println(resourceBundle.getString("enter.pinCode") + permanentAddress.getPinCode());
 
         System.out.println("\nTemporary Address:");
-        System.out.println("Address: " + temporaryAddress.getAddress());
-        System.out.println("House Number: " + temporaryAddress.getHouseNumber());
-        System.out.println("City: " + temporaryAddress.getCity());
-        System.out.println("State: " + temporaryAddress.getState());
-        System.out.println("Pin Code: " + temporaryAddress.getPinCode());
+        System.out.println(resourceBundle.getString("enter.address") + temporaryAddress.getAddress());
+        System.out.println(resourceBundle.getString("enter.houseNumber")+ temporaryAddress.getHouseNumber());
+        System.out.println(resourceBundle.getString("enter.city") + temporaryAddress.getCity());
+        System.out.println(resourceBundle.getString("enter.state") + temporaryAddress.getState());
+        System.out.println(resourceBundle.getString("enter.pinCode") + temporaryAddress.getPinCode());
     }
 
 }

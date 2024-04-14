@@ -27,6 +27,11 @@ import java.util.ResourceBundle;
 //implementation of request and responses
 
 //http://localhost:8082/payeerepo/payee.wsdl
+
+//http://localhost:7001/webservice-0.0.1-SNAPSHOT/payeerepo/payee.wsdl
+
+//http://localhost:8082/v3/api-docs
+
 public class SoapPhase {
     private final String url="http://payee.services";
     @Autowired
@@ -106,4 +111,30 @@ public class SoapPhase {
         return findAllPayeeResponse;
     }
 
+
+    //finding all payee by account number
+    // display particular details
+    @PayloadRoot(namespace = url,localPart = "findAllPayeeBasedOnAccountNumberLambdaRequest")
+    @ResponsePayload
+    public FindAllPayeeBasedOnAccountNumberLambdaResponse listAllPayeeLambda(@RequestPayload FindAllPayeeBasedOnAccountNumberLambdaRequest findAllPayeeBasedOnAccountNumberLambdaRequest) throws SQLSyntaxErrorException {
+        FindAllPayeeBasedOnAccountNumberLambdaResponse findAllPayeeBasedOnAccountNumberLambdaResponse=new FindAllPayeeBasedOnAccountNumberLambdaResponse();
+        ServiceStatus serviceStatus=new ServiceStatus();
+        List<Payee> payees =new ArrayList<>();
+        List<com.paymentdao.payment.entity.Payee> daoPayee=paymentTransferImplementation.findAllPayee();
+
+        daoPayee.stream()
+                .filter(payee -> payee.getSenderAccountNumber()==findAllPayeeBasedOnAccountNumberLambdaRequest.getSenderAccount())
+                .forEach(payee -> {
+                    Payee currentPayee = new Payee();
+                    BeanUtils.copyProperties(payee, currentPayee);
+                    payees.add(currentPayee);
+                });
+        serviceStatus.setStatus(HttpStatus.OK.value());
+        serviceStatus.setMessage(resourceBundle.getString("payee.details")+findAllPayeeBasedOnAccountNumberLambdaRequest.getSenderAccount());
+        logger.info(resourceBundle.getString("payee.details")+findAllPayeeBasedOnAccountNumberLambdaRequest.getSenderAccount());
+        findAllPayeeBasedOnAccountNumberLambdaResponse.setServiceStatus(serviceStatus);
+        findAllPayeeBasedOnAccountNumberLambdaResponse.getPayee().addAll(payees);
+        return findAllPayeeBasedOnAccountNumberLambdaResponse;
+    }
 }
+

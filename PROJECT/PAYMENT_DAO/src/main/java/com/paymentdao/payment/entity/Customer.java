@@ -1,5 +1,7 @@
 package com.paymentdao.payment.entity;
 
+import org.hibernate.validator.constraints.Range;
+
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -7,30 +9,31 @@ import javax.validation.constraints.Size;
 
 //customer details
 public class Customer {
-    @NotNull(message = "{customer.id.null}")
+    @NotNull
     private Integer customerId;
 
-    @NotNull(message = "{customer.name.null}")
+    @NotNull
     @Pattern(regexp = "^[a-zA-Z\\s]*$",message = "{customer.name}")
     private String customerName;
 
-    @NotNull(message = "{customer.address.null}")
+    @NotNull
     @Pattern(regexp = "^\\d+\\s[a-zA-Z]+\\s[a-zA-Z]+", message = "{customer.address}")
     private String customerAddress;
 
-    @NotNull(message = "{customer.status.null}")
+    @NotNull
     @Pattern(regexp = "^[a-zA-Z\\s]*$",message = "{customer.status}")
     private String customerStatus;
 
-    @NotNull(message = "{customer.Contact.null}")
-    @Digits(integer = 10, fraction = 0, message = "{customer.contact}")
+    @NotNull
+    @Range(min = 100000000000L, max = 999999999999L,message = "{payee.senderAcc}")
+    @Digits(integer = 12, fraction = 0, message = "{payee.senderAcc}")
     private Long customerContact;
 
-    @NotNull(message = "{customer.username.null}")
+    @NotNull
     @Pattern(regexp = "^[a-zA-Z0-9]{5,20}$", message = "{customer.username}")
     private String username;
 
-    @NotNull(message = "{customer.password.null}")
+    @NotNull
     @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).{8,}$", message = "{customer.password}")
     private String password;
 
