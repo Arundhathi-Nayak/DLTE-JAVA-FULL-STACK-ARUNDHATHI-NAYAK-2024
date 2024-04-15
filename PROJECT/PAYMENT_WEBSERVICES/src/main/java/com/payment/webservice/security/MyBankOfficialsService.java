@@ -19,27 +19,31 @@ public class MyBankOfficialsService implements UserDetailsService {
 
 
     public MyBankOfficials signingUp(MyBankOfficials myBankOfficials){
-        int ack = jdbcTemplate.update("insert into CUSTOMER_CREDENTIALS values(?,?,?,?,?,?,?)",new Object[]{
-                myBankOfficials.getCustomerId(),myBankOfficials.getCustomerName(),myBankOfficials.getCustomerAddress(),myBankOfficials.getCustomerStatus(),
-               myBankOfficials.getCustomerContact(),myBankOfficials.getUsername(),myBankOfficials.getPassword()
+//        int ack = jdbcTemplate.update("insert into CUSTOMER_CREDENTIALS values(?,?,?,?,?,?,?,?)",new Object[]{
+//                myBankOfficials.getCustomerId(),myBankOfficials.getCustomerName(),myBankOfficials.getCustomerAddress(),myBankOfficials.getCustomerStatus(),
+//               myBankOfficials.getCustomerContact(),myBankOfficials.getUsername(),myBankOfficials.getPassword(),myBankOfficials.getAttempts()
+//        });
+        int ack = jdbcTemplate.update("insert into MYBANK_APP_CUSTOMER   values(CUSTOMERID_SEQ.nextval,?,?,?,?,?,?,?)",new Object[]{
+                myBankOfficials.getCustomerName(),myBankOfficials.getCustomerAddress(),myBankOfficials.getCustomerStatus(),
+                myBankOfficials.getCustomerContact(),myBankOfficials.getUsername(),myBankOfficials.getPassword(),myBankOfficials.getAttempts()
         });
         return myBankOfficials;
     }
 
     public MyBankOfficials findByUsername(String username){
-        MyBankOfficials myBankOfficials = jdbcTemplate.queryForObject("select * from CUSTOMER_CREDENTIALS where USERNAME=?",
+        MyBankOfficials myBankOfficials = jdbcTemplate.queryForObject("select * from MYBANK_APP_CUSTOMER where username=?",
                 new Object[]{username},new BeanPropertyRowMapper<>(MyBankOfficials.class));
         return myBankOfficials;
     }
 
     public void updateAttempts(MyBankOfficials myBankOfficials){
-        jdbcTemplate.update("update CUSTOMER_CREDENTIALS set attempts=? where username=?",
+        jdbcTemplate.update("update MYBANK_APP_CUSTOMER set attempts=? where username=?",
                 new Object[]{myBankOfficials.getAttempts(),myBankOfficials.getUsername()});
         logger.info("Attempts are updated");
     }
 
     public void updateStatus(MyBankOfficials myBankOfficials){
-        jdbcTemplate.update("update CUSTOMER_CREDENTIALS set CUSTOMER_STATUS='Inactive' where username=?",
+        jdbcTemplate.update("update MYBANK_APP_CUSTOMER set CUSTOMER_STATUS='Inactive' where username=?",
                 new Object[]{myBankOfficials.getUsername()});
         logger.info("Status has changed");
     }

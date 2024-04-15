@@ -25,7 +25,7 @@ public class OfficialsFailureHandler extends SimpleUrlAuthenticationFailureHandl
         String username = request.getParameter("username");
         MyBankOfficials myBankOfficials = service.findByUsername(username);
         if(myBankOfficials!=null){
-            if(myBankOfficials.getCustomerStatus().trim().equalsIgnoreCase("Inactive")){
+            if(myBankOfficials.getCustomerStatus().equalsIgnoreCase("Active")){
                 if(myBankOfficials.getAttempts()< myBankOfficials.getMaxAttempt()){
                     myBankOfficials.setAttempts(myBankOfficials.getAttempts()+1);
                     service.updateAttempts(myBankOfficials);

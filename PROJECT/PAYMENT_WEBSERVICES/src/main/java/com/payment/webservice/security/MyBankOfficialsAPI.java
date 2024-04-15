@@ -7,6 +7,17 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+//     {
+//             "customerId": 1,
+//             "customerName": "Avinash",
+//             "customerAddress": "Shanthala",
+//             "customerStatus": "Active",
+//             "customerContact": 6643456789,
+//             "username": "avinu",
+//             "password": "avinu",
+//             "attempts":1
+//
+//             }
 @RestController
 @RequestMapping("/profile")
 public class MyBankOfficialsAPI {
