@@ -1,7 +1,9 @@
 package com.payment.webservice.security;
 
+import com.paymentdao.payment.security.MyBankOfficialsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -10,6 +12,18 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+
+//{
+//
+//        "customerName": "Anupama",
+//        "customerAddress": "shanthala",
+//        "customerStatus": "Active",
+//        "customerContact": 7867543245,
+//        "username": "anu",
+//        "password": "anu",
+//        "attempts":1
+//
+//        }
 @Configuration
 public class CustomerSecureConfig {
     @Autowired
@@ -39,6 +53,7 @@ public class CustomerSecureConfig {
         httpSecurity.csrf().disable();
 
         httpSecurity.authorizeRequests().antMatchers("/profile/register").permitAll();
+        httpSecurity.authorizeRequests().antMatchers("/v3/api-docs").permitAll();
 
         httpSecurity.authorizeRequests().anyRequest().authenticated();
 

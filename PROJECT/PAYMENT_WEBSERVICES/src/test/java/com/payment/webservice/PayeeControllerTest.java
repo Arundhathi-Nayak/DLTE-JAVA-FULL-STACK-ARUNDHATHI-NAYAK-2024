@@ -2,24 +2,26 @@ package com.payment.webservice;
 
 import com.payment.webservice.restservices.PayeeController;
 
+import com.paymentdao.payment.entity.Payee;
 import com.paymentdao.payment.exception.PayeeException;
+import com.paymentdao.payment.remote.DeletePayeeRepository;
 import com.paymentdao.payment.remote.PaymentTransferRepository;
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.*;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.slf4j.Logger;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import services.payee.Payee;
-
 import java.util.ResourceBundle;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.*;
 
-
+@SpringBootTest
+@ExtendWith(MockitoExtension.class)
 public class PayeeControllerTest {
     @Mock
     private PaymentTransferRepository paymentTransferImplementation;
@@ -44,15 +46,15 @@ public class PayeeControllerTest {
         // Mocking a void method
         doNothing().when(paymentTransferImplementation).deletePayee(123, 123456789L, 987654321L, "Arundhathi");
 
-        ResponseEntity<String> responseEntity = payeeController.deletePayee(payee);
+        ResponseEntity<String> responseEntity = payeeController.deletePayeeNew(payee);
 
         verify(paymentTransferImplementation, times(1)).deletePayee(123, 123456789L, 987654321L, "Arundhathi");
-        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-        assertEquals(resourceBundle.getString("payee.add") + "Arundhathi" +" "+ resourceBundle.getString("delete.success"),
+        Assert.assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        Assert.assertEquals(resourceBundle.getString("payee.add") + "Arundhathi" +" "+ resourceBundle.getString("delete.success"),
                 responseEntity.getBody());
     }
 
-   // @Test
+    // @Test
     public void testDeletePayee_NotFound() {
         ResourceBundle resourceBundle = ResourceBundle.getBundle("account");
         Payee payee = new Payee();
@@ -65,11 +67,10 @@ public class PayeeControllerTest {
         doThrow(new PayeeException(resourceBundle.getString("Payee.not.found"))).when(paymentTransferImplementation)
                 .deletePayee(123, 123456789L, 987654321L, "Arundhathi");
 
-        ResponseEntity<String> responseEntity = payeeController.deletePayee(payee);
+        ResponseEntity<String> responseEntity = payeeController.deletePayeeNew(payee);
 
         verify(paymentTransferImplementation, times(1)).deletePayee(123, 123456789L, 987654321L, "Eeskha");
-        assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
-        assertEquals(resourceBundle.getString("Payee.not.found"), responseEntity.getBody());
+        Assert.assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
+        Assert.assertEquals(resourceBundle.getString("Payee.not.found"), responseEntity.getBody());
     }
-
 }

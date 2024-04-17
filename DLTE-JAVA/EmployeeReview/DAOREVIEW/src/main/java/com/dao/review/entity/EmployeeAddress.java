@@ -1,5 +1,7 @@
 package com.dao.review.entity;
 
+import org.hibernate.validator.constraints.Range;
+
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
@@ -22,6 +24,7 @@ public class EmployeeAddress {
     private String city;
 
     @NotNull(message = "{address.pinCode.null}")
+    @Range(min = 100000, max = 999999,message = "{address.pinCode.invalid}")
     @Digits(integer = 6, fraction = 0, message = "{address.pinCode.invalid}")
     private Integer pinCode;
 

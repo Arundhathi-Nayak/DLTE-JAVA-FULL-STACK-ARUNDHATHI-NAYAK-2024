@@ -47,29 +47,7 @@ public class PaymentTransferImplementation implements PaymentTransferRepository 
         return payees;
     }
 
-    @Override
-    public void deletePayee(int payeeId, Long senderAccountNumber, Long payeeAccountNumber, String payeeName) {
-//        SimpleJdbcCall simpleJdbcCall = new SimpleJdbcCall(jdbcTemplate)
-//                .withProcedureName("DELETE_PAYEE");
-//
-//        SqlParameterSource inParams = new MapSqlParameterSource()
-//                .addValue("p_payee_id", payeeId)
-//                .addValue("p_sender_account_number", senderAccountNumber)
-//                .addValue("p_payee_account_number", payeeAccountNumber);
-        String procedureCall="Call DELETE_PAYEE(?,?,?,?)";
 
-        try {
-           // simpleJdbcCall.execute(inParams);
-            jdbcTemplate.update(procedureCall,payeeId,senderAccountNumber,payeeAccountNumber,payeeName);
-            logger.info(resourceBundle.getString("payee.success"));
-        } catch (DataAccessException e) {
-            if (e.getLocalizedMessage().contains("ORA-20002")) {
-                logger.warn(resourceBundle.getString("Payee.not.found"));
-                //throw new PayeeException(e.getMessage());
-                throw new PayeeException(resourceBundle.getString("Payee.not.found"));
-            }
-        }
-    }
 
     // listing all payee details
     @Override
@@ -79,7 +57,6 @@ public class PaymentTransferImplementation implements PaymentTransferRepository 
 //                new BeanPropertyRowMapper<>(Payee.class)
                     new PayeeMapper());
         logger.info(resourceBundle.getString("payee.success"));
-
         if(payees.size()==0){
             logger.warn(resourceBundle.getString("no.payee"));
             throw new PayeeException(resourceBundle.getString("no.payee"));

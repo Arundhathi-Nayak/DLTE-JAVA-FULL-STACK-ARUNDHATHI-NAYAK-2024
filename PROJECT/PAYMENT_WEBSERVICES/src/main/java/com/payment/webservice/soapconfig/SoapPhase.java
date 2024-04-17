@@ -2,12 +2,16 @@ package com.payment.webservice.soapconfig;
 
 import com.paymentdao.payment.exception.PayeeException;
 import com.paymentdao.payment.remote.PaymentTransferRepository;
+import com.paymentdao.payment.security.MyBankOfficials;
+import com.paymentdao.payment.security.MyBankOfficialsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -32,6 +36,8 @@ import java.util.ResourceBundle;
 
 //http://localhost:8082/v3/api-docs
 
+//http://localhost:7001/webservice-0.0.1-SNAPSHOT/v3/api-docs
+
 public class SoapPhase {
     private final String url="http://payee.services";
     @Autowired
@@ -41,6 +47,9 @@ public class SoapPhase {
 
     org.slf4j.Logger logger= LoggerFactory.getLogger(SoapPhase.class);
 
+    @Autowired
+    MyBankOfficialsService service;
+
     //display all details
     @PayloadRoot(namespace = url,localPart = "findAllPayeeBasedOnAccountNumberRequest")
     @ResponsePayload
@@ -48,16 +57,6 @@ public class SoapPhase {
         FindAllPayeeBasedOnAccountNumberResponse findAllPayeeBasedOnAccountNumberResponse=new FindAllPayeeBasedOnAccountNumberResponse();
         ServiceStatus serviceStatus=new ServiceStatus();
         List<Payee> payees=new ArrayList<>();
-
-//        List<com.paymentdao.payment.entity.Payee> daoPayee=paymentTransferImplementation.findAllPayeeBasedOnAccountNumber(findAllPayeeBasedOnAccountNumberRequest.getSenderAccount());
-//
-//        daoPayee.forEach(each->{
-//            Payee currentPayee=new Payee();
-//            BeanUtils.copyProperties(each,currentPayee);
-//            payees.add(currentPayee);
-//        });
-//        serviceStatus.setStatus(resourceBundle.getString("success.payee"));
-//        serviceStatus.setMessage(resourceBundle.getString("payee.details")+findAllPayeeBasedOnAccountNumberRequest.getSenderAccount());
 
         try {
             List<com.paymentdao.payment.entity.Payee> daoPayee = paymentTransferImplementation.findAllPayeeBasedOnAccountNumber(findAllPayeeBasedOnAccountNumberRequest.getSenderAccount());
@@ -116,25 +115,52 @@ public class SoapPhase {
     // display particular details
     @PayloadRoot(namespace = url,localPart = "findAllPayeeBasedOnAccountNumberLambdaRequest")
     @ResponsePayload
-    public FindAllPayeeBasedOnAccountNumberLambdaResponse listAllPayeeLambda(@RequestPayload FindAllPayeeBasedOnAccountNumberLambdaRequest findAllPayeeBasedOnAccountNumberLambdaRequest) throws SQLSyntaxErrorException {
-        FindAllPayeeBasedOnAccountNumberLambdaResponse findAllPayeeBasedOnAccountNumberLambdaResponse=new FindAllPayeeBasedOnAccountNumberLambdaResponse();
-        ServiceStatus serviceStatus=new ServiceStatus();
-        List<Payee> payees =new ArrayList<>();
-        List<com.paymentdao.payment.entity.Payee> daoPayee=paymentTransferImplementation.findAllPayee();
+    public FindAllPayeeBasedOnAccountNumberLambdaResponse listAllPayeeLambda(@RequestPayload FindAllPayeeBasedOnAccountNumberLambdaRequest findAllPayeeBasedOnAccountNumberLambdaRequest) {
 
-        daoPayee.stream()
-                .filter(payee -> payee.getSenderAccountNumber()==findAllPayeeBasedOnAccountNumberLambdaRequest.getSenderAccount())
-                .forEach(payee -> {
-                    Payee currentPayee = new Payee();
-                    BeanUtils.copyProperties(payee, currentPayee);
-                    payees.add(currentPayee);
-                });
-        serviceStatus.setStatus(HttpStatus.OK.value());
-        serviceStatus.setMessage(resourceBundle.getString("payee.details")+findAllPayeeBasedOnAccountNumberLambdaRequest.getSenderAccount());
-        logger.info(resourceBundle.getString("payee.details")+findAllPayeeBasedOnAccountNumberLambdaRequest.getSenderAccount());
-        findAllPayeeBasedOnAccountNumberLambdaResponse.setServiceStatus(serviceStatus);
-        findAllPayeeBasedOnAccountNumberLambdaResponse.getPayee().addAll(payees);
-        return findAllPayeeBasedOnAccountNumberLambdaResponse;
+
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();
+        MyBankOfficials customer = service.findByUsername(username);
+        List<Long> senderAccountNumber = service.getAccountNumbersByCustomerId(customer.getCustomerId());
+
+        FindAllPayeeBasedOnAccountNumberLambdaResponse findAllPayeeBasedOnAccountNumberLambdaResponse = new FindAllPayeeBasedOnAccountNumberLambdaResponse();
+        ServiceStatus serviceStatus = new ServiceStatus();
+
+        if (senderAccountNumber.contains(findAllPayeeBasedOnAccountNumberLambdaRequest.getSenderAccount())) {
+
+
+            List<Payee> payees = new ArrayList<>();
+            try {
+                List<com.paymentdao.payment.entity.Payee> daoPayee = paymentTransferImplementation.findAllPayee();
+
+                daoPayee.stream()
+                        .filter(payee -> payee.getSenderAccountNumber() == findAllPayeeBasedOnAccountNumberLambdaRequest.getSenderAccount())
+                        .forEach(payee -> {
+                            Payee currentPayee = new Payee();
+                            BeanUtils.copyProperties(payee, currentPayee);
+                            payees.add(currentPayee);
+                        });
+                if (payees.size() == 0) {
+                    throw new PayeeException(resourceBundle.getString("no.payee") + findAllPayeeBasedOnAccountNumberLambdaRequest.getSenderAccount());
+                }
+
+                serviceStatus.setStatus(HttpStatus.OK.value());
+                serviceStatus.setMessage(resourceBundle.getString("payee.details") + " " + findAllPayeeBasedOnAccountNumberLambdaRequest.getSenderAccount());
+                logger.info(resourceBundle.getString("payee.details") + findAllPayeeBasedOnAccountNumberLambdaRequest.getSenderAccount());
+                findAllPayeeBasedOnAccountNumberLambdaResponse.getPayee().addAll(payees);
+            } catch (PayeeException e) {
+                serviceStatus.setStatus(HttpServletResponse.SC_NO_CONTENT);
+                logger.warn(resourceBundle.getString("no.payee") +" "+ findAllPayeeBasedOnAccountNumberLambdaRequest.getSenderAccount());
+                serviceStatus.setMessage(e.getMessage());
+            }
+            findAllPayeeBasedOnAccountNumberLambdaResponse.setServiceStatus(serviceStatus);
+            return findAllPayeeBasedOnAccountNumberLambdaResponse;
+        }else{
+            serviceStatus.setStatus(HttpStatus.NOT_FOUND.value());
+            serviceStatus.setMessage(resourceBundle.getString("no.account") +" "+ findAllPayeeBasedOnAccountNumberLambdaRequest.getSenderAccount());
+            findAllPayeeBasedOnAccountNumberLambdaResponse.setServiceStatus(serviceStatus);
+            return findAllPayeeBasedOnAccountNumberLambdaResponse;
+        }
     }
 }
 

@@ -1,8 +1,11 @@
 package com.payment.webservice.security;
 
+import com.paymentdao.payment.security.MyBankOfficials;
+import com.paymentdao.payment.security.MyBankOfficialsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.authentication.LockedException;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
