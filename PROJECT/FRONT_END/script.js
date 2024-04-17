@@ -57,31 +57,31 @@ const payees = [
     `;
   
     card.addEventListener('click', () => {
-    //   if (selectedPayee === payee) {
-    //     selectedPayee = null;
-    //     card.classList.remove('payee-selected');
-    //   } else {
-    //     selectedPayee = payee;
-    //     cardContainer.querySelectorAll('.payee-selected').forEach(card => {
-    //       card.classList.remove('payee-selected');
-    //     });
-    //     card.classList.add('payee-selected');
-    //   }
-    //   displayPayeeDetails();
+      if (selectedPayee === payee) {
+        selectedPayee = null;
+        card.classList.remove('payee-selected');
+      } else {
+        selectedPayee = payee;
+        cardContainer.querySelectorAll('.payee-selected').forEach(card => {
+          card.classList.remove('payee-selected');
+        });
+        card.classList.add('payee-selected');
+      }
+      displayPayeeDetails();
     });
   
     return card;
   }
   
   function displayPayeeDetails() {
-    // if (!selectedPayee) {
-    //   cardContainer.innerHTML = '';
-    //   return;
-    // }
+    if (!selectedPayee) {
+      cardContainer.innerHTML = '';
+      return;
+    }
   
-    // const card = createCard(selectedPayee);
-    // cardContainer.innerHTML = '';
-    // cardContainer.appendChild(card);
+    const card = createCard(selectedPayee);
+    cardContainer.innerHTML = '';
+    cardContainer.appendChild(card);
   }
   
   document.getElementById('accountNumber').addEventListener('input', () => {
