@@ -38,7 +38,7 @@ public class SoapConfiguration {
 
     // identify the xsd
     @Bean
-    public XsdSchema loansSchema(){
+    public XsdSchema EmployeeSchema(){
         return new SimpleXsdSchema(new ClassPathResource("Employee.xsd"));
     }
 }
