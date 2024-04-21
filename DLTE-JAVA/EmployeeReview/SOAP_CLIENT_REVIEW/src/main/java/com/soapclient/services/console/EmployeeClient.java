@@ -11,6 +11,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
+
+//wsimport -d target -s src -keep  http://localhost:8082/employeerepo/employee.wsdl
+
 public class EmployeeClient {
    private static Logger logger = LoggerFactory.getLogger(EmployeeClient.class);
 

@@ -60,6 +60,13 @@ public class Transaction {
         this.balance = balance;
     }
 
+    public Transaction(Date date, String user, double amount, double balance) {
+        this.date = date;
+        this.user = user;
+        this.amount = amount;
+        this.balance = balance;
+    }
+
     @Override
     public String toString() {
         return "Transaction{" +
