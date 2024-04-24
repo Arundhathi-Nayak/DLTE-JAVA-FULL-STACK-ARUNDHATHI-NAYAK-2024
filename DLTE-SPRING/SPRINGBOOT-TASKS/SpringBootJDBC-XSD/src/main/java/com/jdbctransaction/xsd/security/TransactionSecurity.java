@@ -21,12 +21,14 @@ public class TransactionSecurity {
     AuthenticationManager manager;
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
-    };
+    }
+
+    ;
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception{
+    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.csrf().disable();
         httpSecurity.httpBasic();
         httpSecurity.formLogin();
@@ -34,9 +36,9 @@ public class TransactionSecurity {
         httpSecurity.authorizeRequests().antMatchers("/profile/register").permitAll();
 
         httpSecurity.authorizeRequests().anyRequest().authenticated();
-        AuthenticationManagerBuilder builder=httpSecurity.getSharedObject(AuthenticationManagerBuilder.class);
+        AuthenticationManagerBuilder builder = httpSecurity.getSharedObject(AuthenticationManagerBuilder.class);
         builder.userDetailsService(transactionOfficialService);
-        manager=builder.build();
+        manager = builder.build();
         httpSecurity
                 .authenticationManager(manager);
         return httpSecurity.build();

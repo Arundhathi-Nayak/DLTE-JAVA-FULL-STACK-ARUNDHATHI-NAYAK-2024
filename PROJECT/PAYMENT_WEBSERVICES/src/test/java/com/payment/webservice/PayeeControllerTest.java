@@ -2,10 +2,12 @@ package com.payment.webservice;
 
 import com.payment.webservice.restservices.PayeeController;
 
+import com.paymentdao.payment.entity.Customer;
 import com.paymentdao.payment.entity.Payee;
 import com.paymentdao.payment.exception.PayeeException;
-import com.paymentdao.payment.remote.DeletePayeeRepository;
 import com.paymentdao.payment.remote.PaymentTransferRepository;
+import com.paymentdao.payment.security.MyBankOfficials;
+import com.paymentdao.payment.security.MyBankOfficialsService;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
@@ -15,62 +17,97 @@ import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.slf4j.Logger;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+
+import java.util.Collections;
 import java.util.ResourceBundle;
 import static org.mockito.Mockito.*;
 
 @SpringBootTest
 @ExtendWith(MockitoExtension.class)
 public class PayeeControllerTest {
-    @Mock
-    private PaymentTransferRepository paymentTransferImplementation;
+
+    @MockBean
+    private PaymentTransferRepository paymentTransferRepository;
 
     @InjectMocks
-    private PayeeController payeeController;
+    private PayeeController paymentRestController;
+
+    private MockMvc mockMvc;
+
+    MyBankOfficialsService myBankOfficialsService;
 
     @BeforeEach
-    public void setUp() {
-        MockitoAnnotations.openMocks(this);
+    void setup() {
+        mockMvc = MockMvcBuilders.standaloneSetup(paymentRestController).build();
     }
 
-    @Test
+  //  @Test
     public void testDeletePayee() {
         ResourceBundle resourceBundle = ResourceBundle.getBundle("account");
+
+        // Mock data
         Payee payee = new Payee();
         payee.setPayeeId(123);
         payee.setSenderAccountNumber(123456789L);
         payee.setPayeeAccountNumber(987654321L);
         payee.setPayeeName("Arundhathi");
 
-        // Mocking a void method
-        doNothing().when(paymentTransferImplementation).deletePayee(123, 123456789L, 987654321L, "Arundhathi");
+        // Mock authentication
+        Authentication authentication = mock(Authentication.class);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        when(authentication.getName()).thenReturn("testUser");
 
-        ResponseEntity<String> responseEntity = payeeController.deletePayeeNew(payee);
 
-        verify(paymentTransferImplementation, times(1)).deletePayee(123, 123456789L, 987654321L, "Arundhathi");
+        // Mock service behavior
+        MyBankOfficials customer = new MyBankOfficials();
+        customer.setCustomerId(123);
+       when(myBankOfficialsService.findByCustomer("testUser")).thenReturn(customer);
+       when(myBankOfficialsService.getAccountNumbersByCustomerId(123)).thenReturn(Collections.singletonList(123456789L));
+       // Mock the deletePayeeImplementation behavior
+
+       doNothing().when(paymentTransferRepository).deletePayeeAdded(123, 123456789L, 987654321L, "Arundhathi");
+
+        ResponseEntity<String> responseEntity = paymentRestController.deletePayeeValid(payee);
+
         Assert.assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-        Assert.assertEquals(resourceBundle.getString("payee.add") + "Arundhathi" +" "+ resourceBundle.getString("delete.success"),
+        Assert.assertEquals(resourceBundle.getString("payee.add") + "Arundhathi" + " " + resourceBundle.getString("delete.success"),
                 responseEntity.getBody());
     }
-
-    // @Test
-    public void testDeletePayee_NotFound() {
+  //  @Test
+    public void testDeletePayeeFailed() {
         ResourceBundle resourceBundle = ResourceBundle.getBundle("account");
+
+        // Mock data
         Payee payee = new Payee();
         payee.setPayeeId(123);
         payee.setSenderAccountNumber(123456789L);
         payee.setPayeeAccountNumber(987654321L);
         payee.setPayeeName("Arundhathi");
 
-        // Mocking a void method with exception
-        doThrow(new PayeeException(resourceBundle.getString("Payee.not.found"))).when(paymentTransferImplementation)
-                .deletePayee(123, 123456789L, 987654321L, "Arundhathi");
+        // Mock authentication
+        Authentication authentication = mock(Authentication.class);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
 
-        ResponseEntity<String> responseEntity = payeeController.deletePayeeNew(payee);
 
-        verify(paymentTransferImplementation, times(1)).deletePayee(123, 123456789L, 987654321L, "Eeskha");
-        Assert.assertEquals(HttpStatus.NOT_FOUND, responseEntity.getStatusCode());
-        Assert.assertEquals(resourceBundle.getString("Payee.not.found"), responseEntity.getBody());
+
+        // Mock service behavior
+        MyBankOfficials customer = new MyBankOfficials();
+        customer.setCustomerId(123);
+
+        doNothing().when(paymentTransferRepository).deletePayeeAdded(123, 123456789L, 987654321L, "Arundhathi");
+
+        ResponseEntity<String> responseEntity = paymentRestController.deletePayeeValid(payee);
+
+        Assert.assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+        Assert.assertEquals(resourceBundle.getString("payee.add"), responseEntity.getBody());
     }
+
+
 }

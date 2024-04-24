@@ -12,18 +12,17 @@ import javax.xml.bind.annotation.XmlRegistry;
 
 
 /**
- * This object contains factory methods for each 
- * Java content interface and Java element interface 
- * generated in the services.transaction package. 
- * <p>An ObjectFactory allows you to programatically 
- * construct new instances of the Java representation 
- * for XML content. The Java representation of XML 
- * content can consist of schema derived interfaces 
- * and classes representing the binding of schema 
- * type definitions, element declarations and model 
- * groups.  Factory methods for each of these are 
+ * This object contains factory methods for each
+ * Java content interface and Java element interface
+ * generated in the services.transaction package.
+ * <p>An ObjectFactory allows you to programatically
+ * construct new instances of the Java representation
+ * for XML content. The Java representation of XML
+ * content can consist of schema derived interfaces
+ * and classes representing the binding of schema
+ * type definitions, element declarations and model
+ * groups.  Factory methods for each of these are
  * provided in this class.
- * 
  */
 @XmlRegistry
 public class ObjectFactory {
@@ -31,14 +30,12 @@ public class ObjectFactory {
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: services.transaction
-     * 
      */
     public ObjectFactory() {
     }
 
     /**
      * Create an instance of {@link FilterByReceiverResponse }
-     * 
      */
     public FilterByReceiverResponse createFilterByReceiverResponse() {
         return new FilterByReceiverResponse();
@@ -46,7 +43,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link ServiceStatus }
-     * 
      */
     public ServiceStatus createServiceStatus() {
         return new ServiceStatus();
@@ -54,7 +50,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link Transaction }
-     * 
      */
     public Transaction createTransaction() {
         return new Transaction();
@@ -62,7 +57,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NewTransactionRequest }
-     * 
      */
     public NewTransactionRequest createNewTransactionRequest() {
         return new NewTransactionRequest();
@@ -70,7 +64,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link FilterByAmountResponse }
-     * 
      */
     public FilterByAmountResponse createFilterByAmountResponse() {
         return new FilterByAmountResponse();
@@ -78,7 +71,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link FilterByReceiverRequest }
-     * 
      */
     public FilterByReceiverRequest createFilterByReceiverRequest() {
         return new FilterByReceiverRequest();
@@ -86,7 +78,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DeleteByRangeOfDatesResponse }
-     * 
      */
     public DeleteByRangeOfDatesResponse createDeleteByRangeOfDatesResponse() {
         return new DeleteByRangeOfDatesResponse();
@@ -94,7 +85,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link DeleteByRangeOfDatesRequest }
-     * 
      */
     public DeleteByRangeOfDatesRequest createDeleteByRangeOfDatesRequest() {
         return new DeleteByRangeOfDatesRequest();
@@ -102,7 +92,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link UpdateByRemarksRequest }
-     * 
      */
     public UpdateByRemarksRequest createUpdateByRemarksRequest() {
         return new UpdateByRemarksRequest();
@@ -110,7 +99,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link NewTransactionResponse }
-     * 
      */
     public NewTransactionResponse createNewTransactionResponse() {
         return new NewTransactionResponse();
@@ -118,7 +106,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link FilterBySenderResponse }
-     * 
      */
     public FilterBySenderResponse createFilterBySenderResponse() {
         return new FilterBySenderResponse();
@@ -126,7 +113,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link FilterBySenderRequest }
-     * 
      */
     public FilterBySenderRequest createFilterBySenderRequest() {
         return new FilterBySenderRequest();
@@ -134,7 +120,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link UpdateByRemarksResponse }
-     * 
      */
     public UpdateByRemarksResponse createUpdateByRemarksResponse() {
         return new UpdateByRemarksResponse();
@@ -142,7 +127,6 @@ public class ObjectFactory {
 
     /**
      * Create an instance of {@link FilterByAmountRequest }
-     * 
      */
     public FilterByAmountRequest createFilterByAmountRequest() {
         return new FilterByAmountRequest();

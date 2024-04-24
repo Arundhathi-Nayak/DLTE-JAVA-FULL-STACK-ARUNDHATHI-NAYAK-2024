@@ -1,7 +1,6 @@
 package com.springjdbc.driver.security;
 
 
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,7 +20,7 @@ public class TransactionOfficialAPI {
     private PasswordEncoder passwordEncoder;
 
     @PostMapping("/register")
-    public TransactionOfficial save(@RequestBody TransactionOfficial transactionOfficial){
+    public TransactionOfficial save(@RequestBody TransactionOfficial transactionOfficial) {
         transactionOfficial.setPassword(passwordEncoder.encode(transactionOfficial.getPassword()));
         return transactionOfficialService.signingUp(transactionOfficial);
     }

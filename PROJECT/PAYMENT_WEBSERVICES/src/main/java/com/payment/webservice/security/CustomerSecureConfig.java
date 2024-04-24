@@ -16,6 +16,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.Arrays;
+import java.util.ResourceBundle;
 
 
 //{
@@ -41,6 +42,8 @@ public class CustomerSecureConfig {
     @Autowired
     OfficialsSuccessHandler officialsSuccessHandler;
 
+    ResourceBundle resourceBundle= ResourceBundle.getBundle("account");
+
     @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder();
@@ -50,7 +53,7 @@ public class CustomerSecureConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOriginPatterns(Arrays.asList("http://127.0.0.1:5500"));
+        configuration.setAllowedOriginPatterns(Arrays.asList(resourceBundle.getString("web.link")));
 
         configuration.addAllowedMethod("*");
         configuration.addAllowedHeader("*");
@@ -70,8 +73,8 @@ public class CustomerSecureConfig {
                 successHandler(officialsSuccessHandler);
         httpSecurity.csrf().disable();
 
-        httpSecurity.authorizeRequests().antMatchers("/profile/register").permitAll();
-        httpSecurity.authorizeRequests().antMatchers("/v3/api-docs").permitAll();
+        httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString("payee.wsdl")).permitAll();
+        httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString("payee.api")).permitAll();
         httpSecurity.cors();
 
         httpSecurity.authorizeRequests().anyRequest().authenticated();

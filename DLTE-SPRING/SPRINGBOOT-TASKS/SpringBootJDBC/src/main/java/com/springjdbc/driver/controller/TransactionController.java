@@ -27,14 +27,16 @@ public class TransactionController {
 
     @PostMapping("add/")
     //http://localhost:8082/transactions/add/
-    public Transaction newTransaction(@RequestBody Transaction transaction){
+    public Transaction newTransaction(@RequestBody Transaction transaction) {
         return transactionService.newTransaction(transaction);
     }
+
     @GetMapping("/sender/{sender}")
     //http://localhost:8082/transactions/sender/Arundhathi
     public List<Transaction> findBySender(@PathVariable String sender) {
         return transactionService.findBySender(sender);
     }
+
     @GetMapping("/receiver/{receiver}")
     //http://localhost:8082/transactions/receiver/Eeksha
     public List<Transaction> findByReceiver(@PathVariable String receiver) {
@@ -54,6 +56,6 @@ public class TransactionController {
 
     @DeleteMapping("/dates/startDate/endDate")
     public List<Transaction> deleteTransaction(@PathVariable Date startDate, Date endDate) {
-        return transactionService.deleteTransaction(startDate,endDate);
+        return transactionService.deleteTransaction(startDate, endDate);
     }
 }

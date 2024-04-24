@@ -1,24 +1,16 @@
 package com.paymentdao.payment;
 
 import com.paymentdao.payment.exception.PayeeException;
-import com.paymentdao.payment.remote.DeletePayeeRepository;
-import com.paymentdao.payment.service.DeletePayeeImplementation;
 import com.paymentdao.payment.service.PaymentTransferImplementation;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
-import org.springframework.jdbc.core.simple.SimpleJdbcCall;
-
-import java.util.ResourceBundle;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -37,7 +29,7 @@ public class DeletePayeeTest {
 
 
     @InjectMocks
-    private DeletePayeeImplementation deletePayee;
+    private PaymentTransferImplementation deletePayee;
 
     @BeforeEach
     void setUp() {
@@ -54,24 +46,23 @@ public class DeletePayeeTest {
 
         when(jdbcTemplate.update(anyString(), eq(payeeId), eq(senderAccountNumber), eq(payeeAccountNumber), eq(payeeName))).thenReturn(1);
 
-        deletePayee.deletePayee(payeeId, senderAccountNumber, payeeAccountNumber, payeeName);
+        deletePayee.deletePayeeAdded(payeeId, senderAccountNumber, payeeAccountNumber, payeeName);
 
         verify(jdbcTemplate, times(1)).update(anyString(), eq(payeeId), eq(senderAccountNumber), eq(payeeAccountNumber), eq(payeeName));
     }
-
-  //  @Test
+   // @Test
     void testDeletePayeeNotFound() {
         int payeeId = 1;
         Long senderAccountNumber = 123456789L;
         Long payeeAccountNumber = 987654321L;
         String payeeName = "Arundhathi";
-        doThrow(new DataAccessException("ORA-20002") {}).when(jdbcTemplate).update(anyString(), eq(payeeId), eq(senderAccountNumber), eq(payeeAccountNumber), eq(payeeName));
+        doThrow(new DataAccessException("ORA-20001") {}).when(jdbcTemplate).update(anyString(), eq(payeeId), eq(senderAccountNumber), eq(payeeAccountNumber), eq(payeeName));
 
         PayeeException exception = assertThrows(PayeeException.class, () -> {
-            deletePayee.deletePayee(payeeId, senderAccountNumber, payeeAccountNumber, payeeName);
+            deletePayee.deletePayeeAdded(payeeId, senderAccountNumber, payeeAccountNumber, payeeName);
         });
 
-        assertEquals("Payee not found", exception.getMessage());
+        assertEquals("No payee found", exception.getMessage());
     }
   //  @Test
     void testPayeeNotFound() {
@@ -80,10 +71,10 @@ public class DeletePayeeTest {
         Long payeeAccountNumber = 987651L;
         String payeeName = "Arundhathi";
 
-        doThrow(new DataAccessException("ORA-20002") {}).when(jdbcTemplate).update(anyString(), eq(payeeId), eq(senderAccountNumber), eq(payeeAccountNumber), eq(payeeName));
+        doThrow(new DataAccessException("ORA-20001") {}).when(jdbcTemplate).update(anyString(), eq(payeeId), eq(senderAccountNumber), eq(payeeAccountNumber), eq(payeeName));
 
         PayeeException exception = assertThrows(PayeeException.class, () -> {
-            deletePayee.deletePayee(payeeId, senderAccountNumber, payeeAccountNumber, payeeName);
+            deletePayee.deletePayeeAdded(payeeId, senderAccountNumber, payeeAccountNumber, payeeName);
         });
 
         assertEquals("Failed to delete the payee", exception.getMessage());

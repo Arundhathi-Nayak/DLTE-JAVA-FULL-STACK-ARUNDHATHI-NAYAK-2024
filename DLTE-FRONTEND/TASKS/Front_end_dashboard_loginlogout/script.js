@@ -24,13 +24,13 @@ $(document).ready(() => {
     const senderAccountNumber = $("#accountNumber").val();
 
     var soapRequest = `<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pay="http://payee.services">
-      <soapenv:Header/>
-      <soapenv:Body>
-        <pay:findAllPayeeBasedOnAccountNumberLambdaRequest>
+    <soapenv:Header/>
+    <soapenv:Body>
+       <pay:findAllPayeeBasedOnAccountNumberRequest>
           <pay:senderAccount>${senderAccountNumber}</pay:senderAccount>
-        </pay:findAllPayeeBasedOnAccountNumberLambdaRequest>
-      </soapenv:Body>
-    </soapenv:Envelope>`
+       </pay:findAllPayeeBasedOnAccountNumberRequest>
+    </soapenv:Body>
+ </soapenv:Envelope>`
 
     $.ajax({
       url: "http://localhost:8082/payeerepo",
@@ -38,7 +38,7 @@ $(document).ready(() => {
       dataType: "xml",
       beforeSend: function (handler) {
         handler.setRequestHeader("Authorization", "Basic " + sessionStorage.getItem("logged"))
-        handler.setRequestHeader("SOAPAction", "findAllPayeeBasedOnAccountNumberLambdaRequest")
+        handler.setRequestHeader("SOAPAction", "findAllPayeeBasedOnAccountNumberRequest")
       },
       contentType: "text/xml;charset=utf-8",
       data: soapRequest,

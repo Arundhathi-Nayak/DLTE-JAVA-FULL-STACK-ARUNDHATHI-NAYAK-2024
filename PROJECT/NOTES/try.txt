@@ -1,0 +1,51 @@
+@DeleteMapping("/delete/payee")
+public ResponseEntity<String> deletePayeeValid(@RequestParam("senderAccountNumber") Long senderAccountNumber,
+                                               @RequestParam("payeeAccountNumber") Long payeeAccountNumber,
+                                               @RequestParam("payeeName") String payeeName) {
+    Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+    String username = authentication.getName();
+    MyBankOfficials customer = service.findByCustomer(username);
+    List<Long> senderAccountNumbers = service.getAccountNumbersByCustomerId(customer.getCustomerId());
+
+    if (senderAccountNumbers.contains(senderAccountNumber)) {
+        try {
+            deletePayee.deletePayeeAdded(senderAccountNumber, payeeAccountNumber, payeeName);
+            logger.info(resourceBundle.getString("delete.success"));
+            return ResponseEntity.ok(resourceBundle.getString("payee.add") + payeeName + " " + resourceBundle.getString("delete.success"));
+        } catch (PayeeException payeeException) {
+            logger.warn(payeeException.getMessage());
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(payeeException.getMessage());
+        }
+    } else {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(resourceBundle.getString("no.account"));
+    }
+}
+
+
+
+
+@Override
+public void deletePayeeAdded(Long senderAccountNumber, Long payeeAccountNumber, String payeeName) {
+    String procedureCall = "Call DELETE_PAYEE_NEW(?,?,?,?)";
+    try {
+        jdbcTemplate.update(procedureCall, null, senderAccountNumber, payeeAccountNumber, payeeName);
+        logger.info(resourceBundle.getString("payee.success"));
+    } catch (DataAccessException e) {
+        if (e.getLocalizedMessage().contains("ORA-20001")) {
+            logger.warn(resourceBundle.getString("payee.notExists"));
+            throw new PayeeException(resourceBundle.getString("payee.notExists"));
+        }
+        if (e.getLocalizedMessage().contains("ORA-20002")) {
+            logger.warn(resourceBundle.getString("sender.notMatch"));
+            throw new PayeeException(resourceBundle.getString("sender.notMatch"));
+        }
+        if (e.getLocalizedMessage().contains("ORA-20003")) {
+            logger.warn(resourceBundle.getString("payee.notMatch"));
+            throw new PayeeException(resourceBundle.getString("payee.notMatch"));
+        }
+        if (e.getLocalizedMessage().contains("ORA-20004")) {
+            logger.warn(resourceBundle.getString("payeeName.notMatch"));
+            throw new PayeeException(resourceBundle.getString("payeeName.notMatch"));
+        }
+    }
+}

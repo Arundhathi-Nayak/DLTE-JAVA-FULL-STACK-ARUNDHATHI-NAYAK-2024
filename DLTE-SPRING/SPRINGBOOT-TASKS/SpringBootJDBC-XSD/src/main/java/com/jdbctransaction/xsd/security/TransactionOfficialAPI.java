@@ -17,7 +17,7 @@ public class TransactionOfficialAPI {
     private PasswordEncoder passwordEncoder;
 
     @PostMapping("/register")
-    public TransactionOfficial save(@RequestBody TransactionOfficial transactionOfficial){
+    public TransactionOfficial save(@RequestBody TransactionOfficial transactionOfficial) {
         transactionOfficial.setPassword(passwordEncoder.encode(transactionOfficial.getPassword()));
         return transactionOfficialService.signingUp(transactionOfficial);
     }

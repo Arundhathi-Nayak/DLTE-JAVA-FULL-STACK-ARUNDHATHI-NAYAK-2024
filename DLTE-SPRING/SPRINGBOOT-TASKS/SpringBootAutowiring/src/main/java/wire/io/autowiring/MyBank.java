@@ -11,8 +11,9 @@ public class MyBank {
     @Autowired
     @Qualifier("personalLoanImplementation")
     private LoanService loanService;
-    public List<Loan> callFindAll(){
-        List<Loan> injectedLoan=loanService.findALL();
+
+    public List<Loan> callFindAll() {
+        List<Loan> injectedLoan = loanService.findALL();
         return injectedLoan;
     }
 

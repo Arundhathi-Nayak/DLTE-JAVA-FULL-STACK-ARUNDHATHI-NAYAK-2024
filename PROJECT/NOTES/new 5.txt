@@ -1,0 +1,63 @@
+<div class="container" >
+        <div class="d-flex flex-row flex-nowrap overflow-auto p-2 ">
+          <div class="card col-3 p-1 me-2 shadow-lg col-4">
+            <img src="Images/crypto.jpg" class="card-img-top" alt="Petrol Card Image">
+            <div class="card-body">
+              <h1 class="card-title text-center text-warning">Savings Account</h1>
+              <hr/>
+              <div class="card-body">
+                <p class="card-text text-warning text-center">
+                    A savings account is meant for saving money and earning interest on the balance. 
+                </p>
+              </div>
+              <div class="card-body">
+                <button class="btn btn-outline-warning float-end">Apply</button>
+              </div>
+            </div>
+          </div>
+          <div class="card col-3 p-1 me-2 shadow-lg col-4">
+            <img src="Images/money.jpg" class="card-img-top" alt="Travel Card Image">
+            <div class="card-body">
+              <h1 class="card-title text-center text-warning">Checking Account</h1>
+              <hr/>
+              <div class="card-body">
+                <p class="card-text text-warning text-center">
+                    A checking account is used for everyday transactions like paying bills, making purchases, and withdrawing cash. 
+                </p>
+              </div>
+              <div class="card-body">
+                <button class="btn btn-outline-warning float-end">Apply</button>
+              </div>
+            </div>
+          </div>
+          <div class="card col-3 p-1 me-2 shadow-lg col-4">
+            <img src="Images/pig.jpg" class="card-img-top" alt="Shopping Card Image">
+            <div class="card-body">
+              <h1 class="card-title text-center text-warning">Certificate of Deposit (CD)</h1>
+              <hr/>
+              <div class="card-body">
+                <p class="card-text text-warning text-center">
+                    A CD is a time deposit that requires you to deposit a fixed amount of money for a specific period, ranging from a few months to several years. 
+                </p>
+              </div>
+              <div class="card-body">
+                <button class="btn btn-outline-warning float-end">Apply</button>
+              </div>
+            </div>
+          </div>
+          <div class="card col-3 p-1 me-2 shadow-lg col-4">
+            <img src="Images/phone.jpg" class="card-img-top" alt="Flipkart Card Image">
+            <div class="card-body">
+              <h1 class="card-title text-center text-warning">Fixed Deposit Account</h1>
+              <hr/>
+              <div class="card-body">
+                <p class="card-text text-warning text-center">
+                    A fixed deposit account requires you to deposit a fixed amount of money for a specific period
+                </p>
+              </div>
+              <div class="card-body">
+                <button class="btn btn-outline-warning float-end">Apply</button>
+              </div>
+            </div>
+        </div>
+    </div>

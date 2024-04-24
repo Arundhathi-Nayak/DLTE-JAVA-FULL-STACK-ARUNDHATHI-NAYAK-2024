@@ -3,11 +3,11 @@ package com.account.jpa.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="user_account")
+@Table(name = "user_account")
 public class Account {
-//the genearator value is throwing error
+    //the genearator value is throwing error
     @Id
- //   @GeneratedValue(strategy = GenerationType.IDENTITY)
+    //   @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long accountNumber;
     private String email;
     private String name;

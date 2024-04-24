@@ -33,52 +33,55 @@ class XsdApplicationTests {
     @InjectMocks
     private TransactionServices transactionService;
 
-    private List<Transaction> newTransactions(){
-        List<Transaction> newList=new ArrayList<>();
-        Transaction transactionsOne=new Transaction(224555L,new Date(2024,02,02),"Arundhathi","Avinash",80000,"Bills");
-        Transaction transactionsTwo=new Transaction(443635L,new Date(2024,03,04),"Anupama","Avinash",89000,"Friend");
+    private List<Transaction> newTransactions() {
+        List<Transaction> newList = new ArrayList<>();
+        Transaction transactionsOne = new Transaction(224555L, new Date(2024, 02, 02), "Arundhathi", "Avinash", 80000, "Bills");
+        Transaction transactionsTwo = new Transaction(443635L, new Date(2024, 03, 04), "Anupama", "Avinash", 89000, "Friend");
         newList.add(transactionsOne);
         newList.add(transactionsTwo);
         return newList;
     }
+
     @Test
-    void testNewTransaction(){
-        Transaction transactions1=new Transaction(14355484L,new Date(2024,05,02),"Shantha","Pinki",50000,"Friend");
-        Transaction transactions2=new Transaction(228746L,new Date(2024,03,12),"Uday","Avinah",69000,"Bills");
+    void testNewTransaction() {
+        Transaction transactions1 = new Transaction(14355484L, new Date(2024, 05, 02), "Shantha", "Pinki", 50000, "Friend");
+        Transaction transactions2 = new Transaction(228746L, new Date(2024, 03, 12), "Uday", "Avinah", 69000, "Bills");
         //when(jdbcTemplate.update(String.valueOf(anyLong()), any(Date.class), anyString(), anyString(), anyLong(), anyString())).thenReturn(0);
         Transaction result = transactionService.newTransaction(transactions1);
 
-        assertEquals(transactions1,result);
+        assertEquals(transactions1, result);
     }
-    @Test
-    void testBySender(){
-        Transaction transactions1=new Transaction(14355484L,new Date(2024,05,02),"Arundhathi","Pinki",50000,"Friend");
-        Transaction transactions2=new Transaction(228746L,new Date(2024,03,12),"Uday","Avinash",69000,"Bills");
 
-        List<Transaction> transactionsList= Stream.of(transactions1,transactions2).collect(Collectors.toList());
+    @Test
+    void testBySender() {
+        Transaction transactions1 = new Transaction(14355484L, new Date(2024, 05, 02), "Arundhathi", "Pinki", 50000, "Friend");
+        Transaction transactions2 = new Transaction(228746L, new Date(2024, 03, 12), "Uday", "Avinash", 69000, "Bills");
+
+        List<Transaction> transactionsList = Stream.of(transactions1, transactions2).collect(Collectors.toList());
         when(jdbcTemplate.query(anyString(), any(Object[].class), any(BeanPropertyRowMapper.class))).thenReturn(transactionsList);
-        List<Transaction> result=transactionService.findBySender("Arundhathi");
+        List<Transaction> result = transactionService.findBySender("Arundhathi");
         assertNotNull(result);
-        assertEquals(transactionsList,result);
+        assertEquals(transactionsList, result);
     }
+
     @Test
-    void testByReciever(){
+    void testByReciever() {
 
-        Transaction transactions1=new Transaction(14355484L,new Date(2024,05,02),"Shantha","Pinki",50000,"Friend");
-        Transaction transactions2=new Transaction(228746L,new Date(2024,03,12),"Uday","Avinash",69000,"Bills");
+        Transaction transactions1 = new Transaction(14355484L, new Date(2024, 05, 02), "Shantha", "Pinki", 50000, "Friend");
+        Transaction transactions2 = new Transaction(228746L, new Date(2024, 03, 12), "Uday", "Avinash", 69000, "Bills");
 
-        List<Transaction> transactionsList= Stream.of(transactions1,transactions2).collect(Collectors.toList());
+        List<Transaction> transactionsList = Stream.of(transactions1, transactions2).collect(Collectors.toList());
         when(jdbcTemplate.query(anyString(), any(Object[].class), any(BeanPropertyRowMapper.class))).thenReturn(transactionsList);
 
-        List<Transaction> result=transactionService.findByReceiver("Pinki");
+        List<Transaction> result = transactionService.findByReceiver("Pinki");
         assertNotNull(result);
-        assertEquals(2,result.size());
+        assertEquals(2, result.size());
 
     }
 
 
     @Test
-    void testGetByAmount(){
+    void testGetByAmount() {
         Transaction transactions1 = new Transaction(14355484L, new Date(2024, 05, 02), "Shantha", "Pinki", 50000, "Friend");
         Transaction transactions2 = new Transaction(228746L, new Date(2024, 03, 12), "Uday", "Avinash", 69000, "Bills");
 
@@ -90,16 +93,16 @@ class XsdApplicationTests {
 
 
     }
+
     //fail
     @Test
-    void testUpdateRemarks(){
-        List<Transaction> transactions=newTransactions();
+    void testUpdateRemarks() {
+        List<Transaction> transactions = newTransactions();
         when(jdbcTemplate.query(anyString(), any(Object[].class), any(BeanPropertyRowMapper.class))).thenReturn(transactions);
-        Transaction result=transactionService.updateTransaction(transactions.get(0));
-        assertEquals(transactions.get(1).toString(),result.toString());
+        Transaction result = transactionService.updateTransaction(transactions.get(0));
+        assertEquals(transactions.get(1).toString(), result.toString());
 
     }
-
 
 
     @Test
@@ -110,10 +113,8 @@ class XsdApplicationTests {
         String result = transactionService.deleteTransaction(startDate, endDate);
 
         assertEquals("removed", result);
-        assertNotEquals("removed",result);
+        assertNotEquals("removed", result);
     }
-
-
 
 
 }

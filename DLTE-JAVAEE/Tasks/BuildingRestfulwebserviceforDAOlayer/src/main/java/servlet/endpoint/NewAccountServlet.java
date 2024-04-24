@@ -20,7 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.ResourceBundle;
 
-@WebServlet("/view")
+@WebServlet("/new")
 public class NewAccountServlet extends HttpServlet {
     private AccountService accountService;
     private ResourceBundle resourceBundle;

@@ -39,12 +39,12 @@ $(document).ready(() => {
       url: "http://localhost:8082/payeerepo",
       type: "POST",
       dataType: "xml",
+      contentType: "text/xml",
+      data: soapRequest,
       beforeSend: function (handler) {
         handler.setRequestHeader("Authorization", "Basic " + btoa('aashi:aashi'))
         handler.setRequestHeader("SOAPAction", "findAllPayeeBasedOnAccountNumberLambdaRequest")
       },
-      contentType: "text/xml;charset=utf-8",
-      data: soapRequest,
       success: function (response) {
         alert("Search successful.");
         let payees = [];

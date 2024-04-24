@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 @Component
 public class OfficialsFailureHandler extends SimpleUrlAuthenticationFailureHandler {
@@ -23,29 +24,32 @@ public class OfficialsFailureHandler extends SimpleUrlAuthenticationFailureHandl
 
     Logger logger= LoggerFactory.getLogger(OfficialsFailureHandler.class);
 
+    ResourceBundle resourceBundle= ResourceBundle.getBundle("account");
+
+
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws  IOException, ServletException {
         String username = request.getParameter("username");
-        MyBankOfficials myBankOfficials = service.findByUsername(username);
+        MyBankOfficials myBankOfficials = service.findByCustomer(username);
         if(myBankOfficials!=null){
             if(myBankOfficials.getCustomerStatus().equalsIgnoreCase("Active")){
                 if(myBankOfficials.getAttempts()< myBankOfficials.getMaxAttempt()){
                     myBankOfficials.setAttempts(myBankOfficials.getAttempts()+1);
                     service.updateAttempts(myBankOfficials);
-                    logger.warn("Invalid credentials and attempts taken");
-                    exception=new LockedException("Attempts are taken");
+                    logger.warn(resourceBundle.getString("invalid.credentials"));
+                    exception=new LockedException(resourceBundle.getString("attempts.taken"));
                 }
                 else{
                     service.updateStatus(myBankOfficials);
-                    logger.warn("Max Attempts reached account is suspended");
-                    exception=new LockedException("Max Attempts reached account is suspended");
+                    logger.warn(resourceBundle.getString("account.suspend"));
+                    exception=new LockedException(resourceBundle.getString("account.suspend"));
                 }
             }
             else{
-                logger.warn("Account suspended contact admin to redeem");
+                logger.warn(resourceBundle.getString("admin.contact"));
             }
         }
-        super.setDefaultFailureUrl("/login?error=true");
+        super.setDefaultFailureUrl(resourceBundle.getString("login.error"));
         super.onAuthenticationFailure(request, response, exception);
     }
 }

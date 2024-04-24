@@ -18,9 +18,9 @@ import javax.xml.datatype.XMLGregorianCalendar;
 
 /**
  * <p>Java class for transaction complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType name="transaction">
  *   &lt;complexContent>
@@ -37,17 +37,15 @@ import javax.xml.datatype.XMLGregorianCalendar;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "transaction", propOrder = {
-    "transactionId",
-    "transactionDate",
-    "transactionBy",
-    "transactionTo",
-    "transactionAmount",
-    "transactionRemarks"
+        "transactionId",
+        "transactionDate",
+        "transactionBy",
+        "transactionTo",
+        "transactionAmount",
+        "transactionRemarks"
 })
 public class Transaction {
 
@@ -65,7 +63,6 @@ public class Transaction {
 
     /**
      * Gets the value of the transactionId property.
-     * 
      */
     public long getTransactionId() {
         return transactionId;
@@ -73,7 +70,6 @@ public class Transaction {
 
     /**
      * Sets the value of the transactionId property.
-     * 
      */
     public void setTransactionId(long value) {
         this.transactionId = value;
@@ -81,11 +77,9 @@ public class Transaction {
 
     /**
      * Gets the value of the transactionDate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is
+     * {@link XMLGregorianCalendar }
      */
     public XMLGregorianCalendar getTransactionDate() {
         return transactionDate;
@@ -94,10 +88,8 @@ public class Transaction {
     /**
      * Sets the value of the transactionDate property.
      *
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     * @param value allowed object is
+     *              {@link XMLGregorianCalendar }
      */
     public void setTransactionDate(XMLGregorianCalendar value) {
         this.transactionDate = value;
@@ -105,11 +97,9 @@ public class Transaction {
 
     /**
      * Gets the value of the transactionBy property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTransactionBy() {
         return transactionBy;
@@ -117,11 +107,9 @@ public class Transaction {
 
     /**
      * Sets the value of the transactionBy property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTransactionBy(String value) {
         this.transactionBy = value;
@@ -129,11 +117,9 @@ public class Transaction {
 
     /**
      * Gets the value of the transactionTo property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTransactionTo() {
         return transactionTo;
@@ -141,11 +127,9 @@ public class Transaction {
 
     /**
      * Sets the value of the transactionTo property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTransactionTo(String value) {
         this.transactionTo = value;
@@ -153,7 +137,6 @@ public class Transaction {
 
     /**
      * Gets the value of the transactionAmount property.
-     * 
      */
     public int getTransactionAmount() {
         return transactionAmount;
@@ -161,7 +144,6 @@ public class Transaction {
 
     /**
      * Sets the value of the transactionAmount property.
-     * 
      */
     public void setTransactionAmount(int value) {
         this.transactionAmount = value;
@@ -169,11 +151,9 @@ public class Transaction {
 
     /**
      * Gets the value of the transactionRemarks property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getTransactionRemarks() {
         return transactionRemarks;
@@ -181,11 +161,9 @@ public class Transaction {
 
     /**
      * Sets the value of the transactionRemarks property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setTransactionRemarks(String value) {
         this.transactionRemarks = value;

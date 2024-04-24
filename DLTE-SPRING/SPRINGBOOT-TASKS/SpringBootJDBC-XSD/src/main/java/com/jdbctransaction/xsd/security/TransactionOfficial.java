@@ -31,7 +31,6 @@ public class TransactionOfficial implements UserDetails {
     }
 
 
-
     public String getEmail() {
         return email;
     }

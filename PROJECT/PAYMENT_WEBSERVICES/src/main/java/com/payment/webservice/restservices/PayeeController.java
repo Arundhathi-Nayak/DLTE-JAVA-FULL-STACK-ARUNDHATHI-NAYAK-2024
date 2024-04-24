@@ -3,7 +3,6 @@ package com.payment.webservice.restservices;
 import com.paymentdao.payment.entity.Customer;
 import com.paymentdao.payment.entity.Payee;
 import com.paymentdao.payment.exception.PayeeException;
-import com.paymentdao.payment.remote.DeletePayeeRepository;
 import com.paymentdao.payment.remote.PaymentTransferRepository;
 import com.paymentdao.payment.security.MyBankOfficials;
 import com.paymentdao.payment.security.MyBankOfficialsService;
@@ -41,54 +40,17 @@ public class PayeeController {
     org.slf4j.Logger logger = LoggerFactory.getLogger(PayeeController.class);
     ResourceBundle resourceBundle = ResourceBundle.getBundle("account");
     @Autowired
-    private DeletePayeeRepository deletePayee;
+    private PaymentTransferRepository deletePayee;
+
     @Autowired
     MyBankOfficialsService service;
 
-    @Autowired
-    private PaymentTransferRepository paymentTransferImplementation;
 
     @DeleteMapping("/delete/payee")
-    public ResponseEntity<String> deletePayeeNew(@Valid @RequestBody Payee payee) {
-
-        try {
-            paymentTransferImplementation.deletePayee(payee.getPayeeId(), payee.getSenderAccountNumber(), payee.getPayeeAccountNumber(), payee.getPayeeName());
-            logger.info(resourceBundle.getString("delete.success"));
-            return ResponseEntity.ok(resourceBundle.getString("payee.add") + payee.getPayeeName() + " " + resourceBundle.getString("delete.success"));
-        } catch (PayeeException payeeException) {
-            logger.warn(resourceBundle.getString("Payee.not.found"));
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(payeeException.getMessage());
-        }
-
-    }
-
-    @DeleteMapping("/delete")
-    public ResponseEntity<String> deletePayee(@Valid @RequestBody Payee payee) {
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
-        MyBankOfficials customer = service.findByUsername(username);
-        List<Long> senderAccountNumber = service.getAccountNumbersByCustomerId(customer.getCustomerId());
-
-        if (senderAccountNumber.contains(payee.getSenderAccountNumber())) {
-            try {
-                deletePayee.deletePayee(payee.getPayeeId(), payee.getSenderAccountNumber(), payee.getPayeeAccountNumber(), payee.getPayeeName());
-                logger.info(resourceBundle.getString("delete.success"));
-                return ResponseEntity.ok(resourceBundle.getString("payee.add") + payee.getPayeeName() + " " + resourceBundle.getString("delete.success"));
-            } catch (PayeeException payeeException) {
-                logger.warn(resourceBundle.getString("Payee.not.found"));
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(payeeException.getMessage());
-            }
-        }else{
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(resourceBundle.getString("no.account"));
-        }
-
-    }
-
-    @DeleteMapping("/delete/New")
     public ResponseEntity<String> deletePayeeValid(@Valid @RequestBody Payee payee) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String username = authentication.getName();
-        MyBankOfficials customer = service.findByUsername(username);
+        MyBankOfficials customer = service.findByCustomer(username);
         List<Long> senderAccountNumber = service.getAccountNumbersByCustomerId(customer.getCustomerId());
 
         if (senderAccountNumber.contains(payee.getSenderAccountNumber())) {
@@ -97,7 +59,7 @@ public class PayeeController {
                 logger.info(resourceBundle.getString("delete.success"));
                 return ResponseEntity.ok(resourceBundle.getString("payee.add") + payee.getPayeeName() + " " + resourceBundle.getString("delete.success"));
             } catch (PayeeException payeeException) {
-                logger.warn(resourceBundle.getString("payee.notExists"));
+                logger.warn(payeeException.getMessage());
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(payeeException.getMessage());
             }
         }else{
@@ -122,3 +84,95 @@ public class PayeeController {
     }
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //    @DeleteMapping("/delete/payee")
+//    public ResponseEntity<String> deletePayeeNew(@Valid @RequestBody Payee payee) {
+//
+//        try {
+//            paymentTransferImplementation.deletePayee(payee.getPayeeId(), payee.getSenderAccountNumber(), payee.getPayeeAccountNumber(), payee.getPayeeName());
+//            logger.info(resourceBundle.getString("delete.success"));
+//            return ResponseEntity.ok(resourceBundle.getString("payee.add") + payee.getPayeeName() + " " + resourceBundle.getString("delete.success"));
+//        } catch (PayeeException payeeException) {
+//            logger.warn(resourceBundle.getString("Payee.not.found"));
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(payeeException.getMessage());
+//        }
+//
+//    }

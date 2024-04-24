@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:body>
+    <f:view>
+        <h:form>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Loan Number"/>
+                <h:inputText value="#{loan.loanNumber}"/>
+            </h:panelGrid>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Loan Amount"/>
+                <h:inputText value="#{loan.loanAmount}"/>
+            </h:panelGrid>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Loan Date"/>
+                <h:inputText value="#{loan.loanDate}"/>
+            </h:panelGrid>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Loan Status"/>
+                <h:inputText value="#{loan.loanStatus}"/>
+            </h:panelGrid>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Borrower Name"/>
+                <h:inputText value="#{loan.borrowerName}"/>
+            </h:panelGrid>
+            <h:panelGrid columns="2">
+                <h:outputLabel value="Borrower Contact"/>
+                <h:inputText value="#{loan.borrowerContact}"/>
+            </h:panelGrid>
+            <h:commandButton value="Add Loan">
+                <f:actionListener binding="#{loanProduct.addLoan(loan)}"/>
+                <f:actionListener binding="#{loan.showMessage('added')}"/>
+            </h:commandButton>
+            <h:outputLabel value="#{loan.message}" rendered="#{not empty loan.message}"/>
+        </h:form>
+
+    </f:view>
+</h:body>
+</html>

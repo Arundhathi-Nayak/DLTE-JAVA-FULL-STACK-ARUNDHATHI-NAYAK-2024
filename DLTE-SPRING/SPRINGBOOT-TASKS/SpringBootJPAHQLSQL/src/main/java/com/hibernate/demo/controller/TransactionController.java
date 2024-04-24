@@ -13,9 +13,10 @@ import java.util.List;
 @RequestMapping("/transactions")
 public class TransactionController {
     @Autowired
-  private TransactionService transactionService;
+    private TransactionService transactionService;
+
     // http://localhost:8082/transactions/
-    @PostMapping(value="/",consumes = "application/xml")
+    @PostMapping(value = "/", consumes = "application/xml")
     //    <List>
 //    <item>
 //        <transactionID>1237</transactionID>
@@ -47,7 +48,7 @@ public class TransactionController {
 
     //http://localhost:8082/transactions/amount/200/280
     @GetMapping("/amount/{minAmount}/{maxAmount}")
-   //@GetMapping(value="/amount/{minAmount}/{maxAmount}",produces = "application/xml")
+    //@GetMapping(value="/amount/{minAmount}/{maxAmount}",produces = "application/xml")
     public ResponseEntity<List<Transaction>> findAllByRangeOfTransactionAmount(@PathVariable double minAmount, @PathVariable double maxAmount) {
         List<Transaction> transactions = transactionService.callFindAllByRangeOfTransactionAmount(minAmount, maxAmount);
         return ResponseEntity.ok(transactions);

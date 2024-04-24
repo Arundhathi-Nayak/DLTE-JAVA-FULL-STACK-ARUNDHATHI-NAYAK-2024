@@ -9,6 +9,6 @@ import java.util.List;
 
 @Repository
 public interface PaymentTransferRepository {
-    List<Payee> findAllPayee() ;
     List<Payee> findAllPayeeBasedOnAccountNumber(Long accountNumber) ;
+    void deletePayeeAdded(int payeeId, Long senderAccountNumber, Long payeeAccountNumber, String payeeName);
 }

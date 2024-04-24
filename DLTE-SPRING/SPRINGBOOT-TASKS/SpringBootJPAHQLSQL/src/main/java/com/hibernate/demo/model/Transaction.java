@@ -4,12 +4,12 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="names_transaction")
+@Table(name = "names_transaction")
 
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "native")
-    @SequenceGenerator(name = "native", sequenceName = "product_seq",allocationSize = 1)
+    @SequenceGenerator(name = "native", sequenceName = "product_seq", allocationSize = 1)
     private long transactionID;
     @Temporal(TemporalType.DATE)
     private Date transactionDate;

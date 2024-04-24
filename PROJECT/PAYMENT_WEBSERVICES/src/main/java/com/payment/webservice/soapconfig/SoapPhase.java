@@ -38,6 +38,8 @@ import java.util.ResourceBundle;
 
 //http://localhost:7001/webservice-0.0.1-SNAPSHOT/v3/api-docs
 
+
+
 public class SoapPhase {
     private final String url="http://payee.services";
     @Autowired
@@ -50,7 +52,7 @@ public class SoapPhase {
     @Autowired
     MyBankOfficialsService service;
 
-    //display all details
+    //display all details based on particular user account number
     @PayloadRoot(namespace = url,localPart = "findAllPayeeBasedOnAccountNumberRequest")
     @ResponsePayload
     public FindAllPayeeBasedOnAccountNumberResponse listPayeeBasedOnAccountNumber(@RequestPayload FindAllPayeeBasedOnAccountNumberRequest findAllPayeeBasedOnAccountNumberRequest){
@@ -59,9 +61,9 @@ public class SoapPhase {
         List<Payee> payees=new ArrayList<>();
 
         try {
-            List<com.paymentdao.payment.entity.Payee> daoPayee = paymentTransferImplementation.findAllPayeeBasedOnAccountNumber(findAllPayeeBasedOnAccountNumberRequest.getSenderAccount());
+            List<com.paymentdao.payment.entity.Payee> bakendPayee = paymentTransferImplementation.findAllPayeeBasedOnAccountNumber(findAllPayeeBasedOnAccountNumberRequest.getSenderAccount());
 
-            daoPayee.forEach(each -> {
+            bakendPayee.forEach(each -> {
                 Payee currentPayee = new Payee();
                 BeanUtils.copyProperties(each, currentPayee);
                 payees.add(currentPayee);
@@ -78,89 +80,7 @@ public class SoapPhase {
             serviceStatus.setMessage(e.getMessage());
         }
         findAllPayeeBasedOnAccountNumberResponse.setServiceStatus(serviceStatus);
-
         return findAllPayeeBasedOnAccountNumberResponse;
-    }
-
-    // finding all payee
-    @PayloadRoot(namespace = url,localPart = "findAllPayeeReqRequest")
-    @ResponsePayload
-    public FindAllPayeeReqResponse listAllPayee(@RequestPayload FindAllPayeeReqRequest findAllPayeeRequest) {
-        FindAllPayeeReqResponse findAllPayeeResponse=new FindAllPayeeReqResponse();
-        ServiceStatus serviceStatus=new ServiceStatus();
-        List<PayeeRequired> payees =new ArrayList<>();
-        try {
-            List<com.paymentdao.payment.entity.Payee> daoPayee = paymentTransferImplementation.findAllPayee();
-            daoPayee.forEach(each -> {
-                PayeeRequired currentPayee = new PayeeRequired();
-                BeanUtils.copyProperties(each, currentPayee);
-                payees.add(currentPayee);
-            });
-           // serviceStatus.setStatus(resourceBundle.getString("success.payee") + " " + HttpStatus.OK.value());
-            serviceStatus.setStatus( HttpServletResponse.SC_OK);
-            serviceStatus.setMessage(resourceBundle.getString("Payee.fetched"));
-            logger.info(resourceBundle.getString("Payee.fetched"));
-        }catch (PayeeException e) {
-            serviceStatus.setStatus(HttpServletResponse.SC_NO_CONTENT);
-            logger.warn(resourceBundle.getString("payee.notfound"));
-            serviceStatus.setMessage(e.getMessage());
-        }
-        findAllPayeeResponse.setServiceStatus(serviceStatus);
-        findAllPayeeResponse.getPayeeRequired().addAll(payees);
-        return findAllPayeeResponse;
-    }
-
-
-    //finding all payee by account number
-    // display particular details
-    @PayloadRoot(namespace = url,localPart = "findAllPayeeBasedOnAccountNumberLambdaRequest")
-    @ResponsePayload
-    public FindAllPayeeBasedOnAccountNumberLambdaResponse listAllPayeeLambda(@RequestPayload FindAllPayeeBasedOnAccountNumberLambdaRequest findAllPayeeBasedOnAccountNumberLambdaRequest) {
-
-
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String username = authentication.getName();
-        MyBankOfficials customer = service.findByUsername(username);
-        List<Long> senderAccountNumber = service.getAccountNumbersByCustomerId(customer.getCustomerId());
-
-        FindAllPayeeBasedOnAccountNumberLambdaResponse findAllPayeeBasedOnAccountNumberLambdaResponse = new FindAllPayeeBasedOnAccountNumberLambdaResponse();
-        ServiceStatus serviceStatus = new ServiceStatus();
-
-        if (senderAccountNumber.contains(findAllPayeeBasedOnAccountNumberLambdaRequest.getSenderAccount())) {
-
-
-            List<Payee> payees = new ArrayList<>();
-            try {
-                List<com.paymentdao.payment.entity.Payee> daoPayee = paymentTransferImplementation.findAllPayee();
-
-                daoPayee.stream()
-                        .filter(payee -> payee.getSenderAccountNumber() == findAllPayeeBasedOnAccountNumberLambdaRequest.getSenderAccount())
-                        .forEach(payee -> {
-                            Payee currentPayee = new Payee();
-                            BeanUtils.copyProperties(payee, currentPayee);
-                            payees.add(currentPayee);
-                        });
-                if (payees.size() == 0) {
-                    throw new PayeeException(resourceBundle.getString("no.payee") + findAllPayeeBasedOnAccountNumberLambdaRequest.getSenderAccount());
-                }
-
-                serviceStatus.setStatus(HttpStatus.OK.value());
-                serviceStatus.setMessage(resourceBundle.getString("payee.details") + " " + findAllPayeeBasedOnAccountNumberLambdaRequest.getSenderAccount());
-                logger.info(resourceBundle.getString("payee.details") + findAllPayeeBasedOnAccountNumberLambdaRequest.getSenderAccount());
-                findAllPayeeBasedOnAccountNumberLambdaResponse.getPayee().addAll(payees);
-            } catch (PayeeException e) {
-                serviceStatus.setStatus(HttpServletResponse.SC_NO_CONTENT);
-                logger.warn(resourceBundle.getString("no.payee") +" "+ findAllPayeeBasedOnAccountNumberLambdaRequest.getSenderAccount());
-                serviceStatus.setMessage(e.getMessage());
-            }
-            findAllPayeeBasedOnAccountNumberLambdaResponse.setServiceStatus(serviceStatus);
-            return findAllPayeeBasedOnAccountNumberLambdaResponse;
-        }else{
-            serviceStatus.setStatus(HttpStatus.NOT_FOUND.value());
-            serviceStatus.setMessage(resourceBundle.getString("no.account") +" "+ findAllPayeeBasedOnAccountNumberLambdaRequest.getSenderAccount());
-            findAllPayeeBasedOnAccountNumberLambdaResponse.setServiceStatus(serviceStatus);
-            return findAllPayeeBasedOnAccountNumberLambdaResponse;
-        }
     }
 }
 

@@ -14,11 +14,14 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ResourceBundle;
 
 @Component
 public class OfficialsSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
     @Autowired
     MyBankOfficialsService service;
+
+    ResourceBundle resourceBundle= ResourceBundle.getBundle("account");
 
     Logger logger= LoggerFactory.getLogger(OfficialsSuccessHandler.class);
 
@@ -30,11 +33,11 @@ public class OfficialsSuccessHandler extends SimpleUrlAuthenticationSuccessHandl
                 myBankOfficials.setAttempts(1);
                 service.updateAttempts(myBankOfficials);
             }
-            super.setDefaultTargetUrl("/payeerepo/payee.wsdl");
+            super.setDefaultTargetUrl(resourceBundle.getString("default.url"));
         }
         else{
-            logger.warn("Max attempts reached contact admin");
-            super.setDefaultTargetUrl("/login");
+            logger.warn(resourceBundle.getString("maxContact.admin"));
+            super.setDefaultTargetUrl(resourceBundle.getString("failure.url"));
         }
         super.onAuthenticationSuccess(request, response, authentication);
     }

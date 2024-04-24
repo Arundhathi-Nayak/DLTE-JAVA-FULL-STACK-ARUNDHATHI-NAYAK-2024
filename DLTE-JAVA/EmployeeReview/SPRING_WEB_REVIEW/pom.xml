@@ -86,7 +86,7 @@
                 <configuration>
                     <schemaDirectory>src/main/resources</schemaDirectory>
                     <schemaFiles>Employee.xsd</schemaFiles>
-                    <outputDirectory>src/main/java</outputDirectory>
+                    <outputDirectory>target/generated-sources</outputDirectory>
                     <clearOutputDir>false</clearOutputDir>
                 </configuration>
             </plugin>

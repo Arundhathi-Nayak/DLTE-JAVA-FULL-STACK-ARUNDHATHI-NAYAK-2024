@@ -23,7 +23,6 @@ import java.util.ResourceBundle;
 
 
 @Service
-
 public class PaymentTransferImplementation implements PaymentTransferRepository {
     ResourceBundle resourceBundle= ResourceBundle.getBundle("account");
     org.slf4j.Logger logger=LoggerFactory.getLogger( PaymentTransferImplementation.class);
@@ -46,24 +45,39 @@ public class PaymentTransferImplementation implements PaymentTransferRepository 
         }
         return payees;
     }
-
-
-
-    // listing all payee details
     @Override
-    public List<Payee> findAllPayee()  {
-        List<Payee> payees;
-        payees = jdbcTemplate.query("select * from MYBANK_APP_Payee",
-//                new BeanPropertyRowMapper<>(Payee.class)
-                    new PayeeMapper());
-        logger.info(resourceBundle.getString("payee.success"));
-        if(payees.size()==0){
-            logger.warn(resourceBundle.getString("no.payee"));
-            throw new PayeeException(resourceBundle.getString("no.payee"));
+    public void deletePayeeAdded(int payeeId, Long senderAccountNumber, Long payeeAccountNumber, String payeeName) {
 
+        String procedureCall="Call DELETE_PAYEE_NEW(?,?,?,?)";
+        try {
+            jdbcTemplate.update(procedureCall,payeeId,senderAccountNumber,payeeAccountNumber,payeeName);
+            logger.info(resourceBundle.getString("payee.success"));
+        } catch (DataAccessException e) {
+            if (e.getLocalizedMessage().contains("ORA-20001")) {
+                logger.warn(resourceBundle.getString("payee.notExists"));
+                //throw new PayeeException(e.getMessage());
+                throw new PayeeException(resourceBundle.getString("payee.notExists"));
+            }
+            if (e.getLocalizedMessage().contains("ORA-20002")) {
+                logger.warn(resourceBundle.getString("sender.notMatch"));
+                //throw new PayeeException(e.getMessage());
+                throw new PayeeException(resourceBundle.getString("sender.notMatch"));
+            }
+            if (e.getLocalizedMessage().contains("ORA-20003")) {
+                logger.warn(resourceBundle.getString("payee.notMatch"));
+                //throw new PayeeException(e.getMessage());
+                throw new PayeeException(resourceBundle.getString("payee.notMatch"));
+            }
+            if (e.getLocalizedMessage().contains("ORA-20004")) {
+                logger.warn(resourceBundle.getString("payeeName.notMatch"));
+                //throw new PayeeException(e.getMessage());
+                throw new PayeeException(resourceBundle.getString("payeeName.notMatch"));
+            }
         }
-        return payees;
+
+
     }
+
 
     public class PayeeMapper implements RowMapper<Payee> {
         @Override

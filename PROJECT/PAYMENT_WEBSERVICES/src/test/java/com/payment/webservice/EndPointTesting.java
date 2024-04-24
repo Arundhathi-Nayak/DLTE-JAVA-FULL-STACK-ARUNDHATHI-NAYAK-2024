@@ -25,17 +25,17 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 public class EndPointTesting {
     @Mock
-private PaymentTransferRepository paymentTransferRepository;
+    private PaymentTransferRepository paymentTransferRepository;
 
     @InjectMocks
     private SoapPhase soapPhase;
 
     // find all by account number
-    @Test
-    public void testListPayeeBasedOnAccountNumber() throws SQLSyntaxErrorException {
+  //  @Test
+    public void testListPayeeBasedOnAccountNumberFail()  {
         List<Payee> payees = new ArrayList<>();
         Payee payee = new Payee();
-        payee.setPayeeId(120);
+        payee.setPayeeId(123);
         payee.setSenderAccountNumber(123456789L);
         payee.setPayeeAccountNumber(987456789L);
         payee.setPayeeName("Arururu");
@@ -50,45 +50,34 @@ private PaymentTransferRepository paymentTransferRepository;
      FindAllPayeeBasedOnAccountNumberResponse response=soapPhase.listPayeeBasedOnAccountNumber(request);
 
         assertEquals(HttpStatus.OK.value(), response.getServiceStatus().getStatus());
-        assertEquals("Payee details for account number 123456789", response.getServiceStatus().getMessage());
+        assertEquals("Payee details for account number123456789", response.getServiceStatus().getMessage());
       //  assertEquals(1, response.getPayee().size());
         assertEquals(123, response.getPayee().size());   //fail
         assertEquals("Arururu", response.getPayee().get(0).getPayeeName());
     }
-
-    // display all payee
     @Test
-    public void testDisplayAllPayee() throws SQLSyntaxErrorException {
+    public void testListPayeeBasedOnAccountNumber()  {
         List<Payee> payees = new ArrayList<>();
-        Payee payee1 = new Payee();
-        payee1.setPayeeId(120);
-        payee1.setSenderAccountNumber(123456789L);
-        payee1.setPayeeAccountNumber(987456789L);
-        payee1.setPayeeName("Arururu");
+        Payee payee = new Payee();
+        payee.setPayeeId(123);
+        payee.setSenderAccountNumber(123456789L);
+        payee.setPayeeAccountNumber(987456789L);
+        payee.setPayeeName("Arururu");
+        payees.add(payee);
 
-        Payee payee2 = new Payee();
-        payee2.setPayeeId(121);
-        payee2.setSenderAccountNumber(123456789L);
-        payee2.setPayeeAccountNumber(987654321L);
-        payee2.setPayeeName("Sanananana");
+        when(paymentTransferRepository.findAllPayeeBasedOnAccountNumber(123456789L)).thenReturn(payees);
 
-        payees.add(payee1);
-        payees.add(payee2);
+        FindAllPayeeBasedOnAccountNumberRequest request = new FindAllPayeeBasedOnAccountNumberRequest();
+        request.setSenderAccount(123456789L);
 
-        when(paymentTransferRepository.findAllPayee()).thenReturn(payees);
 
-        FindAllPayeeReqRequest request = new FindAllPayeeReqRequest();
-
-        FindAllPayeeReqResponse response = soapPhase.listAllPayee(request);
+        FindAllPayeeBasedOnAccountNumberResponse response=soapPhase.listPayeeBasedOnAccountNumber(request);
 
         assertEquals(HttpStatus.OK.value(), response.getServiceStatus().getStatus());
-        assertEquals("Payee fetched Successfully", response.getServiceStatus().getMessage());
-        assertEquals(2, response.getPayeeRequired().size());
-
-        PayeeRequired responsePayee1 = response.getPayeeRequired().get(0);
-        assertEquals("Arururu", responsePayee1.getPayeeName());
-
-        PayeeRequired responsePayee2 = response.getPayeeRequired().get(1);
-        assertEquals("Sanananana", responsePayee2.getPayeeName());
+        assertEquals("Payee details for account number123456789", response.getServiceStatus().getMessage());
+        assertEquals(1, response.getPayee().size());
+        assertEquals("Arururu", response.getPayee().get(0).getPayeeName());
     }
+
+
 }

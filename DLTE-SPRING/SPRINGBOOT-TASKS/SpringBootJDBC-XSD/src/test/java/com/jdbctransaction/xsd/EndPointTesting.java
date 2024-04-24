@@ -31,15 +31,16 @@ public class EndPointTesting {
 
     @InjectMocks
     private SoapPhase soapPhase;
+
     @Test
     public void testAddNewTransaction() throws DatatypeConfigurationException {
-        Transaction transaction1=new Transaction(14355484L,new Date(2024,05,02),"Shantha","Pinki",50000,"Friend");
+        Transaction transaction1 = new Transaction(14355484L, new Date(2024, 05, 02), "Shantha", "Pinki", 50000, "Friend");
         when(transactionService.newTransaction(any(Transaction.class))).thenReturn(transaction1);
 
-        NewTransactionRequest newTransaction=new NewTransactionRequest();
-        services.transaction.Transaction transaction=new services.transaction.Transaction();
+        NewTransactionRequest newTransaction = new NewTransactionRequest();
+        services.transaction.Transaction transaction = new services.transaction.Transaction();
         transaction.setTransactionId(14355484L);
-        LocalDate date = LocalDate.of(2024,05,02);
+        LocalDate date = LocalDate.of(2024, 05, 02);
         XMLGregorianCalendar xmlGregorianCalendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(date.toString());
         transaction.setTransactionDate(xmlGregorianCalendar);
         transaction.setTransactionBy("Pinki");
@@ -47,43 +48,44 @@ public class EndPointTesting {
         transaction.setTransactionAmount(50000);
         transaction.setTransactionRemarks("Friend");
         newTransaction.setTransaction(transaction);
-        NewTransactionResponse response=soapPhase.addNewTransaction(newTransaction);
+        NewTransactionResponse response = soapPhase.addNewTransaction(newTransaction);
         assertTrue(transaction1.getTransactionId().equals(response.getTransaction().getTransactionId()));
     }
+
     @Test
     public void testFilterSender() {
         List<Transaction> mockTransactions = new ArrayList<>();
-        mockTransactions.add(new Transaction(14355484L,new Date(2024,05,02),"Shantha","Pinki",50000,"Friend"));
+        mockTransactions.add(new Transaction(14355484L, new Date(2024, 05, 02), "Shantha", "Pinki", 50000, "Friend"));
         when(transactionService.findBySender("Pinki")).thenReturn(mockTransactions);
         FilterBySenderRequest request = new FilterBySenderRequest();
         request.setSender("Pinki");
-        FilterBySenderResponse response= soapPhase.filterBySender(request);
+        FilterBySenderResponse response = soapPhase.filterBySender(request);
         assertEquals("SUCCESS", response.getServiceStatus().getStatus());
-        assertEquals("Transaction by sender "+request.getSender()+" is fetched", response.getServiceStatus().getMessage());
+        assertEquals("Transaction by sender " + request.getSender() + " is fetched", response.getServiceStatus().getMessage());
     }
 
     @Test
     public void testFilterReciever() {
         List<Transaction> mockTransactions = new ArrayList<>();
-        mockTransactions.add(new Transaction(14355484L,new Date(2024,05,02),"Shantha","Pinki",50000,"Friend"));
+        mockTransactions.add(new Transaction(14355484L, new Date(2024, 05, 02), "Shantha", "Pinki", 50000, "Friend"));
         when(transactionService.findByReceiver("Shantha")).thenReturn(mockTransactions);
         FilterByReceiverRequest request = new FilterByReceiverRequest();
         request.setReceiver("Shantha");
         FilterByReceiverResponse response = soapPhase.filterByReceiver(request);
         assertEquals("SUCCESS", response.getServiceStatus().getStatus());
-        assertEquals("Transaction by receiver "+request.getReceiver()+" is fetched", response.getServiceStatus().getMessage());
+        assertEquals("Transaction by receiver " + request.getReceiver() + " is fetched", response.getServiceStatus().getMessage());
     }
 
     @Test
     public void testFilterAmount() {
         List<Transaction> mockTransactions = new ArrayList<>();
-        mockTransactions.add(new Transaction(14355484L,new Date(2024,05,02),"Shantha","Pinki",50000,"Friend"));
+        mockTransactions.add(new Transaction(14355484L, new Date(2024, 05, 02), "Shantha", "Pinki", 50000, "Friend"));
         when(transactionService.findByAmount(5000)).thenReturn(mockTransactions);
         FilterByAmountRequest request = new FilterByAmountRequest();
         request.setAmount(50000);
         FilterByAmountResponse response = soapPhase.filterByAmount(request);
         assertEquals("SUCCESS", response.getServiceStatus().getStatus());
-        assertEquals("Transaction by amount "+request.getAmount()+" is fetched", response.getServiceStatus().getMessage());
+        assertEquals("Transaction by amount " + request.getAmount() + " is fetched", response.getServiceStatus().getMessage());
         assertEquals(0, response.getTransaction().size());
     }
 
@@ -92,7 +94,7 @@ public class EndPointTesting {
     public void testUpdateTransaction() throws DatatypeConfigurationException {
         Transaction updateTransaction = new Transaction();
         updateTransaction.setTransactionId(15000L);
-        updateTransaction.setTransactionDate(new Date(2024,05,02));
+        updateTransaction.setTransactionDate(new Date(2024, 05, 02));
         updateTransaction.setTransactionBy("Avinash");
         updateTransaction.setTransactionTo("Avinu");
         updateTransaction.setTransactionAmount(1000);
@@ -101,7 +103,7 @@ public class EndPointTesting {
         UpdateByRemarksRequest request = new UpdateByRemarksRequest();
         services.transaction.Transaction transaction = new services.transaction.Transaction();
         transaction.setTransactionId(15000L);
-        LocalDate date = LocalDate.of(2024,05,02);
+        LocalDate date = LocalDate.of(2024, 05, 02);
         XMLGregorianCalendar xmlGregorianCalendar = DatatypeFactory.newInstance().newXMLGregorianCalendar(date.toString());
         transaction.setTransactionDate(xmlGregorianCalendar);
         updateTransaction.setTransactionBy("Avinash");
@@ -117,14 +119,14 @@ public class EndPointTesting {
 
     @Test
     public void testRemoveTransactionBetweenDates() throws DatatypeConfigurationException {
-        LocalDate date1 = LocalDate.of(2024,05,02);
-        LocalDate date2 = LocalDate.of(2024,05,05);
+        LocalDate date1 = LocalDate.of(2024, 05, 02);
+        LocalDate date2 = LocalDate.of(2024, 05, 05);
         XMLGregorianCalendar xmlGregorianCalendar1 = DatatypeFactory.newInstance().newXMLGregorianCalendar(date1.toString());
         XMLGregorianCalendar xmlGregorianCalendar2 = DatatypeFactory.newInstance().newXMLGregorianCalendar(date2.toString());
-     //   when(transactionService.deleteTransaction(date1, date1)).thenReturn("remove");
+        //   when(transactionService.deleteTransaction(date1, date1)).thenReturn("remove");
         DeleteByRangeOfDatesRequest request = new DeleteByRangeOfDatesRequest();
-        Date start =new Date(2024,05,02);
-        Date end =new Date(2024,05,05);
+        Date start = new Date(2024, 05, 02);
+        Date end = new Date(2024, 05, 05);
         request.setStartDate(xmlGregorianCalendar1);
         request.setEndDate(xmlGregorianCalendar2);
         DeleteByRangeOfDatesResponse response = soapPhase.deleteBasedOnDates(request);

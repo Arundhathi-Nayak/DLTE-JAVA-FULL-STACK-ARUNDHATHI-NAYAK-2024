@@ -20,10 +20,11 @@ public class AccountRestApi {
     @Autowired
     AccountServices accountServices;
 
-   @PostMapping("/open")
+    @PostMapping("/open")
     public Account openAccount(@RequestBody Account account) {
         return accountServices.callSave(account);
     }
+
     @PutMapping("/open/update")
     public Account updateAccount(@RequestBody Account account) {
         return accountServices.callSave(account);

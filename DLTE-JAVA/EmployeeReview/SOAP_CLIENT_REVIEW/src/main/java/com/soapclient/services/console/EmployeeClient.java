@@ -7,12 +7,16 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import org.springframework.ws.client.core.WebServiceTemplate;
 import services.employee.*;
 
+
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
 
 //wsimport -d target -s src -keep  http://localhost:8082/employeerepo/employee.wsdl
+
+
+//wsimport -d target -s target/generated-sources -keep http://localhost:8082/employeerepo/employee.wsdl
 
 public class EmployeeClient {
    private static Logger logger = LoggerFactory.getLogger(EmployeeClient.class);
@@ -74,7 +78,7 @@ public class EmployeeClient {
             String email = scanner.nextLine();
             System.out.print(resourceBundle.getString("enter.phoneNumber"));
             Long phoneNumber = scanner.nextLong();
-            scanner.nextLine(); // Consume newline character
+            scanner.nextLine();
 
             System.out.println(resourceBundle.getString("enter.permanentDetails"));
             System.out.print(resourceBundle.getString("enter.address"));
@@ -146,7 +150,7 @@ public class EmployeeClient {
             if (!"yes".equalsIgnoreCase(choice)) {
                 addMoreEmployees = false;
             }
-            scanner.nextLine(); // Consume newline character
+            scanner.nextLine();
         }
     }
 
@@ -181,7 +185,7 @@ public class EmployeeClient {
     private static void filterByPinCodeRequest(WebServiceTemplate webServiceTemplate, Scanner scanner) {
         System.out.print(resourceBundle.getString("enter.pinCodeFilter"));
         int pinCode = scanner.nextInt();
-        scanner.nextLine(); // Consume newline character
+        scanner.nextLine();
         GetEmployeeByPinCodeRequest request = new GetEmployeeByPinCodeRequest();
         request.setPinCode(pinCode);
         GetEmployeeByPinCodeResponse response = (GetEmployeeByPinCodeResponse) webServiceTemplate.marshalSendAndReceive(request);
