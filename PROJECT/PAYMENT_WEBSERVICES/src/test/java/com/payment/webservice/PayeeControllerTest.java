@@ -41,6 +41,7 @@ public class PayeeControllerTest {
 
     private MockMvc mockMvc;
 
+    @Mock
     MyBankOfficialsService myBankOfficialsService;
 
     @BeforeEach
@@ -48,7 +49,7 @@ public class PayeeControllerTest {
         mockMvc = MockMvcBuilders.standaloneSetup(paymentRestController).build();
     }
 
-  //  @Test
+    @Test
     public void testDeletePayee() {
         ResourceBundle resourceBundle = ResourceBundle.getBundle("account");
 
@@ -68,6 +69,13 @@ public class PayeeControllerTest {
         // Mock service behavior
         MyBankOfficials customer = new MyBankOfficials();
         customer.setCustomerId(123);
+        customer.setCustomerName("Sanatah");
+        customer.setCustomerAddress("karkala");
+        customer.setCustomerStatus("active");
+        customer.setCustomerContact(8765432345L);
+        customer.setUsername("testUser");
+        customer.setPassword("12233");
+        customer.setAttempts(1);
        when(myBankOfficialsService.findByCustomer("testUser")).thenReturn(customer);
        when(myBankOfficialsService.getAccountNumbersByCustomerId(123)).thenReturn(Collections.singletonList(123456789L));
        // Mock the deletePayeeImplementation behavior
@@ -80,7 +88,7 @@ public class PayeeControllerTest {
         Assert.assertEquals(resourceBundle.getString("payee.add") + "Arundhathi" + " " + resourceBundle.getString("delete.success"),
                 responseEntity.getBody());
     }
-  //  @Test
+    @Test
     public void testDeletePayeeFailed() {
         ResourceBundle resourceBundle = ResourceBundle.getBundle("account");
 
@@ -94,19 +102,30 @@ public class PayeeControllerTest {
         // Mock authentication
         Authentication authentication = mock(Authentication.class);
         SecurityContextHolder.getContext().setAuthentication(authentication);
-
+        when(authentication.getName()).thenReturn("testUser");
 
 
         // Mock service behavior
         MyBankOfficials customer = new MyBankOfficials();
         customer.setCustomerId(123);
+        customer.setCustomerName("Sanatah");
+        customer.setCustomerAddress("karkala");
+        customer.setCustomerStatus("active");
+        customer.setCustomerContact(8765432345L);
+        customer.setUsername("testUser");
+        customer.setPassword("12233");
+        customer.setAttempts(1);
+        when(myBankOfficialsService.findByCustomer("testUser")).thenReturn(customer);
+        when(myBankOfficialsService.getAccountNumbersByCustomerId(123)).thenReturn(Collections.singletonList(123456789L));
+        // Mock the deletePayeeImplementation behavior
 
         doNothing().when(paymentTransferRepository).deletePayeeAdded(123, 123456789L, 987654321L, "Arundhathi");
 
         ResponseEntity<String> responseEntity = paymentRestController.deletePayeeValid(payee);
 
         Assert.assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-        Assert.assertEquals(resourceBundle.getString("payee.add"), responseEntity.getBody());
+        Assert.assertEquals(resourceBundle.getString("payee.add") ,
+                responseEntity.getBody());
     }
 
 

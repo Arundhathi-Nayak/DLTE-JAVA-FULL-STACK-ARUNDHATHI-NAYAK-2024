@@ -1,14 +1,14 @@
-[31m2024-04-24 09:02:00,346[0;39m [32m[INFO][0;39m com.thymeleaf.dashboard.DashboardApplication main [32mStarting DashboardApplication using Java 1.8.0_292 on WPF45CTT7 with PID 16468 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\Spring_Boot_Thymeleaf_build_dashboard\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\Spring_Boot_Thymeleaf_build_dashboard)
-[0;39m[31m2024-04-24 09:02:00,352[0;39m [32m[INFO][0;39m com.thymeleaf.dashboard.DashboardApplication main [32mNo active profile set, falling back to 1 default profile: "default"
-[0;39m[31m2024-04-24 09:02:01,168[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
-[0;39m[31m2024-04-24 09:02:01,168[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
-[0;39m[31m2024-04-24 09:02:01,168[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
-[0;39m[31m2024-04-24 09:02:01,294[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
-[0;39m[31m2024-04-24 09:02:01,294[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 895 ms
-[0;39m[31m2024-04-24 09:02:01,451[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
-[0;39m[31m2024-04-24 09:02:01,577[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
-[0;39m[31m2024-04-24 09:02:01,592[0;39m [32m[INFO][0;39m com.thymeleaf.dashboard.DashboardApplication main [32mStarted DashboardApplication in 1.709 seconds (JVM running for 2.503)
-[0;39m[31m2024-04-24 09:02:38,978[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-1 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
-[0;39m[31m2024-04-24 09:02:38,978[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mInitializing Servlet 'dispatcherServlet'
-[0;39m[31m2024-04-24 09:02:38,986[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mCompleted initialization in 8 ms
+[31m2024-04-25 12:44:37,253[0;39m [32m[INFO][0;39m com.thymeleaf.dashboard.DashboardApplication main [32mStarting DashboardApplication using Java 1.8.0_292 on WPF45CTT7 with PID 16120 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\Spring_Boot_Thymeleaf_build_dashboard\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\Spring_Boot_Thymeleaf_build_dashboard)
+[0;39m[31m2024-04-25 12:44:37,253[0;39m [32m[INFO][0;39m com.thymeleaf.dashboard.DashboardApplication main [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-04-25 12:44:38,279[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
+[0;39m[31m2024-04-25 12:44:38,295[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
+[0;39m[31m2024-04-25 12:44:38,295[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-04-25 12:44:38,389[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-04-25 12:44:38,389[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 1057 ms
+[0;39m[31m2024-04-25 12:44:38,595[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
+[0;39m[31m2024-04-25 12:44:38,737[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
+[0;39m[31m2024-04-25 12:44:38,753[0;39m [32m[INFO][0;39m com.thymeleaf.dashboard.DashboardApplication main [32mStarted DashboardApplication in 1.978 seconds (JVM running for 2.823)
+[0;39m[31m2024-04-25 12:45:13,997[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-2 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
+[0;39m[31m2024-04-25 12:45:13,997[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mInitializing Servlet 'dispatcherServlet'
+[0;39m[31m2024-04-25 12:45:13,997[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mCompleted initialization in 0 ms
 [0;39m
