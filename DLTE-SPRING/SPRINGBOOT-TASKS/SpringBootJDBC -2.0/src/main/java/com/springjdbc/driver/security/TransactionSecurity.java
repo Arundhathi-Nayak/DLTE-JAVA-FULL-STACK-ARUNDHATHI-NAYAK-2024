@@ -28,9 +28,13 @@ public class TransactionSecurity {
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
-        httpSecurity.csrf().disable();
+
         httpSecurity.httpBasic();
-        httpSecurity.formLogin();
+        httpSecurity.formLogin().loginPage("/transaction/");
+        httpSecurity.authorizeRequests().antMatchers("/payee/").permitAll();
+
+        httpSecurity.logout().permitAll();
+        httpSecurity.logout().permitAll();
 
         httpSecurity.authorizeRequests().antMatchers("/profile/register").permitAll();
         httpSecurity.authorizeRequests().antMatchers("/transaction/").permitAll();

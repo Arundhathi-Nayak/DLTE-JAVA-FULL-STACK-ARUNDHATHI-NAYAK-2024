@@ -43,13 +43,17 @@ public class OfficialsFailureHandler extends SimpleUrlAuthenticationFailureHandl
                     service.updateStatus(myBankOfficials);
                     logger.warn(resourceBundle.getString("account.suspend"));
                     exception=new LockedException(resourceBundle.getString("account.suspend"));
+                    super.setDefaultFailureUrl("/payee/?error="+exception.getMessage());
                 }
             }
+//            else{
+//                logger.warn(resourceBundle.getString("admin.contact"));
+//            }
             else{
-                logger.warn(resourceBundle.getString("admin.contact"));
+                super.setDefaultFailureUrl("/payee/?error=User not exists");
             }
         }
-        super.setDefaultFailureUrl(resourceBundle.getString("login.error"));
+     //   super.setDefaultFailureUrl(resourceBundle.getString("login.error"));
         super.onAuthenticationFailure(request, response, exception);
     }
 }

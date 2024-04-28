@@ -67,11 +67,14 @@ public class CustomerSecureConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.httpBasic();
-        httpSecurity.formLogin().
+        httpSecurity.formLogin().loginPage("/payee/").
                 usernameParameter("username").
                 failureHandler(officialsFailureHandler).
                 successHandler(officialsSuccessHandler);
         httpSecurity.csrf().disable();
+        httpSecurity.authorizeRequests().antMatchers("/payee/").permitAll();
+
+        httpSecurity.logout().permitAll();
 
         httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString("payee.wsdl")).permitAll();
         httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString("payee.api")).permitAll();

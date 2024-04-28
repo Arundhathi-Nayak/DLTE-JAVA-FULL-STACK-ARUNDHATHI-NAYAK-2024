@@ -66,14 +66,19 @@
 <body>
 <div class="container">
     <form th:action="@{/transaction/new}" th:object="${transaction}" method="post">
-        <p class="text-danger" th:if="${#fields.hasErrors('transactionId')}" th:errors="*{transactionId}"></p>
+        <p th:class="text-danger" th:if="${#fields.hasErrors('transactionId')}" th:errors="*{transactionId}"></p>
         <input type="text" th:field="*{transactionId}" placeholder="Transaction ID"/>
+        <p th:class="text-danger" th:if="${#fields.hasErrors('transactionDate')}" th:errors="*{transactionDate}"></p>
         <input type="text" th:field="*{transactionDate}" placeholder="Transaction Date"/>
+        <p th:class="text-danger" th:if="${#fields.hasErrors('transactionBy')}" th:errors="*{transactionBy}"></p>
         <input type="text" th:field="*{transactionBy}" placeholder="Transaction By"/>
+        <p th:class="text-danger" th:if="${#fields.hasErrors('transactionTo')}" th:errors="*{transactionTo}"></p>
         <input type="text" th:field="*{transactionTo}" placeholder="Transaction To"/>
+        <p th:class="text-danger" th:if="${#fields.hasErrors('transactionRemarks')}" th:errors="*{transactionRemarks}"></p>
         <input type="text" th:field="*{transactionRemarks}" placeholder="Transaction Remarks"/>
+        <p th:class="text-danger" th:if="${#fields.hasErrors('transactionAmount')}" th:errors="*{transactionAmount}"></p>
         <input type="text" th:field="*{transactionAmount}" placeholder="Transaction Amount"/>
-        <div th:if="${message}" th:text="${message}" class="message"></div>
+        <div  th:if="${message}" th:text="${message}" class="message"></div>
         <button type="submit">Add</button>
     </form>
 </div>

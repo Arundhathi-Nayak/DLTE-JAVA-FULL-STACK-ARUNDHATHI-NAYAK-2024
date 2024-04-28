@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{'/css/login.css'}">
+</head>
+<body>
+<div class="container">
+    <h1 th:if="${param.error}">
+        <span th:text="${session?.SPRING_SECURITY_LAST_EXCEPTION?.message}"></span>
+    </h1>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="login-info">
+                <p style="font-size: 40px;">LOGIN</p>
+                <p style="font-size: 20px;">Sign in to continue</p>
+                <hr style="border-top: 1px solid white; margin-bottom: 15px;"> <!-- White line -->
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="login-container">
+                <h2>SIGN IN</h2>
+                <form action="#" th:action="@{'/payee/'}" method="post" >
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" placeholder="Enter username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Enter password">
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block narrow-btn" >Login</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
