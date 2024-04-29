@@ -5,7 +5,7 @@ import com.paymentdao.payment.security.MyBankOfficialsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.security.authentication.LockedException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
@@ -33,9 +33,9 @@ public class OfficialsSuccessHandler extends SimpleUrlAuthenticationSuccessHandl
                 myBankOfficials.setAttempts(1);
                 service.updateAttempts(myBankOfficials);
             }
-           // super.setDefaultTargetUrl(resourceBundle.getString("default.url"));
+            super.setDefaultTargetUrl(resourceBundle.getString("default.url"));
 
-            super.setDefaultTargetUrl("/payee/dash");
+          //  super.setDefaultTargetUrl("/payee/dash");
 
         }
         else{

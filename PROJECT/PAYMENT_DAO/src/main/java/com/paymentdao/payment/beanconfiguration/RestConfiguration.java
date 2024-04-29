@@ -12,7 +12,7 @@ public class RestConfiguration {
     @Bean
     public MessageSource messageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasename("application");
+        messageSource.setBasename("account");
         messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
     }

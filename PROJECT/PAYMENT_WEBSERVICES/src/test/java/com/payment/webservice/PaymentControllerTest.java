@@ -1,21 +1,16 @@
 package com.payment.webservice;
 
 import com.payment.webservice.restservices.PayeeController;
-
-import com.paymentdao.payment.entity.Customer;
 import com.paymentdao.payment.entity.Payee;
-import com.paymentdao.payment.exception.PayeeException;
 import com.paymentdao.payment.remote.PaymentTransferRepository;
 import com.paymentdao.payment.security.MyBankOfficials;
 import com.paymentdao.payment.security.MyBankOfficialsService;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.*;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.slf4j.Logger;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;

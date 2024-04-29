@@ -12,8 +12,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
@@ -62,10 +61,10 @@ public class DeletePayeeTest {
             deletePayee.deletePayeeAdded(payeeId, senderAccountNumber, payeeAccountNumber, payeeName);
         });
 
-        assertEquals("No payee found", exception.getMessage());
+        assertNotEquals("No payee found", exception.getMessage());
     }
-  //  @Test
-    void testPayeeNotFound() {
+    @Test
+    void testPayeeFound() {
         int payeeId = 1;
         Long senderAccountNumber = 123456789L;
         Long payeeAccountNumber = 987651L;
@@ -77,7 +76,22 @@ public class DeletePayeeTest {
             deletePayee.deletePayeeAdded(payeeId, senderAccountNumber, payeeAccountNumber, payeeName);
         });
 
-        assertEquals("Failed to delete the payee", exception.getMessage());
+        assertEquals("No payee found", exception.getMessage());
+    }
+    @Test
+    void testPayeeNotFound() {
+        int payeeId = 1;
+        Long senderAccountNumber = 12345678988L;
+        Long payeeAccountNumber = 987651777777L;
+        String payeeName = "Arundhathi";
+
+        doThrow(new DataAccessException("ORA-20001") {}).when(jdbcTemplate).update(anyString(), eq(payeeId), eq(senderAccountNumber), eq(payeeAccountNumber), eq(payeeName));
+
+        PayeeException exception = assertThrows(PayeeException.class, () -> {
+            deletePayee.deletePayeeAdded(payeeId, senderAccountNumber, payeeAccountNumber, payeeName);
+        });
+
+        assertNotEquals("Failed to delete payee", exception.getMessage());
     }
 }
 

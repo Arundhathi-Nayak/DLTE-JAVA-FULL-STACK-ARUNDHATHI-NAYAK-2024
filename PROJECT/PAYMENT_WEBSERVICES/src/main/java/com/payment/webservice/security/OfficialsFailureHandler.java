@@ -38,6 +38,9 @@ public class OfficialsFailureHandler extends SimpleUrlAuthenticationFailureHandl
                     service.updateAttempts(myBankOfficials);
                     logger.warn(resourceBundle.getString("invalid.credentials"));
                     exception=new LockedException(resourceBundle.getString("attempts.taken"));
+                    String err = myBankOfficials.getAttempts()+" "+exception.getMessage();
+                    logger.warn(err);
+                    super.setDefaultFailureUrl("/web/?error="+err);
                 }
                 else{
                     service.updateStatus(myBankOfficials);

@@ -2,16 +2,11 @@ package com.payment.webservice.soapconfig;
 
 import com.paymentdao.payment.exception.PayeeException;
 import com.paymentdao.payment.remote.PaymentTransferRepository;
-import com.paymentdao.payment.security.MyBankOfficials;
 import com.paymentdao.payment.security.MyBankOfficialsService;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.http.HttpStatus;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
@@ -19,9 +14,8 @@ import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
 import services.payee.*;
 
 import javax.servlet.http.HttpServletResponse;
-import java.sql.SQLSyntaxErrorException;
+import javax.validation.Valid;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -36,7 +30,7 @@ import java.util.ResourceBundle;
 
 //http://localhost:8082/v3/api-docs
 
-//http://localhost:7001/webservice-0.0.1-SNAPSHOT/v3/api-docs
+//http://localhost:7001/webservice-0.0.1-SNAPSHOT/v3/api-docs    // change war file name while deploying
 
 
 
@@ -55,7 +49,7 @@ public class SoapPhase {
     //display all details based on particular user account number
     @PayloadRoot(namespace = url,localPart = "findAllPayeeBasedOnAccountNumberRequest")
     @ResponsePayload
-    public FindAllPayeeBasedOnAccountNumberResponse listPayeeBasedOnAccountNumber(@RequestPayload FindAllPayeeBasedOnAccountNumberRequest findAllPayeeBasedOnAccountNumberRequest){
+    public FindAllPayeeBasedOnAccountNumberResponse listPayeeBasedOnAccountNumber(@Valid @RequestPayload FindAllPayeeBasedOnAccountNumberRequest findAllPayeeBasedOnAccountNumberRequest){
         FindAllPayeeBasedOnAccountNumberResponse findAllPayeeBasedOnAccountNumberResponse=new FindAllPayeeBasedOnAccountNumberResponse();
         ServiceStatus serviceStatus=new ServiceStatus();
         List<Payee> payees=new ArrayList<>();
@@ -75,7 +69,7 @@ public class SoapPhase {
             logger.info(resourceBundle.getString("payee.details") + findAllPayeeBasedOnAccountNumberRequest.getSenderAccount());
 
         } catch (PayeeException e) {
-            serviceStatus.setStatus(HttpServletResponse.SC_NO_CONTENT);
+            serviceStatus.setStatus(HttpServletResponse.SC_NO_CONTENT);  // 204 no content
             logger.warn(resourceBundle.getString("no.payee")+ findAllPayeeBasedOnAccountNumberRequest.getSenderAccount());
             serviceStatus.setMessage(e.getMessage());
         }

@@ -1,12 +1,10 @@
 package com.payment.webservice.restservices;
 
-import com.paymentdao.payment.entity.Customer;
 import com.paymentdao.payment.entity.Payee;
 import com.paymentdao.payment.exception.PayeeException;
 import com.paymentdao.payment.remote.PaymentTransferRepository;
 import com.paymentdao.payment.security.MyBankOfficials;
 import com.paymentdao.payment.security.MyBankOfficialsService;
-import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.slf4j.LoggerFactory;
@@ -63,7 +61,7 @@ public class PayeeController {
                 return ResponseEntity.status(HttpStatus.NOT_FOUND).body(payeeException.getMessage());
             }
         }else{
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(resourceBundle.getString("no.account"));
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(resourceBundle.getString("no.account")); // 404 found
         }
 
     }
