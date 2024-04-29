@@ -64,6 +64,8 @@ public class MyBankOfficialsService implements UserDetailsService {
     public MyBankOfficials findByCustomer(String username){
         List<MyBankOfficials> officialsList=findByCustomerName();
         MyBankOfficials myBankOfficials=officialsList.stream().filter(myBankOfficials1 -> myBankOfficials1.getUsername().equals(username)).findFirst().orElse(null);
+        if(myBankOfficials==null)
+            throw new UsernameNotFoundException(username);
         return myBankOfficials;
     }
 

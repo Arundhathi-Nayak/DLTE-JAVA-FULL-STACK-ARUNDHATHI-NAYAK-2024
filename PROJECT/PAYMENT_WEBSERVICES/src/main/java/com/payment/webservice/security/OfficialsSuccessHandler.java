@@ -41,7 +41,8 @@ public class OfficialsSuccessHandler extends SimpleUrlAuthenticationSuccessHandl
         else{
             logger.warn(resourceBundle.getString("maxContact.admin"));
           //  super.setDefaultTargetUrl(resourceBundle.getString("failure.url"));
-            super.setDefaultTargetUrl("/payee/?error=contact admin");
+           super.setDefaultTargetUrl("/payeelogin/?errors="+resourceBundle.getString("admin.contact"));
+
         }
         super.onAuthenticationSuccess(request, response, authentication);
     }

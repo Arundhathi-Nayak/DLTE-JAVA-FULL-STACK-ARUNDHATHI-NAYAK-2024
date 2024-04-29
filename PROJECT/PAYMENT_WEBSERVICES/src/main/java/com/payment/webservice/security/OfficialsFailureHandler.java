@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.authentication.LockedException;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler;
 import org.springframework.stereotype.Component;
 
@@ -30,31 +31,37 @@ public class OfficialsFailureHandler extends SimpleUrlAuthenticationFailureHandl
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws  IOException, ServletException {
         String username = request.getParameter("username");
+        try {
         MyBankOfficials myBankOfficials = service.findByCustomer(username);
-        if(myBankOfficials!=null){
-            if(myBankOfficials.getCustomerStatus().equalsIgnoreCase("Active")){
-                if(myBankOfficials.getAttempts()< myBankOfficials.getMaxAttempt()){
-                    myBankOfficials.setAttempts(myBankOfficials.getAttempts()+1);
-                    service.updateAttempts(myBankOfficials);
-                    logger.warn(resourceBundle.getString("invalid.credentials"));
-                    exception=new LockedException(resourceBundle.getString("attempts.taken"));
-                    String err = myBankOfficials.getAttempts()+" "+exception.getMessage();
-                    logger.warn(err);
-                    super.setDefaultFailureUrl("/web/?error="+err);
+            if (myBankOfficials != null) {
+                if (myBankOfficials.getCustomerStatus().equalsIgnoreCase("Active")) {
+                    if (myBankOfficials.getAttempts() < myBankOfficials.getMaxAttempt()) {
+                        myBankOfficials.setAttempts(myBankOfficials.getAttempts() + 1);
+                        service.updateAttempts(myBankOfficials);
+                        logger.warn(resourceBundle.getString("invalid.credentials"));
+                        exception = new LockedException((4-myBankOfficials.getAttempts()) + " " + resourceBundle.getString("attempts.taken"));
+                        String err = myBankOfficials.getAttempts().toString() + " " + exception.getMessage();
+                        logger.warn(err);
+                        super.setDefaultFailureUrl("/payeelogin/?error=" + err);
+                    } else {
+                        service.updateStatus(myBankOfficials);
+                        logger.warn(resourceBundle.getString("account.suspend"));
+                        exception = new LockedException(resourceBundle.getString("account.suspend"));
+                        super.setDefaultFailureUrl("/payeelogin/?error=" + exception.getMessage());
+                    }
                 }
-                else{
-                    service.updateStatus(myBankOfficials);
-                    logger.warn(resourceBundle.getString("account.suspend"));
-                    exception=new LockedException(resourceBundle.getString("account.suspend"));
-                    super.setDefaultFailureUrl("/payee/?error="+exception.getMessage());
-                }
-            }
 //            else{
 //                logger.warn(resourceBundle.getString("admin.contact"));
 //            }
-            else{
-                super.setDefaultFailureUrl("/payee/?error=User not exists");
+                else {
+                    super.setDefaultFailureUrl("/payeelogin/?error=User not exists");
+                }
             }
+        }catch (UsernameNotFoundException e){
+            logger.info(e.toString());
+            logger.warn(resourceBundle.getString("account.suspend"));
+            exception = new LockedException("Username not found");
+            super.setDefaultFailureUrl("/payeelogin/?error=" + exception.getMessage());
         }
      //   super.setDefaultFailureUrl(resourceBundle.getString("login.error"));
         super.onAuthenticationFailure(request, response, exception);
