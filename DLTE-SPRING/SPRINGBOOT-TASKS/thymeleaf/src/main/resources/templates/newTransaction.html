@@ -64,6 +64,9 @@
     </style>
 </head>
 <body>
+<div th:replace="dashboard :: collapse">
+
+</div>
 <div class="container">
     <form th:action="@{/transaction/new}" th:object="${transaction}" method="post">
         <p th:class="text-danger" th:if="${#fields.hasErrors('transactionId')}" th:errors="*{transactionId}"></p>

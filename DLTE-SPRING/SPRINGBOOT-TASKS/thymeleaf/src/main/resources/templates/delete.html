@@ -10,6 +10,9 @@
     <title>Title</title>
 </head>
 <body>
+<div th:replace="dashboard :: collapse">
+
+</div>
 <form th:action="@{/transaction/delete}" th:object="${transaction}" method="delete">
     <input type="text" name="startDate" placeholder="Transaction Start Date"/>
     <input type="text" name="endDate" placeholder="Transaction End Date"/>

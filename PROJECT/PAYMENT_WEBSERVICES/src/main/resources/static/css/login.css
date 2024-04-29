@@ -8,6 +8,12 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+img{
+    width:40px;
+    height: 40px;
+    margin-left: 10px;
+}
 .login-container {
     background-color: rgba(194, 195, 221, 0.8);
     padding: 20px;

@@ -42,23 +42,25 @@
     </style>
 </head>
 <body>
-<div class="container">
-    <nav class="navbar">
-        <ul class="nav-list">
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/transaction/new}">New Transactions</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/transaction/search}">Search</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" th:href="@{/transaction/before}">Delete</a>
-            </li>
-            <li class="nav-item">
-                <a class=" nav-link logout btn btn-outline-light rounded-5 me-2"><span class="bi bi-door-open"></span> Logout</a>
-            </li>
-        </ul>
-    </nav>
+<div th:fragment="collapse">
+    <div class="container">
+        <nav class="navbar">
+            <ul class="nav-list">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/transaction/new}">New Transactions</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/transaction/search}">Search</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/transaction/before}">Delete</a>
+                </li>
+                <li class="nav-item">
+                    <a class=" nav-link logout btn btn-outline-light rounded-5 me-2"><span class="bi bi-door-open"></span> Logout</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
 </div>
 </body>
 </html>

@@ -1,252 +1,57 @@
-[31m2024-04-28 12:48:58,597[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarting ThymeleafApplication using Java 1.8.0_292 on WPF45CTT7 with PID 20780 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf)
-[0;39m[31m2024-04-28 12:48:58,616[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mNo active profile set, falling back to 1 default profile: "default"
-[0;39m[31m2024-04-28 12:48:59,333[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
-[0;39m[31m2024-04-28 12:48:59,333[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mFinished Spring Data repository scanning in 6 ms. Found 0 JDBC repository interfaces.
-[0;39m[31m2024-04-28 12:48:59,773[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
-[0;39m[31m2024-04-28 12:48:59,773[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
-[0;39m[31m2024-04-28 12:48:59,773[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
-[0;39m[31m2024-04-28 12:48:59,899[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
-[0;39m[31m2024-04-28 12:48:59,899[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 1224 ms
-[0;39m[31m2024-04-28 12:49:00,244[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain main [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3c4262d1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@100c567f, org.springframework.security.web.context.SecurityContextPersistenceFilter@468be356, org.springframework.security.web.header.HeaderWriterFilter@3cd206b5, org.springframework.security.web.authentication.logout.LogoutFilter@37ce3644, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@563a89b5, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@598260a6, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@30c0d731, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@4038cd3a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4df39a88, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3bec2275, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6d5037a9, org.springframework.security.web.session.SessionManagementFilter@a137d7a, org.springframework.security.web.access.ExceptionTranslationFilter@62628e78, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@128c502c]
-[0;39m[31m2024-04-28 12:49:00,401[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
-[0;39m[31m2024-04-28 12:49:00,558[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Starting...
-[0;39m[31m2024-04-28 12:49:00,558[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource main [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
-[0;39m[31m2024-04-28 12:49:00,675[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase main [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
-[0;39m[31m2024-04-28 12:49:00,675[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Start completed.
-[0;39m[31m2024-04-28 12:49:00,826[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
-[0;39m[31m2024-04-28 12:49:00,842[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarted ThymeleafApplication in 2.718 seconds (JVM running for 3.518)
-[0;39m[31m2024-04-28 12:49:59,732[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-1 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 12:49:59,732[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mInitializing Servlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 12:49:59,732[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mCompleted initialization in 0 ms
-[0;39m[31m2024-04-28 12:50:15,421[0;39m [32m[WARN][0;39m org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver http-nio-8082-exec-9 [32mResolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 2 errors<EOL>Field error in object 'transaction' on field 'transactionDate': rejected value []; codes [typeMismatch.transaction.transactionDate,typeMismatch.transactionDate,typeMismatch.java.util.Date,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [transaction.transactionDate,transactionDate]; arguments []; default message [transactionDate]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.util.Date' for property 'transactionDate'; nested exception is org.springframework.core.convert.ConversionFailedException: Failed to convert from type [java.lang.String] to type [@javax.validation.constraints.PastOrPresent java.util.Date] for value ''; nested exception is java.lang.IllegalArgumentException]<EOL>Field error in object 'transaction' on field 'transactionId': rejected value [w]; codes [typeMismatch.transaction.transactionId,typeMismatch.transactionId,typeMismatch.java.lang.Long,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [transaction.transactionId,transactionId]; arguments []; default message [transactionId]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.lang.Long' for property 'transactionId'; nested exception is java.lang.NumberFormatException: For input string: "w"]]
-[0;39m[31m2024-04-28 12:50:25,050[0;39m [32m[WARN][0;39m org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver http-nio-8082-exec-1 [32mResolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 2 errors<EOL>Field error in object 'transaction' on field 'transactionDate': rejected value []; codes [typeMismatch.transaction.transactionDate,typeMismatch.transactionDate,typeMismatch.java.util.Date,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [transaction.transactionDate,transactionDate]; arguments []; default message [transactionDate]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.util.Date' for property 'transactionDate'; nested exception is org.springframework.core.convert.ConversionFailedException: Failed to convert from type [java.lang.String] to type [@javax.validation.constraints.PastOrPresent java.util.Date] for value ''; nested exception is java.lang.IllegalArgumentException]<EOL>Field error in object 'transaction' on field 'transactionId': rejected value [w]; codes [typeMismatch.transaction.transactionId,typeMismatch.transactionId,typeMismatch.java.lang.Long,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [transaction.transactionId,transactionId]; arguments []; default message [transactionId]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.lang.Long' for property 'transactionId'; nested exception is java.lang.NumberFormatException: For input string: "w"]]
-[0;39m[31m2024-04-28 12:51:45,433[0;39m [32m[WARN][0;39m org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver http-nio-8082-exec-6 [32mResolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 2 errors<EOL>Field error in object 'transaction' on field 'transactionDate': rejected value []; codes [typeMismatch.transaction.transactionDate,typeMismatch.transactionDate,typeMismatch.java.util.Date,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [transaction.transactionDate,transactionDate]; arguments []; default message [transactionDate]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.util.Date' for property 'transactionDate'; nested exception is org.springframework.core.convert.ConversionFailedException: Failed to convert from type [java.lang.String] to type [@javax.validation.constraints.PastOrPresent java.util.Date] for value ''; nested exception is java.lang.IllegalArgumentException]<EOL>Field error in object 'transaction' on field 'transactionId': rejected value [w]; codes [typeMismatch.transaction.transactionId,typeMismatch.transactionId,typeMismatch.java.lang.Long,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [transaction.transactionId,transactionId]; arguments []; default message [transactionId]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.lang.Long' for property 'transactionId'; nested exception is java.lang.NumberFormatException: For input string: "w"]]
-[0;39m[31m2024-04-28 12:52:11,518[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarting ThymeleafApplication using Java 1.8.0_292 on WPF45CTT7 with PID 22400 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf)
-[0;39m[31m2024-04-28 12:52:11,518[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mNo active profile set, falling back to 1 default profile: "default"
-[0;39m[31m2024-04-28 12:52:12,116[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
-[0;39m[31m2024-04-28 12:52:12,132[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mFinished Spring Data repository scanning in 5 ms. Found 0 JDBC repository interfaces.
-[0;39m[31m2024-04-28 12:52:12,477[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
-[0;39m[31m2024-04-28 12:52:12,477[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
-[0;39m[31m2024-04-28 12:52:12,477[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
-[0;39m[31m2024-04-28 12:52:12,556[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
-[0;39m[31m2024-04-28 12:52:12,556[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 989 ms
-[0;39m[31m2024-04-28 12:52:12,776[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain main [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@77a2aa4a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@47ad69f7, org.springframework.security.web.context.SecurityContextPersistenceFilter@3cd206b5, org.springframework.security.web.header.HeaderWriterFilter@62628e78, org.springframework.security.web.authentication.logout.LogoutFilter@7aead3af, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@15d0849, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@60acd609, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@2b917fb0, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@ce9b9a9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@a137d7a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@468be356, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5e5073ab, org.springframework.security.web.session.SessionManagementFilter@7c75db8b, org.springframework.security.web.access.ExceptionTranslationFilter@67110f71, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6c796cc1]
-[0;39m[31m2024-04-28 12:52:12,919[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
-[0;39m[31m2024-04-28 12:52:13,028[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Starting...
-[0;39m[31m2024-04-28 12:52:13,028[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource main [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
-[0;39m[31m2024-04-28 12:52:13,091[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase main [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
-[0;39m[31m2024-04-28 12:52:13,091[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Start completed.
-[0;39m[31m2024-04-28 12:52:13,202[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
-[0;39m[31m2024-04-28 12:52:13,218[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarted ThymeleafApplication in 2.051 seconds (JVM running for 2.774)
-[0;39m[31m2024-04-28 12:52:51,029[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-1 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 12:52:51,029[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mInitializing Servlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 12:52:51,029[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mCompleted initialization in 0 ms
-[0;39m[31m2024-04-28 12:53:02,985[0;39m [32m[WARN][0;39m org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver http-nio-8082-exec-6 [32mResolved [org.springframework.validation.BindException: org.springframework.validation.BeanPropertyBindingResult: 1 errors<EOL>Field error in object 'transaction' on field 'transactionDate': rejected value []; codes [typeMismatch.transaction.transactionDate,typeMismatch.transactionDate,typeMismatch.java.util.Date,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [transaction.transactionDate,transactionDate]; arguments []; default message [transactionDate]]; default message [Failed to convert property value of type 'java.lang.String' to required type 'java.util.Date' for property 'transactionDate'; nested exception is org.springframework.core.convert.ConversionFailedException: Failed to convert from type [java.lang.String] to type [@javax.validation.constraints.PastOrPresent java.util.Date] for value ''; nested exception is java.lang.IllegalArgumentException]]
-[0;39m[31m2024-04-28 12:54:02,110[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarting ThymeleafApplication using Java 1.8.0_292 on WPF45CTT7 with PID 7676 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf)
-[0;39m[31m2024-04-28 12:54:02,112[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mNo active profile set, falling back to 1 default profile: "default"
-[0;39m[31m2024-04-28 12:54:02,673[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
-[0;39m[31m2024-04-28 12:54:02,689[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mFinished Spring Data repository scanning in 4 ms. Found 0 JDBC repository interfaces.
-[0;39m[31m2024-04-28 12:54:03,020[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
-[0;39m[31m2024-04-28 12:54:03,035[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
-[0;39m[31m2024-04-28 12:54:03,035[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
-[0;39m[31m2024-04-28 12:54:03,121[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
-[0;39m[31m2024-04-28 12:54:03,121[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 966 ms
-[0;39m[31m2024-04-28 12:54:03,302[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain main [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@77a2aa4a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@47ad69f7, org.springframework.security.web.context.SecurityContextPersistenceFilter@3cd206b5, org.springframework.security.web.header.HeaderWriterFilter@62628e78, org.springframework.security.web.authentication.logout.LogoutFilter@7aead3af, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@15d0849, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@60acd609, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@2b917fb0, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@ce9b9a9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@a137d7a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@468be356, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@5e5073ab, org.springframework.security.web.session.SessionManagementFilter@7c75db8b, org.springframework.security.web.access.ExceptionTranslationFilter@67110f71, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6c796cc1]
-[0;39m[31m2024-04-28 12:54:03,475[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
-[0;39m[31m2024-04-28 12:54:03,601[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Starting...
-[0;39m[31m2024-04-28 12:54:03,601[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource main [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
-[0;39m[31m2024-04-28 12:54:03,775[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase main [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
-[0;39m[31m2024-04-28 12:54:03,775[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Start completed.
-[0;39m[31m2024-04-28 12:54:03,901[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
-[0;39m[31m2024-04-28 12:54:03,910[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarted ThymeleafApplication in 2.135 seconds (JVM running for 2.774)
-[0;39m[31m2024-04-28 12:54:24,390[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-1 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 12:54:24,395[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mInitializing Servlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 12:54:24,395[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mCompleted initialization in 0 ms
-[0;39m[31m2024-04-28 13:05:21,981[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarting ThymeleafApplication using Java 1.8.0_292 on WPF45CTT7 with PID 14472 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf)
-[0;39m[31m2024-04-28 13:05:21,981[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mNo active profile set, falling back to 1 default profile: "default"
-[0;39m[31m2024-04-28 13:05:22,596[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
-[0;39m[31m2024-04-28 13:05:22,612[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mFinished Spring Data repository scanning in 6 ms. Found 0 JDBC repository interfaces.
-[0;39m[31m2024-04-28 13:05:22,942[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
-[0;39m[31m2024-04-28 13:05:22,943[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
-[0;39m[31m2024-04-28 13:05:22,943[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
-[0;39m[31m2024-04-28 13:05:23,005[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
-[0;39m[31m2024-04-28 13:05:23,005[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 986 ms
-[0;39m[31m2024-04-28 13:05:23,192[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain main [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1cb7936c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@35342d2f, org.springframework.security.web.context.SecurityContextPersistenceFilter@6f89292e, org.springframework.security.web.header.HeaderWriterFilter@c808207, org.springframework.security.web.authentication.logout.LogoutFilter@58b67519, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1b15f922, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6ac0b715, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@128c502c, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7aead3af, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@de77232, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@44841b43, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@45667d98, org.springframework.security.web.session.SessionManagementFilter@6a0cbc6f, org.springframework.security.web.access.ExceptionTranslationFilter@12b5454f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4a7a965d]
-[0;39m[31m2024-04-28 13:05:23,350[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
-[0;39m[31m2024-04-28 13:05:23,475[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Starting...
-[0;39m[31m2024-04-28 13:05:23,475[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource main [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
-[0;39m[31m2024-04-28 13:05:23,553[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase main [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
-[0;39m[31m2024-04-28 13:05:23,553[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Start completed.
-[0;39m[31m2024-04-28 13:05:23,648[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
-[0;39m[31m2024-04-28 13:05:23,673[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarted ThymeleafApplication in 2.059 seconds (JVM running for 2.711)
-[0;39m[31m2024-04-28 13:06:14,394[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarting ThymeleafApplication using Java 1.8.0_292 on WPF45CTT7 with PID 1236 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf)
-[0;39m[31m2024-04-28 13:06:14,409[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mNo active profile set, falling back to 1 default profile: "default"
-[0;39m[31m2024-04-28 13:06:15,415[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
-[0;39m[31m2024-04-28 13:06:15,430[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mFinished Spring Data repository scanning in 6 ms. Found 0 JDBC repository interfaces.
-[0;39m[31m2024-04-28 13:06:15,855[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
-[0;39m[31m2024-04-28 13:06:15,871[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
-[0;39m[31m2024-04-28 13:06:15,871[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
-[0;39m[31m2024-04-28 13:06:15,965[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
-[0;39m[31m2024-04-28 13:06:15,965[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 1478 ms
-[0;39m[31m2024-04-28 13:06:16,247[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain main [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1cb7936c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@35342d2f, org.springframework.security.web.context.SecurityContextPersistenceFilter@6f89292e, org.springframework.security.web.header.HeaderWriterFilter@c808207, org.springframework.security.web.authentication.logout.LogoutFilter@58b67519, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1b15f922, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6ac0b715, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@128c502c, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7aead3af, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@de77232, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@44841b43, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@45667d98, org.springframework.security.web.session.SessionManagementFilter@6a0cbc6f, org.springframework.security.web.access.ExceptionTranslationFilter@12b5454f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4a7a965d]
-[0;39m[31m2024-04-28 13:06:16,498[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
-[0;39m[31m2024-04-28 13:06:16,641[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Starting...
-[0;39m[31m2024-04-28 13:06:16,641[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource main [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
-[0;39m[31m2024-04-28 13:06:16,736[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase main [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
-[0;39m[31m2024-04-28 13:06:16,751[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Start completed.
-[0;39m[31m2024-04-28 13:06:16,893[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
-[0;39m[31m2024-04-28 13:06:16,908[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarted ThymeleafApplication in 3.092 seconds (JVM running for 4.143)
-[0;39m[31m2024-04-28 13:07:07,279[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarting ThymeleafApplication using Java 1.8.0_292 on WPF45CTT7 with PID 21508 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf)
-[0;39m[31m2024-04-28 13:07:07,279[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mNo active profile set, falling back to 1 default profile: "default"
-[0;39m[31m2024-04-28 13:07:07,923[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
-[0;39m[31m2024-04-28 13:07:07,939[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mFinished Spring Data repository scanning in 5 ms. Found 0 JDBC repository interfaces.
-[0;39m[31m2024-04-28 13:07:08,270[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
-[0;39m[31m2024-04-28 13:07:08,270[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
-[0;39m[31m2024-04-28 13:07:08,270[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
-[0;39m[31m2024-04-28 13:07:08,348[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
-[0;39m[31m2024-04-28 13:07:08,348[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 1022 ms
-[0;39m[31m2024-04-28 13:07:08,553[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain main [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1cb7936c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@35342d2f, org.springframework.security.web.context.SecurityContextPersistenceFilter@6f89292e, org.springframework.security.web.header.HeaderWriterFilter@c808207, org.springframework.security.web.authentication.logout.LogoutFilter@58b67519, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1b15f922, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6ac0b715, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@128c502c, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7aead3af, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@de77232, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@44841b43, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@45667d98, org.springframework.security.web.session.SessionManagementFilter@6a0cbc6f, org.springframework.security.web.access.ExceptionTranslationFilter@12b5454f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4a7a965d]
-[0;39m[31m2024-04-28 13:07:08,710[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
-[0;39m[31m2024-04-28 13:07:08,825[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Starting...
-[0;39m[31m2024-04-28 13:07:08,825[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource main [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
-[0;39m[31m2024-04-28 13:07:08,898[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase main [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
-[0;39m[31m2024-04-28 13:07:08,898[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Start completed.
-[0;39m[31m2024-04-28 13:07:08,993[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
-[0;39m[31m2024-04-28 13:07:08,993[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarted ThymeleafApplication in 2.042 seconds (JVM running for 2.712)
-[0;39m[31m2024-04-28 13:07:42,509[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-1 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 13:07:42,509[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mInitializing Servlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 13:07:42,512[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mCompleted initialization in 3 ms
-[0;39m[31m2024-04-28 13:16:40,201[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarting ThymeleafApplication using Java 1.8.0_292 on WPF45CTT7 with PID 13068 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf)
-[0;39m[31m2024-04-28 13:16:40,217[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mNo active profile set, falling back to 1 default profile: "default"
-[0;39m[31m2024-04-28 13:16:40,787[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
-[0;39m[31m2024-04-28 13:16:40,800[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mFinished Spring Data repository scanning in 7 ms. Found 0 JDBC repository interfaces.
-[0;39m[31m2024-04-28 13:16:41,130[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
-[0;39m[31m2024-04-28 13:16:41,146[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
-[0;39m[31m2024-04-28 13:16:41,146[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
-[0;39m[31m2024-04-28 13:16:41,224[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
-[0;39m[31m2024-04-28 13:16:41,224[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 976 ms
-[0;39m[31m2024-04-28 13:16:41,430[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain main [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1cb7936c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@35342d2f, org.springframework.security.web.context.SecurityContextPersistenceFilter@6f89292e, org.springframework.security.web.header.HeaderWriterFilter@c808207, org.springframework.security.web.authentication.logout.LogoutFilter@58b67519, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1b15f922, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6ac0b715, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@128c502c, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7aead3af, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@de77232, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@44841b43, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@45667d98, org.springframework.security.web.session.SessionManagementFilter@6a0cbc6f, org.springframework.security.web.access.ExceptionTranslationFilter@12b5454f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4a7a965d]
-[0;39m[31m2024-04-28 13:16:41,570[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
-[0;39m[31m2024-04-28 13:16:41,680[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Starting...
-[0;39m[31m2024-04-28 13:16:41,680[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource main [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
-[0;39m[31m2024-04-28 13:16:41,759[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase main [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
-[0;39m[31m2024-04-28 13:16:41,759[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Start completed.
-[0;39m[31m2024-04-28 13:16:41,872[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
-[0;39m[31m2024-04-28 13:16:41,885[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarted ThymeleafApplication in 2.059 seconds (JVM running for 2.735)
-[0;39m[31m2024-04-28 13:16:50,082[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-2 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 13:16:50,082[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mInitializing Servlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 13:16:50,082[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mCompleted initialization in 0 ms
-[0;39m[31m2024-04-28 13:18:27,214[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarting ThymeleafApplication using Java 1.8.0_292 on WPF45CTT7 with PID 18564 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf)
-[0;39m[31m2024-04-28 13:18:27,214[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mNo active profile set, falling back to 1 default profile: "default"
-[0;39m[31m2024-04-28 13:18:28,346[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
-[0;39m[31m2024-04-28 13:18:28,346[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mFinished Spring Data repository scanning in 6 ms. Found 0 JDBC repository interfaces.
-[0;39m[31m2024-04-28 13:18:28,739[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
-[0;39m[31m2024-04-28 13:18:28,739[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
-[0;39m[31m2024-04-28 13:18:28,739[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
-[0;39m[31m2024-04-28 13:18:28,818[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
-[0;39m[31m2024-04-28 13:18:28,818[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 1557 ms
-[0;39m[31m2024-04-28 13:18:29,133[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain main [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1de9d54, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@77a2aa4a, org.springframework.security.web.context.SecurityContextPersistenceFilter@4ab550d5, org.springframework.security.web.header.HeaderWriterFilter@de77232, org.springframework.security.web.authentication.logout.LogoutFilter@7c1c5936, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3533df16, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@31da3d60, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@47ad69f7, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@38018b62, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@58e85c6f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ac0b715, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2b917fb0, org.springframework.security.web.session.SessionManagementFilter@44841b43, org.springframework.security.web.access.ExceptionTranslationFilter@6a0cbc6f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@99407c2]
-[0;39m[31m2024-04-28 13:18:29,321[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
-[0;39m[31m2024-04-28 13:18:29,463[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Starting...
-[0;39m[31m2024-04-28 13:18:29,463[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource main [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
-[0;39m[31m2024-04-28 13:18:29,541[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase main [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
-[0;39m[31m2024-04-28 13:18:29,541[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Start completed.
-[0;39m[31m2024-04-28 13:18:29,649[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
-[0;39m[31m2024-04-28 13:18:29,657[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarted ThymeleafApplication in 2.834 seconds (JVM running for 3.53)
-[0;39m[31m2024-04-28 13:18:40,935[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarting ThymeleafApplication using Java 1.8.0_292 on WPF45CTT7 with PID 12264 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf)
-[0;39m[31m2024-04-28 13:18:40,935[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mNo active profile set, falling back to 1 default profile: "default"
-[0;39m[31m2024-04-28 13:18:41,517[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
-[0;39m[31m2024-04-28 13:18:41,533[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mFinished Spring Data repository scanning in 6 ms. Found 0 JDBC repository interfaces.
-[0;39m[31m2024-04-28 13:18:41,848[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
-[0;39m[31m2024-04-28 13:18:41,864[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
-[0;39m[31m2024-04-28 13:18:41,864[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
-[0;39m[31m2024-04-28 13:18:41,945[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
-[0;39m[31m2024-04-28 13:18:41,945[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 978 ms
-[0;39m[31m2024-04-28 13:18:42,141[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain main [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1de9d54, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@77a2aa4a, org.springframework.security.web.context.SecurityContextPersistenceFilter@4ab550d5, org.springframework.security.web.header.HeaderWriterFilter@de77232, org.springframework.security.web.authentication.logout.LogoutFilter@7c1c5936, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3533df16, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@31da3d60, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@47ad69f7, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@38018b62, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@58e85c6f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ac0b715, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2b917fb0, org.springframework.security.web.session.SessionManagementFilter@44841b43, org.springframework.security.web.access.ExceptionTranslationFilter@6a0cbc6f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@99407c2]
-[0;39m[31m2024-04-28 13:18:42,316[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
-[0;39m[31m2024-04-28 13:18:42,416[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Starting...
-[0;39m[31m2024-04-28 13:18:42,416[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource main [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
-[0;39m[31m2024-04-28 13:18:42,495[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase main [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
-[0;39m[31m2024-04-28 13:18:42,495[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Start completed.
-[0;39m[31m2024-04-28 13:18:42,589[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
-[0;39m[31m2024-04-28 13:18:42,604[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarted ThymeleafApplication in 2.003 seconds (JVM running for 2.648)
-[0;39m[31m2024-04-28 13:18:51,079[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-2 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 13:18:51,079[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mInitializing Servlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 13:18:51,079[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mCompleted initialization in 0 ms
-[0;39m[31m2024-04-28 13:20:19,920[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarting ThymeleafApplication using Java 1.8.0_292 on WPF45CTT7 with PID 24096 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf)
-[0;39m[31m2024-04-28 13:20:19,920[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mNo active profile set, falling back to 1 default profile: "default"
-[0;39m[31m2024-04-28 13:20:20,565[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
-[0;39m[31m2024-04-28 13:20:20,581[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mFinished Spring Data repository scanning in 8 ms. Found 0 JDBC repository interfaces.
-[0;39m[31m2024-04-28 13:20:20,989[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
-[0;39m[31m2024-04-28 13:20:20,999[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
-[0;39m[31m2024-04-28 13:20:21,005[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
-[0;39m[31m2024-04-28 13:20:21,084[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
-[0;39m[31m2024-04-28 13:20:21,084[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 1131 ms
-[0;39m[31m2024-04-28 13:20:21,288[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain main [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1cb7936c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@35342d2f, org.springframework.security.web.context.SecurityContextPersistenceFilter@6f89292e, org.springframework.security.web.header.HeaderWriterFilter@c808207, org.springframework.security.web.authentication.logout.LogoutFilter@58b67519, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@1b15f922, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@6ac0b715, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@128c502c, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7aead3af, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@de77232, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@44841b43, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@45667d98, org.springframework.security.web.session.SessionManagementFilter@6a0cbc6f, org.springframework.security.web.access.ExceptionTranslationFilter@12b5454f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4a7a965d]
-[0;39m[31m2024-04-28 13:20:21,465[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
-[0;39m[31m2024-04-28 13:20:21,577[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Starting...
-[0;39m[31m2024-04-28 13:20:21,577[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource main [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
-[0;39m[31m2024-04-28 13:20:21,656[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase main [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
-[0;39m[31m2024-04-28 13:20:21,667[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Start completed.
-[0;39m[31m2024-04-28 13:20:21,780[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
-[0;39m[31m2024-04-28 13:20:21,793[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarted ThymeleafApplication in 2.204 seconds (JVM running for 2.87)
-[0;39m[31m2024-04-28 13:20:38,537[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-2 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 13:20:38,537[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mInitializing Servlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 13:20:38,537[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mCompleted initialization in 0 ms
-[0;39m[31m2024-04-28 13:21:14,644[0;39m [32m[WARN][0;39m org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver http-nio-8082-exec-3 [32mResolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
-[0;39m[31m2024-04-28 13:21:34,114[0;39m [32m[WARN][0;39m org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver http-nio-8082-exec-1 [32mResolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
-[0;39m[31m2024-04-28 13:21:55,665[0;39m [32m[ERROR][0;39m org.thymeleaf.TemplateEngine http-nio-8082-exec-7 [32m[THYMELEAF][http-nio-8082-exec-7] Exception processing template "filterBy": Error resolving template [filterBy], template might not exist or might not be accessible by any of the configured Template Resolvers
-[0;39morg.thymeleaf.exceptions.TemplateInputException: Error resolving template [filterBy], template might not exist or might not be accessible by any of the configured Template Resolvers
-	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
-	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
-	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
-	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
-	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
-	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1406)
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1150)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:502)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:596)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:166)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:58)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:237)
-	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:223)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223)
+[31m2024-04-29 20:41:42,769[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarting ThymeleafApplication using Java 1.8.0_292 on WPF45CTT7 with PID 18736 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf)
+[0;39m[31m2024-04-29 20:41:42,777[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-04-29 20:41:44,172[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[0;39m[31m2024-04-29 20:41:44,213[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mFinished Spring Data repository scanning in 22 ms. Found 0 JDBC repository interfaces.
+[0;39m[31m2024-04-29 20:41:45,150[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
+[0;39m[31m2024-04-29 20:41:45,164[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
+[0;39m[31m2024-04-29 20:41:45,164[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-04-29 20:41:45,305[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-04-29 20:41:45,305[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 2443 ms
+[0;39m[31m2024-04-29 20:41:45,623[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain main [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@10c2064a, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@70e13fa, org.springframework.security.web.context.SecurityContextPersistenceFilter@598260a6, org.springframework.security.web.header.HeaderWriterFilter@60acd609, org.springframework.security.web.csrf.CsrfFilter@6a0cbc6f, org.springframework.security.web.authentication.logout.LogoutFilter@3f4cd155, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@138caeca, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@3e6534e7, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@281ce6bb, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7a1f8def, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6ff415ad, org.springframework.security.web.session.SessionManagementFilter@3f49e266, org.springframework.security.web.access.ExceptionTranslationFilter@4df39a88, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@30669dac]
+[0;39m[31m2024-04-29 20:41:45,748[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
+[0;39m[31m2024-04-29 20:41:45,905[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Starting...
+[0;39m[31m2024-04-29 20:41:45,905[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource main [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[0;39m[31m2024-04-29 20:41:45,984[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase main [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+[0;39m[31m2024-04-29 20:41:45,984[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Start completed.
+[0;39m[31m2024-04-29 20:41:46,112[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
+[0;39m[31m2024-04-29 20:41:46,135[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarted ThymeleafApplication in 3.823 seconds (JVM running for 4.544)
+[0;39m[31m2024-04-29 20:41:57,564[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-1 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
+[0;39m[31m2024-04-29 20:41:57,570[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mInitializing Servlet 'dispatcherServlet'
+[0;39m[31m2024-04-29 20:41:57,570[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mCompleted initialization in 0 ms
+[0;39m[31m2024-04-29 20:44:59,653[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarting ThymeleafApplication using Java 1.8.0_292 on WPF45CTT7 with PID 17236 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf)
+[0;39m[31m2024-04-29 20:44:59,669[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-04-29 20:45:00,507[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[0;39m[31m2024-04-29 20:45:00,507[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mFinished Spring Data repository scanning in 6 ms. Found 0 JDBC repository interfaces.
+[0;39m[31m2024-04-29 20:45:00,854[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
+[0;39m[31m2024-04-29 20:45:00,854[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
+[0;39m[31m2024-04-29 20:45:00,854[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-04-29 20:45:00,948[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-04-29 20:45:00,948[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 1248 ms
+[0;39m[31m2024-04-29 20:45:01,184[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain main [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1de9d54, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@77a2aa4a, org.springframework.security.web.context.SecurityContextPersistenceFilter@7c75db8b, org.springframework.security.web.header.HeaderWriterFilter@20749d9, org.springframework.security.web.csrf.CsrfFilter@40f8f5a8, org.springframework.security.web.authentication.logout.LogoutFilter@116a2108, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@ce9b9a9, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@37ce3644, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3cd206b5, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@a137d7a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@47ad69f7, org.springframework.security.web.session.SessionManagementFilter@62628e78, org.springframework.security.web.access.ExceptionTranslationFilter@77134e08, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1cb7936c]
+[0;39m[31m2024-04-29 20:45:01,294[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
+[0;39m[31m2024-04-29 20:45:01,390[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Starting...
+[0;39m[31m2024-04-29 20:45:01,390[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource main [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[0;39m[31m2024-04-29 20:45:01,453[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase main [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+[0;39m[31m2024-04-29 20:45:01,468[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Start completed.
+[0;39m[31m2024-04-29 20:45:01,564[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
+[0;39m[31m2024-04-29 20:45:01,576[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarted ThymeleafApplication in 2.235 seconds (JVM running for 2.842)
+[0;39m[31m2024-04-29 20:45:20,130[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-3 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
+[0;39m[31m2024-04-29 20:45:20,130[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-3 [32mInitializing Servlet 'dispatcherServlet'
+[0;39m[31m2024-04-29 20:45:20,130[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-3 [32mCompleted initialization in 0 ms
+[0;39m[31m2024-04-29 20:45:25,248[0;39m [32m[ERROR][0;39m org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter http-nio-8082-exec-2 [32mAn internal error occurred while trying to authenticate the user.
+[0;39morg.springframework.security.authentication.InternalAuthenticationServiceException: Incorrect result size: expected 1, actual 0
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:109)
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:133)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:182)
+	at org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.attemptAuthentication(UsernamePasswordAuthenticationFilter.java:85)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
 	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:132)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
 	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
 	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
@@ -295,58 +100,27 @@
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-[31m2024-04-28 13:21:55,680[0;39m [32m[ERROR][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] http-nio-8082-exec-7 [32mServlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template [filterBy], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
-[0;39morg.thymeleaf.exceptions.TemplateInputException: Error resolving template [filterBy], template might not exist or might not be accessible by any of the configured Template Resolvers
-	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
-	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
-	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
-	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
-	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
-	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1406)
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1150)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:502)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:596)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:166)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:58)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:237)
-	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:223)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223)
+Caused by: org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0
+	at org.springframework.dao.support.DataAccessUtils.nullableSingleResult(DataAccessUtils.java:97)
+	at org.springframework.jdbc.core.JdbcTemplate.queryForObject(JdbcTemplate.java:880)
+	at com.springjdbc.driver.security.TransactionOfficialService.findByUsername(TransactionOfficialService.java:25)
+	at com.springjdbc.driver.security.TransactionOfficialService.loadUserByUsername(TransactionOfficialService.java:32)
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:94)
+	... 59 common frames omitted
+[31m2024-04-29 20:45:28,705[0;39m [32m[ERROR][0;39m org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter http-nio-8082-exec-8 [32mAn internal error occurred while trying to authenticate the user.
+[0;39morg.springframework.security.authentication.InternalAuthenticationServiceException: Incorrect result size: expected 1, actual 0
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:109)
+	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:133)
+	at org.springframework.security.authentication.ProviderManager.authenticate(ProviderManager.java:182)
+	at org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter.attemptAuthentication(UsernamePasswordAuthenticationFilter.java:85)
+	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:227)
 	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
+	at org.springframework.security.web.csrf.CsrfFilter.doFilterInternal(CsrfFilter.java:132)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
 	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
 	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
@@ -395,599 +169,34 @@
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.lang.Thread.run(Thread.java:748)
-[31m2024-04-28 13:23:45,787[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarting ThymeleafApplication using Java 1.8.0_292 on WPF45CTT7 with PID 22736 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf)
-[0;39m[31m2024-04-28 13:23:45,787[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mNo active profile set, falling back to 1 default profile: "default"
-[0;39m[31m2024-04-28 13:23:46,387[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
-[0;39m[31m2024-04-28 13:23:46,387[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mFinished Spring Data repository scanning in 5 ms. Found 0 JDBC repository interfaces.
-[0;39m[31m2024-04-28 13:23:46,764[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
-[0;39m[31m2024-04-28 13:23:46,764[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
-[0;39m[31m2024-04-28 13:23:46,764[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
-[0;39m[31m2024-04-28 13:23:46,849[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
-[0;39m[31m2024-04-28 13:23:46,858[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 1023 ms
-[0;39m[31m2024-04-28 13:23:47,082[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain main [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1de9d54, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@77a2aa4a, org.springframework.security.web.context.SecurityContextPersistenceFilter@4ab550d5, org.springframework.security.web.header.HeaderWriterFilter@de77232, org.springframework.security.web.authentication.logout.LogoutFilter@7c1c5936, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3533df16, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@31da3d60, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@47ad69f7, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@38018b62, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@58e85c6f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ac0b715, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2b917fb0, org.springframework.security.web.session.SessionManagementFilter@44841b43, org.springframework.security.web.access.ExceptionTranslationFilter@6a0cbc6f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@99407c2]
-[0;39m[31m2024-04-28 13:23:47,236[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
-[0;39m[31m2024-04-28 13:23:47,362[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Starting...
-[0;39m[31m2024-04-28 13:23:47,362[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource main [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
-[0;39m[31m2024-04-28 13:23:47,599[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase main [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
-[0;39m[31m2024-04-28 13:23:47,599[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Start completed.
-[0;39m[31m2024-04-28 13:23:47,709[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
-[0;39m[31m2024-04-28 13:23:47,711[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarted ThymeleafApplication in 2.273 seconds (JVM running for 2.89)
-[0;39m[31m2024-04-28 13:23:56,461[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-1 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 13:23:56,461[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mInitializing Servlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 13:23:56,461[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mCompleted initialization in 0 ms
-[0;39m[31m2024-04-28 13:24:29,620[0;39m [32m[ERROR][0;39m org.thymeleaf.TemplateEngine http-nio-8082-exec-8 [32m[THYMELEAF][http-nio-8082-exec-8] Exception processing template "filterBy": Error resolving template [filterBy], template might not exist or might not be accessible by any of the configured Template Resolvers
-[0;39morg.thymeleaf.exceptions.TemplateInputException: Error resolving template [filterBy], template might not exist or might not be accessible by any of the configured Template Resolvers
-	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
-	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
-	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
-	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
-	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
-	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1406)
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1150)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:502)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:596)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:166)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:58)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:237)
-	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:223)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:748)
-[31m2024-04-28 13:24:29,632[0;39m [32m[ERROR][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] http-nio-8082-exec-8 [32mServlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template [filterBy], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
-[0;39morg.thymeleaf.exceptions.TemplateInputException: Error resolving template [filterBy], template might not exist or might not be accessible by any of the configured Template Resolvers
-	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
-	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
-	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
-	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
-	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
-	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1406)
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1150)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:502)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:596)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:166)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:58)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:237)
-	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:223)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:748)
-[31m2024-04-28 13:28:08,127[0;39m [32m[ERROR][0;39m org.thymeleaf.TemplateEngine http-nio-8082-exec-1 [32m[THYMELEAF][http-nio-8082-exec-1] Exception processing template "filterBy": Error resolving template [filterBy], template might not exist or might not be accessible by any of the configured Template Resolvers
-[0;39morg.thymeleaf.exceptions.TemplateInputException: Error resolving template [filterBy], template might not exist or might not be accessible by any of the configured Template Resolvers
-	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
-	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
-	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
-	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
-	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
-	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1406)
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1150)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:502)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:596)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:166)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:58)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:237)
-	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:223)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:748)
-[31m2024-04-28 13:28:08,132[0;39m [32m[ERROR][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/].[dispatcherServlet] http-nio-8082-exec-1 [32mServlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.thymeleaf.exceptions.TemplateInputException: Error resolving template [filterBy], template might not exist or might not be accessible by any of the configured Template Resolvers] with root cause
-[0;39morg.thymeleaf.exceptions.TemplateInputException: Error resolving template [filterBy], template might not exist or might not be accessible by any of the configured Template Resolvers
-	at org.thymeleaf.engine.TemplateManager.resolveTemplate(TemplateManager.java:869)
-	at org.thymeleaf.engine.TemplateManager.parseAndProcess(TemplateManager.java:607)
-	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1098)
-	at org.thymeleaf.TemplateEngine.process(TemplateEngine.java:1072)
-	at org.thymeleaf.spring5.view.ThymeleafView.renderFragment(ThymeleafView.java:366)
-	at org.thymeleaf.spring5.view.ThymeleafView.render(ThymeleafView.java:190)
-	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1406)
-	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1150)
-	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
-	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:965)
-	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
-	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:502)
-	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
-	at javax.servlet.http.HttpServlet.service(HttpServlet.java:596)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:209)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:337)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
-	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
-	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
-	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.www.BasicAuthenticationFilter.doFilterInternal(BasicAuthenticationFilter.java:166)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter.doFilterInternal(DefaultLogoutPageGeneratingFilter.java:58)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:237)
-	at org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter.doFilter(DefaultLoginPageGeneratingFilter.java:223)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:223)
-	at org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter.doFilter(AbstractAuthenticationProcessingFilter.java:217)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:112)
-	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:82)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:346)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:221)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:186)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:178)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:153)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:492)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:130)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:389)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:926)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1791)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.lang.Thread.run(Thread.java:748)
-[31m2024-04-28 13:28:32,130[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarting ThymeleafApplication using Java 1.8.0_292 on WPF45CTT7 with PID 13660 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf)
-[0;39m[31m2024-04-28 13:28:32,145[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mNo active profile set, falling back to 1 default profile: "default"
-[0;39m[31m2024-04-28 13:28:32,694[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
-[0;39m[31m2024-04-28 13:28:32,710[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mFinished Spring Data repository scanning in 7 ms. Found 0 JDBC repository interfaces.
-[0;39m[31m2024-04-28 13:28:33,070[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
-[0;39m[31m2024-04-28 13:28:33,070[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
-[0;39m[31m2024-04-28 13:28:33,070[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
-[0;39m[31m2024-04-28 13:28:33,150[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
-[0;39m[31m2024-04-28 13:28:33,150[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 972 ms
-[0;39m[31m2024-04-28 13:28:33,323[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain main [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1de9d54, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@77a2aa4a, org.springframework.security.web.context.SecurityContextPersistenceFilter@4ab550d5, org.springframework.security.web.header.HeaderWriterFilter@de77232, org.springframework.security.web.authentication.logout.LogoutFilter@7c1c5936, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3533df16, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@31da3d60, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@47ad69f7, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@38018b62, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@58e85c6f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6ac0b715, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2b917fb0, org.springframework.security.web.session.SessionManagementFilter@44841b43, org.springframework.security.web.access.ExceptionTranslationFilter@6a0cbc6f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@99407c2]
-[0;39m[31m2024-04-28 13:28:33,480[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
-[0;39m[31m2024-04-28 13:28:33,590[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Starting...
-[0;39m[31m2024-04-28 13:28:33,590[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource main [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
-[0;39m[31m2024-04-28 13:28:33,670[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase main [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
-[0;39m[31m2024-04-28 13:28:33,670[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Start completed.
-[0;39m[31m2024-04-28 13:28:33,763[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
-[0;39m[31m2024-04-28 13:28:33,780[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarted ThymeleafApplication in 1.975 seconds (JVM running for 2.615)
-[0;39m[31m2024-04-28 13:28:41,239[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-2 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 13:28:41,239[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mInitializing Servlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 13:28:41,239[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mCompleted initialization in 0 ms
-[0;39m[31m2024-04-28 13:29:06,664[0;39m [32m[WARN][0;39m org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver http-nio-8082-exec-5 [32mResolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'filter' for method parameter type String is not present]
-[0;39m[31m2024-04-28 13:29:25,965[0;39m [32m[WARN][0;39m org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver http-nio-8082-exec-7 [32mResolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'filter' for method parameter type String is not present]
-[0;39m[31m2024-04-28 13:29:31,453[0;39m [32m[WARN][0;39m org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver http-nio-8082-exec-9 [32mResolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'filter' for method parameter type String is not present]
-[0;39m[31m2024-04-28 13:35:31,826[0;39m [32m[WARN][0;39m org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver http-nio-8082-exec-6 [32mResolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
-[0;39m[31m2024-04-28 13:35:40,123[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarting ThymeleafApplication using Java 1.8.0_292 on WPF45CTT7 with PID 6912 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf)
-[0;39m[31m2024-04-28 13:35:40,123[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mNo active profile set, falling back to 1 default profile: "default"
-[0;39m[31m2024-04-28 13:35:40,687[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
-[0;39m[31m2024-04-28 13:35:40,687[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mFinished Spring Data repository scanning in 6 ms. Found 0 JDBC repository interfaces.
-[0;39m[31m2024-04-28 13:35:41,033[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
-[0;39m[31m2024-04-28 13:35:41,039[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
-[0;39m[31m2024-04-28 13:35:41,039[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
-[0;39m[31m2024-04-28 13:35:41,115[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
-[0;39m[31m2024-04-28 13:35:41,115[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 945 ms
-[0;39m[31m2024-04-28 13:35:41,322[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain main [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@128c502c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@45667d98, org.springframework.security.web.context.SecurityContextPersistenceFilter@de77232, org.springframework.security.web.header.HeaderWriterFilter@6a0cbc6f, org.springframework.security.web.authentication.logout.LogoutFilter@30d25c03, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4b869331, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@5c9ac4cc, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@65eabaab, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@55ec556, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@44841b43, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4ab550d5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7123be6c, org.springframework.security.web.session.SessionManagementFilter@6f89292e, org.springframework.security.web.access.ExceptionTranslationFilter@1431267b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@64a9d48c]
-[0;39m[31m2024-04-28 13:35:41,479[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
-[0;39m[31m2024-04-28 13:35:41,601[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Starting...
-[0;39m[31m2024-04-28 13:35:41,601[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource main [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
-[0;39m[31m2024-04-28 13:35:41,680[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase main [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
-[0;39m[31m2024-04-28 13:35:41,680[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Start completed.
-[0;39m[31m2024-04-28 13:35:41,806[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
-[0;39m[31m2024-04-28 13:35:41,816[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarted ThymeleafApplication in 2.03 seconds (JVM running for 2.676)
-[0;39m[31m2024-04-28 13:35:44,871[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-1 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 13:35:44,871[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mInitializing Servlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 13:35:44,871[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mCompleted initialization in 0 ms
-[0;39m[31m2024-04-28 13:35:52,681[0;39m [32m[WARN][0;39m org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver http-nio-8082-exec-6 [32mResolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
-[0;39m[31m2024-04-28 13:40:21,588[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarting ThymeleafApplication using Java 1.8.0_292 on WPF45CTT7 with PID 18712 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf)
-[0;39m[31m2024-04-28 13:40:21,588[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mNo active profile set, falling back to 1 default profile: "default"
-[0;39m[31m2024-04-28 13:40:22,156[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
-[0;39m[31m2024-04-28 13:40:22,169[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mFinished Spring Data repository scanning in 6 ms. Found 0 JDBC repository interfaces.
-[0;39m[31m2024-04-28 13:40:22,498[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
-[0;39m[31m2024-04-28 13:40:22,498[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
-[0;39m[31m2024-04-28 13:40:22,498[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
-[0;39m[31m2024-04-28 13:40:22,593[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
-[0;39m[31m2024-04-28 13:40:22,593[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 974 ms
-[0;39m[31m2024-04-28 13:40:22,766[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain main [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@128c502c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@45667d98, org.springframework.security.web.context.SecurityContextPersistenceFilter@de77232, org.springframework.security.web.header.HeaderWriterFilter@6a0cbc6f, org.springframework.security.web.authentication.logout.LogoutFilter@30d25c03, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4b869331, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@5c9ac4cc, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@65eabaab, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@55ec556, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@44841b43, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4ab550d5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7123be6c, org.springframework.security.web.session.SessionManagementFilter@6f89292e, org.springframework.security.web.access.ExceptionTranslationFilter@1431267b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@64a9d48c]
-[0;39m[31m2024-04-28 13:40:22,923[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
-[0;39m[31m2024-04-28 13:40:23,035[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Starting...
-[0;39m[31m2024-04-28 13:40:23,035[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource main [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
-[0;39m[31m2024-04-28 13:40:23,096[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase main [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
-[0;39m[31m2024-04-28 13:40:23,111[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Start completed.
-[0;39m[31m2024-04-28 13:40:23,205[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
-[0;39m[31m2024-04-28 13:40:23,205[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarted ThymeleafApplication in 1.966 seconds (JVM running for 2.612)
-[0;39m[31m2024-04-28 13:40:33,435[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-2 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 13:40:33,435[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mInitializing Servlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 13:40:33,435[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mCompleted initialization in 0 ms
-[0;39m[31m2024-04-28 13:40:40,544[0;39m [32m[WARN][0;39m org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver http-nio-8082-exec-4 [32mResolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
-[0;39m[31m2024-04-28 13:41:05,147[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarting ThymeleafApplication using Java 1.8.0_292 on WPF45CTT7 with PID 6908 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf)
-[0;39m[31m2024-04-28 13:41:05,162[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mNo active profile set, falling back to 1 default profile: "default"
-[0;39m[31m2024-04-28 13:41:05,899[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
-[0;39m[31m2024-04-28 13:41:05,915[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mFinished Spring Data repository scanning in 9 ms. Found 0 JDBC repository interfaces.
-[0;39m[31m2024-04-28 13:41:06,424[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
-[0;39m[31m2024-04-28 13:41:06,437[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
-[0;39m[31m2024-04-28 13:41:06,437[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
-[0;39m[31m2024-04-28 13:41:06,516[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
-[0;39m[31m2024-04-28 13:41:06,516[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 1296 ms
-[0;39m[31m2024-04-28 13:41:06,770[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain main [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@128c502c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@45667d98, org.springframework.security.web.context.SecurityContextPersistenceFilter@de77232, org.springframework.security.web.header.HeaderWriterFilter@6a0cbc6f, org.springframework.security.web.authentication.logout.LogoutFilter@30d25c03, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4b869331, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@5c9ac4cc, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@65eabaab, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@55ec556, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@44841b43, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4ab550d5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7123be6c, org.springframework.security.web.session.SessionManagementFilter@6f89292e, org.springframework.security.web.access.ExceptionTranslationFilter@1431267b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@64a9d48c]
-[0;39m[31m2024-04-28 13:41:06,959[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
-[0;39m[31m2024-04-28 13:41:07,070[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Starting...
-[0;39m[31m2024-04-28 13:41:07,070[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource main [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
-[0;39m[31m2024-04-28 13:41:07,168[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase main [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
-[0;39m[31m2024-04-28 13:41:07,180[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Start completed.
-[0;39m[31m2024-04-28 13:41:07,323[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
-[0;39m[31m2024-04-28 13:41:07,342[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarted ThymeleafApplication in 2.644 seconds (JVM running for 3.333)
-[0;39m[31m2024-04-28 13:41:58,599[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-2 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 13:41:58,599[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mInitializing Servlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 13:41:58,614[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mCompleted initialization in 15 ms
-[0;39m[31m2024-04-28 13:42:47,843[0;39m [32m[WARN][0;39m org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver http-nio-8082-exec-6 [32mResolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
-[0;39m[31m2024-04-28 13:43:13,155[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarting ThymeleafApplication using Java 1.8.0_292 on WPF45CTT7 with PID 11232 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf)
-[0;39m[31m2024-04-28 13:43:13,162[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mNo active profile set, falling back to 1 default profile: "default"
-[0;39m[31m2024-04-28 13:43:13,793[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
-[0;39m[31m2024-04-28 13:43:13,809[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mFinished Spring Data repository scanning in 6 ms. Found 0 JDBC repository interfaces.
-[0;39m[31m2024-04-28 13:43:14,170[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
-[0;39m[31m2024-04-28 13:43:14,170[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
-[0;39m[31m2024-04-28 13:43:14,170[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
-[0;39m[31m2024-04-28 13:43:14,264[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
-[0;39m[31m2024-04-28 13:43:14,264[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 1068 ms
-[0;39m[31m2024-04-28 13:43:14,500[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain main [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@128c502c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@45667d98, org.springframework.security.web.context.SecurityContextPersistenceFilter@de77232, org.springframework.security.web.header.HeaderWriterFilter@6a0cbc6f, org.springframework.security.web.authentication.logout.LogoutFilter@30d25c03, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@4b869331, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@5c9ac4cc, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@65eabaab, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@55ec556, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@44841b43, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4ab550d5, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7123be6c, org.springframework.security.web.session.SessionManagementFilter@6f89292e, org.springframework.security.web.access.ExceptionTranslationFilter@1431267b, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@64a9d48c]
-[0;39m[31m2024-04-28 13:43:14,675[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
-[0;39m[31m2024-04-28 13:43:14,784[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Starting...
-[0;39m[31m2024-04-28 13:43:14,784[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource main [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
-[0;39m[31m2024-04-28 13:43:14,863[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase main [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
-[0;39m[31m2024-04-28 13:43:14,863[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Start completed.
-[0;39m[31m2024-04-28 13:43:14,973[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
-[0;39m[31m2024-04-28 13:43:14,973[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarted ThymeleafApplication in 2.202 seconds (JVM running for 2.895)
-[0;39m[31m2024-04-28 13:43:22,320[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-1 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 13:43:22,320[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mInitializing Servlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 13:43:22,320[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mCompleted initialization in 0 ms
-[0;39m[31m2024-04-28 13:43:30,355[0;39m [32m[WARN][0;39m org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver http-nio-8082-exec-4 [32mResolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
-[0;39m[31m2024-04-28 13:44:09,037[0;39m [32m[WARN][0;39m org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver http-nio-8082-exec-5 [32mResolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
-[0;39m[31m2024-04-28 13:44:11,645[0;39m [32m[WARN][0;39m org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver http-nio-8082-exec-6 [32mResolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'GET' not supported]
-[0;39m[31m2024-04-28 13:44:16,496[0;39m [32m[WARN][0;39m org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver http-nio-8082-exec-7 [32mResolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'startDate' for method parameter type String is not present]
-[0;39m[31m2024-04-28 13:45:14,462[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarting ThymeleafApplication using Java 1.8.0_292 on WPF45CTT7 with PID 7380 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf)
-[0;39m[31m2024-04-28 13:45:14,462[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mNo active profile set, falling back to 1 default profile: "default"
-[0;39m[31m2024-04-28 13:45:15,076[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
-[0;39m[31m2024-04-28 13:45:15,092[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mFinished Spring Data repository scanning in 6 ms. Found 0 JDBC repository interfaces.
-[0;39m[31m2024-04-28 13:45:15,422[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
-[0;39m[31m2024-04-28 13:45:15,422[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
-[0;39m[31m2024-04-28 13:45:15,422[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
-[0;39m[31m2024-04-28 13:45:15,532[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
-[0;39m[31m2024-04-28 13:45:15,532[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 1023 ms
-[0;39m[31m2024-04-28 13:45:15,764[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain main [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@23b3aa8c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@99407c2, org.springframework.security.web.context.SecurityContextPersistenceFilter@c808207, org.springframework.security.web.header.HeaderWriterFilter@12b5454f, org.springframework.security.web.authentication.logout.LogoutFilter@65ec8b24, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@7c1c5936, org.springframework.security.web.authentication.ui.DefaultLoginPageGeneratingFilter@4ab550d5, org.springframework.security.web.authentication.ui.DefaultLogoutPageGeneratingFilter@6c796cc1, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@7a1f8def, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6a0cbc6f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@6f89292e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@226eba67, org.springframework.security.web.session.SessionManagementFilter@1431267b, org.springframework.security.web.access.ExceptionTranslationFilter@3ae2ed38, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@3fbfbf84]
-[0;39m[31m2024-04-28 13:45:15,893[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
-[0;39m[31m2024-04-28 13:45:16,044[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Starting...
-[0;39m[31m2024-04-28 13:45:16,050[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource main [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
-[0;39m[31m2024-04-28 13:45:16,128[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase main [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
-[0;39m[31m2024-04-28 13:45:16,144[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Start completed.
-[0;39m[31m2024-04-28 13:45:16,238[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
-[0;39m[31m2024-04-28 13:45:16,238[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarted ThymeleafApplication in 2.135 seconds (JVM running for 2.808)
-[0;39m[31m2024-04-28 13:45:25,293[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-2 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 13:45:25,293[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mInitializing Servlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 13:45:25,293[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mCompleted initialization in 0 ms
-[0;39m[31m2024-04-28 14:05:49,433[0;39m [32m[WARN][0;39m com.zaxxer.hikari.pool.HikariPool HikariPool-1 housekeeper [32mHikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=20m3s167ms395µs300ns).
-[0;39m[31m2024-04-28 15:55:59,631[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarting ThymeleafApplication using Java 1.8.0_292 on WPF45CTT7 with PID 27092 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf)
-[0;39m[31m2024-04-28 15:55:59,631[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mNo active profile set, falling back to 1 default profile: "default"
-[0;39m[31m2024-04-28 15:56:01,387[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
-[0;39m[31m2024-04-28 15:56:01,429[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mFinished Spring Data repository scanning in 17 ms. Found 0 JDBC repository interfaces.
-[0;39m[31m2024-04-28 15:56:02,459[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
-[0;39m[31m2024-04-28 15:56:02,474[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
-[0;39m[31m2024-04-28 15:56:02,474[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
-[0;39m[31m2024-04-28 15:56:02,695[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
-[0;39m[31m2024-04-28 15:56:02,695[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 2955 ms
-[0;39m[31m2024-04-28 15:56:03,134[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain main [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@1128620c, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6bf13698, org.springframework.security.web.context.SecurityContextPersistenceFilter@3ac8cf9b, org.springframework.security.web.header.HeaderWriterFilter@116a2108, org.springframework.security.web.csrf.CsrfFilter@3cd206b5, org.springframework.security.web.authentication.logout.LogoutFilter@167279d1, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@14dc3f89, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@bd1111a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1b15f922, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4b869331, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@299270eb, org.springframework.security.web.session.SessionManagementFilter@7c1c5936, org.springframework.security.web.access.ExceptionTranslationFilter@58b67519, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@280d9edc]
-[0;39m[31m2024-04-28 15:56:03,385[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
-[0;39m[31m2024-04-28 15:56:03,542[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Starting...
-[0;39m[31m2024-04-28 15:56:03,542[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource main [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
-[0;39m[31m2024-04-28 15:56:03,637[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase main [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
-[0;39m[31m2024-04-28 15:56:03,653[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Start completed.
-[0;39m[31m2024-04-28 15:56:03,778[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
-[0;39m[31m2024-04-28 15:56:03,794[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarted ThymeleafApplication in 4.605 seconds (JVM running for 5.361)
-[0;39m[31m2024-04-28 15:56:10,449[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-1 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 15:56:10,449[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mInitializing Servlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 15:56:10,449[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mCompleted initialization in 0 ms
-[0;39m[31m2024-04-28 15:58:33,158[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarting ThymeleafApplication using Java 1.8.0_292 on WPF45CTT7 with PID 3596 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf)
-[0;39m[31m2024-04-28 15:58:33,158[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mNo active profile set, falling back to 1 default profile: "default"
-[0;39m[31m2024-04-28 15:58:33,701[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
-[0;39m[31m2024-04-28 15:58:33,708[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mFinished Spring Data repository scanning in 6 ms. Found 0 JDBC repository interfaces.
-[0;39m[31m2024-04-28 15:58:34,037[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
-[0;39m[31m2024-04-28 15:58:34,037[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
-[0;39m[31m2024-04-28 15:58:34,037[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
-[0;39m[31m2024-04-28 15:58:34,100[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
-[0;39m[31m2024-04-28 15:58:34,100[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 911 ms
-[0;39m[31m2024-04-28 15:58:34,290[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain main [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2b917fb0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5e5073ab, org.springframework.security.web.context.SecurityContextPersistenceFilter@58e85c6f, org.springframework.security.web.header.HeaderWriterFilter@44841b43, org.springframework.security.web.csrf.CsrfFilter@7d070ef5, org.springframework.security.web.authentication.logout.LogoutFilter@7aead3af, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@15d0849, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@ce9b9a9, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6ac0b715, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5c9ac4cc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3c4262d1, org.springframework.security.web.session.SessionManagementFilter@4ab550d5, org.springframework.security.web.access.ExceptionTranslationFilter@6f89292e, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@45667d98]
-[0;39m[31m2024-04-28 15:58:34,454[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
-[0;39m[31m2024-04-28 15:58:34,557[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Starting...
-[0;39m[31m2024-04-28 15:58:34,557[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource main [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
-[0;39m[31m2024-04-28 15:58:34,620[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase main [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
-[0;39m[31m2024-04-28 15:58:34,620[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Start completed.
-[0;39m[31m2024-04-28 15:58:34,714[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
-[0;39m[31m2024-04-28 15:58:34,730[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarted ThymeleafApplication in 1.873 seconds (JVM running for 2.516)
-[0;39m[31m2024-04-28 15:58:44,595[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-1 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 15:58:44,596[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mInitializing Servlet 'dispatcherServlet'
-[0;39m[31m2024-04-28 15:58:44,597[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-1 [32mCompleted initialization in 1 ms
-[0;39m[31m2024-04-28 15:58:51,024[0;39m [32m[ERROR][0;39m org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter http-nio-8082-exec-2 [32mAn internal error occurred while trying to authenticate the user.
+Caused by: org.springframework.dao.EmptyResultDataAccessException: Incorrect result size: expected 1, actual 0
+	at org.springframework.dao.support.DataAccessUtils.nullableSingleResult(DataAccessUtils.java:97)
+	at org.springframework.jdbc.core.JdbcTemplate.queryForObject(JdbcTemplate.java:880)
+	at com.springjdbc.driver.security.TransactionOfficialService.findByUsername(TransactionOfficialService.java:25)
+	at com.springjdbc.driver.security.TransactionOfficialService.loadUserByUsername(TransactionOfficialService.java:32)
+	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:94)
+	... 59 common frames omitted
+[31m2024-04-29 20:46:57,821[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarting ThymeleafApplication using Java 1.8.0_292 on WPF45CTT7 with PID 13336 (C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf\target\classes started by xxnayaka in C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-SPRING\SPRINGBOOT-TASKS\thymeleaf)
+[0;39m[31m2024-04-29 20:46:57,821[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mNo active profile set, falling back to 1 default profile: "default"
+[0;39m[31m2024-04-29 20:46:58,540[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mBootstrapping Spring Data JDBC repositories in DEFAULT mode.
+[0;39m[31m2024-04-29 20:46:58,553[0;39m [32m[INFO][0;39m org.springframework.data.repository.config.RepositoryConfigurationDelegate main [32mFinished Spring Data repository scanning in 6 ms. Found 0 JDBC repository interfaces.
+[0;39m[31m2024-04-29 20:46:58,966[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat initialized with port(s): 8082 (http)
+[0;39m[31m2024-04-29 20:46:58,966[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardService main [32mStarting service [Tomcat]
+[0;39m[31m2024-04-29 20:46:58,966[0;39m [32m[INFO][0;39m org.apache.catalina.core.StandardEngine main [32mStarting Servlet engine: [Apache Tomcat/9.0.73]
+[0;39m[31m2024-04-29 20:46:59,060[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] main [32mInitializing Spring embedded WebApplicationContext
+[0;39m[31m2024-04-29 20:46:59,060[0;39m [32m[INFO][0;39m org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext main [32mRoot WebApplicationContext: initialization completed in 1187 ms
+[0;39m[31m2024-04-29 20:46:59,332[0;39m [32m[INFO][0;39m org.springframework.security.web.DefaultSecurityFilterChain main [32mWill secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@100c567f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@30c0d731, org.springframework.security.web.context.SecurityContextPersistenceFilter@468be356, org.springframework.security.web.header.HeaderWriterFilter@3cd206b5, org.springframework.security.web.csrf.CsrfFilter@3ae2ed38, org.springframework.security.web.authentication.logout.LogoutFilter@1b15f922, org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter@3f4cd155, org.springframework.security.web.authentication.www.BasicAuthenticationFilter@15d0849, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4df39a88, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3bec2275, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6d5037a9, org.springframework.security.web.session.SessionManagementFilter@a137d7a, org.springframework.security.web.access.ExceptionTranslationFilter@62628e78, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@1de9d54]
+[0;39m[31m2024-04-29 20:46:59,439[0;39m [32m[INFO][0;39m org.springframework.boot.autoconfigure.web.servlet.WelcomePageHandlerMapping main [32mAdding welcome page template: index
+[0;39m[31m2024-04-29 20:46:59,547[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Starting...
+[0;39m[31m2024-04-29 20:46:59,549[0;39m [32m[WARN][0;39m com.zaxxer.hikari.util.DriverDataSource main [32mRegistered driver with driverClassName=oracle.jdbc.driver.OracleDriver was not found, trying direct instantiation.
+[0;39m[31m2024-04-29 20:46:59,613[0;39m [32m[INFO][0;39m com.zaxxer.hikari.pool.PoolBase main [32mHikariPool-1 - Driver does not support get/set network timeout for connections. (oracle.jdbc.driver.T4CConnection.getNetworkTimeout()I)
+[0;39m[31m2024-04-29 20:46:59,628[0;39m [32m[INFO][0;39m com.zaxxer.hikari.HikariDataSource main [32mHikariPool-1 - Start completed.
+[0;39m[31m2024-04-29 20:46:59,723[0;39m [32m[INFO][0;39m org.springframework.boot.web.embedded.tomcat.TomcatWebServer main [32mTomcat started on port(s): 8082 (http) with context path ''
+[0;39m[31m2024-04-29 20:46:59,743[0;39m [32m[INFO][0;39m com.jdbcwebapp.thymeleaf.ThymeleafApplication main [32mStarted ThymeleafApplication in 2.268 seconds (JVM running for 2.949)
+[0;39m[31m2024-04-29 20:47:03,486[0;39m [32m[INFO][0;39m org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] http-nio-8082-exec-2 [32mInitializing Spring DispatcherServlet 'dispatcherServlet'
+[0;39m[31m2024-04-29 20:47:03,486[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mInitializing Servlet 'dispatcherServlet'
+[0;39m[31m2024-04-29 20:47:03,486[0;39m [32m[INFO][0;39m org.springframework.web.servlet.DispatcherServlet http-nio-8082-exec-2 [32mCompleted initialization in 0 ms
+[0;39m[31m2024-04-29 20:47:13,338[0;39m [32m[ERROR][0;39m org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter http-nio-8082-exec-5 [32mAn internal error occurred while trying to authenticate the user.
 [0;39morg.springframework.security.authentication.InternalAuthenticationServiceException: Incorrect result size: expected 1, actual 0
 	at org.springframework.security.authentication.dao.DaoAuthenticationProvider.retrieveUser(DaoAuthenticationProvider.java:109)
 	at org.springframework.security.authentication.dao.AbstractUserDetailsAuthenticationProvider.authenticate(AbstractUserDetailsAuthenticationProvider.java:133)

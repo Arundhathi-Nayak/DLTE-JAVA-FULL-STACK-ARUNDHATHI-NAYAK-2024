@@ -71,6 +71,9 @@
     </style>
 </head>
 <body>
+<div th:replace="dashboard :: collapse">
+
+</div>
 <form th:action="@{/transaction/results}" method="get">
     <label>Filter By:</label>
     <select id="filterBy" name="filterBy">
