@@ -10,6 +10,7 @@
     <link rel="stylesheet"  type="application/json" th:href="@{'/pictures/logo.png'}">
 </head>
 <body>
+
 <div style="position: absolute; top: 0; left: 0; padding: 10px;">
     <img th:src="@{'/pictures/logo.jpg'}" alt="logo">
     <span style="color: white; font-size: 20px;font-weight: bold;">MY BANK</span>
@@ -32,7 +33,7 @@
                 <h1 th:if="${param.errors}" style="font-family: 'Poppins', sans-serif;text-align: center;font-size: 5px;">
                     <span style="font-size:15px;color:red;" th:text="${param.errors}"></span>
                 </h1>
-                <form id="loginForm"  action="#" th:action="@{'/payeelogin/'}" method="post" >
+                <form id="loginForm"  action="#" th:action="@{'/payeelogin/'}" method="post">
                     <div class="form-group">
                         <label for="username">Username</label>
                         <input type="text" name="username" class="form-control" id="username" placeholder="Enter username" required>

@@ -1,0 +1,18 @@
+body {
+   height: 100vh;
+}
+.carousel-container {
+    padding-top: 20px;
+    max-width: 700px;
+    margin: auto;
+}
+.carousel {
+    border-radius: 20px;
+    overflow: hidden;
+}
+.carousel-item img {
+    object-fit: cover;
+    height: 500px;
+    border-radius: 20px;
+
+}

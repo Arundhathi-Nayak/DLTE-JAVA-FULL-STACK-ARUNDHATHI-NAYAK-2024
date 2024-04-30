@@ -65,7 +65,7 @@ class PaymentApplicationTests {
         // Assert that the actual list contains the expected payee account number
         assertEquals(343212345678L, actualList.get(0).getPayeeAccountNumber());
     }
-   // @Test
+    @Test
     void testPayeeException() {
         when(jdbcTemplate.query(anyString(), any(PaymentTransferImplementation.PayeeMapper.class))).thenReturn(Collections.emptyList());
         try {
@@ -73,6 +73,17 @@ class PaymentApplicationTests {
         } catch (PayeeException e) {
          //   assertEquals("Payee exception", e.getMessage());
             assertEquals("No payee", e.getMessage());
+        }
+
+    }
+    @Test
+    void testPayeeExceptionEquals() {
+        when(jdbcTemplate.query(anyString(), any(PaymentTransferImplementation.PayeeMapper.class))).thenReturn(Collections.emptyList());
+        try {
+            paymentTransferImplementation.findAllPayeeBasedOnAccountNumber(123434567897L);
+        } catch (PayeeException e) {
+            //   assertEquals("Payee exception", e.getMessage());
+            assertEquals("No payee found with given account number : 123434567897", e.getMessage());
         }
 
     }

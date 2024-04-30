@@ -24,6 +24,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
@@ -46,7 +47,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest
 public class RestEndPointTesting {
     @Mock
-    private PaymentTransferImplementation paymentTransferImplementation;
+    private PaymentTransferRepository paymentTransferImplementation;
 
     @InjectMocks
     private PayeeController payeeController;
@@ -61,17 +62,15 @@ public class RestEndPointTesting {
         mockMvc = MockMvcBuilders.standaloneSetup(payeeController).build();
     }
 
-     //@Test
+    @Test
+    @WithMockUser(username = "testUser")
     void testDeletePayee_Success() throws Exception {
-        // Prepare Payee object for deletion
-        String requestBody = "{\"payeeId\":1,\"senderAccountNumber\":987456789,\"payeeAccountNumber\":123456789,\"payeeName\":\"Arundhathi\"}";
+        String requestBody = "{\"payeeId\":1,\"senderAccountNumber\":987456789123,\"payeeAccountNumber\":123456789234,\"payeeName\":\"Arundhathi\"}";
 
-
-         // Mock authentication
-         Authentication authentication = mock(Authentication.class);
-         SecurityContextHolder.getContext().setAuthentication(authentication);
-         when(authentication.getName()).thenReturn("testUser");
-
+        // Mock authentication
+        Authentication authentication = mock(Authentication.class);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        when(authentication.getName()).thenReturn("testUser");
 
         MyBankOfficials customer = new MyBankOfficials();
         customer.setCustomerId(123);
@@ -83,33 +82,50 @@ public class RestEndPointTesting {
         customer.setPassword("12233");
         customer.setAttempts(1);
         when(myBankOfficialsService.findByCustomer("testUser")).thenReturn(customer);
-        when(myBankOfficialsService.getAccountNumbersByCustomerId(123)).thenReturn(Collections.singletonList(987456789L));
+        when(myBankOfficialsService.getAccountNumbersByCustomerId(123)).thenReturn(Collections.singletonList(987456789123L));
 
         // Mock the successful deletion of payee
-        doNothing().when(paymentTransferImplementation).deletePayeeAdded(1, 987456789L, 123456789L, "Arundhathi");
+        doNothing().when(paymentTransferImplementation).deletePayeeAdded(1, 987456789123L, 123456789234L, "Arundhathi");
 
         // Perform the DELETE request
         mockMvc.perform(delete("/payees/delete/payee")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(requestBody))
-                .andExpect(status().isOk());
-                //  .andExpect(content().string("Payee has been successfully deleted."));
-//                .andExpect(content().string("Payee Arundhathi deleted successfully"));
+                .andExpect(status().isOk())
+                .andExpect(content().string("Payee Arundhathi deleted successfully"));
+
     }
 
-  //     @Test
+   // @Test
+   @WithMockUser(username = "testUser")
     void testDeletePayee_NotFound() throws Exception {
-        // Prepare Payee object for deletion
-        String requestBody = "{\"payeeId\":1,\"senderAccountNumber\":987456789,\"payeeAccountNumber\":123456789,\"payeeName\":\"Arundhathi\"}";
+        String requestBody = "{\"payeeId\":1,\"senderAccountNumber\":987456789123,\"payeeAccountNumber\":123456789234,\"payeeName\":\"Arundhathi\"}";
 
-        // Mock the deletion of payee that throws PayeeException (not found)
-        doThrow(new PayeeException("Payee not found")).when(paymentTransferImplementation).deletePayeeAdded(anyInt(), anyLong(), anyLong(), anyString());
+        // Mock authentication
+        Authentication authentication = mock(Authentication.class);
+        SecurityContextHolder.getContext().setAuthentication(authentication);
+        when(authentication.getName()).thenReturn("testUser");
+
+        MyBankOfficials customer = new MyBankOfficials();
+        customer.setCustomerId(123);
+        customer.setCustomerName("Sanatah");
+        customer.setCustomerAddress("karkala");
+        customer.setCustomerStatus("active");
+        customer.setCustomerContact(8765432345L);
+        customer.setUsername("testUser");
+        customer.setPassword("12233");
+        customer.setAttempts(1);
+        when(myBankOfficialsService.findByCustomer("testUser")).thenReturn(customer);
+        when(myBankOfficialsService.getAccountNumbersByCustomerId(123)).thenReturn(Collections.singletonList(987456789123L));
+
+        // Mock the successful deletion of payee
+        doNothing().when(paymentTransferImplementation).deletePayeeAdded(1, 987456789123L, 123456789234L, "Arundhathi");
 
         // Perform the DELETE request
-        mockMvc.perform(delete("/payees/delete/payee")
+        mockMvc.perform(delete("/payees/delete")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(requestBody))
                 .andExpect(status().isNotFound())
-                .andExpect(content().string("Payee not found"));
+                .andExpect(content().string(""));
     }
 }

@@ -1,0 +1,195 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: CustomerSecureConfig</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.payment.webservice.security</a> ]
+</div>
+
+<h1>Coverage Summary for Class: CustomerSecureConfig (com.payment.webservice.security)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">CustomerSecureConfig</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (31/ 31)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">CustomerSecureConfig$$EnhancerBySpringCGLIB$$b633fc8</td>
+  </tr>
+  <tr>
+    <td class="name">CustomerSecureConfig$$EnhancerBySpringCGLIB$$b633fc8$$FastClassBySpringCGLIB$$137bdb</td>
+  </tr>
+  <tr>
+    <td class="name">CustomerSecureConfig$$FastClassBySpringCGLIB$$bb3d220d</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (4/ 4)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (31/ 31)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.payment.webservice.security;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.paymentdao.payment.security.MyBankOfficialsService;
+<i>4</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+<i>5</i>&nbsp;import org.springframework.context.annotation.Bean;
+<i>6</i>&nbsp;import org.springframework.context.annotation.ComponentScan;
+<i>7</i>&nbsp;import org.springframework.context.annotation.Configuration;
+<i>8</i>&nbsp;import org.springframework.security.authentication.AuthenticationManager;
+<i>9</i>&nbsp;import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+<i>10</i>&nbsp;import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+<i>11</i>&nbsp;import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+<i>12</i>&nbsp;import org.springframework.security.crypto.password.PasswordEncoder;
+<i>13</i>&nbsp;import org.springframework.security.web.SecurityFilterChain;
+<i>14</i>&nbsp;import org.springframework.web.cors.CorsConfiguration;
+<i>15</i>&nbsp;import org.springframework.web.cors.CorsConfigurationSource;
+<i>16</i>&nbsp;import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;import java.util.Arrays;
+<i>19</i>&nbsp;import java.util.ResourceBundle;
+<i>20</i>&nbsp;
+<i>21</i>&nbsp;
+<i>22</i>&nbsp;//{
+<i>23</i>&nbsp;//
+<i>24</i>&nbsp;//        &quot;customerName&quot;: &quot;Anupama&quot;,
+<i>25</i>&nbsp;//        &quot;customerAddress&quot;: &quot;shanthala&quot;,
+<i>26</i>&nbsp;//        &quot;customerStatus&quot;: &quot;Active&quot;,
+<i>27</i>&nbsp;//        &quot;customerContact&quot;: 7867543245,
+<i>28</i>&nbsp;//        &quot;username&quot;: &quot;anu&quot;,
+<i>29</i>&nbsp;//        &quot;password&quot;: &quot;anu&quot;,
+<i>30</i>&nbsp;//        &quot;attempts&quot;:1
+<i>31</i>&nbsp;//
+<i>32</i>&nbsp;//        }
+<i>33</i>&nbsp;@Configuration
+<b class="fc"><i>34</i>&nbsp;public class CustomerSecureConfig {</b>
+<i>35</i>&nbsp;    @Autowired
+<i>36</i>&nbsp;    MyBankOfficialsService service;
+<i>37</i>&nbsp;
+<i>38</i>&nbsp;    AuthenticationManager authenticationManager;
+<i>39</i>&nbsp;
+<i>40</i>&nbsp;    @Autowired
+<i>41</i>&nbsp;    OfficialsFailureHandler officialsFailureHandler;
+<i>42</i>&nbsp;    @Autowired
+<i>43</i>&nbsp;    OfficialsSuccessHandler officialsSuccessHandler;
+<i>44</i>&nbsp;
+<b class="fc"><i>45</i>&nbsp;    ResourceBundle resourceBundle= ResourceBundle.getBundle(&quot;account&quot;);</b>
+<i>46</i>&nbsp;
+<i>47</i>&nbsp;    @Bean
+<i>48</i>&nbsp;    public PasswordEncoder passwordEncoder(){
+<b class="fc"><i>49</i>&nbsp;        return new BCryptPasswordEncoder();</b>
+<i>50</i>&nbsp;    }
+<i>51</i>&nbsp;
+<i>52</i>&nbsp;    // CORS Configuration
+<i>53</i>&nbsp;    @Bean
+<i>54</i>&nbsp;    public CorsConfigurationSource corsConfigurationSource() {
+<b class="fc"><i>55</i>&nbsp;        CorsConfiguration configuration = new CorsConfiguration();</b>
+<b class="fc"><i>56</i>&nbsp;        configuration.setAllowedOriginPatterns(Arrays.asList(resourceBundle.getString(&quot;web.link&quot;)));</b>
+<i>57</i>&nbsp;
+<b class="fc"><i>58</i>&nbsp;        configuration.addAllowedMethod(&quot;*&quot;);</b>
+<b class="fc"><i>59</i>&nbsp;        configuration.addAllowedHeader(&quot;*&quot;);</b>
+<b class="fc"><i>60</i>&nbsp;        configuration.setAllowCredentials(true);</b>
+<i>61</i>&nbsp;
+<b class="fc"><i>62</i>&nbsp;        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();</b>
+<b class="fc"><i>63</i>&nbsp;        source.registerCorsConfiguration(&quot;/**&quot;, configuration);</b>
+<b class="fc"><i>64</i>&nbsp;        return source;</b>
+<i>65</i>&nbsp;    }
+<i>66</i>&nbsp;
+<i>67</i>&nbsp;    @Bean
+<i>68</i>&nbsp;    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
+<b class="fc"><i>69</i>&nbsp;        httpSecurity.httpBasic();</b>
+<b class="fc"><i>70</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(&quot;/payeelogin/**&quot;).permitAll();</b>
+<i>71</i>&nbsp;
+<b class="fc"><i>72</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(&quot;/pictures/**&quot;).permitAll();</b>
+<b class="fc"><i>73</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(&quot;/css/**&quot;).permitAll();</b>
+<b class="fc"><i>74</i>&nbsp;        httpSecurity.formLogin().loginPage(&quot;/payeelogin/&quot;).</b>
+<b class="fc"><i>75</i>&nbsp;                usernameParameter(&quot;username&quot;).</b>
+<b class="fc"><i>76</i>&nbsp;                failureHandler(officialsFailureHandler).</b>
+<b class="fc"><i>77</i>&nbsp;                successHandler(officialsSuccessHandler);</b>
+<b class="fc"><i>78</i>&nbsp;        httpSecurity.csrf().disable();</b>
+<b class="fc"><i>79</i>&nbsp;        httpSecurity.logout().permitAll();</b>
+<i>80</i>&nbsp;
+<b class="fc"><i>81</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString(&quot;payee.wsdl&quot;)).permitAll();</b>
+<b class="fc"><i>82</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString(&quot;payee.api&quot;)).permitAll();</b>
+<b class="fc"><i>83</i>&nbsp;        httpSecurity.cors();</b>
+<i>84</i>&nbsp;
+<b class="fc"><i>85</i>&nbsp;        httpSecurity.authorizeRequests().anyRequest().authenticated();</b>
+<i>86</i>&nbsp;
+<i>87</i>&nbsp;
+<b class="fc"><i>88</i>&nbsp;        AuthenticationManagerBuilder builder=httpSecurity.</b>
+<b class="fc"><i>89</i>&nbsp;                getSharedObject(AuthenticationManagerBuilder.class);</b>
+<b class="fc"><i>90</i>&nbsp;        builder.userDetailsService(service);</b>
+<b class="fc"><i>91</i>&nbsp;        authenticationManager=builder.build();</b>
+<b class="fc"><i>92</i>&nbsp;        httpSecurity.authenticationManager(authenticationManager);</b>
+<i>93</i>&nbsp;
+<b class="fc"><i>94</i>&nbsp;        return httpSecurity.build();</b>
+<i>95</i>&nbsp;    }
+<i>96</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-04-30 09:56</div>
+</div>
+</body>
+</html>

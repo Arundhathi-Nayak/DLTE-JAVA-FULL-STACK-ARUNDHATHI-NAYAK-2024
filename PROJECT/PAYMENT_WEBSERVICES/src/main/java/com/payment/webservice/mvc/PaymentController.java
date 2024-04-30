@@ -38,6 +38,10 @@ public class PaymentController {
         model.addAttribute("error", true);
         return "index";
     }
+    @GetMapping("/view")
+    public String updating(){
+        return "viewAll";
+    }
 //    @GetMapping("/error")
 //    public String showErrorPage() {
 //        return "error";
