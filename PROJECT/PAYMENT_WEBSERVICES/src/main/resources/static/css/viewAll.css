@@ -1,0 +1,50 @@
+body {
+
+    height: 100vh;
+
+}
+
+.view-all-payees {
+    font-weight: bold;
+    color:  #182052;
+    font-size: 24px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.custom-dropdown {
+    border-radius: 10px;
+    width: 230px;
+    font-size: 14px;
+    margin-left: 25px;
+    background-color: #d1d6d4;
+    color: #020082;
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    justify-content: center;
+}
+label {
+    display: block;
+    font-weight: bold;
+    margin-top: 20px;
+    color:#182052 ;
+    padding-left: 25px;
+}
+
+.narrow-btn1 {
+
+    background-color: #182052; /* Orange color */
+    color: #fff4f7;
+    border-radius: 10px;
+}
+.narrow-btn1.clicked {
+    background-color: #182052; /* White color */
+    color: #182052; /* Orange color */
+}
+
+.narrow-btn{
+    color: #fff4f7;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+

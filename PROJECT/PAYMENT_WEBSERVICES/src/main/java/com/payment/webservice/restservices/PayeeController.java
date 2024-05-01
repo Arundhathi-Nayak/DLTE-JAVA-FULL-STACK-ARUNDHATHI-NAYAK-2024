@@ -1,5 +1,6 @@
 package com.payment.webservice.restservices;
 
+import com.paymentdao.payment.entity.Customer;
 import com.paymentdao.payment.entity.Payee;
 import com.paymentdao.payment.exception.PayeeException;
 import com.paymentdao.payment.remote.PaymentTransferRepository;
@@ -66,6 +67,14 @@ public class PayeeController {
 
     }
 
+    @GetMapping("/fetch-details")
+    public List<Long> fetchAccountNumber(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String username = authentication.getName();//get logged in users username
+        MyBankOfficials customer=service.findByCustomer(username);
+        List<Long> senderAccountNumber=service.getAccountNumbersByCustomerId(customer.getCustomerId());
+        return senderAccountNumber;
+    }
 
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)

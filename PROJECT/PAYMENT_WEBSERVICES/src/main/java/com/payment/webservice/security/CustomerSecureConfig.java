@@ -68,6 +68,7 @@ public class CustomerSecureConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.httpBasic();
         httpSecurity.authorizeRequests().antMatchers("/payeelogin/**").permitAll();
+        httpSecurity.authorizeRequests().antMatchers("/payees/**").permitAll();
 
         httpSecurity.authorizeRequests().antMatchers("/pictures/**").permitAll();
         httpSecurity.authorizeRequests().antMatchers("/css/**").permitAll();
