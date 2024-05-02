@@ -90,7 +90,21 @@ public class PayeeController {
         return errors;
     }
 
+    @GetMapping("/name")
+    public String getCustomerName() {
+        String name = getUser();
+        String user = service.getCustomerName(name);
+        System.out.println(user);
+        return user;
     }
+
+    public String getUser() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String name = authentication.getName();
+        return name;
+    }
+
+}
 
 
 

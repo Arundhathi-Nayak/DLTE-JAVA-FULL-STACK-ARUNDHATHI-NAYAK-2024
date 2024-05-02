@@ -42,9 +42,11 @@ public class PaymentController {
     public String updating(){
         return "viewAll";
     }
-//    @GetMapping("/error")
-//    public String showErrorPage() {
-//        return "error";
-//    }
+
+
+    @GetMapping("/error")
+    public String showErrorPage() {
+        return "error";
+    }
 
 }

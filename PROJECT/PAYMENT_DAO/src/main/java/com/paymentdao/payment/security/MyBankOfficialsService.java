@@ -70,24 +70,35 @@ public class MyBankOfficialsService implements UserDetailsService {
     }
 
 
-public List<Long> getAccountNumbersByCustomerId(int customerId) {
+    public List<Long> getAccountNumbersByCustomerId(int customerId) {
 
-    String sql = "SELECT a.ACCOUNT_NUMBER " +
-            "FROM MYBANK_APP_CUSTOMER c " +
-            "JOIN MYBANK_APP_ACCOUNT a ON c.CUSTOMER_ID = a.CUSTOMER_ID " +
-            "WHERE c.CUSTOMER_ID = ?";
-    try {
-      //  logger.info("Account numbers for customer ID " + customerId + ": " + accountNumbers);
-        return jdbcTemplate.queryForList(sql, new Object[]{customerId}, Long.class);
+        String sql = "SELECT a.ACCOUNT_NUMBER " +
+                "FROM MYBANK_APP_CUSTOMER c " +
+                "JOIN MYBANK_APP_ACCOUNT a ON c.CUSTOMER_ID = a.CUSTOMER_ID " +
+                "WHERE c.CUSTOMER_ID = ?";
+        try {
+          //  logger.info("Account numbers for customer ID " + customerId + ": " + accountNumbers);
+            return jdbcTemplate.queryForList(sql, new Object[]{customerId}, Long.class);
 
-    //    return accountNumbers;
-    } catch (EmptyResultDataAccessException e) {
-        logger.error(resourceBundle.getString("no.accountCustomer") + customerId, e);
-        throw new PayeeException(resourceBundle.getString("no.accountCustomer")+ customerId);
-    } catch (Exception e) {
-        logger.error(resourceBundle.getString("fetch.exception") + customerId, e);
-        return Collections.emptyList(); // Or handle the error in an appropriate way
+        //    return accountNumbers;
+        } catch (EmptyResultDataAccessException e) {
+            logger.error(resourceBundle.getString("no.accountCustomer") + customerId, e);
+            throw new PayeeException(resourceBundle.getString("no.accountCustomer")+ customerId);
+        } catch (Exception e) {
+            logger.error(resourceBundle.getString("fetch.exception") + customerId, e);
+            return Collections.emptyList(); // Or handle the error in an appropriate way
+        }
     }
-}
+
+    public String getCustomerName(String user) {
+        try {
+            String sql = "SELECT c.CUSTOMER_NAME FROM mybank_app_customer c WHERE c.username =  ?";
+            System.out.println(sql);
+            return jdbcTemplate.queryForObject(sql, new Object[]{user}, String.class);
+        } catch (Exception exception) {
+            exception.printStackTrace();
+        }
+        return null;
+    }
 
 }

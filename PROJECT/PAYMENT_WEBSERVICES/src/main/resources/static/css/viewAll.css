@@ -48,3 +48,13 @@ label {
     margin-left: 10px;
 }
 
+.modal-content {
+    background-color: #f8f9fa; /* Light gray background */
+    color: #000000; /* Black text color */
+}
+
+/* Style for modal body */
+.modal-body {
+    padding: 20px;
+}
+
