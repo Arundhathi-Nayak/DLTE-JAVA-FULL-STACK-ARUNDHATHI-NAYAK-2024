@@ -50,18 +50,18 @@
 </td>
 <td class="coverageStat">
   <span class="percent">
-    50%
+    100%
   </span>
   <span class="absValue">
-    (1/ 2)
+    (2/ 2)
   </span>
 </td>
 <td class="coverageStat">
   <span class="percent">
-    23.1%
+    69.2%
   </span>
   <span class="absValue">
-    (3/ 13)
+    (9/ 13)
   </span>
 </td>
 </tr>
@@ -101,8 +101,8 @@
 <i>27</i>&nbsp;
 <i>28</i>&nbsp;    @Override
 <i>29</i>&nbsp;    public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
-<b class="nc"><i>30</i>&nbsp;        MyBankOfficials myBankOfficials= (MyBankOfficials) authentication.getPrincipal();</b>
-<b class="nc"><i>31</i>&nbsp;        if(myBankOfficials.getCustomerStatus().equalsIgnoreCase(&quot;Active&quot;)){</b>
+<b class="fc"><i>30</i>&nbsp;        MyBankOfficials myBankOfficials= (MyBankOfficials) authentication.getPrincipal();</b>
+<b class="fc"><i>31</i>&nbsp;        if(myBankOfficials.getCustomerStatus().equalsIgnoreCase(&quot;Active&quot;)){</b>
 <b class="nc"><i>32</i>&nbsp;            if(myBankOfficials.getAttempts()&gt;1){</b>
 <b class="nc"><i>33</i>&nbsp;                myBankOfficials.setAttempts(1);</b>
 <b class="nc"><i>34</i>&nbsp;                service.updateAttempts(myBankOfficials);</b>
@@ -113,20 +113,20 @@
 <i>39</i>&nbsp;
 <i>40</i>&nbsp;        }
 <i>41</i>&nbsp;        else{
-<b class="nc"><i>42</i>&nbsp;            logger.warn(resourceBundle.getString(&quot;maxContact.admin&quot;));</b>
+<b class="fc"><i>42</i>&nbsp;            logger.warn(resourceBundle.getString(&quot;maxContact.admin&quot;));</b>
 <i>43</i>&nbsp;          //  super.setDefaultTargetUrl(resourceBundle.getString(&quot;failure.url&quot;));
-<b class="nc"><i>44</i>&nbsp;           super.setDefaultTargetUrl(&quot;/payeelogin/?errors=&quot;+resourceBundle.getString(&quot;admin.contact&quot;));</b>
+<b class="fc"><i>44</i>&nbsp;           super.setDefaultTargetUrl(&quot;/payeelogin/?errors=&quot;+resourceBundle.getString(&quot;admin.contact&quot;));</b>
 <i>45</i>&nbsp;
 <i>46</i>&nbsp;        }
-<b class="nc"><i>47</i>&nbsp;        super.onAuthenticationSuccess(request, response, authentication);</b>
-<b class="nc"><i>48</i>&nbsp;    }</b>
+<b class="fc"><i>47</i>&nbsp;        super.onAuthenticationSuccess(request, response, authentication);</b>
+<b class="fc"><i>48</i>&nbsp;    }</b>
 <i>49</i>&nbsp;}
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2024-04-30 09:56</div>
+    <div style="float:right;">generated on 2024-05-06 20:07</div>
 </div>
 </body>
 </html>

@@ -16,6 +16,43 @@ public class MyBankOfficials implements UserDetails {
     private String password;
     private  Integer attempts;
 
+    public MyBankOfficials() {
+    }
+
+    public MyBankOfficials(Integer customerId, String customerName, String customerAddress, String customerStatus, Long customerContact, String username, String password, Integer attempts) {
+        this.customerId = customerId;
+        this.customerName = customerName;
+        this.customerAddress = customerAddress;
+        this.customerStatus = customerStatus;
+        this.customerContact = customerContact;
+        this.username = username;
+        this.password = password;
+        this.attempts = attempts;
+    }
+
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public void setCustomerAddress(String customerAddress) {
+        this.customerAddress = customerAddress;
+    }
+
+    public void setCustomerStatus(String customerStatus) {
+        this.customerStatus = customerStatus;
+    }
+
+    public void setCustomerContact(Long customerContact) {
+        this.customerContact = customerContact;
+    }
+
+    public void setAttempts(Integer attempts) {
+        this.attempts = attempts;
+    }
 
     public int getMaxAttempt() {
         return maxAttempt;
@@ -27,41 +64,26 @@ public class MyBankOfficials implements UserDetails {
         return customerId;
     }
 
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
-    }
 
     public String getCustomerName() {
         return customerName;
     }
 
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
-    }
 
     public String getCustomerAddress() {
         return customerAddress;
     }
 
-    public void setCustomerAddress(String customerAddress) {
-        this.customerAddress = customerAddress;
-    }
 
     public String getCustomerStatus() {
         return customerStatus;
     }
 
-    public void setCustomerStatus(String customerStatus) {
-        this.customerStatus = customerStatus;
-    }
 
     public Long getCustomerContact() {
         return customerContact;
     }
 
-    public void setCustomerContact(Long customerContact) {
-        this.customerContact = customerContact;
-    }
 
     public void setUsername(String username) {
         this.username = username;
@@ -73,10 +95,6 @@ public class MyBankOfficials implements UserDetails {
 
     public Integer getAttempts() {
         return attempts;
-    }
-
-    public void setAttempts(Integer attempts) {
-        this.attempts = attempts;
     }
 
     @Override

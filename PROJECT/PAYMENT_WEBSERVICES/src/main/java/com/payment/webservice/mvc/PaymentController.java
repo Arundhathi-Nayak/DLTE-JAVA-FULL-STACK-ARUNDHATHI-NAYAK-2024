@@ -19,9 +19,6 @@ public class PaymentController {
     @Autowired
     MyBankOfficialsService myBankService;
 
-    Logger logger= LoggerFactory.getLogger(PaymentController.class);
-
-    ResourceBundle bundle=ResourceBundle.getBundle("account");
 
     @GetMapping("/")
     public String landing(){
@@ -45,7 +42,7 @@ public class PaymentController {
 
 
     @GetMapping("/error")
-    public String showErrorPage() {
+    public String errorPage() {
         return "error";
     }
 

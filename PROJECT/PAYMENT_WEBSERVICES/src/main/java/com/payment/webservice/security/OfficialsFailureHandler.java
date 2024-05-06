@@ -59,7 +59,8 @@ public class OfficialsFailureHandler extends SimpleUrlAuthenticationFailureHandl
             }
         }catch (UsernameNotFoundException e){
             logger.info(e.toString());
-            logger.warn(resourceBundle.getString("account.suspend"));
+            logger.
+                    warn(resourceBundle.getString("account.suspend"));
             exception = new LockedException("Username not found");
             super.setDefaultFailureUrl("/payeelogin/?error=" + exception.getMessage());
         }

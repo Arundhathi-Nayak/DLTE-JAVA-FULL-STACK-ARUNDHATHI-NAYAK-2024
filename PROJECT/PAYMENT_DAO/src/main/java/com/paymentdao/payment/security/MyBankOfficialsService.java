@@ -24,10 +24,6 @@ public class MyBankOfficialsService implements UserDetailsService {
     ResourceBundle resourceBundle= ResourceBundle.getBundle("account");
 
     public MyBankOfficials signingUp(MyBankOfficials myBankOfficials){
-//        int ack = jdbcTemplate.update("insert into CUSTOMER_CREDENTIALS values(?,?,?,?,?,?,?,?)",new Object[]{
-//                myBankOfficials.getCustomerId(),myBankOfficials.getCustomerName(),myBankOfficials.getCustomerAddress(),myBankOfficials.getCustomerStatus(),
-//               myBankOfficials.getCustomerContact(),myBankOfficials.getUsername(),myBankOfficials.getPassword(),myBankOfficials.getAttempts()
-//        });
         int ack = jdbcTemplate.update("insert into MYBANK_APP_CUSTOMER   values(CUSTOMERID_SEQ.nextval,?,?,?,?,?,?,?)",new Object[]{
                 myBankOfficials.getCustomerName(),myBankOfficials.getCustomerAddress(),myBankOfficials.getCustomerStatus(),
                 myBankOfficials.getCustomerContact(),myBankOfficials.getUsername(),myBankOfficials.getPassword(),myBankOfficials.getAttempts()
@@ -77,10 +73,9 @@ public class MyBankOfficialsService implements UserDetailsService {
                 "JOIN MYBANK_APP_ACCOUNT a ON c.CUSTOMER_ID = a.CUSTOMER_ID " +
                 "WHERE c.CUSTOMER_ID = ?";
         try {
-          //  logger.info("Account numbers for customer ID " + customerId + ": " + accountNumbers);
+
             return jdbcTemplate.queryForList(sql, new Object[]{customerId}, Long.class);
 
-        //    return accountNumbers;
         } catch (EmptyResultDataAccessException e) {
             logger.error(resourceBundle.getString("no.accountCustomer") + customerId, e);
             throw new PayeeException(resourceBundle.getString("no.accountCustomer")+ customerId);
@@ -93,7 +88,6 @@ public class MyBankOfficialsService implements UserDetailsService {
     public String getCustomerName(String user) {
         try {
             String sql = "SELECT c.CUSTOMER_NAME FROM mybank_app_customer c WHERE c.username =  ?";
-            System.out.println(sql);
             return jdbcTemplate.queryForObject(sql, new Object[]{user}, String.class);
         } catch (Exception exception) {
             exception.printStackTrace();

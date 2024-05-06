@@ -3,21 +3,15 @@ package com.paymentdao.payment.service;
 import com.paymentdao.payment.entity.Payee;
 import com.paymentdao.payment.exception.PayeeException;
 import com.paymentdao.payment.remote.PaymentTransferRepository;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
-import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
-import org.springframework.jdbc.core.namedparam.SqlParameterSource;
-import org.springframework.jdbc.core.simple.SimpleJdbcCall;
 import org.springframework.stereotype.Service;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.SQLSyntaxErrorException;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -55,22 +49,18 @@ public class PaymentTransferImplementation implements PaymentTransferRepository 
         } catch (DataAccessException e) {
             if (e.getLocalizedMessage().contains("ORA-20001")) {
                 logger.warn(resourceBundle.getString("payee.notExists"));
-                //throw new PayeeException(e.getMessage());
                 throw new PayeeException(resourceBundle.getString("payee.notExists"));
             }
             if (e.getLocalizedMessage().contains("ORA-20002")) {
                 logger.warn(resourceBundle.getString("sender.notMatch"));
-                //throw new PayeeException(e.getMessage());
                 throw new PayeeException(resourceBundle.getString("sender.notMatch"));
             }
             if (e.getLocalizedMessage().contains("ORA-20003")) {
                 logger.warn(resourceBundle.getString("payee.notMatch"));
-                //throw new PayeeException(e.getMessage());
                 throw new PayeeException(resourceBundle.getString("payee.notMatch"));
             }
             if (e.getLocalizedMessage().contains("ORA-20004")) {
                 logger.warn(resourceBundle.getString("payeeName.notMatch"));
-                //throw new PayeeException(e.getMessage());
                 throw new PayeeException(resourceBundle.getString("payeeName.notMatch"));
             }
         }

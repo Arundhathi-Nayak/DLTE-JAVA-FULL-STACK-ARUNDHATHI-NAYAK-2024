@@ -1,0 +1,195 @@
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html id="htmlId">
+<head>
+  <title>Coverage Report :: PaymentTransferImplementation</title>
+  <style type="text/css">
+    @import "../../.css/coverage.css";
+  </style>
+</head>
+
+<body>
+<div class="header"></div>
+
+<div class="content">
+<div class="breadCrumbs">
+    [ <a href="../../index.html">all classes</a> ]
+    [ <a href="../index.html">com.paymentdao.payment.service</a> ]
+</div>
+
+<h1>Coverage Summary for Class: PaymentTransferImplementation (com.paymentdao.payment.service)</h1>
+
+<table class="coverageStats">
+
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">PaymentTransferImplementation</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (3/ 3)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    77.8%
+  </span>
+  <span class="absValue">
+    (21/ 27)
+  </span>
+</td>
+</tr>
+  <tr>
+    <td class="name">PaymentTransferImplementation$$EnhancerBySpringCGLIB$$4bc37e36</td>
+  </tr>
+  <tr>
+    <td class="name">PaymentTransferImplementation$PayeeMapper</td>
+<td class="coverageStat">
+  <span class="percent">
+    50%
+  </span>
+  <span class="absValue">
+    (1/ 2)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    14.3%
+  </span>
+  <span class="absValue">
+    (1/ 7)
+  </span>
+</td>
+  </tr>
+<tr>
+  <td class="name"><strong>total</strong></td>
+<td class="coverageStat">
+  <span class="percent">
+    80%
+  </span>
+  <span class="absValue">
+    (4/ 5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    64.7%
+  </span>
+  <span class="absValue">
+    (22/ 34)
+  </span>
+</td>
+</tr>
+</table>
+
+<br/>
+<br/>
+
+
+<div class="sourceCode"><i>1</i>&nbsp;package com.paymentdao.payment.service;
+<i>2</i>&nbsp;
+<i>3</i>&nbsp;import com.paymentdao.payment.entity.Payee;
+<i>4</i>&nbsp;import com.paymentdao.payment.exception.PayeeException;
+<i>5</i>&nbsp;import com.paymentdao.payment.remote.PaymentTransferRepository;
+<i>6</i>&nbsp;import org.slf4j.LoggerFactory;
+<i>7</i>&nbsp;import org.springframework.beans.factory.annotation.Autowired;
+<i>8</i>&nbsp;import org.springframework.dao.DataAccessException;
+<i>9</i>&nbsp;import org.springframework.jdbc.core.JdbcTemplate;
+<i>10</i>&nbsp;import org.springframework.jdbc.core.RowMapper;
+<i>11</i>&nbsp;import org.springframework.stereotype.Service;
+<i>12</i>&nbsp;
+<i>13</i>&nbsp;import java.sql.ResultSet;
+<i>14</i>&nbsp;import java.sql.SQLException;
+<i>15</i>&nbsp;import java.util.List;
+<i>16</i>&nbsp;import java.util.ResourceBundle;
+<i>17</i>&nbsp;
+<i>18</i>&nbsp;
+<i>19</i>&nbsp;@Service
+<b class="fc"><i>20</i>&nbsp;public class PaymentTransferImplementation implements PaymentTransferRepository {</b>
+<b class="fc"><i>21</i>&nbsp;    ResourceBundle resourceBundle= ResourceBundle.getBundle(&quot;account&quot;);</b>
+<b class="fc"><i>22</i>&nbsp;    org.slf4j.Logger logger=LoggerFactory.getLogger( PaymentTransferImplementation.class);</b>
+<i>23</i>&nbsp;    @Autowired
+<i>24</i>&nbsp;    JdbcTemplate jdbcTemplate;
+<i>25</i>&nbsp;
+<i>26</i>&nbsp;    // finding all payee based on account number
+<i>27</i>&nbsp;    @Override
+<i>28</i>&nbsp;    public List&lt;Payee&gt; findAllPayeeBasedOnAccountNumber(Long accountNumber)  {
+<i>29</i>&nbsp;        List&lt;Payee&gt; payees;
+<b class="fc"><i>30</i>&nbsp;        payees = jdbcTemplate.query(&quot;select * from MYBANK_APP_Payee where sender_account_number=?&quot;,</b>
+<i>31</i>&nbsp;                    new Object[]{accountNumber},
+<i>32</i>&nbsp;//                new BeanPropertyRowMapper&lt;&gt;(Payee.class)
+<i>33</i>&nbsp;                    new PayeeMapper());
+<b class="fc"><i>34</i>&nbsp;        logger.info(resourceBundle.getString(&quot;payee.success&quot;));</b>
+<i>35</i>&nbsp;
+<b class="fc"><i>36</i>&nbsp;        if(payees.size()==0){</b>
+<b class="fc"><i>37</i>&nbsp;            logger.warn(resourceBundle.getString(&quot;no.payee&quot;));</b>
+<b class="fc"><i>38</i>&nbsp;            throw new PayeeException(resourceBundle.getString(&quot;no.payee&quot;)+accountNumber);</b>
+<i>39</i>&nbsp;        }
+<b class="fc"><i>40</i>&nbsp;        return payees;</b>
+<i>41</i>&nbsp;    }
+<i>42</i>&nbsp;    @Override
+<i>43</i>&nbsp;    public void deletePayeeAdded(int payeeId, Long senderAccountNumber, Long payeeAccountNumber, String payeeName) {
+<i>44</i>&nbsp;
+<b class="fc"><i>45</i>&nbsp;        String procedureCall=&quot;Call DELETE_PAYEE_NEW(?,?,?,?)&quot;;</b>
+<i>46</i>&nbsp;        try {
+<b class="fc"><i>47</i>&nbsp;            jdbcTemplate.update(procedureCall,payeeId,senderAccountNumber,payeeAccountNumber,payeeName);</b>
+<b class="fc"><i>48</i>&nbsp;            logger.info(resourceBundle.getString(&quot;payee.success&quot;));</b>
+<b class="fc"><i>49</i>&nbsp;        } catch (DataAccessException e) {</b>
+<b class="fc"><i>50</i>&nbsp;            if (e.getLocalizedMessage().contains(&quot;ORA-20001&quot;)) {</b>
+<b class="fc"><i>51</i>&nbsp;                logger.warn(resourceBundle.getString(&quot;payee.notExists&quot;));</b>
+<b class="fc"><i>52</i>&nbsp;                throw new PayeeException(resourceBundle.getString(&quot;payee.notExists&quot;));</b>
+<i>53</i>&nbsp;            }
+<b class="fc"><i>54</i>&nbsp;            if (e.getLocalizedMessage().contains(&quot;ORA-20002&quot;)) {</b>
+<b class="fc"><i>55</i>&nbsp;                logger.warn(resourceBundle.getString(&quot;sender.notMatch&quot;));</b>
+<b class="fc"><i>56</i>&nbsp;                throw new PayeeException(resourceBundle.getString(&quot;sender.notMatch&quot;));</b>
+<i>57</i>&nbsp;            }
+<b class="nc"><i>58</i>&nbsp;            if (e.getLocalizedMessage().contains(&quot;ORA-20003&quot;)) {</b>
+<b class="nc"><i>59</i>&nbsp;                logger.warn(resourceBundle.getString(&quot;payee.notMatch&quot;));</b>
+<b class="nc"><i>60</i>&nbsp;                throw new PayeeException(resourceBundle.getString(&quot;payee.notMatch&quot;));</b>
+<i>61</i>&nbsp;            }
+<b class="nc"><i>62</i>&nbsp;            if (e.getLocalizedMessage().contains(&quot;ORA-20004&quot;)) {</b>
+<b class="nc"><i>63</i>&nbsp;                logger.warn(resourceBundle.getString(&quot;payeeName.notMatch&quot;));</b>
+<b class="nc"><i>64</i>&nbsp;                throw new PayeeException(resourceBundle.getString(&quot;payeeName.notMatch&quot;));</b>
+<i>65</i>&nbsp;            }
+<b class="fc"><i>66</i>&nbsp;        }</b>
+<i>67</i>&nbsp;
+<i>68</i>&nbsp;
+<b class="fc"><i>69</i>&nbsp;    }</b>
+<i>70</i>&nbsp;
+<i>71</i>&nbsp;
+<b class="fc"><i>72</i>&nbsp;    public class PayeeMapper implements RowMapper&lt;Payee&gt; {</b>
+<i>73</i>&nbsp;        @Override
+<i>74</i>&nbsp;        public Payee mapRow(ResultSet rs, int rowNum) throws SQLException {
+<b class="nc"><i>75</i>&nbsp;            Payee payee=new Payee();</b>
+<b class="nc"><i>76</i>&nbsp;            payee.setPayeeId(rs.getInt(1));</b>
+<b class="nc"><i>77</i>&nbsp;            payee.setSenderAccountNumber(rs.getLong(2));</b>
+<b class="nc"><i>78</i>&nbsp;            payee.setPayeeAccountNumber(rs.getLong(&quot;payee_account_number&quot;));</b>
+<b class="nc"><i>79</i>&nbsp;            payee.setPayeeName(rs.getString(&quot;payee_name&quot;));</b>
+<b class="nc"><i>80</i>&nbsp;            return payee;</b>
+<i>81</i>&nbsp;        }
+<i>82</i>&nbsp;    }
+<i>83</i>&nbsp;}
+</div>
+</div>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2024-05-06 09:05</div>
+</div>
+</body>
+</html>

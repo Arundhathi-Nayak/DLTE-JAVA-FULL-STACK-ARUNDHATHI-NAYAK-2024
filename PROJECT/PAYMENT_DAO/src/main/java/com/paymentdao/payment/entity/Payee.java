@@ -42,13 +42,18 @@ public class Payee {
         return payeeId;
     }
 
+    public Long getSenderAccountNumber() {
+        return senderAccountNumber;
+    }
+
+    public String getPayeeName() {
+        return payeeName;
+    }
+
     public void setPayeeId(Integer payeeId) {
         this.payeeId = payeeId;
     }
 
-    public Long getSenderAccountNumber() {
-        return senderAccountNumber;
-    }
 
     public void setSenderAccountNumber(Long senderAccountNumber) {
         this.senderAccountNumber = senderAccountNumber;
@@ -62,9 +67,6 @@ public class Payee {
         this.payeeAccountNumber = payeeAccountNumber;
     }
 
-    public String getPayeeName() {
-        return payeeName;
-    }
 
     public void setPayeeName(String payeeName) {
         this.payeeName = payeeName;

@@ -133,20 +133,21 @@
 <i>59</i>&nbsp;            }
 <b class="nc"><i>60</i>&nbsp;        }catch (UsernameNotFoundException e){</b>
 <b class="nc"><i>61</i>&nbsp;            logger.info(e.toString());</b>
-<b class="nc"><i>62</i>&nbsp;            logger.warn(resourceBundle.getString(&quot;account.suspend&quot;));</b>
-<b class="nc"><i>63</i>&nbsp;            exception = new LockedException(&quot;Username not found&quot;);</b>
-<b class="nc"><i>64</i>&nbsp;            super.setDefaultFailureUrl(&quot;/payeelogin/?error=&quot; + exception.getMessage());</b>
-<b class="nc"><i>65</i>&nbsp;        }</b>
-<i>66</i>&nbsp;     //   super.setDefaultFailureUrl(resourceBundle.getString(&quot;login.error&quot;));
-<b class="nc"><i>67</i>&nbsp;        super.onAuthenticationFailure(request, response, exception);</b>
-<b class="nc"><i>68</i>&nbsp;    }</b>
-<i>69</i>&nbsp;}
+<b class="nc"><i>62</i>&nbsp;            logger.</b>
+<b class="nc"><i>63</i>&nbsp;                    warn(resourceBundle.getString(&quot;account.suspend&quot;));</b>
+<b class="nc"><i>64</i>&nbsp;            exception = new LockedException(&quot;Username not found&quot;);</b>
+<b class="nc"><i>65</i>&nbsp;            super.setDefaultFailureUrl(&quot;/payeelogin/?error=&quot; + exception.getMessage());</b>
+<i>66</i>&nbsp;        }
+<b class="nc"><i>67</i>&nbsp;     //   super.setDefaultFailureUrl(resourceBundle.getString(&quot;login.error&quot;));</b>
+<b class="nc"><i>68</i>&nbsp;        super.onAuthenticationFailure(request, response, exception);</b>
+<i>69</i>&nbsp;    }
+<i>70</i>&nbsp;}
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2024-04-30 09:56</div>
+    <div style="float:right;">generated on 2024-05-06 20:07</div>
 </div>
 </body>
 </html>

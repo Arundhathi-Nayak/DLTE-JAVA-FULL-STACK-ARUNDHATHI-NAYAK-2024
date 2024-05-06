@@ -1,6 +1,5 @@
 package com.payment.webservice.restservices;
 
-import com.paymentdao.payment.entity.Customer;
 import com.paymentdao.payment.entity.Payee;
 import com.paymentdao.payment.exception.PayeeException;
 import com.paymentdao.payment.remote.PaymentTransferRepository;
@@ -59,10 +58,10 @@ public class PayeeController {
                 return ResponseEntity.ok(resourceBundle.getString("payee.add") + payee.getPayeeName() + " " + resourceBundle.getString("delete.success"));
             } catch (PayeeException payeeException) {
                 logger.warn(payeeException.getMessage());
-                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(payeeException.getMessage());
+                return ResponseEntity.status(HttpStatus.OK).body(resourceBundle.getString("payee.error.two")+payeeException.getMessage());
             }
         }else{
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(resourceBundle.getString("no.account")); // 404 found
+            return ResponseEntity.status(HttpStatus.OK).body(resourceBundle.getString("payee.error.three")+resourceBundle.getString("no.account")); // 404 found
         }
 
     }
@@ -94,7 +93,6 @@ public class PayeeController {
     public String getCustomerName() {
         String name = getUser();
         String user = service.getCustomerName(name);
-        System.out.println(user);
         return user;
     }
 

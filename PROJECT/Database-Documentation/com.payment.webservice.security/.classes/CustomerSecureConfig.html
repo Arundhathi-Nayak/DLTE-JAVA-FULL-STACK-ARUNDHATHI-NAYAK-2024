@@ -50,15 +50,15 @@
     100%
   </span>
   <span class="absValue">
-    (31/ 31)
+    (33/ 33)
   </span>
 </td>
 </tr>
   <tr>
-    <td class="name">CustomerSecureConfig$$EnhancerBySpringCGLIB$$b633fc8</td>
+    <td class="name">CustomerSecureConfig$$EnhancerBySpringCGLIB$$ed7dc8df</td>
   </tr>
   <tr>
-    <td class="name">CustomerSecureConfig$$EnhancerBySpringCGLIB$$b633fc8$$FastClassBySpringCGLIB$$137bdb</td>
+    <td class="name">CustomerSecureConfig$$EnhancerBySpringCGLIB$$ed7dc8df$$FastClassBySpringCGLIB$$c4e2152f</td>
   </tr>
   <tr>
     <td class="name">CustomerSecureConfig$$FastClassBySpringCGLIB$$bb3d220d</td>
@@ -78,7 +78,7 @@
     100%
   </span>
   <span class="absValue">
-    (31/ 31)
+    (33/ 33)
   </span>
 </td>
 </tr>
@@ -157,39 +157,41 @@
 <i>67</i>&nbsp;    @Bean
 <i>68</i>&nbsp;    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
 <b class="fc"><i>69</i>&nbsp;        httpSecurity.httpBasic();</b>
-<b class="fc"><i>70</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(&quot;/payeelogin/**&quot;).permitAll();</b>
-<i>71</i>&nbsp;
-<b class="fc"><i>72</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(&quot;/pictures/**&quot;).permitAll();</b>
-<b class="fc"><i>73</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(&quot;/css/**&quot;).permitAll();</b>
-<b class="fc"><i>74</i>&nbsp;        httpSecurity.formLogin().loginPage(&quot;/payeelogin/&quot;).</b>
-<b class="fc"><i>75</i>&nbsp;                usernameParameter(&quot;username&quot;).</b>
-<b class="fc"><i>76</i>&nbsp;                failureHandler(officialsFailureHandler).</b>
-<b class="fc"><i>77</i>&nbsp;                successHandler(officialsSuccessHandler);</b>
-<b class="fc"><i>78</i>&nbsp;        httpSecurity.csrf().disable();</b>
-<b class="fc"><i>79</i>&nbsp;        httpSecurity.logout().permitAll();</b>
-<i>80</i>&nbsp;
-<b class="fc"><i>81</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString(&quot;payee.wsdl&quot;)).permitAll();</b>
-<b class="fc"><i>82</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString(&quot;payee.api&quot;)).permitAll();</b>
-<b class="fc"><i>83</i>&nbsp;        httpSecurity.cors();</b>
-<i>84</i>&nbsp;
-<b class="fc"><i>85</i>&nbsp;        httpSecurity.authorizeRequests().anyRequest().authenticated();</b>
+<b class="fc"><i>70</i>&nbsp;        httpSecurity.formLogin().loginPage(&quot;/payeelogin/&quot;).</b>
+<b class="fc"><i>71</i>&nbsp;                usernameParameter(&quot;username&quot;).</b>
+<b class="fc"><i>72</i>&nbsp;                failureHandler(officialsFailureHandler).</b>
+<b class="fc"><i>73</i>&nbsp;                successHandler(officialsSuccessHandler);</b>
+<b class="fc"><i>74</i>&nbsp;        httpSecurity.csrf().disable();</b>
+<b class="fc"><i>75</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(&quot;/payeelogin/&quot;).permitAll();</b>
+<b class="fc"><i>76</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(&quot;/payees/**&quot;).permitAll();</b>
+<i>77</i>&nbsp;
+<b class="fc"><i>78</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(&quot;/pictures/**&quot;).permitAll();</b>
+<b class="fc"><i>79</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(&quot;/css/**&quot;).permitAll();</b>
+<b class="fc"><i>80</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(&quot;/scripts/**&quot;).permitAll();</b>
+<b class="fc"><i>81</i>&nbsp;        httpSecurity.logout().permitAll();</b>
+<i>82</i>&nbsp;
+<b class="fc"><i>83</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString(&quot;payee.wsdl&quot;)).permitAll();</b>
+<b class="fc"><i>84</i>&nbsp;        httpSecurity.authorizeRequests().antMatchers(resourceBundle.getString(&quot;payee.api&quot;)).permitAll();</b>
+<b class="fc"><i>85</i>&nbsp;        httpSecurity.cors();</b>
 <i>86</i>&nbsp;
-<i>87</i>&nbsp;
-<b class="fc"><i>88</i>&nbsp;        AuthenticationManagerBuilder builder=httpSecurity.</b>
-<b class="fc"><i>89</i>&nbsp;                getSharedObject(AuthenticationManagerBuilder.class);</b>
-<b class="fc"><i>90</i>&nbsp;        builder.userDetailsService(service);</b>
-<b class="fc"><i>91</i>&nbsp;        authenticationManager=builder.build();</b>
-<b class="fc"><i>92</i>&nbsp;        httpSecurity.authenticationManager(authenticationManager);</b>
-<i>93</i>&nbsp;
-<b class="fc"><i>94</i>&nbsp;        return httpSecurity.build();</b>
-<i>95</i>&nbsp;    }
-<i>96</i>&nbsp;}
+<b class="fc"><i>87</i>&nbsp;        httpSecurity.authorizeRequests().anyRequest().authenticated();</b>
+<i>88</i>&nbsp;
+<i>89</i>&nbsp;
+<b class="fc"><i>90</i>&nbsp;        AuthenticationManagerBuilder builder=httpSecurity.</b>
+<b class="fc"><i>91</i>&nbsp;                getSharedObject(AuthenticationManagerBuilder.class);</b>
+<b class="fc"><i>92</i>&nbsp;        builder.userDetailsService(service);</b>
+<b class="fc"><i>93</i>&nbsp;        authenticationManager=builder.build();</b>
+<b class="fc"><i>94</i>&nbsp;        httpSecurity.authenticationManager(authenticationManager);</b>
+<i>95</i>&nbsp;
+<b class="fc"><i>96</i>&nbsp;        return httpSecurity.build();</b>
+<i>97</i>&nbsp;    }
+<i>98</i>&nbsp;}
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2024-04-30 09:56</div>
+    <div style="float:right;">generated on 2024-05-06 20:07</div>
 </div>
 </body>
 </html>

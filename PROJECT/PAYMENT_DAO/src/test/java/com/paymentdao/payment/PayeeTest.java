@@ -25,7 +25,7 @@ public class PayeeTest {
         assertTrue(validate(payee), "Validation should pass for a valid payee");
     }
 
- //   @Test
+    @Test
     public void testInvalidPayee() {
         Payee payee = new Payee();
         payee.setPayeeId(23);
@@ -34,7 +34,7 @@ public class PayeeTest {
        // payee.setPayeeName("12345"); // Contains digits
         payee.setPayeeName("aru");
 
-        assertTrue(validate(payee), "Validation should fail for an invalid payee");
+        assertFalse(validate(payee), "Validation should fail for an invalid payee");
     }
 
     private boolean validate(Payee payee) {

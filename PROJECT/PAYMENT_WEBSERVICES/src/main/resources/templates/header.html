@@ -11,7 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <link rel="stylesheet" th:href="@{/css/stylesheader.css}" type="text/css">
     <link rel="stylesheet"  type="application/json" th:href="@{'/pictures/logo.jpg'}">
-    <script th:src="@{'/scripts/loginName.js'}"> </script>
+<!--    <script th:src="@{'/scripts/loginName.js'}"> </script>-->
 </head>
 
 <body>
@@ -23,18 +23,21 @@
     <div class="heading">
         <div>
             <img th:src="@{'/pictures/logo.jpg'}" alt="logo">
-            <span>MY BANK</span>
+            <span style="color: #182052; font-size: 16px;font-weight: bold">MY BANK</span>
         </div>
-        <div class="navbar-text ml-auto d-flex align-items-center">
-            <h4 th:id="Username" class="text-danger" style="color: #182052; font-size: 24px;" ></h4>
-            <div class="navbar-text ml-auto"></div>
-        </div>
+        <div class="row2">
+            <div class="navbar-text ml-auto d-flex align-items-center">
+                <h4 th:id="Username"  style="color: #182052; font-size: 20px;padding-right: 5px" ></h4>
+                <div class="navbar-text ml-auto"></div>
+            </div>
 
-        <div class="logout">
+
+        <div class="logout mt-1">
             <form id="logoutForm" action="/logout" method="post">
                 <button type="submit">Logout</button>
             </form>
-<!--            <button class="rounded-5 border-0 col-10 text-white "> <a class="nav-link text-white" th:href="@{'/logout'}">Logout</a></button>-->
+        </div>
+
         </div>
     </div>
     <nav class="navbar navbar-expand-lg"  aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -44,12 +47,12 @@
             <div class="collapse navbar-collapse" id="myBankMenu">
                 <ul class="navbar-nav d-flex w-100">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" th:href="@{'/error?code=404&msg=Page under construction'}" id="navbarAccounts" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" th:href="@{'/error?code=404&msg=Page under construction'}">
                             Accounts
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDebits" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle"  th:href="@{'/error?code=404&msg=Page under construction'}" >
                             Debits
                         </a>
                     </li>
@@ -59,21 +62,21 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarPayments">
                             <li><a class="dropdown-item" th:href="@{'/payeelogin/view'}">View All Payee</a></li>
-                            <li><a class="dropdown-item" href="#">Add Payee</a></li>
+                            <li><a class="dropdown-item" th:href="@{'/error?code=404&msg=Page under construction'}">Add Payee</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" th:href="@{'#'}" id="navbarLoans" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle"  th:href="@{'/error?code=404&msg=Page under construction'}"  >
                             Loans
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" th:href="@{'#'}" id="navbarInsurance" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle"  th:href="@{'/error?code=404&msg=Page under construction'}"  >
                             Insurance
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" th:href="@{'#'}"id="navbarCards" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle"  th:href="@{'/error?code=404&msg=Page under construction'}" >
                             Cards
                         </a>
                     </li>

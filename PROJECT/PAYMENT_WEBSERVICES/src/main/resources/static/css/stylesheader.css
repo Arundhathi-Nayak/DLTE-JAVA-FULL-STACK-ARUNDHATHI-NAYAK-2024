@@ -53,3 +53,13 @@ img{
 .navbar-nav {
     list-style-type: none; /* Remove bullet points */
 }
+.row2{
+    display: flex;
+    justify-content: space-between;
+
+}
+.navbar-text{
+    padding-top: 15px;
+    padding-left: 5px;
+    padding-bottom: 1px;
+}

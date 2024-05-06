@@ -4,57 +4,74 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <title>Exception Handling</title>
+    <title>Error Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
+            background-color: #ffffff;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
         }
+
         .container {
             text-align: center;
         }
+
         h1 {
             color: #003870;
-            font-size: 24px;
+            font-size: 28px;
+            font-weight: bold;
             margin-bottom: 20px;
         }
+
         p {
             color:#003870;
-            font-size: 16px;
+            font-size: 20px;
+            font-weight: bolder;
             margin-bottom: 30px;
         }
 
+        /*button*/
         button {
-            background-color: powderblue;
+            background-color: #d1d6d4;
             color: #003870;
             padding: 8px 16px;
-            border-radius: 20px;
+            border-radius: 20px 20px;
             cursor: pointer;
-            font-size: 14px;
+            font-size: 20px;
             font-weight: bold;
             text-transform: uppercase;
-            transition: background-color 0.3s ease;
-            border-color:#003870;
+            border-color: #003870  #003870;
         }
+
         button:hover {
-            background-color: lightblue;
+            background-color: #003870;
+            color:#d1d6d4;
+
+        }
+        button:hover i {
+            color: white;
         }
         button i {
-            margin-left: 7px;
-            font-size: 20px;
+            margin-left: 3px;
+            padding-left: 2px;
+            font-size: 26px;
+            color: #003870;
         }
     </style>
 </head>
 <body>
 <div class="container">
-    <h1 th:text="${param.code}"></h1>
-    <p th:text="${param.msg}">&lt;&lt;  &gt;&gt;</p>
-    <a th:href="@{'/dash'}"><button >BACK TO HOME<i class="bi bi-arrow-right-circle-fill"></i></button></a>
+
+    <h1 class="bi bi-exclamation-triangle"></h1>
+    <h1>Error Details</h1>
+    <h1 th:if="${param.msg != null}" th:text="${param.msg}"></h1>
+    <h1 th:unless="${param.msg != null}">Page Not Found</h1>
+    <a th:href="@{'/payeelogin/dash'}"><button>BACK TO HOME<i class="bi bi-arrow-right-circle-fill"></i></button></a>
+
 </div>
 </body>
 </html>

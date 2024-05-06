@@ -74,22 +74,21 @@ public class SoapPhase {
                     BeanUtils.copyProperties(each, currentPayee);
                     payees.add(currentPayee);
                 });
-                //  serviceStatus.setStatus(resourceBundle.getString("success.payee"));
                 serviceStatus.setStatus(HttpServletResponse.SC_OK);
                 findAllPayeeBasedOnAccountNumberResponse.getPayee().addAll(payees);
                 serviceStatus.setMessage(resourceBundle.getString("payee.details") + findAllPayeeBasedOnAccountNumberRequest.getSenderAccount());
                 logger.info(resourceBundle.getString("payee.details") + findAllPayeeBasedOnAccountNumberRequest.getSenderAccount());
 
             } catch (PayeeException e) {
-                serviceStatus.setStatus(HttpServletResponse.SC_NO_CONTENT);  // 204 no content
-                logger.warn(resourceBundle.getString("no.payee") + findAllPayeeBasedOnAccountNumberRequest.getSenderAccount());
-                serviceStatus.setMessage(e.getMessage());
+                serviceStatus.setStatus(HttpServletResponse.SC_OK);  // 204 no content
+                logger.warn(resourceBundle.getString("payee.error.one")+e.getMessage());
+                serviceStatus.setMessage(resourceBundle.getString("payee.error.one")+e.getMessage());
             }
             findAllPayeeBasedOnAccountNumberResponse.setServiceStatus(serviceStatus);
             return findAllPayeeBasedOnAccountNumberResponse;
         } else {
-            serviceStatus.setStatus(HttpStatus.NOT_FOUND.value());
-            serviceStatus.setMessage(resourceBundle.getString("no.account") + " " + findAllPayeeBasedOnAccountNumberRequest.getSenderAccount());
+            serviceStatus.setStatus(HttpStatus.OK.value());
+            serviceStatus.setMessage(resourceBundle.getString("payee.error.three")+ resourceBundle.getString("no.account") + " " + findAllPayeeBasedOnAccountNumberRequest.getSenderAccount());
             findAllPayeeBasedOnAccountNumberResponse.setServiceStatus(serviceStatus);
             return findAllPayeeBasedOnAccountNumberResponse;
         }
