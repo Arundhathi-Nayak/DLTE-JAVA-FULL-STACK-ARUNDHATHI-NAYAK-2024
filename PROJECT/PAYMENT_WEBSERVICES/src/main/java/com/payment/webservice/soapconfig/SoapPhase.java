@@ -78,7 +78,7 @@ public class SoapPhase {
                 findAllPayeeBasedOnAccountNumberResponse.getPayee().addAll(payees);
                 if (!payees.isEmpty()) {
                     for (Payee payee : payees) {
-                        logger.info("Current Username-"+username+"Payee details: PayeeId - " + payee.getPayeeId() +
+                        logger.info("Current Username-"+username+" Payee details: PayeeId - " + payee.getPayeeId() +
                                 ", Sender Account Number - " + payee.getSenderAccountNumber() +
                                 ", Payee Account Number - " + payee.getPayeeAccountNumber() +
                                 ", Payee Name - " + payee.getPayeeName());
