@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="09f7ba9a-3b28-492a-a52d-9c004ae1a0b0" activeEnvironment="Default" name="revieemployee" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="e047964a-35ee-4455-99ad-21f56b92e10e" wsaVersion="NONE" name="EmployeePortSoap11" type="wsdl" bindingName="{http://employee.services}EmployeePortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8082/employeerepo/employee.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8082/employeerepo/employee.wsdl"><con:part><con:url>http://localhost:8082/employeerepo/employee.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://employee.services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://employee.services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://employee.services">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://employee.services" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <!--EmployeeBasicDetails-->
+      <xsd:complexType name="employeeBasicDetails">
+        <xsd:sequence>
+          <xsd:element name="employeeName" type="xsd:string"/>
+          <xsd:element name="employeeId" type="xsd:string"/>
+          <xsd:element name="emailId" type="xsd:string"/>
+          <xsd:element name="phoneNumber" type="xsd:long"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <!--EmployeeAddress-->
+      <xsd:complexType name="employeeAddress">
+        <xsd:sequence>
+          <xsd:element name="address" type="xsd:string"/>
+          <xsd:element name="houseNumber" type="xsd:string"/>
+          <xsd:element name="state" type="xsd:string"/>
+          <xsd:element name="city" type="xsd:string"/>
+          <xsd:element name="pinCode" type="xsd:integer"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <!--Employee-->
+      <xsd:complexType name="employee">
+        <xsd:sequence>
+          <xsd:element name="employeeBasicDetails" type="tns:employeeBasicDetails"/>
+          <xsd:element name="employeePermanentAddress" type="tns:employeeAddress"/>
+          <xsd:element name="employeeTemporaryAddress" type="tns:employeeAddress"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <!--Root element-->
+      <xsd:element name="employee" type="tns:employee"/>
+      <xsd:complexType name="serviceStatus">
+        <xsd:sequence>
+          <xsd:element name="status" type="xsd:int"/>
+          <xsd:element name="message" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <!--Request element-->
+      <xsd:element name="createEmployeeRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="employee" type="tns:employee"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <!--Response element-->
+      <xsd:element name="createEmployeeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="Employee" type="tns:employee"/>
+            <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="filterByIdRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="employeeId" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="filterByIdResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+            <xsd:element name="employee" type="tns:employee"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="filterByIdRequest">
+    <wsdl:part element="tns:filterByIdRequest" name="filterByIdRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createEmployeeResponse">
+    <wsdl:part element="tns:createEmployeeResponse" name="createEmployeeResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createEmployeeRequest">
+    <wsdl:part element="tns:createEmployeeRequest" name="createEmployeeRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="filterByIdResponse">
+    <wsdl:part element="tns:filterByIdResponse" name="filterByIdResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="EmployeePort">
+    <wsdl:operation name="filterById">
+      <wsdl:input message="tns:filterByIdRequest" name="filterByIdRequest"></wsdl:input>
+      <wsdl:output message="tns:filterByIdResponse" name="filterByIdResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createEmployee">
+      <wsdl:input message="tns:createEmployeeRequest" name="createEmployeeRequest"></wsdl:input>
+      <wsdl:output message="tns:createEmployeeResponse" name="createEmployeeResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EmployeePortSoap11" type="tns:EmployeePort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="filterById">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="filterByIdRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="filterByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createEmployee">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="createEmployeeRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createEmployeeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EmployeePortService">
+    <wsdl:port binding="tns:EmployeePortSoap11" name="EmployeePortSoap11">
+      <soap:address location="http://localhost:8082/employeerepo"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8082/employeerepo</con:endpoint></con:endpoints><con:operation id="87d6acd0-d29c-4fb6-8945-7248589d7149" isOneWay="false" action="" name="createEmployee" bindingOperationName="createEmployee" type="Request-Response" outputName="createEmployeeResponse" inputName="createEmployeeRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="a9c53bad-a208-41f9-808e-7be736f2f795" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/employeerepo</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:emp="http://employee.services">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <emp:createEmployeeRequest>\r
+         <emp:employee>\r
+            <emp:employeeBasicDetails>\r
+               <emp:employeeName>ashlesh</emp:employeeName>\r
+               <emp:employeeId>38</emp:employeeId>\r
+               <emp:emailId>shenoy@gmail.com</emp:emailId>\r
+               <emp:phoneNumber>6362645456</emp:phoneNumber>\r
+            </emp:employeeBasicDetails>\r
+            <emp:employeePermanentAddress>\r
+               <emp:address>karkala</emp:address>\r
+               <emp:houseNumber>temple</emp:houseNumber>\r
+               <emp:state>karnataka</emp:state>\r
+               <emp:city>udupi</emp:city>\r
+               <emp:pinCode>212121</emp:pinCode>\r
+            </emp:employeePermanentAddress>\r
+            <emp:employeeTemporaryAddress>\r
+               <emp:address>shenoyhouse</emp:address>\r
+               <emp:houseNumber>4F</emp:houseNumber>\r
+               <emp:state>karnataka</emp:state>\r
+               <emp:city>udupi</emp:city>\r
+               <emp:pinCode>434343</emp:pinCode>\r
+            </emp:employeeTemporaryAddress>\r
+         </emp:employee>\r
+      </emp:createEmployeeRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://employee.services/EmployeePort/createEmployeeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="71b188d5-a89a-486d-b0d1-7fb36b9ba683" isOneWay="false" action="" name="filterById" bindingOperationName="filterById" type="Request-Response" outputName="filterByIdResponse" inputName="filterByIdRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="f800a2f1-cfff-424a-8451-cf84b05132b8" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/employeerepo</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:emp="http://employee.services">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <emp:filterByIdRequest>\r
+         <emp:employeeId>2</emp:employeeId>\r
+      </emp:filterByIdRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://employee.services/EmployeePort/filterByIdRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

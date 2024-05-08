@@ -1,0 +1,4 @@
+javac package2/Greeting.java
+javac -cp . package1/Hello.java     
+jar cvfe demo.jar package1.Hello package1/Hello.class package2/Greeting.class
+java -jar demo.jar

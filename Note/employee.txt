@@ -1,0 +1,42 @@
+public List<Employee> read() throws SQLException {
+    List<Employee> employees = new ArrayList<>();
+    try {
+        String findAll = "SELECT * FROM employee emp " +
+                "INNER JOIN EmployeeAddress empPAdd ON emp.id = empPAdd.employeeId " +
+                "INNER JOIN EmployeeTemporaryAddress empTAdd ON emp.id = empTAdd.employeeId " +
+                "INNER JOIN EmployeeInformation empInfo ON emp.id = empInfo.employeeId";
+        preparedStatement = connection.prepareStatement(findAll);
+        resultSet = preparedStatement.executeQuery();
+        while (resultSet.next()) {
+            Employee employee = null;
+            EmployeeAddress permanentAddress = new EmployeeAddress(
+                    resultSet.getString("permanentAddress"),
+                    resultSet.getString("permanentHouseNumber"),
+                    resultSet.getString("permanentState"),
+                    resultSet.getString("permanentCity"),
+                    resultSet.getInt("permanentPinCode")
+            );
+            EmployeeAddress temporaryAddress = new EmployeeAddress(
+                    resultSet.getString("temporaryAddress"),
+                    resultSet.getString("temporaryHouseNumber"),
+                    resultSet.getString("temporaryState"),
+                    resultSet.getString("temporaryCity"),
+                    resultSet.getInt("temporaryPinCode")
+            );
+            EmployeebasicDetails basicDetails = new EmployeebasicDetails(
+                    resultSet.getString("name"),
+                    resultSet.getString("id"),
+                    resultSet.getString("email"),
+                    resultSet.getLong("phoneNumber")
+            );
+            employee = new Employee(basicDetails, permanentAddress, temporaryAddress);
+            employees.add(employee);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+        throw e; // Rethrow the exception to be handled by the caller
+    } finally {
+        closeConnections(); // Close connections in a finally block
+    }
+    return employees;
+}

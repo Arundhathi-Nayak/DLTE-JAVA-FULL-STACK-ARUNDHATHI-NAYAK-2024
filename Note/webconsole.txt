@@ -1,0 +1,255 @@
+package org.webconsole.console;
+
+import com.sun.org.slf4j.internal.Logger;
+import com.sun.org.slf4j.internal.LoggerFactory;
+import implementation.*;
+import org.webconsole.Details.EmployeeAddress;
+import org.webconsole.Details.EmployeeBasicDetails;
+import org.webconsole.Validation;
+
+import java.util.*;
+
+import static java.lang.System.exit;
+
+
+public class ClientConsole {
+    private static final ResourceBundle resourceBundle = ResourceBundle.getBundle("application");
+    private final Services port;
+
+    public ClientConsole() {
+        ServicesService service = new ServicesService();
+        this.port = service.getServicesPort();
+    }
+
+    public void addEmployeeDetails(Scanner scanner, Validation validation) {
+        List<Employee> employees = new ArrayList<>();
+        Employee employeeConsole;
+        EmployeeAddress employeePermanentAddressConsole;
+        EmployeeAddress employeeTemporaryAddressConsole;
+        EmployeeBasicDetails employeeBasicDetails;
+        do {
+            System.out.println(resourceBundle.getString("enter.employeeDetails"));
+            System.out.print(resourceBundle.getString("Enter.name"));
+            scanner.nextLine();
+            String name = scanner.nextLine();
+
+            System.out.print(resourceBundle.getString("enter.id"));
+            String id = scanner.nextLine();
+
+            String email;
+            boolean validEmail = false;
+            do {
+                System.out.print(resourceBundle.getString("enter.emailId"));
+                email = scanner.nextLine();
+
+                if (!validation.isValidEmail(email)) {
+                    System.out.println(resourceBundle.getString("invalid.email"));
+                } else {
+                    validEmail = true;
+                }
+            } while (!validEmail);
+
+            long phoneNumber;
+            boolean validPhoneNumber = false;
+            do {
+                System.out.print(resourceBundle.getString("enter.phone"));
+                phoneNumber = Long.parseLong(scanner.nextLine());
+
+                if (!validation.isValidPhoneNumber(phoneNumber)) {
+                    System.out.println(resourceBundle.getString("invalid.Phone"));
+                } else {
+                    validPhoneNumber = true;
+                }
+            } while (!validPhoneNumber);
+
+            String permanentAddress;
+            String permanentHouseNumber;
+            String permanentCity;
+            String permanentState;
+            int permanentPinCode;
+
+            System.out.println(resourceBundle.getString("enter.permanentAddress"));
+            System.out.print(resourceBundle.getString("enter.address"));
+            permanentAddress = scanner.nextLine();
+
+            System.out.print(resourceBundle.getString("enter.HouseNumber"));
+            permanentHouseNumber = scanner.nextLine();
+
+            System.out.print(resourceBundle.getString("enter.city"));
+            permanentCity = scanner.nextLine();
+
+            System.out.print(resourceBundle.getString("enter.state"));
+            permanentState = scanner.nextLine();
+
+            boolean validPermanentPinCode = false;
+            do {
+                System.out.print(resourceBundle.getString("enter.pincode"));
+                permanentPinCode = Integer.parseInt(scanner.nextLine());
+
+                if (!validation.isValidPin(permanentPinCode)) {
+                    System.out.println(resourceBundle.getString("invalid.Pin"));
+                } else {
+                    validPermanentPinCode = true;
+                }
+            } while (!validPermanentPinCode);
+
+            String temporaryAddress;
+            String temporaryHouseNumber;
+            String temporaryCity;
+            String temporaryState;
+            int temporaryPinCode;
+
+            System.out.println(resourceBundle.getString("enter.temporaryaddress"));
+            System.out.print(resourceBundle.getString("enter.address"));
+            temporaryAddress = scanner.nextLine();
+
+            System.out.print(resourceBundle.getString("enter.HouseNumber"));
+            temporaryHouseNumber = scanner.nextLine();
+
+            System.out.print(resourceBundle.getString("enter.city"));
+            temporaryCity = scanner.nextLine();
+
+            System.out.print(resourceBundle.getString("enter.state"));
+            temporaryState = scanner.nextLine();
+
+            boolean validTemporaryPinCode = false;
+            do {
+                System.out.print(resourceBundle.getString("enter.pincode"));
+                temporaryPinCode = Integer.parseInt(scanner.nextLine());
+
+                if (!validation.isValidPin(temporaryPinCode)) {
+                    System.out.println(resourceBundle.getString("invalid.Pin"));
+                } else {
+                    validTemporaryPinCode = true;
+                }
+            } while (!validTemporaryPinCode);
+
+            employeeBasicDetails = new EmployeeBasicDetails(name, id, email, phoneNumber);
+            employeePermanentAddressConsole = new EmployeeAddress(permanentAddress, permanentHouseNumber, permanentState, permanentCity, permanentPinCode);
+            employeeTemporaryAddressConsole = new EmployeeAddress(temporaryAddress, temporaryHouseNumber, temporaryState, temporaryCity, temporaryPinCode);
+            employeeConsole = new Employee(employeeBasicDetails,employeePermanentAddressConsole,employeeTemporaryAddressConsole);
+            Employee employee = translateEmployee(employeeConsole);
+            employees.add(employee);
+            port.callSaveAll(employee);
+
+            System.out.print(resourceBundle.getString("add.more"));
+        } while (scanner.next().equalsIgnoreCase(resourceBundle.getString("yes")));
+    }
+
+    public void displayEmployeeById(Scanner scanner) {
+        System.out.println(resourceBundle.getString("enter.id"));
+        String employeeId = scanner.next();
+        Employee employee = port.callFilterBasedOnID(employeeId);
+        if (employee != null) {
+            System.out.println(employee.displayEmployeeDetails());
+        } else {
+            System.out.println(resourceBundle.getString("employee.not.found"));
+        }
+    }
+
+    public void displayAllEmployees() {
+        GroupOfEmployee groupOfEmployee = port.callFindAll();
+        List<Employee> allEmployees = groupOfEmployee.getEmployeeArrayList();
+        if (!allEmployees.isEmpty()) {
+            for (Employee emp : allEmployees) {
+                System.out.println(emp.displayEmployeeDetails());
+            }
+        } else {
+            System.out.println(resourceBundle.getString("employee.not.found"));
+        }
+    }
+
+    public void displayEmployeeByPinCode(Scanner scanner) {
+        System.out.println(resourceBundle.getString("enter.pincode"));
+        int pinCode = scanner.nextInt();
+        GroupOfEmployee groupOfEmployee = port.callFilterBasedOnPincode(pinCode);
+        List<Employee> employees = groupOfEmployee.getEmployeeArrayList();
+        if (!employees.isEmpty()) {
+            for (Employee emp : employees) {
+                System.out.println(emp.displayEmployeeDetails());
+            }
+        } else {
+            System.out.println(resourceBundle.getString("employee.not.found"));
+        }
+    }
+
+    public void start() {
+        try (Scanner scanner = new Scanner(System.in)) {
+            Validation validation = new Validation();
+
+            System.out.println(resourceBundle.getString("greet"));
+            while (true) {
+                boolean validate = false;
+                System.out.println(resourceBundle.getString("menu.display"));
+                System.out.println(resourceBundle.getString("enter.choice"));
+                int choice = 0;
+                do {
+                    try {
+                        choice = scanner.nextInt();
+                        validate = true;
+                    } catch (InputMismatchException e) {
+                        System.out.println(resourceBundle.getString("Enter.number1"));
+                        scanner.nextLine();
+                    }
+                } while (!validate);
+
+                switch (choice) {
+                    case 1:
+                        addEmployeeDetails(scanner, validation);
+                        break;
+                    case 2:
+                        displayEmployeeById(scanner);
+                        break;
+                    case 3:
+                        displayAllEmployees();
+                        break;
+                    case 4:
+                        displayEmployeeByPinCode(scanner);
+                        break;
+                    case 5:
+                        System.out.println("Exiting program...");
+                        return;
+                    default:
+                        System.out.println(resourceBundle.getString("invalid.choice"));
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void main(String[] args) {
+        ClientConsole clientConsole = new ClientConsole();
+        clientConsole.start();
+    }
+
+    private static Employee translateEmployee(Employee employee) {
+        implementation.EmployeeAddress employeeTemporaryAddress = new implementation.EmployeeAddress();
+        implementation.EmployeeAddress employeePermanentAddress = new implementation.EmployeeAddress();
+        EmployeebasicDetails employeebasicDetails=new EmployeebasicDetails();
+        employeebasicDetails.setEmployeeName(employee.getEmployeebasicDetails().getEmployeeName());
+        employeebasicDetails.setEmployeeId(employee.getEmployeebasicDetails().getEmployeeId());
+        employeebasicDetails.setEmailId(employee.getEmployeebasicDetails().getEmailId());
+        employeebasicDetails.setPhoneNumber(employee.getEmployeebasicDetails().getPhoneNumber());
+
+        employeePermanentAddress.setAddress(employee.getEmployeePermanentAddress().getAddress());
+        employeePermanentAddress.setHouseNumber(employee.getEmployeePermanentAddress().getHouseNumber());
+        employeePermanentAddress.setCity(employee.getEmployeePermanentAddress().getCity());
+        employeePermanentAddress.setState(employee.getEmployeePermanentAddress().getState());
+        employeePermanentAddress.setPinCode(employee.getEmployeePermanentAddress().getPinCode());
+
+        employeeTemporaryAddress.setAddress(employee.getEmployeeTemporaryAddress().getAddress());
+        employeeTemporaryAddress.setHouseNumber(employee.getEmployeeTemporaryAddress().getHouseNumber());
+        employeeTemporaryAddress.setCity(employee.getEmployeeTemporaryAddress().getCity());
+        employeeTemporaryAddress.setState(employee.getEmployeeTemporaryAddress().getState());
+        employeeTemporaryAddress.setPinCode(employee.getEmployeeTemporaryAddress().getPinCode());
+
+        Employee translatedEmployee = new Employee();
+        translatedEmployee.setEmployeebasicDetails(employeebasicDetails);
+        translatedEmployee.setEmployeePermanentAddress(employeePermanentAddress);
+        translatedEmployee.setEmployeeTemporaryAddress(employeeTemporaryAddress);
+
+        return translatedEmployee;
+    }
+}
+

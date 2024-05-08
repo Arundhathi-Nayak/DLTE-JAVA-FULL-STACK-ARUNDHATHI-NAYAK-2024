@@ -1,0 +1,124 @@
+class : To make a relationship between each property. Kind of encapsulation. 
+
+Encapsulation :binding methods and property. Hiding sensitive data.
+
+Adding the first dependecy(present in mvn repository)
+ * lombok (library) select 1.12.2
+
+resuability and security(without instance we cannot touch CLASS)
+
+1.operational privilage
+2.initialize CLass property
+
+@Data   //annotation offered by lombok for setter and getter
+@AllArgsConstructor
+@NoArgsConstructor
+
+without create any tostring(),constructor,setter AND getter all above takes care of that.
+
+Constructor
+
+Polymorphism:Static,complie,overloading 
+
+OOP:
+
+
+--------------------------------------------------------------------------------------
+          Database :
+--------------------------------------------------------------------------------------
+SQL :
+      MS SQL,POSTgresSq
+NOSQL :
+      Firebase,MongoDB
+-----------------------------
+
+Oracle,
+     SQL Developer >> UI
+     sql plus      >> command based(cli)
+
+      Tables :columns,row
+      Datatypes : varchar,number,int,bigint,text,double,float,blob,date.
+------------------------------------------------------------------------
+
+SQL languages:
+    Data definition language(DDL) : create,drop,alter
+                                    database,views,types,procedure,tigggers,sequence,table,user
+    Data Control Language(DCL) : grant,invoke >> users
+    Data Manipulation language(DML): insert,update,delete,truncate
+    Data query language(DQL): Select >> JOINS
+    Trnsaction control language(TCL) : commit,rollback
+    Triggers
+    Procedures
+    ER-diagram >> Normalization
+-------------------------------------------------------------------------
+system
+122024
+--------------------------------------------------------------------------
+
+--------------------------Queries-----------------------------------------------------
+
+--DDL   //commnet create table
+create table transaction_second(transaction_id int not null,transaction_date date not null,transaction_to varchar(2255) not null,transaction_amount number(10) not null,transaction_remarks varchar(100));
+------------------------------------------------------
+describle transaction_second;  --structure of table
+-----------------------------------------------------------
+Alter table transaction_second add primary key(transaction_id); -- alter
+
+---------------------------------------------------------------------------
+ Alter table transaction_second drop column transaction_id;
+------------------------------------------------------------------------
+Alter table transaction_second add transaction_id number not null;
+---------------------------------------------------------------------
+
+create sequence transaction_seq start with 2024001 increment by 1;
+------------------------------------------------------------------------
+alter table transaction_second add constraint transaction_seq primary key(transaction_id);
+----------------------------------------------------------------------------
+insert into transaction_second(transaction_id,transaction_amount,transaction_date,transaction_receiver,transaction_remarks) values(transaction_seq.nextval,100,'20Feb2024','Annapoo','Friend');
+-------------------------------------------------------------------------------
+ drop sequence transaction_seq;
+-----------------------------------------------------------------------------
+create sequence transaction_seq start with 2024001 increment by 1;
+---------------------------------------------------------------------------
+truncate table transaction_second;
+------------------------------------------------------------------------
+ insert into transaction_second(transaction_id,transaction_amount,transaction_date,transaction_receiver,transaction_remarks) values(transaction_seq.nextval,100,'20Feb2024','Annapoo','Friend');
+------------------------------------------------------------------------------
+commit ;
+------------------------------------------------------------------------------
+rollback;
+-------------------------------------------------------------------------------
+ select * from transaction_second;
+-------------------------------------------------------------------------------
+ select transaction_receiver from transaction_second where transaction_remarks='bill';
+----------------------------------------------------------------------------------
+create view bill_name as select transaction_receiver from transaction_second where transaction_remarks='bill';
+
+select * from bill_name;
+-----------------------------------------------------------------------------------
+create or replace view bill_name as select transaction_receiver,transaction_date from transaction_second where transaction_remarks='bill';
+------------------------------------------------------------------------------------
+
+update transaction_second set transaction_remarks='medical need' where transaction_remarks='Friend';
+----------------------------------------------------------------
+
+update transaction_second set transaction_remarks='bill' where transaction_amount>=100;
+
+---------------------------------------------------------------------------------
+delete from transaction_second where transaction_remarks='Family';
+
+------------------------------------------------------------------------------
+
+ delete from transaction_second where transaction_date between '20Feb2024' and '25Feb2024';
+
+-------------------------------------------------------------------------------
+truncate table transaction_second;
+
+drop table transaction_second;
+
+commit
+-----------------------------------------------------------------------------------
+
+====================================
+INHERITANC
+====================================

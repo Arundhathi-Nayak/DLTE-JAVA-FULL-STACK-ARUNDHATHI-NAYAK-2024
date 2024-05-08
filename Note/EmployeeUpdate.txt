@@ -1,0 +1,102 @@
+public boolean create(List<Employee> list) throws EmployeeNotFoundException {
+    boolean success = false;
+    for(Employee employee : list) {
+        if(!validation.isValidPhoneNumber(employee.getEmployeebasicDetails().getPhoneNumber())) {
+            logger.error("Phone number is corrupted!");
+            throw new EmployeeNotFoundException(resourceBundle1.getString("invalid.Phone"));
+        }
+
+        if(!validation.isValidEmail(employee.getEmployeebasicDetails().getEmailId())) {
+            logger.error("Email ID is corrupted!");
+            throw new EmployeeNotFoundException(resourceBundle1.getString("invalid.email"));
+        }
+        if(!validation.isValidPin(employee.getEmployeeTemporaryAddress().getPinCode())) {
+            logger.error("Temporary pincode is corrupted!");
+            throw new EmployeeNotFoundException(resourceBundle1.getString("invalid.Pin"));
+        }
+        if(!validation.isValidPin(employee.getEmployeeTemporaryAddress().getPinCode())) {
+            logger.error("Permanent pincode is corrupted!");
+            throw new EmployeeNotFoundException(resourceBundle1.getString("invalid.Pin"));
+        }
+
+        String employeeID = employee.getEmployeebasicDetails().getEmployeeId();
+        try {
+            String employees = "INSERT INTO Employee (id, name) VALUES (?, ?)";
+            preparedStatement = connection.prepareStatement(employees);
+            preparedStatement.setString(1, employeeID);
+            preparedStatement.setString(2, employee.getEmployeebasicDetails().getEmployeeName());
+            int resultBasic = preparedStatement.executeUpdate();
+
+            String permanentaddress = "INSERT INTO EmployeeAddress (employeeId,permanentAddress, permanentHouseNumber,permanentCity, permanentState,permanentPinCode) " +
+                    "VALUES (?, ?, ?, ?, ?, ?)";
+            preparedStatement = connection.prepareStatement(permanentaddress);
+            preparedStatement.setString(1, employeeID);
+            preparedStatement.setString(2, employee.getEmployeePermanentAddress().getAddress());
+            preparedStatement.setString(3, employee.getEmployeePermanentAddress().getHouseNumber());
+            preparedStatement.setString(4, employee.getEmployeePermanentAddress().getCity());
+            preparedStatement.setString(5, employee.getEmployeePermanentAddress().getState());
+            preparedStatement.setInt(6, employee.getEmployeePermanentAddress().getPinCode());
+            int resultPermanent = preparedStatement.executeUpdate();
+
+            String temporaryaddress = "INSERT INTO EmployeeTemporaryAddress(employeeId,temporaryAddress, temporaryHouseNumber,temporaryCity, temporaryState,temporaryPinCode) " +
+                    "VALUES (?, ?, ?, ?, ?, ?)";
+            preparedStatement = connection.prepareStatement(temporaryaddress);
+            preparedStatement.setString(1, employeeID);
+            preparedStatement.setString(2, employee.getEmployeeTemporaryAddress().getAddress());
+            preparedStatement.setString(3, employee.getEmployeeTemporaryAddress().getHouseNumber());
+            preparedStatement.setString(4, employee.getEmployeeTemporaryAddress().getCity());
+            preparedStatement.setString(5, employee.getEmployeeTemporaryAddress().getState());
+            preparedStatement.setInt(6, employee.getEmployeeTemporaryAddress().getPinCode());
+            int resultTemporary = preparedStatement.executeUpdate();
+
+            String information = "INSERT INTO EmployeeInformation (employeeId, email, phoneNumber) VALUES (?, ?, ?)";
+            preparedStatement = connection.prepareStatement(information);
+            preparedStatement.setString(1, employeeID);
+            preparedStatement.setString(2, employee.getEmployeebasicDetails().getEmailId());
+            preparedStatement.setLong(3, employee.getEmployeebasicDetails().getPhoneNumber());
+            int resultInformation = preparedStatement.executeUpdate();
+
+            if(resultBasic != 0) {
+                System.out.println("Basic details inserted");
+            } else {
+                System.out.println("failed");
+            }
+            if(resultTemporary != 0) System.out.println("Temporary address inserted");
+            if(resultPermanent != 0) System.out.println("Permanent address inserted");
+            if(resultInformation != 0) System.out.println("Additional information added");
+            System.out.println(resourceBundle1.getString("employee.add") + employeeID +" "+resourceBundle1.getString("employeeAdd.success"));
+            logger.info(resourceBundle1.getString("employee.add")+ employeeID +" "+resourceBundle1.getString("employeeAdd.success"));
+
+            success = true;
+
+        } catch (SQLException e) {
+            if (e instanceof SQLIntegrityConstraintViolationException) {
+                System.out.println(resourceBundle1.getString("Fail.insert") +" "+ employeeID + " "+resourceBundle1.getString("employee.exists"));
+                logger.error(resourceBundle1.getString("Fail.insert") +" "+ employeeID + " "+resourceBundle1.getString("employee.exists"));
+            } else {
+                e.printStackTrace();
+            }
+        }
+    }
+    return success;
+}
+
+
+
+Employee employee = translateEmployee(employeeConsole);
+
+            List<Employee> employeeInfo = new ArrayList<>();
+            employeeInfo.add(employee);
+            boolean created = inputEmployeeDetails.create(employeeInfo);
+
+            if (created) {
+                System.out.print(resourceBundle.getString("add.more"));
+            } else {
+                System.out.println(resourceBundle.getString("creation.failed"));
+            }
+        } catch (EmployeeNotFoundException e) {
+            System.out.println(e.getMessage());
+            logger.error(e.getMessage());
+        }
+    } while (scanner.next().equalsIgnoreCase(resourceBundle.getString("yes")));
+    break;

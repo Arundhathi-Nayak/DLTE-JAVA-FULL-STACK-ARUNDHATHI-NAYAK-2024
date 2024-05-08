@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="c397362d-63c0-4024-9e48-aa5f2a652859" activeEnvironment="Default" name="payeenskjd" resourceRoot="" soapui-version="5.5.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="722dddb0-2015-45c5-bed2-0ff03c81d8ff" wsaVersion="NONE" name="PayeePortSoap11" type="wsdl" bindingName="{http://payee.services}PayeePortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8082/payeerepo/payee.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8082/payeerepo/payee.wsdl"><con:part><con:url>http://localhost:8082/payeerepo/payee.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://payee.services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://payee.services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://payee.services">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://payee.services" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <!--Entity-->
+      <xsd:complexType name="payee">
+        <xsd:sequence>
+          <xsd:element name="payeeId" type="xsd:int"/>
+          <xsd:element name="senderAccountNumber" type="xsd:long"/>
+          <xsd:element name="payeeAccountNumber" type="xsd:long"/>
+          <xsd:element name="payeeName" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="payeeRequired">
+        <xsd:sequence>
+          <xsd:element name="payeeAccountNumber" type="xsd:long"/>
+          <xsd:element name="payeeName" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <!--Service status-->
+      <xsd:complexType name="serviceStatus">
+        <xsd:sequence>
+          <xsd:element name="status" type="xsd:string"/>
+          <xsd:element name="message" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <!--Find All Payee-->
+      <xsd:element name="findAllPayeeRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="senderAccount" type="xsd:long"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="findAllPayeeResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+            <xsd:element maxOccurs="unbounded" name="payee" type="tns:payee"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="findAllPayeeRequest">
+    <wsdl:part element="tns:findAllPayeeRequest" name="findAllPayeeRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllPayeeResponse">
+    <wsdl:part element="tns:findAllPayeeResponse" name="findAllPayeeResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PayeePort">
+    <wsdl:operation name="findAllPayee">
+      <wsdl:input message="tns:findAllPayeeRequest" name="findAllPayeeRequest"></wsdl:input>
+      <wsdl:output message="tns:findAllPayeeResponse" name="findAllPayeeResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PayeePortSoap11" type="tns:PayeePort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="findAllPayee">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="findAllPayeeRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllPayeeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PayeePortService">
+    <wsdl:port binding="tns:PayeePortSoap11" name="PayeePortSoap11">
+      <soap:address location="http://localhost:8082/payeerepo"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8082/payeerepo</con:endpoint></con:endpoints><con:operation id="de098f7f-0c4a-4ad1-9acd-08e5f64c3301" isOneWay="false" action="" name="findAllPayee" bindingOperationName="findAllPayee" type="Request-Response" outputName="findAllPayeeResponse" inputName="findAllPayeeRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b5eef7db-7a0c-4c9f-9955-2a60406585b4" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/payeerepo</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:pay="http://payee.services">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <pay:findAllPayeeRequest>\r
+         <pay:senderAccountNumber>225792454013</pay:senderAccountNumber>\r
+      </pay:findAllPayeeRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://payee.services/PayeePort/findAllPayeeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

@@ -1,0 +1,60 @@
+1.Using the Runnable interface allows for greater flexibility, as the same task can be executed by multiple threads. In contrast, the Thread class is typically used when you need to create and control a single thread.
+Sepearte Task logic from thread management
+
+2.yes,asynchronous programming,event-driven programming,parallel processing
+
+3.throw :  when you want to explicitly raise anexception within the methods
+  throws :in method declaration to specifiy the exceptions that might be thrown by the exception
+
+4. final keyword : restricitng users from modifying variables,classes and methods
+   1. immutable objects
+    2.constant
+    3.method parameters (cannot be modified within method)
+     4.method overriding(do not want to method to overriden by subclasses)
+     5.class
+     6 local variables
+
+5.error meassages,error codes,logging,stack traces,retuern codes
+
+6.yes , variable declaration and constructor.
+
+7. final String ,yes but content can be modified.(such as using replace())
+  final String greetings="Hello,";
+ String modifiedGreetings=greetings+"world!";
+  sout(modifiedGreetings);
+
+8. final to built in class gives compliation error . work with standard library.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Certainly! In the context of databases, the ACID properties play a crucial role in ensuring data consistency and reliability. Let’s explore each of these properties:
+
+Atomicity:
+Definition: Atomicity ensures that a transaction (a group of database operations) either completes entirely or doesn’t happen at all.
+All or Nothing Rule: If any part of the transaction fails, the entire transaction is rolled back (aborted), and no changes are made to the database.
+Example: Consider transferring money from one account to another. Either the entire transfer occurs, or none of it happens.
+Consistency:
+Definition: Consistency ensures that the database remains in a valid state before and after a transaction.
+Integrity Constraints: Integrity rules (such as total balances) must be maintained during and after the transaction.
+Example: If a transaction deducts money from one account, it must add the same amount to another account to maintain the total balance.
+Isolation:
+Definition: Isolation ensures that multiple transactions can occur concurrently without interfering with each other.
+Independence: Changes made by one transaction are not visible to other transactions until they are committed.
+Example: Two transactions running concurrently should not interfere with each other’s intermediate states.
+Durability:
+Definition: Durability ensures that once a transaction is committed, its changes are permanently stored in the database.
+Persistence: Even if the system crashes or restarts, committed changes remain intact.
+Example: After transferring money, the transaction’s effect (deduction and addition) persists even if the system goes down.
+In summary, the ACID p

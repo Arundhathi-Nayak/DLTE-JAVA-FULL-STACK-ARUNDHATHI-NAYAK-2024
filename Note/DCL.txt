@@ -1,0 +1,63 @@
+===============
+DCL
+================
+--grant
+--revoke
+
+--select,connect,insert,delete,create
+
+synatx :create user_name identified by password;
+
+create user aru identified by aru;
+--------------------------------------------
+
+----Admin--log into user system--
+
+grant connect to aru;
+--------------------------------------
+login user aru, password=aru;
+----------------------------------------
+select * from bankers;  ---error no acess to other
+--------------------------------------------
+
+alter session set current_schema=system;
+
+-----------------------------------------------
+we havent offered select privilage;only connection privilage;
+
+exit;
+------------------------------------------------
+grant select,update on Table_name to aru;
+
+---------------------------------------------
+connect username/password;
+------------------------------------------------
+drop user user_name;
+----------------------------------------------
+grant connect to aru;
+grant select to aru;
+connect aru/aru;
+alter session set current_schema=system;
+----------------------------------------------
+connect system/123;
+revoke update on customers from aru;
+----------------------------------------------
+
+==============
+DQL
+==============
+
+select * form bank_users where full_name like '%e%';
+
+select * form bank_users where full_name like '%e%' and role='manager';
+
+seletc * from bank_user order by username;
+
+seletc * from bank_user order by username desc;
+
+seletc * from bank_user where wallet in ('gpay','phone pay');
+
+seletc count(*) from bank_user where waller in ('gpay','phone pay');
+
+-------------------------------------------------------------------------
+

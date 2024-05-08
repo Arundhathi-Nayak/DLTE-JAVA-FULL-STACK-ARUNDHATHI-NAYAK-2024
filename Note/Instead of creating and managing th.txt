@@ -1,0 +1,66 @@
+Instead of creating and managing their dependencies internally, beans declare their dependencies through constructor injection, setter injection, or field injection. This allows the container to inject the required dependencies into the bean at runtime, reducing the bean's direct dependency on specific implementations.
+ 
+ 
+Instead of a component creating its dependencies directly using the new keyword or a factory method, it relies on an external entity to provide those dependencies. This external entity is often referred to as an IoC container or framework.
+ 
+IoC is commonly implemented using techniques such as Dependency Injection (DI), where dependencies are "injected" into a component from the outside
+ 
+Application context It provides a way to access application components, such as beans, and wire them together using dependency injection.
+ 
+BeanFactory is the simplest container provided by Spring for managing beans. It focuses on basic bean instantiation, configuration, and lifecycle management.
+ 
+ad "main" org.springframework.beans.factory.NoSuchBeanDefinitionException: No bean named 'hm' available
+ 
+ 
+If you're using Java configuration (using annotations such as @Component, @Service, @Repository, etc.), then by default, Spring will generate a bean name based on the class name with the initial letter converted to lowercase.
+ 
+You are correct. In Spring Framework, @Bean is a method-level annotation used to declare a bean
+ 
+Class-Level Annotations:
+@Component:
+ 
+Indicates that the class is a Spring-managed component.
+Spring will automatically detect and instantiate beans marked with this annotation during component scanning.
+@Service:
+ 
+Indicates that the class is a service component.
+Often used to mark service layer classes.
+@Repository:
+ 
+Indicates that the class is a repository component.
+Typically used to mark classes that access the database.
+@Controller:
+ 
+Indicates that the class is a controller component.
+Used in Spring MVC to mark classes that handle HTTP requests.
+@Configuration:
+ 
+ 
+METHOD LEVEL
+ 
+Indicates that the class provides bean definitions.
+Used in conjunction with @Bean methods to define beans in Java-based configuration.
+Method-Level Annotations:
+@Autowired:
+ 
+Marks a constructor, field, or setter method for automatic dependency injection.
+Used to inject beans into other beans.
+@RequestMapping:
+ 
+Specifies the URL mapping for a method within a controller.
+Used in Spring MVC to map HTTP requests to specific controller methods.
+ 
+ 
+When the Spring container starts up, it reads these XML files and instantiates the beans accordingly.
+ 
+ 
+The @Bean annotation in Spring is used at the method level within @Configuration-annotated classes to declare a Spring bean. When Spring scans such a class, it recognizes methods annotated with @Bean and registers the return value of those methods as beans within the Spring application context.
+ 
+ 
+In Spring Framework's XML configuration, objects (beans) get created when the Spring container initializes and processes the XML configuration file. This typically occurs when your Spring application starts up.
+ 
+Here's how it works:
+ 
+Application Startup: When your Spring application starts up, the Spring container initializes. This initialization process involves loading the application context, which includes reading and parsing the XML configuration files.
+ 
+Parsing XML Configuration: The Spring container parses the XML configuration files, which contain bean definitions. These bean definitions specify the beans to be created and configured by the container.

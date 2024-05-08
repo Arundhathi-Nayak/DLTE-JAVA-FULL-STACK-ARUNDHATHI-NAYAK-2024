@@ -1,0 +1,169 @@
+==================
+EXCEPTION
+==================
+
+error: runtime >> stack Overflow, >> we cannot fix that
+       complie time(syntax,logical) >> it can be fixed before compipling the code
+
+Exception:
+      complite time : checked Exception
+
+
+----------------------------------------------------------------------------------
+
+===============================
+PROCEDURES AND TRIGGETRS
+===============================
+
+Procedure : function/methods
+           Complied once and number of times it executes.
+           write complex/repeated queries in procedure to complie once and execute whenever it requires, avoid network traffic,complilation,exception handling
+
+----------------------------------------------------------------
+
+CREATING PROCEDURE
+
+create or replace procedure PROCEDURE_NAME(parameters)
+begin
+end
+/
+----------------------------------------------------------------
+parameters :in(default),out(Return type),inout;
+---------------------------------------------------------------
+ select banker_name from bankers where banker_id=139001;
+
+ or
+
+create or replace  procedure read_bankers_info(
+emp_id number;
+emp_name out varchar2,
+emp_info out varchar2
+)
+
+ as
+
+begin
+  select banker_name into emp_name from bankers where banker_id= emp_id;
+  emp_info:='banker feched sucessfylly";
+exception
+  when no_data_found then
+  emp_info :='No banker mached";
+  when others then
+  emp_info :='Error due to '|| SQLERRM;
+end;
+/
+----------------------------------------------------------------
+VARIABLE found_one varchar2(255);
+
+variable info_or_error varchar2(255); -- error handling
+--------------------------------------------------------------
+execute read_bankers_info(139001,: found_one,: info_or_error); (out variable give :)
+--------------------------------------------------------------------
+print found_one;
+print info_or_error
+--------------------------------------------------------------------
+=============
+UPDATE
+=============
+
+Create or replace procedure update_customers(
+  acc_num number,
+  acc_name varchar2,
+  acc_bal float,
+  acc_cont number,
+  acc_pass varchar2,
+  acc_info out varchar2
+)
+as
+begin
+update customers set account_holder=acc_name,contact=acc_cont,account_passcode=acc_pass, account_balance=acc_bal where account_number=acc_num;
+acc_info :='KYC UPdate";
+exception;
+when others then
+acc_info:='Error due to '|| SQLERRM;
+end;
+/
+----------------------------
+vaiable err_or_info varchar2(255);
+-------------------------------
+excute update_customers(1011,'asdf',12345,23456,'234@12345',err_or_info;
+-----------------------------------
+print err_or_info;
+--------------------------
+drop procedure procedure_name;
+----------------------------------
+
+=======================
+TRIGGERS
+=======================
+
+time>> before,after
+event >> insert,update,delete
+
+syntax:
+
+create or replace trigger TRIGGER_NAME
+TIME EVENT in TABLE
+for each row
+CONDITION
+begin
+------
+end;
+/
+-----------------------------------------
+
+
+ --- create table and insert 2 column
+create or replace trigger check_some 
+before  insert on borrowers
+for each row
+begin
+    if : new.borrower_contact is null then :new.borrower_contact :=0;
+    end if;
+end;
+/
+------------------------------------------
+insert into borrowers (id,name) values (234,'Aru')
+---------------------------------------
+
+create table my_logs(date_of_log date,message varchar(255));
+
+-------------------------------------------------------
+
+create or replace trigger record_log
+after update on borrowers
+for each row
+when(old.borrower_id>0)
+begin
+   insert into my_logs values(sysdate,'Updated the borrower table'|| :old.borrower.id);
+end;
+/
+------------------------------------
+
+update borrower set borrower_contact=23456 where borrower_id=23456;
+--------------------------------------------------------------------
+
+1.1. Create or REPLACE PROCEDURE InsertTransaction(
+transaction_id number,
+date_of_transaction Date,
+amount number,
+trans_to VARCHAR2,
+reemark VARCHAR2,
+transaction_info varchar2
+)
+AS
+BEGIN
+ BEGIN TRY
+  BEGIN
+   INSERT INTO Transactions
+   VALUES (transaction_id,date_of_transaction,trans_to,amount,reemark);
+   transaction_info :='Inserted Sucessfully';
+  END
+ END TRY
+ BEGIN CATCH
+ transaction_info := 'Error while Inserting Transaction'+SQLERRM;
+ END CATCH
+END;
+/
+
+

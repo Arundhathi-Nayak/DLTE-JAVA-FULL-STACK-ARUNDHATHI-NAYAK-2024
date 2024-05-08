@@ -1,0 +1,32 @@
+===================
+  INHERITANCE
+===================
+
+derivedClass extends from baseClass
+derivedInterface extends baseInterface
+
+derivedClass implements baseInterface
+
+One parent class can be inherited not more Than That(Ambuguity is there);
+In C++ there is a virtual base class so multiple Iheritance is possiblee;
+Javas all methods are virtual methods.
+
+One base class to drive multiple base class (Hierarchical Inheritance).
+
+1.Single
+2.Multilevel
+3.Hierarchy
+4.hybrid
+
+Between (class,Interface)
+
+multiple interface can be implemented by single class(interface for only abstract methods)
+
+overdding
+
+between classes only on inheritance
+
+RUn time polymorphism
+
+signature without definition- abstract
+

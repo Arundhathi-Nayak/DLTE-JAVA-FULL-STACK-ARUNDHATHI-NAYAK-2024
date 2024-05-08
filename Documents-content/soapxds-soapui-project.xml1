@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="2fd116dd-0e7a-477d-86bc-28441dc5f68f" activeEnvironment="Default" name="soapxds" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="8ee25240-5fba-4c1e-978a-311b41925e72" wsaVersion="NONE" name="TransactionPortSoap11" type="wsdl" bindingName="{http://transaction.services}TransactionPortSoap11" soapVersion="1_1" anonymous="optional" definition="http://localhost:8082/transactionrepo/transaction.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://localhost:8082/transactionrepo/transaction.wsdl"><con:part><con:url>http://localhost:8082/transactionrepo/transaction.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://transaction.services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://transaction.services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://transaction.services">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" targetNamespace="http://transaction.services" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:complexType name="transaction">
+        <xsd:sequence>
+          <xsd:element name="transactionId" type="xsd:long"/>
+          <xsd:element name="transactionDate" type="xsd:date"/>
+          <xsd:element name="transactionBy" type="xsd:string"/>
+          <xsd:element name="transactionTo" type="xsd:string"/>
+          <xsd:element name="transactionAmount" type="xsd:int"/>
+          <xsd:element name="transactionRemarks" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="serviceStatus">
+        <xsd:sequence>
+          <xsd:element name="status" type="xsd:string"/>
+          <xsd:element name="message" type="xsd:string"/>
+        </xsd:sequence>
+      </xsd:complexType>
+      <!--add new transaction-->
+      <xsd:element name="newTransactionRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="transaction" type="tns:transaction"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="newTransactionResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+            <xsd:element name="transaction" type="tns:transaction"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="filterBySenderRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="sender" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="filterBySenderResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+            <xsd:element maxOccurs="unbounded" name="transaction" type="tns:transaction"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="filterByReceiverRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="receiver" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="filterByReceiverResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+            <xsd:element maxOccurs="unbounded" name="transaction" type="tns:transaction"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="filterByAmountRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="amount" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="filterByAmountResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+            <xsd:element maxOccurs="unbounded" name="transaction" type="tns:transaction"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateByRemarksRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="transaction" type="tns:transaction"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateByRemarksResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+            <xsd:element name="transaction" type="tns:transaction"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteByRangeOfDatesRequest">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="startDate" type="xsd:date"/>
+            <xsd:element name="endDate" type="xsd:date"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="deleteByRangeOfDatesResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+            <xsd:element name="transaction" type="tns:transaction"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="filterByReceiverRequest">
+    <wsdl:part element="tns:filterByReceiverRequest" name="filterByReceiverRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteByRangeOfDatesResponse">
+    <wsdl:part element="tns:deleteByRangeOfDatesResponse" name="deleteByRangeOfDatesResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="newTransactionRequest">
+    <wsdl:part element="tns:newTransactionRequest" name="newTransactionRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="filterByAmountResponse">
+    <wsdl:part element="tns:filterByAmountResponse" name="filterByAmountResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="deleteByRangeOfDatesRequest">
+    <wsdl:part element="tns:deleteByRangeOfDatesRequest" name="deleteByRangeOfDatesRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="filterByReceiverResponse">
+    <wsdl:part element="tns:filterByReceiverResponse" name="filterByReceiverResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateByRemarksResponse">
+    <wsdl:part element="tns:updateByRemarksResponse" name="updateByRemarksResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="filterByAmountRequest">
+    <wsdl:part element="tns:filterByAmountRequest" name="filterByAmountRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="newTransactionResponse">
+    <wsdl:part element="tns:newTransactionResponse" name="newTransactionResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="filterBySenderResponse">
+    <wsdl:part element="tns:filterBySenderResponse" name="filterBySenderResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="updateByRemarksRequest">
+    <wsdl:part element="tns:updateByRemarksRequest" name="updateByRemarksRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="filterBySenderRequest">
+    <wsdl:part element="tns:filterBySenderRequest" name="filterBySenderRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TransactionPort">
+    <wsdl:operation name="filterByReceiver">
+      <wsdl:input message="tns:filterByReceiverRequest" name="filterByReceiverRequest"></wsdl:input>
+      <wsdl:output message="tns:filterByReceiverResponse" name="filterByReceiverResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteByRangeOfDates">
+      <wsdl:input message="tns:deleteByRangeOfDatesRequest" name="deleteByRangeOfDatesRequest"></wsdl:input>
+      <wsdl:output message="tns:deleteByRangeOfDatesResponse" name="deleteByRangeOfDatesResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newTransaction">
+      <wsdl:input message="tns:newTransactionRequest" name="newTransactionRequest"></wsdl:input>
+      <wsdl:output message="tns:newTransactionResponse" name="newTransactionResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="filterByAmount">
+      <wsdl:input message="tns:filterByAmountRequest" name="filterByAmountRequest"></wsdl:input>
+      <wsdl:output message="tns:filterByAmountResponse" name="filterByAmountResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateByRemarks">
+      <wsdl:input message="tns:updateByRemarksRequest" name="updateByRemarksRequest"></wsdl:input>
+      <wsdl:output message="tns:updateByRemarksResponse" name="updateByRemarksResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="filterBySender">
+      <wsdl:input message="tns:filterBySenderRequest" name="filterBySenderRequest"></wsdl:input>
+      <wsdl:output message="tns:filterBySenderResponse" name="filterBySenderResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="TransactionPortSoap11" type="tns:TransactionPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="filterByReceiver">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="filterByReceiverRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="filterByReceiverResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteByRangeOfDates">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="deleteByRangeOfDatesRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="deleteByRangeOfDatesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="newTransaction">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="newTransactionRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="newTransactionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="filterByAmount">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="filterByAmountRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="filterByAmountResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateByRemarks">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="updateByRemarksRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="updateByRemarksResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="filterBySender">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="filterBySenderRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="filterBySenderResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="TransactionPortService">
+    <wsdl:port binding="tns:TransactionPortSoap11" name="TransactionPortSoap11">
+      <soap:address location="http://localhost:8082/transactionrepo"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8082/transactionrepo</con:endpoint></con:endpoints><con:operation id="140dd028-82fb-4e2d-96bb-2ca3f7d11c61" isOneWay="false" action="" name="deleteByRangeOfDates" bindingOperationName="deleteByRangeOfDates" type="Request-Response" outputName="deleteByRangeOfDatesResponse" inputName="deleteByRangeOfDatesRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="c17193ed-fd80-45ca-a2b5-17a7ee1a2394" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/transactionrepo</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tran="http://transaction.services">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tran:deleteByRangeOfDatesRequest>\r
+         <tran:startDate>2024-01-11</tran:startDate>\r
+         <tran:endDate>2024-02-11</tran:endDate>\r
+      </tran:deleteByRangeOfDatesRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://transaction.services/TransactionPort/deleteByRangeOfDatesRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="a77d9ad6-1670-4cc2-a583-5e5d64d7f533" isOneWay="false" action="" name="filterByAmount" bindingOperationName="filterByAmount" type="Request-Response" outputName="filterByAmountResponse" inputName="filterByAmountRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3f1eaeb8-338d-4b1e-bd7d-43ea872dba3e" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/transactionrepo</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tran="http://transaction.services">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tran:filterByAmountRequest>\r
+         <tran:amount>900</tran:amount>\r
+      </tran:filterByAmountRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://transaction.services/TransactionPort/filterByAmountRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="98537ea7-40e0-4807-801e-e5f7a36bd17f" isOneWay="false" action="" name="filterByReceiver" bindingOperationName="filterByReceiver" type="Request-Response" outputName="filterByReceiverResponse" inputName="filterByReceiverRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="466cfdb3-4967-4e82-9ea6-fb9b2fea7a83" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/transactionrepo</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tran="http://transaction.services">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tran:filterByReceiverRequest>\r
+         <tran:receiver>Eeksha</tran:receiver>\r
+      </tran:filterByReceiverRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://transaction.services/TransactionPort/filterByReceiverRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="1b3177a6-ee0e-4d48-9c9b-312e4ae1422a" isOneWay="false" action="" name="filterBySender" bindingOperationName="filterBySender" type="Request-Response" outputName="filterBySenderResponse" inputName="filterBySenderRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="bfc1ff80-beff-40ea-9f08-aa1b4232992d" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/transactionrepo</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tran="http://transaction.services">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tran:filterBySenderRequest>\r
+         <tran:sender>Arundhathi</tran:sender>\r
+      </tran:filterBySenderRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://transaction.services/TransactionPort/filterBySenderRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="5b335831-36b6-456d-8f7f-888c08e15434" isOneWay="false" action="" name="newTransaction" bindingOperationName="newTransaction" type="Request-Response" outputName="newTransactionResponse" inputName="newTransactionRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="42c6fb22-684d-435e-be24-4b0a02b50a91" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/transactionrepo</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tran="http://transaction.services">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tran:newTransactionRequest>\r
+         <tran:transaction>\r
+            <tran:transactionId>?</tran:transactionId>\r
+            <tran:transactionDate>?</tran:transactionDate>\r
+            <tran:transactionBy>?</tran:transactionBy>\r
+            <tran:transactionTo>?</tran:transactionTo>\r
+            <tran:transactionAmount>?</tran:transactionAmount>\r
+            <tran:transactionRemarks>?</tran:transactionRemarks>\r
+         </tran:transaction>\r
+      </tran:newTransactionRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://transaction.services/TransactionPort/newTransactionRequest"/></con:call></con:operation><con:operation id="0cbe2b7c-7a10-483d-953e-d9339343d71d" isOneWay="false" action="" name="updateByRemarks" bindingOperationName="updateByRemarks" type="Request-Response" outputName="updateByRemarksResponse" inputName="updateByRemarksRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="fbfcb341-20d8-47df-a5f1-fa00f376a7f8" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/transactionrepo</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:tran="http://transaction.services">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <tran:updateByRemarksRequest>\r
+         <tran:transaction>\r
+            <tran:transactionId>?</tran:transactionId>\r
+            <tran:transactionDate>?</tran:transactionDate>\r
+            <tran:transactionBy>?</tran:transactionBy>\r
+            <tran:transactionTo>?</tran:transactionTo>\r
+            <tran:transactionAmount>?</tran:transactionAmount>\r
+            <tran:transactionRemarks>?</tran:transactionRemarks>\r
+         </tran:transaction>\r
+      </tran:updateByRemarksRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://transaction.services/TransactionPort/updateByRemarksRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

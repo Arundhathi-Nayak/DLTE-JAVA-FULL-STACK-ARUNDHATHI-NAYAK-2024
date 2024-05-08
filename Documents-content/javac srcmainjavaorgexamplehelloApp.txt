@@ -1,0 +1,11 @@
+javac src/main/java/org/example/hello/App.java
+
+jar -cf hello.jar *
+
+jar tf hello.jar
+
+jar xf hello.jar
+
+jar -cvfm hello.jar META-INF/MANIFEST.MF *
+
+java -jar hello.jar

@@ -1,0 +1,15 @@
+Credit card emi processing fee calculation
+     principle amount =50000
+     processing fee in percentage = 1% gst >> 500+90 >>590
+     rate of interest =21.25%>>10500
+     principle+roi =60500
+     tenure = 10
+     EMI =6050
+     First emi= 6640
+
+control statements
+   1. if (all realtional operator)
+   2. switch (number (whole),character)(==,||)
+
+
+

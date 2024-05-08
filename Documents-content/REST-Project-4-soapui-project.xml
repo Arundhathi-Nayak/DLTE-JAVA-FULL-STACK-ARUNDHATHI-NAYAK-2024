@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="3b751eed-d3c8-4fbc-9944-f18b46ee7123" activeEnvironment="Default" name="REST Project 4" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:RestService" id="b32ea337-0ef6-45db-883c-6a4ca805915d" wadlVersion="http://wadl.dev.java.net/2009/02" name="http://localhost:8082" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>http://localhost:8082</con:endpoint></con:endpoints><con:resource name="Register" path="/profile/register" id="f7c96bb5-9d3d-4f8d-b681-242423fbc8bb"><con:settings/><con:parameters/><con:method name="Register 1" id="2b09cbc0-8f52-493b-bfe7-148b0f8021c6" method="POST"><con:settings/><con:parameters/><con:representation type="REQUEST"><con:mediaType>application/json</con:mediaType><con:params/></con:representation><con:representation type="FAULT"><con:mediaType>application/json</con:mediaType><con:status>400 500</con:status><con:params/><con:element xmlns:reg="http://localhost/profile/register">reg:Fault</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:reg="http://localhost/profile/register">reg:Response</con:element></con:representation><con:request name="Request 1" id="239ebf3d-4a77-44bf-8793-865e10a7dfd9" mediaType="application/json" postQueryString="false"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://localhost:8082</con:endpoint><con:request>{
+    
+       "customerName": "Shantha",
+        "customerAddress": "Bailur",
+       "customerStatus": "Active",
+        "customerContact": 5967543245,
+       "username": "shantha",
+       "password": "shantha@123",
+        "attempts":1
+       
+}</con:request><con:originalUri>http://localhost/profile/register</con:originalUri><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>

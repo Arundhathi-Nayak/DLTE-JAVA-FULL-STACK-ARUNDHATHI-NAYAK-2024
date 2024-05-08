@@ -1,0 +1,77 @@
+1. JBoss is an application server. It provides a runtime environment for Java applications, including support for features such as transaction management, messaging, and clustering. A web server, on the other hand, is typically used to serve web content, such as HTML, CSS, and JavaScript files, and may support server-side scripting languages like PHP or ASP.NET.
+
+2. Loading and Instantiation: When a servlet container (like Tomcat or JBoss) starts or when a request is received for a servlet that hasn't been loaded yet, the container loads and instantiates the servlet class.
+
+Initialization: After instantiation, the servlet container calls the init() method of the servlet to initialize it. This method is called only once during the servlet's lifetime and is used for tasks like loading configuration parameters or initializing resources.
+
+Request Handling: Once the servlet is initialized, it can handle client requests. Each time a request is received, the servlet container calls the service() method of the servlet, passing the request and response objects. The service() method determines the type of request (e.g., GET, POST) and calls the appropriate method (doGet(), doPost(), etc.) to handle the request.
+
+Destroy: When the servlet container decides to remove the servlet (e.g., when shutting down or when the servlet is no longer needed), it calls the destroy() method of the servlet. This method is used to perform any cleanup tasks, such as releasing resources or closing database connections.
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.*;
+
+public class MyServlet extends HttpServlet {
+
+    @Override
+    public void init() throws ServletException {
+        // Initialization code
+        System.out.println("Servlet initialized");
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Handling GET request
+        response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+        out.println("<html><body>");
+        out.println("<h1>Hello, Servlet!</h1>");
+        out.println("</body></html>");
+    }
+
+    @Override
+    public void destroy() {
+        // Cleanup code
+        System.out.println("Servlet destroyed");
+    }
+}
+
+
+
+3. the HttpServlet class, the init() method is invoked during the initialization phase of the servlet life cycle. This method is called by the servlet container (e.g., Tomcat, JBoss) when the servlet is first loaded into memory. The init() method is typically used to perform any initialization tasks that the servlet needs before it can handle requests, such as setting up database connections or loading configuration settings.
+
+4. 
+When you invoke the init() method of a servlet for the second time, it depends on the specific servlet container and the servlet's implementation.
+
+Default Behavior: By default, the init() method is called only once, during the initialization phase, when the servlet is first loaded. If you try to call it a second time directly, it won't have any effect.
+
+Container Behavior: Some servlet containers might handle multiple calls to init() differently. For example, Tomcat might call init() again if the servlet is reloaded due to changes in the web application, but this is not a standard behavior across all containers.
+
+Exception: If the servlet container does not allow init() to be called multiple times and you attempt to call it again, it might throw a ServletException or some other exception to indicate that the servlet is already initialized.
+
+5.Purpose:
+
+init(): This method is used for servlet initialization tasks, such as loading configuration settings, initializing resources, or setting up database connections. It is called by the servlet container when the servlet is first loaded.
+destroy(): This method is used for cleanup tasks, such as releasing resources, closing database connections, or performing any other necessary cleanup before the servlet is unloaded. It is called by the servlet container before unloading the servlet.
+
+Invocation:
+
+init(): The init() method is called by the servlet container during the initialization phase of the servlet's life cycle, specifically when the servlet is first loaded into memory.
+destroy(): The destroy() method is called by the servlet container during the destruction phase of the servlet's life cycle, specifically before the servlet is unloaded from memory.
+
+Frequency:
+
+init(): The init() method is typically called only once, during the initialization phase, when the servlet is first loaded.
+destroy(): The destroy() method is called only once, during the destruction phase, before the servlet is unloaded.
+
+Use Cases:
+
+init(): Use this method to perform any necessary initialization tasks that the servlet needs before it can handle requests, such as setting up resources or initializing variables.
+destroy(): Use this method to perform any necessary cleanup tasks, such as releasing resources or closing connections, before the servlet is unloaded.
+
+6.
+Yes, you can use GenericServlet as a base class for servlets that handle requests other than HTTP requests, such as requests from other protocols or custom communication mechanisms. GenericServlet is an abstract class that implements the Servlet interface and provides a generic, protocol-independent servlet implementation.
+
+When you extend GenericServlet, you need to override the service(ServletRequest req, ServletResponse res) method to handle incoming requests. This method is responsible for processing requests and generating responses, similar to how doGet() and doPost() methods work in HttpServlet
+

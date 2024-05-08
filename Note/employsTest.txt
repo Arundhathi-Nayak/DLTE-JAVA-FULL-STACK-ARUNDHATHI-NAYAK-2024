@@ -1,0 +1,321 @@
+package org.consolemethod;
+
+
+import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertIterableEquals;
+import static org.mockito.ArgumentMatchers.*;
+import static org.mockito.Mockito.*;
+
+
+import org.consolemethod.Details.EmployeeBasicDetails;
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
+import org.reviewdatabase.Details.DatabaseRepositoryImplementation;
+import org.reviewdatabase.Details.Employee;
+import org.reviewdatabase.Details.EmployeeAddress;
+import org.reviewdatabase.Details.EmployeebasicDetails;
+import org.reviewdatabase.connection.ConnectionCreate;
+import org.reviewdatabase.remote.InputEmployeeDetails;
+import org.validation.Validation;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+
+/**
+ * Unit test for simple App.
+ */
+public class AppTest {
+    @Mock
+    private Connection connection;
+
+    @Mock
+    private PreparedStatement preparedStatement;
+
+    @Mock
+    private ResultSet resultSet;
+
+   @Mock
+   private DatabaseRepositoryImplementation databaseRepository;
+
+
+
+
+    @Before
+    public void setUp() throws SQLException {
+
+        databaseRepository = new DatabaseRepositoryImplementation();
+        connection = mock(Connection.class);
+        preparedStatement = mock(PreparedStatement.class);
+        resultSet = mock(ResultSet.class);
+
+        when(connection.prepareStatement(anyString())).thenReturn(preparedStatement);
+        when(preparedStatement.executeQuery()).thenReturn(resultSet);
+        databaseRepository.connection = connection;
+    }
+
+
+    @Test
+    public void testCreate() throws SQLException {
+//        List<Employee> employees = new ArrayList<>();
+//        Employee employee = new Employee(
+//                new EmployeebasicDetails("Arundhathi", "12", "nayak@123", 9876543210L),
+//                new EmployeeAddress("shanthala", "2A", "karnataka", "udupi", 574102),
+//                new EmployeeAddress("akshaya", "3C", "karnataka", "pettengere", 123456)
+//        );
+//
+//        employees.add(employee);
+//        //  doNothing().when(databaseRepository).create(employees);
+//        databaseRepository.create(employees);
+//        verify(databaseRepository).create(employees);
+
+
+        //  Employee already exists Message
+        DatabaseRepositoryImplementation databaseRepository = mock(DatabaseRepositoryImplementation.class);
+
+        List<Employee> employees = new ArrayList<>();
+        Employee employee = new Employee(
+                new EmployeebasicDetails("neha", "14", "neha@123", 7876543210L),
+                new EmployeeAddress("shanthala", "2A", "karnataka", "udupi", 674102),
+                new EmployeeAddress("akshaya", "3C", "karnataka", "pettengere", 923456)
+        );
+
+        employees.add(employee);
+       doNothing().when(databaseRepository).create(employees);
+        databaseRepository.create(employees);
+        verify(databaseRepository).create(employees);
+
+    }
+
+    @Test
+  public  void testDisplayBasedOnEmployeeId() throws SQLException {
+//        Employee employee = new Employee(
+//                new EmployeebasicDetails("Arundhathi", "12", "nayak@123", 9876543210L),
+//                new EmployeeAddress("shanthala", "2A", "karnataka", "udupi", 574102),
+//                new EmployeeAddress("akshaya", "3C", "karnataka", "pettengere", 123456)
+//        );
+//
+//        when(connection.prepareStatement(anyString())).thenReturn(preparedStatement);
+//        when(preparedStatement.executeQuery()).thenReturn(resultSet);
+//        when(resultSet.next()).thenReturn(true);
+//
+//        when(resultSet.getString("id")).thenReturn("12");
+//        when(resultSet.getString("name")).thenReturn("Arundhathi");
+//        when(resultSet.getString("email")).thenReturn("nayak@123");
+//        when(resultSet.getLong("phoneNumber")).thenReturn(9876543210L);
+//        when(resultSet.getString("permanentAddress")).thenReturn("shanthala");
+//        when(resultSet.getString("permanentHouseNumber")).thenReturn("2A");
+//        when(resultSet.getString("permanentState")).thenReturn("karnataka");
+//        when(resultSet.getString("permanentCity")).thenReturn("udupi");
+//        when(resultSet.getInt("permanentPinCode")).thenReturn(574102);
+//        when(resultSet.getString("temporaryAddress")).thenReturn("akshaya");
+//        when(resultSet.getString("temporaryHouseNumber")).thenReturn("3C");
+//        when(resultSet.getString("temporaryState")).thenReturn("karnataka");
+//        when(resultSet.getString("temporaryCity")).thenReturn("pettengere");
+//        when(resultSet.getInt("temporaryPinCode")).thenReturn(123456);
+//
+//        Employee result = databaseRepository.displayBasedOnEmployeeId("12");
+//        assertEquals(employee.getEmployeebasicDetails().getEmployeeName(), result.getEmployeebasicDetails().getEmployeeName());
+//        assertEquals(employee.getEmployeebasicDetails().getEmployeeId(), result.getEmployeebasicDetails().getEmployeeId());
+//        assertEquals(employee.getEmployeebasicDetails().getEmailId(), result.getEmployeebasicDetails().getEmailId());
+//        assertEquals(employee.getEmployeebasicDetails().getPhoneNumber(), result.getEmployeebasicDetails().getPhoneNumber());
+//        assertEquals(employee.getEmployeePermanentAddress().getAddress(), result.getEmployeePermanentAddress().getAddress());
+//        assertEquals(employee.getEmployeePermanentAddress().getHouseNumber(), result.getEmployeePermanentAddress().getHouseNumber());
+//        assertEquals(employee.getEmployeePermanentAddress().getState(), result.getEmployeePermanentAddress().getState());
+//        assertEquals(employee.getEmployeePermanentAddress().getCity(), result.getEmployeePermanentAddress().getCity());
+//        assertEquals(employee.getEmployeePermanentAddress().getPinCode(), result.getEmployeePermanentAddress().getPinCode());
+//        assertEquals(employee.getEmployeeTemporaryAddress().getAddress(), result.getEmployeeTemporaryAddress().getAddress());
+//        assertEquals(employee.getEmployeeTemporaryAddress().getHouseNumber(), result.getEmployeeTemporaryAddress().getHouseNumber());
+//        assertEquals(employee.getEmployeeTemporaryAddress().getState(), result.getEmployeeTemporaryAddress().getState());
+//        assertEquals(employee.getEmployeeTemporaryAddress().getCity(), result.getEmployeeTemporaryAddress().getCity());
+//        assertEquals(employee.getEmployeeTemporaryAddress().getPinCode(), result.getEmployeeTemporaryAddress().getPinCode());
+
+        //  assertEquals(employee, result);
+        DatabaseRepositoryImplementation databaseRepository = mock(DatabaseRepositoryImplementation.class);
+        Employee employee = new Employee(
+                new EmployeebasicDetails("Arundhathi", "12", "nayak@123", 9876543210L),
+                new EmployeeAddress("shanthala", "2A", "karnataka", "udupi", 574102),
+                new EmployeeAddress("akshaya", "3C", "karnataka", "pettengere", 123456)
+        );
+
+        when(connection.prepareStatement(anyString())).thenReturn(preparedStatement);
+
+        when(databaseRepository.displayBasedOnEmployeeId("12")).thenReturn(employee);
+
+        Employee actual = databaseRepository.displayBasedOnEmployeeId("12");
+
+        verify(databaseRepository).displayBasedOnEmployeeId("12");
+        assertEquals(employee, actual);
+
+
+    }
+
+    @Test
+  public  void testDisplayBasedOnPinCode() throws SQLException {
+//        List<Employee> employees = new ArrayList<>();
+//        Employee employee = new Employee(
+//                new EmployeebasicDetails("Arundhathi", "12", "nayak@123", 9876543210L),
+//                new EmployeeAddress("shanthala", "2A", "karnataka", "udupi", 574102),
+//                new EmployeeAddress("akshaya", "3C", "karnataka", "pettengere", 123456)
+//        );
+//
+//        employees.add(employee);
+//
+//        when(resultSet.getString("id")).thenReturn("12");
+//        when(resultSet.getString("name")).thenReturn("Arundhathi");
+//        when(resultSet.getString("email")).thenReturn("nayak@123");
+//        when(resultSet.getLong("phoneNumber")).thenReturn(9876543210L);
+//        when(resultSet.getString("permanentAddress")).thenReturn("shanthala");
+//        when(resultSet.getString("permanentHouseNumber")).thenReturn("2A");
+//        when(resultSet.getString("permanentState")).thenReturn("karnataka");
+//        when(resultSet.getString("permanentCity")).thenReturn("udupi");
+//        when(resultSet.getInt("permanentPinCode")).thenReturn(574102);
+//        when(resultSet.getString("temporaryAddress")).thenReturn("akshaya");
+//        when(resultSet.getString("temporaryHouseNumber")).thenReturn("3C");
+//        when(resultSet.getString("temporaryState")).thenReturn("karnataka");
+//        when(resultSet.getString("temporaryCity")).thenReturn("pettengere");
+//        when(resultSet.getInt("temporaryPinCode")).thenReturn(123456);
+//
+//        List<Employee> result = databaseRepository.displayBasedOnPinCode(574102);
+//
+//        Employee resultEmployee = result.get(0); // Get the first employee from the result list
+//
+//        assertEquals(employee.getEmployeebasicDetails().getEmployeeName(), resultEmployee.getEmployeebasicDetails().getEmployeeName());
+//        assertEquals(employee.getEmployeebasicDetails().getEmployeeId(), resultEmployee.getEmployeebasicDetails().getEmployeeId());
+//        assertEquals(employee.getEmployeebasicDetails().getEmailId(), resultEmployee.getEmployeebasicDetails().getEmailId());
+//        assertEquals(employee.getEmployeebasicDetails().getPhoneNumber(), resultEmployee.getEmployeebasicDetails().getPhoneNumber());
+//        assertEquals(employee.getEmployeePermanentAddress().getAddress(), resultEmployee.getEmployeePermanentAddress().getAddress());
+//        assertEquals(employee.getEmployeePermanentAddress().getHouseNumber(), resultEmployee.getEmployeePermanentAddress().getHouseNumber());
+//        assertEquals(employee.getEmployeePermanentAddress().getState(), resultEmployee.getEmployeePermanentAddress().getState());
+//        assertEquals(employee.getEmployeePermanentAddress().getCity(), resultEmployee.getEmployeePermanentAddress().getCity());
+//        assertEquals(employee.getEmployeePermanentAddress().getPinCode(), resultEmployee.getEmployeePermanentAddress().getPinCode());
+//        assertEquals(employee.getEmployeeTemporaryAddress().getAddress(), resultEmployee.getEmployeeTemporaryAddress().getAddress());
+//        assertEquals(employee.getEmployeeTemporaryAddress().getHouseNumber(), resultEmployee.getEmployeeTemporaryAddress().getHouseNumber());
+//        assertEquals(employee.getEmployeeTemporaryAddress().getState(), resultEmployee.getEmployeeTemporaryAddress().getState());
+//        assertEquals(employee.getEmployeeTemporaryAddress().getCity(), resultEmployee.getEmployeeTemporaryAddress().getCity());
+//        assertEquals(employee.getEmployeeTemporaryAddress().getPinCode(), resultEmployee.getEmployeeTemporaryAddress().getPinCode());
+
+        DatabaseRepositoryImplementation databaseRepository = mock(DatabaseRepositoryImplementation.class);
+        List<Employee> employees = new ArrayList<>();
+        Employee employee = new Employee(
+                new EmployeebasicDetails("Arundhathi", "12", "nayak@123", 9876543210L),
+                new EmployeeAddress("shanthala", "2A", "karnataka", "udupi", 574102),
+                new EmployeeAddress("akshaya", "3C", "karnataka", "pettengere", 123456)
+        );
+
+        employees.add(employee);
+
+        when(databaseRepository.displayBasedOnPinCode(574102)).thenReturn(employees);
+
+        List<Employee> actual = databaseRepository.displayBasedOnPinCode(574102);
+
+        verify(databaseRepository).displayBasedOnPinCode(574102);
+        assertEquals(employees, actual);
+        // assertEquals(employees, result);
+
+    }
+
+    @Test
+  public  void testRead() throws SQLException {
+
+        List<Employee> employees = new ArrayList<>();
+
+        Employee employee1 = new Employee(
+                new EmployeebasicDetails("Avinash", "1", "avinu@123", 3456789876L),
+                new EmployeeAddress("shanthala", "6T", "karnataka", "udupi", 543216),
+                new EmployeeAddress("kowdoor", "3W", "karnataka", "udupi", 321234)
+        );
+
+        employees.add(employee1);
+        Employee employee2 = new Employee(
+                new EmployeebasicDetails("Arundhathi", "12", "nayak@123", 9876543210L),
+                new EmployeeAddress("shanthala", "2A", "karnataka", "udupi", 574102),
+                new EmployeeAddress("akshaya", "3C", "karnataka", "pettengere", 123456)
+        );
+
+        employees.add(employee2);
+
+        Employee employee3 = new Employee(
+                new EmployeebasicDetails("Eeskha", "57", "eeksha@123", 9876543212L),
+                new EmployeeAddress("bedra", "5R", "karnataka", "moodubidri", 567890),
+                new EmployeeAddress("shivsai", "7Y", "karnataka", "global", 123456)
+        );
+
+        employees.add(employee3);
+        Employee employee4 = new Employee(
+                new EmployeebasicDetails("divija", "31", "divija@123", 2345678999L),
+                new EmployeeAddress("ujire", "6T", "karnataka", "dharmasthala", 234567),
+                new EmployeeAddress("shivsai", "7Y", "karnataka", "udupi", 876543)
+        );
+
+        employees.add(employee4);
+        DatabaseRepositoryImplementation databaseRepository = mock(DatabaseRepositoryImplementation.class);
+        when(databaseRepository.read()).thenReturn(employees);
+
+        // Use DatabaseService in DatabaseRepositoryImplementation
+        List<Employee> actualEmployees = databaseRepository.read();
+
+        // Assertions
+        assertEquals(employees.size(), actualEmployees.size());
+        for (int i = 0; i < employees.size(); i++) {
+            assertEquals(employees.get(i).getEmployeebasicDetails().getEmployeeName(), actualEmployees.get(i).getEmployeebasicDetails().getEmployeeName());
+            assertEquals(employees.get(i).getEmployeebasicDetails().getEmployeeId(), actualEmployees.get(i).getEmployeebasicDetails().getEmployeeId());
+            assertEquals(employees.get(i).getEmployeebasicDetails().getEmailId(), actualEmployees.get(i).getEmployeebasicDetails().getEmailId());
+            assertEquals(employees.get(i).getEmployeebasicDetails().getPhoneNumber(), actualEmployees.get(i).getEmployeebasicDetails().getPhoneNumber());
+            assertEquals(employees.get(i).getEmployeePermanentAddress().getAddress(), actualEmployees.get(i).getEmployeePermanentAddress().getAddress());
+            assertEquals(employees.get(i).getEmployeePermanentAddress().getHouseNumber(), actualEmployees.get(i).getEmployeePermanentAddress().getHouseNumber());
+            assertEquals(employees.get(i).getEmployeePermanentAddress().getState(), actualEmployees.get(i).getEmployeePermanentAddress().getState());
+            assertEquals(employees.get(i).getEmployeePermanentAddress().getCity(), actualEmployees.get(i).getEmployeePermanentAddress().getCity());
+            assertEquals(employees.get(i).getEmployeePermanentAddress().getPinCode(), actualEmployees.get(i).getEmployeePermanentAddress().getPinCode());
+            assertEquals(employees.get(i).getEmployeeTemporaryAddress().getAddress(), actualEmployees.get(i).getEmployeeTemporaryAddress().getAddress());
+            assertEquals(employees.get(i).getEmployeeTemporaryAddress().getHouseNumber(), actualEmployees.get(i).getEmployeeTemporaryAddress().getHouseNumber());
+            assertEquals(employees.get(i).getEmployeeTemporaryAddress().getState(), actualEmployees.get(i).getEmployeeTemporaryAddress().getState());
+            assertEquals(employees.get(i).getEmployeeTemporaryAddress().getCity(), actualEmployees.get(i).getEmployeeTemporaryAddress().getCity());
+            assertEquals(employees.get(i).getEmployeeTemporaryAddress().getPinCode(), actualEmployees.get(i).getEmployeeTemporaryAddress().getPinCode());
+        }
+    }
+//        when(resultSet.next())
+//                .thenReturn(true) // Return true for the first employee
+//                .thenReturn(true)
+//                .thenReturn(true)
+//                .thenReturn(true) ;
+//
+//
+//        // Mock the data for each employee in the result set
+//
+//        when(preparedStatement.executeQuery()).thenReturn(resultSet);
+//        when(connection.prepareStatement(anyString())).thenReturn(preparedStatement);
+//
+//        DatabaseRepositoryImplementation databaseRepository = new DatabaseRepositoryImplementation();
+//
+//        List<Employee> actualEmployees = databaseRepository.read();
+//
+//        assertEquals(employees.size(), actualEmployees.size());
+//        for (int i = 0; i < employees.size(); i++) {
+//            assertEquals(employees.get(i).getEmployeebasicDetails().getEmployeeName(), actualEmployees.get(i).getEmployeebasicDetails().getEmployeeName());
+//            assertEquals(employees.get(i).getEmployeebasicDetails().getEmployeeId(), actualEmployees.get(i).getEmployeebasicDetails().getEmployeeId());
+//            assertEquals(employees.get(i).getEmployeebasicDetails().getEmailId(), actualEmployees.get(i).getEmployeebasicDetails().getEmailId());
+//            assertEquals(employees.get(i).getEmployeebasicDetails().getPhoneNumber(), actualEmployees.get(i).getEmployeebasicDetails().getPhoneNumber());
+//            assertEquals(employees.get(i).getEmployeePermanentAddress().getAddress(), actualEmployees.get(i).getEmployeePermanentAddress().getAddress());
+//            assertEquals(employees.get(i).getEmployeePermanentAddress().getHouseNumber(), actualEmployees.get(i).getEmployeePermanentAddress().getHouseNumber());
+//            assertEquals(employees.get(i).getEmployeePermanentAddress().getState(), actualEmployees.get(i).getEmployeePermanentAddress().getState());
+//            assertEquals(employees.get(i).getEmployeePermanentAddress().getCity(), actualEmployees.get(i).getEmployeePermanentAddress().getCity());
+//            assertEquals(employees.get(i).getEmployeePermanentAddress().getPinCode(), actualEmployees.get(i).getEmployeePermanentAddress().getPinCode());
+//            assertEquals(employees.get(i).getEmployeeTemporaryAddress().getAddress(), actualEmployees.get(i).getEmployeeTemporaryAddress().getAddress());
+//            assertEquals(employees.get(i).getEmployeeTemporaryAddress().getHouseNumber(), actualEmployees.get(i).getEmployeeTemporaryAddress().getHouseNumber());
+//            assertEquals(employees.get(i).getEmployeeTemporaryAddress().getState(), actualEmployees.get(i).getEmployeeTemporaryAddress().getState());
+//            assertEquals(employees.get(i).getEmployeeTemporaryAddress().getCity(), actualEmployees.get(i).getEmployeeTemporaryAddress().getCity());
+//            assertEquals(employees.get(i).getEmployeeTemporaryAddress().getPinCode(), actualEmployees.get(i).getEmployeeTemporaryAddress().getPinCode());
+//        }
+   }
+
+
+

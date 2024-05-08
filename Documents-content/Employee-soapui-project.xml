@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="70eebf94-61b6-454b-b0b1-58e614761874" activeEnvironment="Default" name="Employee" resourceRoot="" soapui-version="5.5.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="39b84728-2fe4-4e90-a089-832534942531" wsaVersion="NONE" name="EmployeePortSoap11" type="wsdl" bindingName="{http://employee.services}EmployeePortSoap11" soapVersion="1_1" anonymous="optional" definition="file:/C:/DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024/DLTE-JAVA/EmployeeReview/SPRING_WEB_REVIEW/src/main/resources/Employee.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:\C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-JAVA\EmployeeReview\SPRING_WEB_REVIEW\src\main\resources\Employee.wsdl"><con:part><con:url>file:\C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-JAVA\EmployeeReview\SPRING_WEB_REVIEW\src\main\resources\Employee.wsdl</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://employee.services" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sch="http://employee.services" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://employee.services">
+  <wsdl:types>
+    <xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://employee.services" schemaLocation="Employee.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="filterByIdRequest">
+    <wsdl:part element="tns:filterByIdRequest" name="filterByIdRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createEmployeeResponse">
+    <wsdl:part element="tns:createEmployeeResponse" name="createEmployeeResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllEmployeeRequest">
+    <wsdl:part element="tns:findAllEmployeeRequest" name="findAllEmployeeRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeByPinCodeRequest">
+    <wsdl:part element="tns:getEmployeeByPinCodeRequest" name="getEmployeeByPinCodeRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="findAllEmployeeResponse">
+    <wsdl:part element="tns:findAllEmployeeResponse" name="findAllEmployeeResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getEmployeeByPinCodeResponse">
+    <wsdl:part element="tns:getEmployeeByPinCodeResponse" name="getEmployeeByPinCodeResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="createEmployeeRequest">
+    <wsdl:part element="tns:createEmployeeRequest" name="createEmployeeRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="filterByIdResponse">
+    <wsdl:part element="tns:filterByIdResponse" name="filterByIdResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="EmployeePort">
+    <wsdl:operation name="filterById">
+      <wsdl:input message="tns:filterByIdRequest" name="filterByIdRequest"></wsdl:input>
+      <wsdl:output message="tns:filterByIdResponse" name="filterByIdResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createEmployee">
+      <wsdl:input message="tns:createEmployeeRequest" name="createEmployeeRequest"></wsdl:input>
+      <wsdl:output message="tns:createEmployeeResponse" name="createEmployeeResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllEmployee">
+      <wsdl:input message="tns:findAllEmployeeRequest" name="findAllEmployeeRequest"></wsdl:input>
+      <wsdl:output message="tns:findAllEmployeeResponse" name="findAllEmployeeResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeByPinCode">
+      <wsdl:input message="tns:getEmployeeByPinCodeRequest" name="getEmployeeByPinCodeRequest"></wsdl:input>
+      <wsdl:output message="tns:getEmployeeByPinCodeResponse" name="getEmployeeByPinCodeResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="EmployeePortSoap11" type="tns:EmployeePort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="filterById">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="filterByIdRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="filterByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createEmployee">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="createEmployeeRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="createEmployeeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="findAllEmployee">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="findAllEmployeeRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="findAllEmployeeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getEmployeeByPinCode">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="getEmployeeByPinCodeRequest">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getEmployeeByPinCodeResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="EmployeePortService">
+    <wsdl:port binding="tns:EmployeePortSoap11" name="EmployeePortSoap11">
+      <soap:address location="http://localhost:8082/employeerepo"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:\C:\DLTE-JAVA-FULL-STACK-ARUNDHATHI-NAYAK-2024\DLTE-JAVA\EmployeeReview\SPRING_WEB_REVIEW\src\main\resources\Employee.xsd</con:url><con:content><![CDATA[<xsd:schema targetNamespace="http://employee.services" elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://employee.services">
+  <!--EmployeeBasicDetails-->
+  <xsd:complexType name="employeeBasicDetails">
+    <xsd:sequence>
+      <xsd:element name="employeeName" type="xsd:string"/>
+      <xsd:element name="employeeId" type="xsd:string"/>
+      <xsd:element name="emailId" type="xsd:string"/>
+      <xsd:element name="phoneNumber" type="xsd:long"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!--EmployeeAddress-->
+  <xsd:complexType name="employeeAddress">
+    <xsd:sequence>
+      <xsd:element name="address" type="xsd:string"/>
+      <xsd:element name="houseNumber" type="xsd:string"/>
+      <xsd:element name="state" type="xsd:string"/>
+      <xsd:element name="city" type="xsd:string"/>
+      <xsd:element name="pinCode" type="xsd:int"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!--Employee-->
+  <xsd:complexType name="employee">
+    <xsd:sequence>
+      <xsd:element name="employeeBasicDetails" type="tns:employeeBasicDetails"/>
+      <xsd:element name="employeePermanentAddress" type="tns:employeeAddress"/>
+      <xsd:element name="employeeTemporaryAddress" type="tns:employeeAddress"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!--Root element-->
+  <xsd:element name="employee" type="tns:employee"/>
+  <xsd:complexType name="serviceStatus">
+    <xsd:sequence>
+      <xsd:element name="status" type="xsd:int"/>
+      <xsd:element name="message" type="xsd:string"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <!--Request element-->
+  <xsd:element name="createEmployeeRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="employee" type="tns:employee"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <!--Response element-->
+  <xsd:element name="createEmployeeResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Employee" type="tns:employee"/>
+        <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="filterByIdRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="employeeId" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="filterByIdResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+        <xsd:element name="employee" type="tns:employee"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="findAllEmployeeRequest">
+    <xsd:complexType/>
+  </xsd:element>
+  <xsd:element name="findAllEmployeeResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+        <xsd:element name="employee" type="tns:employee" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <!--Request element-->
+  <xsd:element name="getEmployeeByPinCodeRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="PinCode" type="xsd:int"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <!--Response element-->
+  <xsd:element name="getEmployeeByPinCodeResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="serviceStatus" type="tns:serviceStatus"/>
+        <xsd:element name="employee" type="tns:employee" maxOccurs="unbounded"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://localhost:8082/employeerepo</con:endpoint></con:endpoints><con:operation id="f81aeedc-4d8b-457b-95c1-8eba61d525e5" isOneWay="false" action="" name="createEmployee" bindingOperationName="createEmployee" type="Request-Response" outputName="createEmployeeResponse" inputName="createEmployeeRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="ebc12999-44c9-46dc-bf24-560f67334fcc" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/employeerepo</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:emp="http://employee.services">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <emp:createEmployeeRequest>\r
+         <emp:employee>\r
+            <emp:employeeBasicDetails>\r
+               <emp:employeeName>?</emp:employeeName>\r
+               <emp:employeeId>?</emp:employeeId>\r
+               <emp:emailId>?</emp:emailId>\r
+               <emp:phoneNumber>?</emp:phoneNumber>\r
+            </emp:employeeBasicDetails>\r
+            <emp:employeePermanentAddress>\r
+               <emp:address>?</emp:address>\r
+               <emp:houseNumber>?</emp:houseNumber>\r
+               <emp:state>?</emp:state>\r
+               <emp:city>?</emp:city>\r
+               <emp:pinCode>?</emp:pinCode>\r
+            </emp:employeePermanentAddress>\r
+            <emp:employeeTemporaryAddress>\r
+               <emp:address>?</emp:address>\r
+               <emp:houseNumber>?</emp:houseNumber>\r
+               <emp:state>?</emp:state>\r
+               <emp:city>?</emp:city>\r
+               <emp:pinCode>?</emp:pinCode>\r
+            </emp:employeeTemporaryAddress>\r
+         </emp:employee>\r
+      </emp:createEmployeeRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://employee.services/EmployeePort/createEmployeeRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="42bdf89e-f1fa-4dfe-88a5-c8d6ac30e503" isOneWay="false" action="" name="filterById" bindingOperationName="filterById" type="Request-Response" outputName="filterByIdResponse" inputName="filterByIdRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="94125a67-135e-43b7-b131-89d0214de648" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/employeerepo</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:emp="http://employee.services">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <emp:filterByIdRequest>\r
+         <emp:employeeId>1</emp:employeeId>\r
+      </emp:filterByIdRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://employee.services/EmployeePort/filterByIdRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="81de0878-ec0d-4d86-af67-cf8c4eb27e46" isOneWay="false" action="" name="findAllEmployee" bindingOperationName="findAllEmployee" type="Request-Response" outputName="findAllEmployeeResponse" inputName="findAllEmployeeRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="3abb92c1-ff51-4237-b58c-bfbe965fea36" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/employeerepo</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:emp="http://employee.services">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <emp:findAllEmployeeRequest/>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://employee.services/EmployeePort/findAllEmployeeRequest"/></con:call></con:operation><con:operation id="9cf7c439-2189-4746-8071-478c593c126b" isOneWay="false" action="" name="getEmployeeByPinCode" bindingOperationName="getEmployeeByPinCode" type="Request-Response" outputName="getEmployeeByPinCodeResponse" inputName="getEmployeeByPinCodeRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="6c1c669c-65ef-47f8-8562-1ec2c3f8d01a" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://localhost:8082/employeerepo</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:emp="http://employee.services">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <emp:getEmployeeByPinCodeRequest>\r
+         <emp:PinCode>?</emp:PinCode>\r
+      </emp:getEmployeeByPinCodeRequest>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://employee.services/EmployeePort/getEmployeeByPinCodeRequest"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
