@@ -47,15 +47,15 @@
 </td>
 <td class="coverageStat">
   <span class="percent">
-    77.8%
+    82.4%
   </span>
   <span class="absValue">
-    (21/ 27)
+    (28/ 34)
   </span>
 </td>
 </tr>
   <tr>
-    <td class="name">PaymentTransferImplementation$$EnhancerBySpringCGLIB$$4bc37e36</td>
+    <td class="name">PaymentTransferImplementation$$EnhancerBySpringCGLIB$$3d0d2083</td>
   </tr>
   <tr>
     <td class="name">PaymentTransferImplementation$PayeeMapper</td>
@@ -88,10 +88,10 @@
 </td>
 <td class="coverageStat">
   <span class="percent">
-    64.7%
+    70.7%
   </span>
   <span class="absValue">
-    (22/ 34)
+    (29/ 41)
   </span>
 </td>
 </tr>
@@ -135,61 +135,70 @@
 <i>32</i>&nbsp;//                new BeanPropertyRowMapper&lt;&gt;(Payee.class)
 <i>33</i>&nbsp;                    new PayeeMapper());
 <b class="fc"><i>34</i>&nbsp;        logger.info(resourceBundle.getString(&quot;payee.success&quot;));</b>
-<i>35</i>&nbsp;
-<b class="fc"><i>36</i>&nbsp;        if(payees.size()==0){</b>
-<b class="fc"><i>37</i>&nbsp;            logger.warn(resourceBundle.getString(&quot;no.payee&quot;));</b>
-<b class="fc"><i>38</i>&nbsp;            throw new PayeeException(resourceBundle.getString(&quot;no.payee&quot;)+accountNumber);</b>
-<i>39</i>&nbsp;        }
-<b class="fc"><i>40</i>&nbsp;        return payees;</b>
-<i>41</i>&nbsp;    }
-<i>42</i>&nbsp;    @Override
-<i>43</i>&nbsp;    public void deletePayeeAdded(int payeeId, Long senderAccountNumber, Long payeeAccountNumber, String payeeName) {
-<i>44</i>&nbsp;
-<b class="fc"><i>45</i>&nbsp;        String procedureCall=&quot;Call DELETE_PAYEE_NEW(?,?,?,?)&quot;;</b>
-<i>46</i>&nbsp;        try {
-<b class="fc"><i>47</i>&nbsp;            jdbcTemplate.update(procedureCall,payeeId,senderAccountNumber,payeeAccountNumber,payeeName);</b>
-<b class="fc"><i>48</i>&nbsp;            logger.info(resourceBundle.getString(&quot;payee.success&quot;));</b>
-<b class="fc"><i>49</i>&nbsp;        } catch (DataAccessException e) {</b>
-<b class="fc"><i>50</i>&nbsp;            if (e.getLocalizedMessage().contains(&quot;ORA-20001&quot;)) {</b>
-<b class="fc"><i>51</i>&nbsp;                logger.warn(resourceBundle.getString(&quot;payee.notExists&quot;));</b>
-<b class="fc"><i>52</i>&nbsp;                throw new PayeeException(resourceBundle.getString(&quot;payee.notExists&quot;));</b>
-<i>53</i>&nbsp;            }
-<b class="fc"><i>54</i>&nbsp;            if (e.getLocalizedMessage().contains(&quot;ORA-20002&quot;)) {</b>
-<b class="fc"><i>55</i>&nbsp;                logger.warn(resourceBundle.getString(&quot;sender.notMatch&quot;));</b>
-<b class="fc"><i>56</i>&nbsp;                throw new PayeeException(resourceBundle.getString(&quot;sender.notMatch&quot;));</b>
-<i>57</i>&nbsp;            }
-<b class="nc"><i>58</i>&nbsp;            if (e.getLocalizedMessage().contains(&quot;ORA-20003&quot;)) {</b>
-<b class="nc"><i>59</i>&nbsp;                logger.warn(resourceBundle.getString(&quot;payee.notMatch&quot;));</b>
-<b class="nc"><i>60</i>&nbsp;                throw new PayeeException(resourceBundle.getString(&quot;payee.notMatch&quot;));</b>
-<i>61</i>&nbsp;            }
-<b class="nc"><i>62</i>&nbsp;            if (e.getLocalizedMessage().contains(&quot;ORA-20004&quot;)) {</b>
-<b class="nc"><i>63</i>&nbsp;                logger.warn(resourceBundle.getString(&quot;payeeName.notMatch&quot;));</b>
-<b class="nc"><i>64</i>&nbsp;                throw new PayeeException(resourceBundle.getString(&quot;payeeName.notMatch&quot;));</b>
-<i>65</i>&nbsp;            }
-<b class="fc"><i>66</i>&nbsp;        }</b>
-<i>67</i>&nbsp;
-<i>68</i>&nbsp;
-<b class="fc"><i>69</i>&nbsp;    }</b>
-<i>70</i>&nbsp;
-<i>71</i>&nbsp;
-<b class="fc"><i>72</i>&nbsp;    public class PayeeMapper implements RowMapper&lt;Payee&gt; {</b>
-<i>73</i>&nbsp;        @Override
-<i>74</i>&nbsp;        public Payee mapRow(ResultSet rs, int rowNum) throws SQLException {
-<b class="nc"><i>75</i>&nbsp;            Payee payee=new Payee();</b>
-<b class="nc"><i>76</i>&nbsp;            payee.setPayeeId(rs.getInt(1));</b>
-<b class="nc"><i>77</i>&nbsp;            payee.setSenderAccountNumber(rs.getLong(2));</b>
-<b class="nc"><i>78</i>&nbsp;            payee.setPayeeAccountNumber(rs.getLong(&quot;payee_account_number&quot;));</b>
-<b class="nc"><i>79</i>&nbsp;            payee.setPayeeName(rs.getString(&quot;payee_name&quot;));</b>
-<b class="nc"><i>80</i>&nbsp;            return payee;</b>
-<i>81</i>&nbsp;        }
-<i>82</i>&nbsp;    }
-<i>83</i>&nbsp;}
+<b class="fc"><i>35</i>&nbsp;        if (!payees.isEmpty()) {</b>
+<b class="fc"><i>36</i>&nbsp;            for (Payee payee : payees) {</b>
+<b class="fc"><i>37</i>&nbsp;                logger.info(&quot;Payee details: PayeeId - &quot; + payee.getPayeeId() +</b>
+<b class="fc"><i>38</i>&nbsp;                        &quot;, Sender Account Number - &quot; + payee.getSenderAccountNumber() +</b>
+<b class="fc"><i>39</i>&nbsp;                        &quot;, Payee Account Number - &quot; + payee.getPayeeAccountNumber() +</b>
+<b class="fc"><i>40</i>&nbsp;                        &quot;, Payee Name - &quot; + payee.getPayeeName());</b>
+<b class="fc"><i>41</i>&nbsp;            }</b>
+<i>42</i>&nbsp;        }
+<i>43</i>&nbsp;
+<b class="fc"><i>44</i>&nbsp;        if(payees.size()==0){</b>
+<b class="fc"><i>45</i>&nbsp;            logger.warn(resourceBundle.getString(&quot;no.payee&quot;));</b>
+<b class="fc"><i>46</i>&nbsp;            throw new PayeeException(resourceBundle.getString(&quot;no.payee&quot;)+accountNumber);</b>
+<i>47</i>&nbsp;        }
+<b class="fc"><i>48</i>&nbsp;        return payees;</b>
+<i>49</i>&nbsp;    }
+<i>50</i>&nbsp;    @Override
+<i>51</i>&nbsp;    public void deletePayeeAdded(int payeeId, Long senderAccountNumber, Long payeeAccountNumber, String payeeName) {
+<i>52</i>&nbsp;
+<b class="fc"><i>53</i>&nbsp;        String procedureCall=&quot;Call DELETE_PAYEE_NEW(?,?,?,?)&quot;;</b>
+<i>54</i>&nbsp;        try {
+<b class="fc"><i>55</i>&nbsp;            jdbcTemplate.update(procedureCall,payeeId,senderAccountNumber,payeeAccountNumber,payeeName);</b>
+<b class="fc"><i>56</i>&nbsp;            logger.info(resourceBundle.getString(&quot;payee.success&quot;));</b>
+<i>57</i>&nbsp;
+<b class="fc"><i>58</i>&nbsp;        } catch (DataAccessException e) {</b>
+<b class="fc"><i>59</i>&nbsp;            if (e.getLocalizedMessage().contains(&quot;ORA-20001&quot;)) {</b>
+<b class="fc"><i>60</i>&nbsp;                logger.warn(resourceBundle.getString(&quot;payee.notExists&quot;));</b>
+<b class="fc"><i>61</i>&nbsp;                throw new PayeeException(resourceBundle.getString(&quot;payee.notExists&quot;));</b>
+<i>62</i>&nbsp;            }
+<b class="fc"><i>63</i>&nbsp;            if (e.getLocalizedMessage().contains(&quot;ORA-20002&quot;)) {</b>
+<b class="fc"><i>64</i>&nbsp;                logger.warn(resourceBundle.getString(&quot;sender.notMatch&quot;));</b>
+<b class="fc"><i>65</i>&nbsp;                throw new PayeeException(resourceBundle.getString(&quot;sender.notMatch&quot;));</b>
+<i>66</i>&nbsp;            }
+<b class="nc"><i>67</i>&nbsp;            if (e.getLocalizedMessage().contains(&quot;ORA-20003&quot;)) {</b>
+<b class="nc"><i>68</i>&nbsp;                logger.warn(resourceBundle.getString(&quot;payee.notMatch&quot;));</b>
+<b class="nc"><i>69</i>&nbsp;                throw new PayeeException(resourceBundle.getString(&quot;payee.notMatch&quot;));</b>
+<i>70</i>&nbsp;            }
+<b class="nc"><i>71</i>&nbsp;            if (e.getLocalizedMessage().contains(&quot;ORA-20004&quot;)) {</b>
+<b class="nc"><i>72</i>&nbsp;                logger.warn(resourceBundle.getString(&quot;payeeName.notMatch&quot;));</b>
+<b class="nc"><i>73</i>&nbsp;                throw new PayeeException(resourceBundle.getString(&quot;payeeName.notMatch&quot;));</b>
+<i>74</i>&nbsp;            }
+<b class="fc"><i>75</i>&nbsp;        }</b>
+<i>76</i>&nbsp;
+<i>77</i>&nbsp;
+<b class="fc"><i>78</i>&nbsp;    }</b>
+<i>79</i>&nbsp;
+<i>80</i>&nbsp;
+<b class="fc"><i>81</i>&nbsp;    public class PayeeMapper implements RowMapper&lt;Payee&gt; {</b>
+<i>82</i>&nbsp;        @Override
+<i>83</i>&nbsp;        public Payee mapRow(ResultSet rs, int rowNum) throws SQLException {
+<b class="nc"><i>84</i>&nbsp;            Payee payee=new Payee();</b>
+<b class="nc"><i>85</i>&nbsp;            payee.setPayeeId(rs.getInt(1));</b>
+<b class="nc"><i>86</i>&nbsp;            payee.setSenderAccountNumber(rs.getLong(2));</b>
+<b class="nc"><i>87</i>&nbsp;            payee.setPayeeAccountNumber(rs.getLong(&quot;payee_account_number&quot;));</b>
+<b class="nc"><i>88</i>&nbsp;            payee.setPayeeName(rs.getString(&quot;payee_name&quot;));</b>
+<b class="nc"><i>89</i>&nbsp;            return payee;</b>
+<i>90</i>&nbsp;        }
+<i>91</i>&nbsp;    }
+<i>92</i>&nbsp;}
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2024-05-06 09:05</div>
+    <div style="float:right;">generated on 2024-05-07 16:32</div>
 </div>
 </body>
 </html>

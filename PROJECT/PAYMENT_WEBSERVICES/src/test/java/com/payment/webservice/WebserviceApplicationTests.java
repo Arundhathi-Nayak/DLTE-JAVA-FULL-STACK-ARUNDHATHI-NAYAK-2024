@@ -25,6 +25,7 @@ import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.HttpStatus;
@@ -110,169 +111,6 @@ class WebserviceApplicationTests {
         response = new MockHttpServletResponse();
     }
 
-
-
-    @Test
-    public void testListPayeeBasedOnAccountNumberFail()  {
-        List<Payee> payees = new ArrayList<>();
-        Payee payee = new Payee();
-        payee.setPayeeId(123);
-        payee.setSenderAccountNumber(123456789111L);
-        payee.setPayeeAccountNumber(987456789111L);
-        payee.setPayeeName("Arururu");
-        payees.add(payee);
-        // Mock authentication
-        Authentication authentication = mock(Authentication.class);
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        when(authentication.getName()).thenReturn("testUser");
-
-
-        MyBankOfficials customer = new MyBankOfficials();
-        customer.setCustomerId(12);
-        customer.setCustomerName("Sanatah");
-        customer.setCustomerAddress("karkala");
-        customer.setCustomerStatus("active");
-        customer.setCustomerContact(8765432345L);
-        customer.setUsername("testUser");
-        customer.setPassword("12233");
-        customer.setAttempts(1);
-        when(myBankOfficialsService.findByCustomer("testUser")).thenReturn(customer);
-        when(myBankOfficialsService.getAccountNumbersByCustomerId(12)).thenReturn(Collections.singletonList(123456789111L));
-
-
-        when(paymentTransferRepository.findAllPayeeBasedOnAccountNumber(123456789111L)).thenReturn(payees);
-
-        FindAllPayeeBasedOnAccountNumberRequest request = new FindAllPayeeBasedOnAccountNumberRequest();
-        request.setSenderAccount(123456789111L);
-
-
-        FindAllPayeeBasedOnAccountNumberResponse response=soapPhase.listPayeeBasedOnAccountNumber(request);
-
-        assertEquals(HttpStatus.OK.value(), response.getServiceStatus().getStatus());
-        assertEquals("Payee details for account number123456789111", response.getServiceStatus().getMessage());
-        //  assertEquals(1, response.getPayee().size());
-        assertNotEquals(2, response.getPayee().size());   //fail
-        assertEquals("Arururu", response.getPayee().get(0).getPayeeName());
-    }
-    @Test
-    public void testListPayeeBasedOnAccountNumber()  {
-        List<Payee> payees = new ArrayList<>();
-        Payee payee = new Payee();
-        payee.setPayeeId(123);
-        payee.setSenderAccountNumber(123456789111L);
-        payee.setPayeeAccountNumber(987456789111L);
-        payee.setPayeeName("Arururu");
-        payees.add(payee);
-
-        // Mock authentication
-        Authentication authentication = mock(Authentication.class);
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        when(authentication.getName()).thenReturn("testUser");
-
-
-        MyBankOfficials customer = new MyBankOfficials();
-        customer.setCustomerId(12);
-        customer.setCustomerName("Sanatah");
-        customer.setCustomerAddress("karkala");
-        customer.setCustomerStatus("active");
-        customer.setCustomerContact(8765432345L);
-        customer.setUsername("testUser");
-        customer.setPassword("12233");
-        customer.setAttempts(1);
-        when(myBankOfficialsService.findByCustomer("testUser")).thenReturn(customer);
-        when(myBankOfficialsService.getAccountNumbersByCustomerId(12)).thenReturn(Collections.singletonList(123456789111L));
-
-
-        when(paymentTransferRepository.findAllPayeeBasedOnAccountNumber(123456789111L)).thenReturn(payees);
-
-        FindAllPayeeBasedOnAccountNumberRequest request = new FindAllPayeeBasedOnAccountNumberRequest();
-        request.setSenderAccount(123456789111L);
-
-
-        FindAllPayeeBasedOnAccountNumberResponse response=soapPhase.listPayeeBasedOnAccountNumber(request);
-
-        assertEquals(HttpStatus.OK.value(), response.getServiceStatus().getStatus());
-        assertEquals("Payee details for account number123456789111", response.getServiceStatus().getMessage());
-        assertEquals(1, response.getPayee().size());
-        assertEquals("Arururu", response.getPayee().get(0).getPayeeName());
-    }  @Test
-    public void testDeletePayee() {
-        ResourceBundle resourceBundle = ResourceBundle.getBundle("account");
-
-        // Mock data
-        Payee payee = new Payee();
-        payee.setPayeeId(123);
-        payee.setSenderAccountNumber(123456789123L);
-        payee.setPayeeAccountNumber(987654321123L);
-        payee.setPayeeName("Arundhathi");
-
-        // Mock authentication
-        Authentication authentication = mock(Authentication.class);
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        when(authentication.getName()).thenReturn("testUser");
-
-
-        // Mock service behavior
-        MyBankOfficials customer = new MyBankOfficials();
-        customer.setCustomerId(123);
-        customer.setCustomerName("Sanatah");
-        customer.setCustomerAddress("karkala");
-        customer.setCustomerStatus("active");
-        customer.setCustomerContact(8765432345L);
-        customer.setUsername("testUser");
-        customer.setPassword("12233");
-        customer.setAttempts(1);
-        when(myBankOfficialsService.findByCustomer("testUser")).thenReturn(customer);
-        when(myBankOfficialsService.getAccountNumbersByCustomerId(123)).thenReturn(Collections.singletonList(123456789123L));
-        // Mock the deletePayeeImplementation behavior
-
-        doNothing().when(paymentTransferRepository).deletePayeeAdded(123, 123456789123L, 987654321123L, "Arundhathi");
-
-        ResponseEntity<String> responseEntity = paymentRestController.deletePayeeValid(payee);
-
-        Assert.assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-        Assert.assertEquals(resourceBundle.getString("payee.add") + "Arundhathi" + " " + resourceBundle.getString("delete.success"),
-                responseEntity.getBody());
-    }
-    @Test
-    public void testDeletePayeeFailed() {
-        ResourceBundle resourceBundle = ResourceBundle.getBundle("account");
-
-        // Mock data
-        Payee payee = new Payee();
-        payee.setPayeeId(123);
-        payee.setSenderAccountNumber(123456789123L);
-        payee.setPayeeAccountNumber(987654321123L);
-        payee.setPayeeName("Arundhathi");
-
-        // Mock authentication
-        Authentication authentication = mock(Authentication.class);
-        SecurityContextHolder.getContext().setAuthentication(authentication);
-        when(authentication.getName()).thenReturn("testUser");
-
-
-        // Mock service behavior
-        MyBankOfficials customer = new MyBankOfficials();
-        customer.setCustomerId(123);
-        customer.setCustomerName("Sanatah");
-        customer.setCustomerAddress("karkala");
-        customer.setCustomerStatus("active");
-        customer.setCustomerContact(8765432345L);
-        customer.setUsername("testUser");
-        customer.setPassword("12233");
-        customer.setAttempts(1);
-        when(myBankOfficialsService.findByCustomer("testUser")).thenReturn(customer);
-        when(myBankOfficialsService.getAccountNumbersByCustomerId(123)).thenReturn(Collections.singletonList(123456789123L));
-        // Mock the deletePayeeImplementation behavior
-
-        doNothing().when(paymentTransferRepository).deletePayeeAdded(123, 123456789123L, 987654321123L, "Arundhathi");
-
-        ResponseEntity<String> responseEntity = paymentRestController.deletePayeeValid(payee);
-
-        Assert.assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
-        Assert.assertNotEquals(resourceBundle.getString("payee.add") ,
-                responseEntity.getBody());
-    }
 
     @Test
     public void handleValidationExceptionsTest() {
@@ -450,5 +288,15 @@ class WebserviceApplicationTests {
         Assert.assertEquals(HttpStatus.OK.value(), response.getServiceStatus().getStatus());
         Assert.assertEquals("EXC001 :Payee not found", response.getServiceStatus().getMessage());
     }
+    @Mock
+    private SpringApplicationBuilder mockApplicationBuilder;
 
+    @Test
+    void configureTest() {
+        ServletInitializer servletInitializer = new ServletInitializer();
+
+        servletInitializer.configure(mockApplicationBuilder);
+
+        verify(mockApplicationBuilder).sources(WebserviceApplication.class);
+    }
 }

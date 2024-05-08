@@ -32,6 +32,14 @@ public class PaymentTransferImplementation implements PaymentTransferRepository 
 //                new BeanPropertyRowMapper<>(Payee.class)
                     new PayeeMapper());
         logger.info(resourceBundle.getString("payee.success"));
+        if (!payees.isEmpty()) {
+            for (Payee payee : payees) {
+                logger.info("Payee details: PayeeId - " + payee.getPayeeId() +
+                        ", Sender Account Number - " + payee.getSenderAccountNumber() +
+                        ", Payee Account Number - " + payee.getPayeeAccountNumber() +
+                        ", Payee Name - " + payee.getPayeeName());
+            }
+        }
 
         if(payees.size()==0){
             logger.warn(resourceBundle.getString("no.payee"));
@@ -46,6 +54,7 @@ public class PaymentTransferImplementation implements PaymentTransferRepository 
         try {
             jdbcTemplate.update(procedureCall,payeeId,senderAccountNumber,payeeAccountNumber,payeeName);
             logger.info(resourceBundle.getString("payee.success"));
+
         } catch (DataAccessException e) {
             if (e.getLocalizedMessage().contains("ORA-20001")) {
                 logger.warn(resourceBundle.getString("payee.notExists"));

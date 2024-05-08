@@ -58,10 +58,10 @@
 </td>
 <td class="coverageStat">
   <span class="percent">
-    87.9%
+    97.3%
   </span>
   <span class="absValue">
-    (29/ 33)
+    (36/ 37)
   </span>
 </td>
 </tr>
@@ -128,60 +128,60 @@
 <b class="fc"><i>54</i>&nbsp;        if (senderAccountNumber.contains(payee.getSenderAccountNumber())) {</b>
 <i>55</i>&nbsp;            try {
 <b class="fc"><i>56</i>&nbsp;                deletePayee.deletePayeeAdded(payee.getPayeeId(), payee.getSenderAccountNumber(), payee.getPayeeAccountNumber(), payee.getPayeeName());</b>
-<b class="fc"><i>57</i>&nbsp;                logger.info(resourceBundle.getString(&quot;delete.success&quot;));</b>
-<b class="fc"><i>58</i>&nbsp;                return ResponseEntity.ok(resourceBundle.getString(&quot;payee.add&quot;) + payee.getPayeeName() + &quot; &quot; + resourceBundle.getString(&quot;delete.success&quot;));</b>
-<b class="nc"><i>59</i>&nbsp;            } catch (PayeeException payeeException) {</b>
-<b class="nc"><i>60</i>&nbsp;                logger.warn(payeeException.getMessage());</b>
-<b class="nc"><i>61</i>&nbsp;                return ResponseEntity.status(HttpStatus.OK).body(resourceBundle.getString(&quot;payee.error.two&quot;)+payeeException.getMessage());</b>
-<i>62</i>&nbsp;            }
-<i>63</i>&nbsp;        }else{
-<b class="nc"><i>64</i>&nbsp;            return ResponseEntity.status(HttpStatus.OK).body(resourceBundle.getString(&quot;payee.error.three&quot;)+resourceBundle.getString(&quot;no.account&quot;)); // 404 found</b>
-<i>65</i>&nbsp;        }
-<i>66</i>&nbsp;
-<i>67</i>&nbsp;    }
-<i>68</i>&nbsp;
-<i>69</i>&nbsp;    @GetMapping(&quot;/fetch-details&quot;)
-<i>70</i>&nbsp;    public List&lt;Long&gt; fetchAccountNumber(){
-<b class="fc"><i>71</i>&nbsp;        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();</b>
-<b class="fc"><i>72</i>&nbsp;        String username = authentication.getName();//get logged in users username</b>
-<b class="fc"><i>73</i>&nbsp;        MyBankOfficials customer=service.findByCustomer(username);</b>
-<b class="fc"><i>74</i>&nbsp;        List&lt;Long&gt; senderAccountNumber=service.getAccountNumbersByCustomerId(customer.getCustomerId());</b>
-<b class="fc"><i>75</i>&nbsp;        return senderAccountNumber;</b>
-<i>76</i>&nbsp;    }
-<i>77</i>&nbsp;
-<i>78</i>&nbsp;
-<i>79</i>&nbsp;    @ResponseStatus(HttpStatus.BAD_REQUEST)
-<i>80</i>&nbsp;    @ExceptionHandler(MethodArgumentNotValidException.class)
-<i>81</i>&nbsp;    public Map&lt;String, String&gt; handleValidationExceptions(
-<i>82</i>&nbsp;            MethodArgumentNotValidException ex) {
-<b class="fc"><i>83</i>&nbsp;        Map&lt;String, String&gt; errors = new HashMap&lt;&gt;();</b>
-<b class="fc"><i>84</i>&nbsp;        ex.getBindingResult().getAllErrors().forEach((error) -&gt; {</b>
-<b class="fc"><i>85</i>&nbsp;            String fieldName = ((FieldError) error).getField();</b>
-<b class="fc"><i>86</i>&nbsp;            String errorMessage = error.getDefaultMessage();</b>
-<b class="fc"><i>87</i>&nbsp;            errors.put(fieldName, errorMessage);</b>
-<b class="fc"><i>88</i>&nbsp;        });</b>
-<b class="fc"><i>89</i>&nbsp;        return errors;</b>
-<i>90</i>&nbsp;    }
-<i>91</i>&nbsp;
-<i>92</i>&nbsp;    @GetMapping(&quot;/name&quot;)
-<i>93</i>&nbsp;    public String getCustomerName() {
-<b class="fc"><i>94</i>&nbsp;        String name = getUser();</b>
-<b class="fc"><i>95</i>&nbsp;        String user = service.getCustomerName(name);</b>
-<b class="fc"><i>96</i>&nbsp;        return user;</b>
-<i>97</i>&nbsp;    }
-<i>98</i>&nbsp;
-<i>99</i>&nbsp;    public String getUser() {
-<b class="fc"><i>100</i>&nbsp;        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();</b>
-<b class="fc"><i>101</i>&nbsp;        String name = authentication.getName();</b>
-<b class="fc"><i>102</i>&nbsp;        return name;</b>
-<i>103</i>&nbsp;    }
-<i>104</i>&nbsp;
-<i>105</i>&nbsp;}
-<i>106</i>&nbsp;
-<i>107</i>&nbsp;
-<i>108</i>&nbsp;
+<b class="fc"><i>57</i>&nbsp;                logger.info(&quot;Current Username-&quot;+username+&quot;Deleted Payee is : Payee details: PayeeId - &quot; + payee.getPayeeId() +</b>
+<b class="fc"><i>58</i>&nbsp;                                &quot;, Sender Account Number - &quot; + payee.getSenderAccountNumber() +</b>
+<b class="fc"><i>59</i>&nbsp;                                &quot;, Payee Account Number - &quot; + payee.getPayeeAccountNumber() +</b>
+<b class="fc"><i>60</i>&nbsp;                                &quot;, Payee Name - &quot; + payee.getPayeeName());</b>
+<i>61</i>&nbsp;
+<b class="fc"><i>62</i>&nbsp;                logger.info(resourceBundle.getString(&quot;delete.success&quot;));</b>
+<b class="fc"><i>63</i>&nbsp;                return ResponseEntity.ok(resourceBundle.getString(&quot;payee.add&quot;) + payee.getPayeeName() + &quot; &quot; + resourceBundle.getString(&quot;delete.success&quot;));</b>
+<b class="fc"><i>64</i>&nbsp;            } catch (PayeeException payeeException) {</b>
+<b class="fc"><i>65</i>&nbsp;                logger.warn(payeeException.getMessage());</b>
+<b class="fc"><i>66</i>&nbsp;                return ResponseEntity.status(HttpStatus.OK).body(resourceBundle.getString(&quot;payee.error.two&quot;)+payeeException.getMessage());</b>
+<i>67</i>&nbsp;            }
+<i>68</i>&nbsp;        }else{
+<b class="nc"><i>69</i>&nbsp;            return ResponseEntity.status(HttpStatus.OK).body(resourceBundle.getString(&quot;payee.error.three&quot;)+resourceBundle.getString(&quot;no.account&quot;)); // 404 found</b>
+<i>70</i>&nbsp;        }
+<i>71</i>&nbsp;
+<i>72</i>&nbsp;    }
+<i>73</i>&nbsp;
+<i>74</i>&nbsp;    @GetMapping(&quot;/fetch-details&quot;)
+<i>75</i>&nbsp;    public List&lt;Long&gt; fetchAccountNumber(){
+<b class="fc"><i>76</i>&nbsp;        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();</b>
+<b class="fc"><i>77</i>&nbsp;        String username = authentication.getName();//get logged in users username</b>
+<b class="fc"><i>78</i>&nbsp;        MyBankOfficials customer=service.findByCustomer(username);</b>
+<b class="fc"><i>79</i>&nbsp;        List&lt;Long&gt; senderAccountNumber=service.getAccountNumbersByCustomerId(customer.getCustomerId());</b>
+<b class="fc"><i>80</i>&nbsp;        return senderAccountNumber;</b>
+<i>81</i>&nbsp;    }
+<i>82</i>&nbsp;
+<i>83</i>&nbsp;
+<i>84</i>&nbsp;    @ResponseStatus(HttpStatus.OK)
+<i>85</i>&nbsp;    @ExceptionHandler(MethodArgumentNotValidException.class)
+<i>86</i>&nbsp;    public Map&lt;String, String&gt; handleValidationExceptions(
+<i>87</i>&nbsp;            MethodArgumentNotValidException ex) {
+<b class="fc"><i>88</i>&nbsp;        Map&lt;String, String&gt; errors = new HashMap&lt;&gt;();</b>
+<b class="fc"><i>89</i>&nbsp;        ex.getBindingResult().getAllErrors().forEach((error) -&gt; {</b>
+<b class="fc"><i>90</i>&nbsp;            String fieldName = ((FieldError) error).getField();</b>
+<b class="fc"><i>91</i>&nbsp;            String errorMessage = error.getDefaultMessage();</b>
+<b class="fc"><i>92</i>&nbsp;            errors.put(fieldName, errorMessage);</b>
+<b class="fc"><i>93</i>&nbsp;        });</b>
+<b class="fc"><i>94</i>&nbsp;        return errors;</b>
+<i>95</i>&nbsp;    }
+<i>96</i>&nbsp;
+<i>97</i>&nbsp;    @GetMapping(&quot;/name&quot;)
+<i>98</i>&nbsp;    public String getCustomerName() {
+<b class="fc"><i>99</i>&nbsp;        String name = getUser();</b>
+<b class="fc"><i>100</i>&nbsp;        String user = service.getCustomerName(name);</b>
+<b class="fc"><i>101</i>&nbsp;        return user;</b>
+<i>102</i>&nbsp;    }
+<i>103</i>&nbsp;
+<i>104</i>&nbsp;    public String getUser() {
+<b class="fc"><i>105</i>&nbsp;        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();</b>
+<b class="fc"><i>106</i>&nbsp;        String name = authentication.getName();</b>
+<b class="fc"><i>107</i>&nbsp;        return name;</b>
+<i>108</i>&nbsp;    }
 <i>109</i>&nbsp;
-<i>110</i>&nbsp;
+<i>110</i>&nbsp;}
 <i>111</i>&nbsp;
 <i>112</i>&nbsp;
 <i>113</i>&nbsp;
@@ -256,25 +256,30 @@
 <i>182</i>&nbsp;
 <i>183</i>&nbsp;
 <i>184</i>&nbsp;
-<i>185</i>&nbsp;    //    @DeleteMapping(&quot;/delete/payee&quot;)
-<i>186</i>&nbsp;//    public ResponseEntity&lt;String&gt; deletePayeeNew(@Valid @RequestBody Payee payee) {
-<i>187</i>&nbsp;//
-<i>188</i>&nbsp;//        try {
-<i>189</i>&nbsp;//            paymentTransferImplementation.deletePayee(payee.getPayeeId(), payee.getSenderAccountNumber(), payee.getPayeeAccountNumber(), payee.getPayeeName());
-<i>190</i>&nbsp;//            logger.info(resourceBundle.getString(&quot;delete.success&quot;));
-<i>191</i>&nbsp;//            return ResponseEntity.ok(resourceBundle.getString(&quot;payee.add&quot;) + payee.getPayeeName() + &quot; &quot; + resourceBundle.getString(&quot;delete.success&quot;));
-<i>192</i>&nbsp;//        } catch (PayeeException payeeException) {
-<i>193</i>&nbsp;//            logger.warn(resourceBundle.getString(&quot;Payee.not.found&quot;));
-<i>194</i>&nbsp;//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(payeeException.getMessage());
-<i>195</i>&nbsp;//        }
-<i>196</i>&nbsp;//
-<i>197</i>&nbsp;//    }
+<i>185</i>&nbsp;
+<i>186</i>&nbsp;
+<i>187</i>&nbsp;
+<i>188</i>&nbsp;
+<i>189</i>&nbsp;
+<i>190</i>&nbsp;    //    @DeleteMapping(&quot;/delete/payee&quot;)
+<i>191</i>&nbsp;//    public ResponseEntity&lt;String&gt; deletePayeeNew(@Valid @RequestBody Payee payee) {
+<i>192</i>&nbsp;//
+<i>193</i>&nbsp;//        try {
+<i>194</i>&nbsp;//            paymentTransferImplementation.deletePayee(payee.getPayeeId(), payee.getSenderAccountNumber(), payee.getPayeeAccountNumber(), payee.getPayeeName());
+<i>195</i>&nbsp;//            logger.info(resourceBundle.getString(&quot;delete.success&quot;));
+<i>196</i>&nbsp;//            return ResponseEntity.ok(resourceBundle.getString(&quot;payee.add&quot;) + payee.getPayeeName() + &quot; &quot; + resourceBundle.getString(&quot;delete.success&quot;));
+<i>197</i>&nbsp;//        } catch (PayeeException payeeException) {
+<i>198</i>&nbsp;//            logger.warn(resourceBundle.getString(&quot;Payee.not.found&quot;));
+<i>199</i>&nbsp;//            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(payeeException.getMessage());
+<i>200</i>&nbsp;//        }
+<i>201</i>&nbsp;//
+<i>202</i>&nbsp;//    }
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2024-05-06 20:07</div>
+    <div style="float:right;">generated on 2024-05-07 15:54</div>
 </div>
 </body>
 </html>

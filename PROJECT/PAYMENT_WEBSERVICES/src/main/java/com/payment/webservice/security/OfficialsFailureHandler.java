@@ -50,12 +50,12 @@ public class OfficialsFailureHandler extends SimpleUrlAuthenticationFailureHandl
                         super.setDefaultFailureUrl("/payeelogin/?error=" + exception.getMessage());
                     }
                 }
-//            else{
-//                logger.warn(resourceBundle.getString("admin.contact"));
-//            }
                 else {
                     super.setDefaultFailureUrl("/payeelogin/?error=User not exists");
                 }
+            }
+            else {
+                super.setDefaultFailureUrl("/payeelogin/?error=User not exists");
             }
         }catch (UsernameNotFoundException e){
             logger.info(e.toString());
@@ -64,7 +64,7 @@ public class OfficialsFailureHandler extends SimpleUrlAuthenticationFailureHandl
             exception = new LockedException("Username not found");
             super.setDefaultFailureUrl("/payeelogin/?error=" + exception.getMessage());
         }
-     //   super.setDefaultFailureUrl(resourceBundle.getString("login.error"));
+
         super.onAuthenticationFailure(request, response, exception);
     }
 }

@@ -54,6 +54,11 @@ public class PayeeController {
         if (senderAccountNumber.contains(payee.getSenderAccountNumber())) {
             try {
                 deletePayee.deletePayeeAdded(payee.getPayeeId(), payee.getSenderAccountNumber(), payee.getPayeeAccountNumber(), payee.getPayeeName());
+                logger.info("Current Username-"+username+","+"Deleted Payee is : Payee details: PayeeId - " + payee.getPayeeId() +
+                                ", Sender Account Number - " + payee.getSenderAccountNumber() +
+                                ", Payee Account Number - " + payee.getPayeeAccountNumber() +
+                                ", Payee Name - " + payee.getPayeeName());
+
                 logger.info(resourceBundle.getString("delete.success"));
                 return ResponseEntity.ok(resourceBundle.getString("payee.add") + payee.getPayeeName() + " " + resourceBundle.getString("delete.success"));
             } catch (PayeeException payeeException) {
@@ -76,7 +81,7 @@ public class PayeeController {
     }
 
 
-    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ResponseStatus(HttpStatus.OK)
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public Map<String, String> handleValidationExceptions(
             MethodArgumentNotValidException ex) {

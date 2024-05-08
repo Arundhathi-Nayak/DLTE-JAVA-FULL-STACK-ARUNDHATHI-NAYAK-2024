@@ -76,6 +76,14 @@ public class SoapPhase {
                 });
                 serviceStatus.setStatus(HttpServletResponse.SC_OK);
                 findAllPayeeBasedOnAccountNumberResponse.getPayee().addAll(payees);
+                if (!payees.isEmpty()) {
+                    for (Payee payee : payees) {
+                        logger.info("Current Username-"+username+"Payee details: PayeeId - " + payee.getPayeeId() +
+                                ", Sender Account Number - " + payee.getSenderAccountNumber() +
+                                ", Payee Account Number - " + payee.getPayeeAccountNumber() +
+                                ", Payee Name - " + payee.getPayeeName());
+                    }
+                }
                 serviceStatus.setMessage(resourceBundle.getString("payee.details") + findAllPayeeBasedOnAccountNumberRequest.getSenderAccount());
                 logger.info(resourceBundle.getString("payee.details") + findAllPayeeBasedOnAccountNumberRequest.getSenderAccount());
 

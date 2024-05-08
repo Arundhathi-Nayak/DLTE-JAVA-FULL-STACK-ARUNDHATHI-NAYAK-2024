@@ -58,10 +58,10 @@
 </td>
 <td class="coverageStat">
   <span class="percent">
-    87.9%
+    90%
   </span>
   <span class="absValue">
-    (29/ 33)
+    (36/ 40)
   </span>
 </td>
 </tr>
@@ -150,31 +150,39 @@
 <b class="fc"><i>76</i>&nbsp;                });</b>
 <b class="fc"><i>77</i>&nbsp;                serviceStatus.setStatus(HttpServletResponse.SC_OK);</b>
 <b class="fc"><i>78</i>&nbsp;                findAllPayeeBasedOnAccountNumberResponse.getPayee().addAll(payees);</b>
-<b class="fc"><i>79</i>&nbsp;                serviceStatus.setMessage(resourceBundle.getString(&quot;payee.details&quot;) + findAllPayeeBasedOnAccountNumberRequest.getSenderAccount());</b>
-<b class="fc"><i>80</i>&nbsp;                logger.info(resourceBundle.getString(&quot;payee.details&quot;) + findAllPayeeBasedOnAccountNumberRequest.getSenderAccount());</b>
-<i>81</i>&nbsp;
-<b class="fc"><i>82</i>&nbsp;            } catch (PayeeException e) {</b>
-<b class="fc"><i>83</i>&nbsp;                serviceStatus.setStatus(HttpServletResponse.SC_OK);  // 204 no content</b>
-<b class="fc"><i>84</i>&nbsp;                logger.warn(resourceBundle.getString(&quot;payee.error.one&quot;)+e.getMessage());</b>
-<b class="fc"><i>85</i>&nbsp;                serviceStatus.setMessage(resourceBundle.getString(&quot;payee.error.one&quot;)+e.getMessage());</b>
-<b class="fc"><i>86</i>&nbsp;            }</b>
-<b class="fc"><i>87</i>&nbsp;            findAllPayeeBasedOnAccountNumberResponse.setServiceStatus(serviceStatus);</b>
-<b class="fc"><i>88</i>&nbsp;            return findAllPayeeBasedOnAccountNumberResponse;</b>
-<i>89</i>&nbsp;        } else {
-<b class="nc"><i>90</i>&nbsp;            serviceStatus.setStatus(HttpStatus.OK.value());</b>
-<b class="nc"><i>91</i>&nbsp;            serviceStatus.setMessage(resourceBundle.getString(&quot;payee.error.three&quot;)+ resourceBundle.getString(&quot;no.account&quot;) + &quot; &quot; + findAllPayeeBasedOnAccountNumberRequest.getSenderAccount());</b>
-<b class="nc"><i>92</i>&nbsp;            findAllPayeeBasedOnAccountNumberResponse.setServiceStatus(serviceStatus);</b>
-<b class="nc"><i>93</i>&nbsp;            return findAllPayeeBasedOnAccountNumberResponse;</b>
-<i>94</i>&nbsp;        }
-<i>95</i>&nbsp;    }
-<i>96</i>&nbsp;}
-<i>97</i>&nbsp;
+<b class="fc"><i>79</i>&nbsp;                if (!payees.isEmpty()) {</b>
+<b class="fc"><i>80</i>&nbsp;                    for (Payee payee : payees) {</b>
+<b class="fc"><i>81</i>&nbsp;                        logger.info(&quot;Current Username-&quot;+username+&quot;Payee details: PayeeId - &quot; + payee.getPayeeId() +</b>
+<b class="fc"><i>82</i>&nbsp;                                &quot;, Sender Account Number - &quot; + payee.getSenderAccountNumber() +</b>
+<b class="fc"><i>83</i>&nbsp;                                &quot;, Payee Account Number - &quot; + payee.getPayeeAccountNumber() +</b>
+<b class="fc"><i>84</i>&nbsp;                                &quot;, Payee Name - &quot; + payee.getPayeeName());</b>
+<b class="fc"><i>85</i>&nbsp;                    }</b>
+<i>86</i>&nbsp;                }
+<b class="fc"><i>87</i>&nbsp;                serviceStatus.setMessage(resourceBundle.getString(&quot;payee.details&quot;) + findAllPayeeBasedOnAccountNumberRequest.getSenderAccount());</b>
+<b class="fc"><i>88</i>&nbsp;                logger.info(resourceBundle.getString(&quot;payee.details&quot;) + findAllPayeeBasedOnAccountNumberRequest.getSenderAccount());</b>
+<i>89</i>&nbsp;
+<b class="fc"><i>90</i>&nbsp;            } catch (PayeeException e) {</b>
+<b class="fc"><i>91</i>&nbsp;                serviceStatus.setStatus(HttpServletResponse.SC_OK);  // 204 no content</b>
+<b class="fc"><i>92</i>&nbsp;                logger.warn(resourceBundle.getString(&quot;payee.error.one&quot;)+e.getMessage());</b>
+<b class="fc"><i>93</i>&nbsp;                serviceStatus.setMessage(resourceBundle.getString(&quot;payee.error.one&quot;)+e.getMessage());</b>
+<b class="fc"><i>94</i>&nbsp;            }</b>
+<b class="fc"><i>95</i>&nbsp;            findAllPayeeBasedOnAccountNumberResponse.setServiceStatus(serviceStatus);</b>
+<b class="fc"><i>96</i>&nbsp;            return findAllPayeeBasedOnAccountNumberResponse;</b>
+<i>97</i>&nbsp;        } else {
+<b class="nc"><i>98</i>&nbsp;            serviceStatus.setStatus(HttpStatus.OK.value());</b>
+<b class="nc"><i>99</i>&nbsp;            serviceStatus.setMessage(resourceBundle.getString(&quot;payee.error.three&quot;)+ resourceBundle.getString(&quot;no.account&quot;) + &quot; &quot; + findAllPayeeBasedOnAccountNumberRequest.getSenderAccount());</b>
+<b class="nc"><i>100</i>&nbsp;            findAllPayeeBasedOnAccountNumberResponse.setServiceStatus(serviceStatus);</b>
+<b class="nc"><i>101</i>&nbsp;            return findAllPayeeBasedOnAccountNumberResponse;</b>
+<i>102</i>&nbsp;        }
+<i>103</i>&nbsp;    }
+<i>104</i>&nbsp;}
+<i>105</i>&nbsp;
 </div>
 </div>
 
 <div class="footer">
     
-    <div style="float:right;">generated on 2024-05-06 20:07</div>
+    <div style="float:right;">generated on 2024-05-07 15:54</div>
 </div>
 </body>
 </html>
